@@ -162,11 +162,13 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 18px;
+            line-height: 1.5;
             font-weight: 400;
-            color: var(--color-text);
-            background-color: #eeeef0;
+            color: #191919;
+            background-color: #F5F5F7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         section {
@@ -296,118 +298,246 @@
         }
 
         /* =============================================
-           VZ HEADER (Zeile 1: Logo + Links + Menü)
+           VZ UTILITY BAR (oberste Zeile)
+        ============================================= */
+        #vz-utility-bar {
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 0;
+        }
+
+        .vz-utility-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+            gap: 20px;
+        }
+
+        .vz-utility-link {
+            color: #191919;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .vz-utility-link:hover { color: #004388; text-decoration: underline; }
+        .vz-utility-sep { color: #d0d0d0; font-size: 14px; }
+
+        @media (max-width: 860px) { #vz-utility-bar { display: none; } }
+
+        /* =============================================
+           VZ HAUPTNAVIGATION (sticky, Logo + Nav + CTA)
         ============================================= */
         #vz-header {
             background: #fff;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e8e8e8;
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: box-shadow 0.2s ease;
+            transition: box-shadow 0.25s ease;
         }
 
         #vz-header.nav-scrolled {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.12);
         }
 
         .vz-header-inner {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            height: 68px;
+            height: 72px;
+            gap: 0;
         }
 
-        /* Logo: blauer Quadrat-Block mit "XY" in weiss */
-        .vz-logo-block {
-            display: inline-flex;
+        /* Logo */
+        .vz-logo {
+            display: flex;
             align-items: center;
-            justify-content: center;
-            background: #004388;
-            color: #fff;
-            font-weight: 700;
-            font-size: 20px;
-            width: 48px;
-            height: 48px;
-            border-radius: 4px;
+            gap: 12px;
             text-decoration: none;
             flex-shrink: 0;
-            letter-spacing: -0.5px;
+            margin-right: 40px;
+        }
+
+        .vz-logo-square {
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            background: #004388;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            flex-shrink: 0;
             font-family: 'Inter', sans-serif;
         }
 
-        .vz-logo-block:hover { background: #003070; color: #fff; }
+        .vz-logo:hover .vz-logo-square { background: #003070; }
 
-        /* Rechte Seite: Links + Menü-Button */
+        .vz-logo-wordmark {
+            font-size: 15px;
+            font-weight: 500;
+            color: #191919;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        /* Hauptmenü */
+        .vz-main-nav {
+            display: flex;
+            align-items: stretch;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+            height: 100%;
+        }
+
+        .vz-nav-item {
+            position: relative;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .vz-nav-item > a {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            font-size: 17px;
+            font-weight: 400;
+            color: #191919;
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .vz-nav-item > a:hover { color: #004388; }
+
+        .vz-nav-item.active > a {
+            color: #004388;
+            font-weight: 600;
+            border-bottom-color: #004388;
+        }
+
+        /* Dropdown */
+        .vz-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            border-top: 3px solid #004388;
+            min-width: 260px;
+            padding: 8px 0;
+            z-index: 2000;
+        }
+
+        .vz-nav-item:hover .vz-dropdown { display: block; }
+
+        .vz-dropdown-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .vz-dropdown-list a {
+            display: block;
+            padding: 10px 24px;
+            font-size: 16px;
+            color: #191919;
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+            line-height: 1.4;
+        }
+
+        .vz-dropdown-list a:hover { background: #F5F5F7; color: #004388; }
+
+        .vz-dropdown-list a.vz-dropdown-active {
+            font-weight: 700;
+            color: #004388;
+        }
+
+        /* CTA Button (orange pill) + Hamburger */
         .vz-header-right {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 12px;
+            margin-left: auto;
+            flex-shrink: 0;
         }
 
-        .vz-header-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .vz-search-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #004388;
-            display: flex;
-            align-items: center;
-            padding: 0;
-            line-height: 1;
-        }
-
-        .vz-top-link {
-            color: #004388;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 400;
-            white-space: nowrap;
-        }
-
-        .vz-top-link:hover { text-decoration: underline; color: #004388; }
-
-        /* Orange Menü-Button (Pill-Shape) */
-        .vz-menu-btn {
+        .vz-cta-btn {
             background: #C95321;
             color: #fff;
-            border-radius: 21px;
-            padding: 10px 20px;
+            border-radius: 100px;
+            padding: 10px 22px;
             font-size: 15px;
             font-weight: 500;
             text-decoration: none;
-            cursor: pointer;
             white-space: nowrap;
-            transition: background-color 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            transition: background 0.2s;
             border: none;
+            cursor: pointer;
             font-family: 'Inter', sans-serif;
+            display: inline-block;
         }
 
-        .vz-menu-btn:hover { background: #b0461a; color: #fff; }
+        .vz-cta-btn:hover { background: #a84218; color: #fff; }
 
-        /* Mobile Menu Overlay */
+        .vz-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .vz-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #191919;
+            border-radius: 1px;
+            transition: transform 0.3s, opacity 0.3s;
+            transform-origin: center;
+        }
+
+        body.mobile-menu-open .vz-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        body.mobile-menu-open .vz-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        body.mobile-menu-open .vz-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Mobile Menu */
         .mobile-menu {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: #002244;
+            background: #004388;
             z-index: 999;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 32px;
+            gap: 28px;
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
@@ -420,30 +550,33 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 18px;
         }
 
         .mobile-menu-links a {
             font-size: 22px;
             font-weight: 600;
-            color: white;
+            color: #fff;
             text-decoration: none;
         }
 
-        .mobile-menu-links a:hover { color: rgba(255,255,255,0.75); }
+        .mobile-menu-links a:hover { opacity: 0.8; }
+
         .mobile-menu-cta { margin-top: 8px; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 860px) {
+            .vz-main-nav { display: none; }
             .vz-header-inner { height: 60px; }
-            .vz-header-links { display: none; }
+            .vz-hamburger { display: flex; }
+            .vz-cta-btn { display: none; }
         }
 
         /* =============================================
-           VZ QUICKLINKS (Zeile 2)
+           VZ QUICKLINKS (Zeile 3)
         ============================================= */
         #vz-quicklinks {
             background: #fff;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e8e8e8;
             overflow-x: auto;
             scrollbar-width: none;
         }
@@ -451,49 +584,64 @@
         #vz-quicklinks::-webkit-scrollbar { display: none; }
 
         .quicklinks-inner {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 14px 20px;
+            padding: 0 24px;
             display: flex;
-            gap: 28px;
+            gap: 0;
             white-space: nowrap;
+            height: 48px;
+            align-items: center;
         }
 
         .quicklink {
-            color: #004388;
+            color: #191919;
             text-decoration: none;
             font-size: 17px;
             font-weight: 400;
             white-space: nowrap;
+            padding: 0 16px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
         }
 
-        .quicklink:hover { text-decoration: underline; }
-        .quicklink.active { font-weight: 700; }
+        .quicklink:first-child { padding-left: 0; }
+
+        .quicklink:hover { color: #004388; }
+
+        .quicklink.active {
+            color: #004388;
+            font-weight: 600;
+            border-bottom-color: #004388;
+        }
 
         /* =============================================
            VZ BREADCRUMB
         ============================================= */
         #vz-breadcrumb {
-            background-color: #fff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 8px 0;
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 10px 0;
         }
 
         .breadcrumb-inner {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 12px;
-            color: #999;
+            font-size: 14px;
+            color: #767676;
         }
 
-        .breadcrumb-inner a { color: #999; text-decoration: none; }
-        .breadcrumb-inner a:hover { text-decoration: underline; color: #666; }
-        .breadcrumb-sep { color: #ccc; font-size: 11px; }
-        .breadcrumb-current { color: #555; font-weight: 500; }
+        .breadcrumb-inner a { color: #767676; text-decoration: none; }
+        .breadcrumb-inner a:hover { text-decoration: underline; color: #004388; }
+        .breadcrumb-sep { color: #bbb; }
+        .breadcrumb-current { color: #191919; }
 
         /* =============================================
            HERO (SECTION 1)
@@ -2343,34 +2491,107 @@
     </style>
 </head>
 <body>
-    <!-- VZ HEADER (Zeile 1: Logo + Links + Menü) -->
+    <!-- UTILITY BAR (oberste Zeile: Termin, Wissen, Finanzportal) -->
+    <div id="vz-utility-bar">
+        <div class="vz-utility-inner">
+            <a href="#" class="vz-utility-link">Termin</a>
+            <a href="#" class="vz-utility-link">Wissen</a>
+            <a href="#" class="vz-utility-link">XY Finanzportal</a>
+            <span class="vz-utility-sep">|</span>
+            <a href="#" class="vz-utility-link">Börsen &amp; Märkte</a>
+        </div>
+    </div>
+
+    <!-- VZ HAUPTNAVIGATION (sticky: Logo + Nav + CTA) -->
     <header id="vz-header" role="banner">
         <div class="vz-header-inner">
 
-            <!-- Logo: dunkelblauer Block mit "XY" in weiss -->
-            <a href="#" class="vz-logo-block" aria-label="XY VermögensZentrum – Startseite">XY</a>
+            <!-- Logo: blauer Quadrat-Block + Wortmarke -->
+            <a href="#" class="vz-logo" aria-label="XY VermögensZentrum – Startseite">
+                <span class="vz-logo-square">XY</span>
+                <span class="vz-logo-wordmark">VermögensZentrum</span>
+            </a>
 
-            <!-- Rechts: Links + Menü-Button -->
+            <!-- Hauptmenü (Desktop) mit Dropdowns -->
+            <ul class="vz-main-nav" role="list">
+                <li class="vz-nav-item">
+                    <a href="#">Privatpersonen</a>
+                    <div class="vz-dropdown">
+                        <ul class="vz-dropdown-list">
+                            <li><a href="#">Pensionierung</a></li>
+                            <li><a href="#">Geldanlagen &amp; Vermögensverwaltung</a></li>
+                            <li><a href="#">Nachlass</a></li>
+                            <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+                            <li><a href="#">Steuern</a></li>
+                            <li><a href="#">Vorsorge</a></li>
+                            <li><a href="#">Versicherungen</a></li>
+                            <li><a href="#">Bankgeschäfte</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="vz-nav-item active">
+                    <a href="#">Firmen</a>
+                    <div class="vz-dropdown">
+                        <ul class="vz-dropdown-list">
+                            <li><a href="#" class="vz-dropdown-active">Unternehmensnachfolge</a></li>
+                            <li><a href="#">Pensionskasse</a></li>
+                            <li><a href="#">Kadervorsorge</a></li>
+                            <li><a href="#">Versicherungsmanagement</a></li>
+                            <li><a href="#">Firmengründung</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="vz-nav-item">
+                    <a href="#">Ratgeber</a>
+                    <div class="vz-dropdown">
+                        <ul class="vz-dropdown-list">
+                            <li><a href="#">Seminare &amp; Workshops</a></li>
+                            <li><a href="#">Merkblätter &amp; Bücher</a></li>
+                            <li><a href="#">Studien &amp; Dossiers</a></li>
+                            <li><a href="#">Wissensbeiträge</a></li>
+                            <li><a href="#">Videos</a></li>
+                            <li><a href="#">Checks &amp; Analysen</a></li>
+                            <li><a href="#">Finanzrechner &amp; Vergleiche</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="vz-nav-item">
+                    <a href="#">Über XY</a>
+                    <div class="vz-dropdown">
+                        <ul class="vz-dropdown-list">
+                            <li><a href="#">Unabhängige Beratung</a></li>
+                            <li><a href="#">Standorte</a></li>
+                            <li><a href="#">Portrait</a></li>
+                            <li><a href="#">Meinungen</a></li>
+                            <li><a href="#">Newsroom</a></li>
+                            <li><a href="#">Jobs &amp; Karriere</a></li>
+                            <li><a href="#">Kontakt &amp; Hilfe</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="vz-nav-item">
+                    <a href="#">Börsen &amp; Märkte</a>
+                    <div class="vz-dropdown">
+                        <ul class="vz-dropdown-list">
+                            <li><a href="#" style="color:#999;font-style:italic;">Vorschau nicht verfügbar</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Rechts: CTA + Hamburger -->
             <div class="vz-header-right">
-                <div class="vz-header-links">
-                    <button class="vz-search-btn" aria-label="Suche">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                        </svg>
-                    </button>
-                    <a href="#" class="vz-top-link">Termin</a>
-                    <a href="#" class="vz-top-link">Wissen</a>
-                    <a href="#" class="vz-top-link">XY Finanzportal</a>
-                    <a href="#" class="vz-top-link">Börsen &amp; Märkte</a>
-                </div>
-                <a href="#kontakt" class="vz-menu-btn" id="vz-menu-trigger">&#9776; Menü</a>
+                <a href="#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
+                <button class="vz-hamburger" id="vz-hamburger" aria-label="Menu öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
 
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
         <ul class="mobile-menu-links" role="list">
             <li><a href="#">Privatpersonen</a></li>
             <li><a href="#">Firmen</a></li>
@@ -2379,11 +2600,11 @@
             <li><a href="#">Börsen &amp; Märkte</a></li>
         </ul>
         <div class="mobile-menu-cta">
-            <a href="#kontakt" class="vz-menu-btn">Termin vereinbaren</a>
+            <a href="#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
         </div>
     </div>
 
-    <!-- QUICKLINKS (Zeile 2) -->
+    <!-- QUICKLINKS (Zeile 3: Themen-Links) -->
     <nav id="vz-quicklinks" aria-label="Themen-Navigation">
         <div class="quicklinks-inner">
             <a href="#" class="quicklink">Pensionierung</a>
@@ -3381,42 +3602,35 @@
         // =============================================
 
         const vzHeader = document.getElementById('vz-header');
-        const menuTrigger = document.getElementById('vz-menu-trigger');
+        const hamburger = document.getElementById('vz-hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-menu a');
 
-        // 1. Sticky shadow on scroll
+        // Sticky shadow
         window.addEventListener('scroll', () => {
             vzHeader.classList.toggle('nav-scrolled', window.scrollY > 10);
         }, { passive: true });
 
-        // 2. Menü-Button opens mobile overlay
+        // Hamburger toggle (mobile only)
         function openMobileMenu() {
             document.body.classList.add('mobile-menu-open');
+            hamburger.setAttribute('aria-expanded', 'true');
             mobileMenu.querySelector('a')?.focus();
         }
-
         function closeMobileMenu() {
             document.body.classList.remove('mobile-menu-open');
+            hamburger.setAttribute('aria-expanded', 'false');
         }
 
-        menuTrigger.addEventListener('click', (e) => {
-            // On desktop, the button is a link to #kontakt — let it scroll.
-            // On mobile, open overlay instead.
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                document.body.classList.contains('mobile-menu-open') ? closeMobileMenu() : openMobileMenu();
-            }
+        hamburger.addEventListener('click', () => {
+            document.body.classList.contains('mobile-menu-open') ? closeMobileMenu() : openMobileMenu();
         });
 
-        // 3. Close mobile menu on link click
-        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+        mobileLinks.forEach(l => l.addEventListener('click', closeMobileMenu));
 
-        // Close on Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) {
-                closeMobileMenu();
-                menuTrigger.focus();
+                closeMobileMenu(); hamburger.focus();
             }
         });
 
