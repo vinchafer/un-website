@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Buy Out (MBO) | XY – Unternehmensnachfolge Schweiz</title>
+    <meta name="description" content="Management Buy Out: Wie Sie Ihr Unternehmen erfolgreich an Ihre Führungskräfte übergeben. Finanzierung, Bewertung, Rolle des Altinhabers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #004388;
+            --color-accent: #004388;
+            --color-text: #191919;
+            --color-text-light: #555555;
+            --color-bg: #FFFFFF;
+            --color-bg-light: #f5f5f5;
+            --color-bg-dark: #002244;
+            --color-border: #e0e0e0;
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 40px;
+            --space-xl: 64px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--color-text); background-color: #F5F5F7; }
+        a { color: var(--color-accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        h1 { font-size: 32px; line-height: 1.25; font-weight: 700; margin-bottom: var(--space-md); }
+        h2 { font-size: 24px; line-height: 1.3; font-weight: 600; }
+        h3 { font-size: 20px; line-height: 1.35; font-weight: 600; }
+        p  { margin-bottom: var(--space-md); }
+        .article-container { max-width: 860px; margin: 0 auto; padding: 0 var(--space-md); }
+        .sub-nav { background-color: #fff; border-bottom: 1px solid var(--color-border); padding: var(--space-sm) 0; }
+        .breadcrumb { font-size: 13px; color: var(--color-text-light); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .breadcrumb a { color: var(--color-accent); }
+        .article-hero { background-color: var(--color-bg-dark); color: white; padding: var(--space-2xl) 0; }
+        .article-hero h1 { color: white; max-width: 700px; }
+        .article-hero-sub { font-size: 18px; color: rgba(255,255,255,0.75); max-width: 620px; margin-bottom: 0; }
+        main { background-color: #fff; padding: var(--space-2xl) 0; }
+        .article-section { margin-bottom: var(--space-3xl); }
+        .article-section h2 { color: var(--color-primary); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-bg-light); }
+        .article-section h3 { margin-top: var(--space-lg); margin-bottom: var(--space-sm); color: var(--color-text); }
+        .article-section ul, .article-section ol { margin: var(--space-md) 0; padding-left: var(--space-lg); }
+        .article-section li { margin-bottom: var(--space-sm); }
+        .infobox { background-color: var(--color-bg-light); padding: var(--space-md); border-left: 4px solid var(--color-accent); border-radius: var(--radius-md); margin: var(--space-lg) 0; }
+        .infobox strong { color: var(--color-primary); }
+        .article-cta { background-color: var(--color-bg-dark); color: white; padding: var(--space-2xl) 0; text-align: center; }
+        .article-cta h3 { color: white; font-size: 24px; margin-bottom: var(--space-sm); }
+        .article-cta p  { color: rgba(255,255,255,0.8); margin-bottom: var(--space-lg); }
+        .btn-cta { display: inline-block; padding: 14px 32px; background-color: white; color: var(--color-accent); border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; transition: opacity 0.2s; }
+        .btn-cta:hover { opacity: 0.9; text-decoration: none; }
+        .article-footer { background-color: var(--color-bg-light); padding: var(--space-lg) 0; text-align: center; color: var(--color-text-light); font-size: 14px; }
+        /* Dialog */
+        .contact-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 600px; max-height: 90vh; padding: 0; border: none; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; z-index: 10000; }
+        .contact-dialog::backdrop { background-color: rgba(0,0,0,0.55); }
+        .contact-dialog-container { background-color: #E8DCC8; display: flex; flex-direction: column; max-height: 90vh; }
+        .contact-dialog-header { padding: var(--space-lg); border-bottom: 1px solid rgba(0,0,0,0.1); position: relative; }
+        .contact-dialog-header h2 { margin: 0 0 4px 0; font-size: 26px; color: var(--color-text); }
+        .contact-dialog-header p { margin: 0; color: var(--color-text-light); font-size: 14px; }
+        .contact-dialog-close { position: absolute; top: var(--space-lg); right: var(--space-lg); background: none; border: none; font-size: 22px; color: #A0734D; cursor: pointer; }
+        .contact-dialog-content { flex: 1; overflow-y: auto; padding: var(--space-lg); }
+        .dialog-stage { display: none; }
+        .dialog-stage.active { display: block; }
+        .dialog-stage h3 { font-size: 20px; font-weight: 600; color: var(--color-text); margin-bottom: var(--space-xs); }
+        .dialog-stage-desc { color: var(--color-text-light); font-size: 14px; margin-bottom: var(--space-md); }
+        .checkbox-group { display: flex; flex-direction: column; gap: 12px; }
+        .checkbox-group label { display: flex; align-items: center; gap: 10px; font-size: 16px; cursor: pointer; }
+        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; }
+        .dialog-textarea { width: 100%; min-height: 90px; padding: var(--space-sm); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 15px; resize: vertical; background: rgba(255,255,255,0.7); }
+        .dialog-input { width: 100%; padding: 10px var(--space-sm); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 15px; background: rgba(255,255,255,0.7); }
+        .dialog-form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+        .dialog-form-grid-3-1 { display: grid; grid-template-columns: 3fr 1fr; gap: var(--space-sm); }
+        .dialog-form-grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-sm); }
+        .dialog-infobox { background-color: rgba(255,255,255,0.5); padding: var(--space-sm); border-radius: var(--radius-md); font-size: 14px; }
+        .contact-dialog-footer { padding: var(--space-md) var(--space-lg); border-top: 1px solid rgba(0,0,0,0.1); display: flex; gap: var(--space-sm); justify-content: flex-end; }
+        .dialog-anrede-row { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-sm); }
+        .dialog-anrede-row label { display: flex; align-items: center; gap: 6px; font-size: 15px; cursor: pointer; }
+        .btn { display: inline-block; padding: 12px 24px; border-radius: var(--radius-md); font-size: 15px; font-weight: 600; cursor: pointer; border: none; font-family: inherit; transition: background 0.2s; }
+        .btn-primary { background-color: var(--color-primary); color: white; }
+        .btn-primary:hover { background-color: #003070; }
+        .btn-secondary { background-color: transparent; color: var(--color-text); border: 1px solid var(--color-border); }
+        @media (max-width: 600px) {
+            .contact-dialog { width: 96%; max-height: 96vh; }
+            .contact-dialog-header, .contact-dialog-content, .contact-dialog-footer { padding: var(--space-md); }
+            .dialog-form-grid-2, .dialog-form-grid-3-1, .dialog-form-grid-1-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sub-nav">
+        <div class="article-container">
+            <div class="breadcrumb">
+                <a href="../index.html">Startseite</a>
+                <span>/</span>
+                <span>Unternehmensnachfolge</span>
+                <span>/</span>
+                <span>Management Buy Out (MBO)</span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="article-hero">
+        <div class="article-container">
+            <h1>Management Buy Out (MBO): Übergabe an die eigene Führung</h1>
+            <p class="article-hero-sub">
+                Wie Sie Ihr Unternehmen an bewährte Führungskräfte übergeben — mit der richtigen Finanzierung und einem klaren Rollenwechsel.
+            </p>
+        </div>
+    </section>
+
+    <main>
+        <div class="article-container">
+
+            <section class="article-section">
+                <h2>Was ist ein Management Buy Out?</h2>
+                <p>
+                    Beim Management Buy Out (MBO) übernimmt das bestehende Management — oft ein Geschäftsführer oder eine Führungsgruppe —
+                    das Unternehmen vom bisherigen Inhaber. Diese Form der Nachfolge ist besonders verbreitet, wenn:
+                </p>
+                <ul>
+                    <li>Kein geeigneter Familiennachfolger vorhanden ist</li>
+                    <li>Das Management das Unternehmen und seine Kunden bestens kennt</li>
+                    <li>Kontinuität für Mitarbeitende, Kunden und Lieferanten wichtig ist</li>
+                    <li>Der Inhaber das Unternehmen in vertrauenswürdige Hände übergeben möchte</li>
+                </ul>
+                <div class="infobox">
+                    <strong>Vorteil:</strong> Ein MBO schafft maximale Kontinuität. Die Führungskräfte kennen das Geschäft —
+                    der Übergang ist für alle Beteiligten meist sanfter als bei einem externen Verkauf.
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2>Die zentrale Herausforderung: Finanzierung</h2>
+                <p>
+                    Die grösste Hürde beim MBO ist die Finanzierung. Führungskräfte verfügen selten über genügend Eigenkapital,
+                    um den vollen Kaufpreis zu bezahlen. Typischerweise werden <strong>mehrere Finanzierungsquellen kombiniert</strong>:
+                </p>
+                <h3>Typische Finanzierungsstruktur:</h3>
+                <ul>
+                    <li><strong>Eigenkapital des Managements:</strong> 10–30 % des Kaufpreises (Ersparnisse, Vorsorgegelder)</li>
+                    <li><strong>Bankdarlehen:</strong> 40–60 % — besichert durch Vermögenswerte der Firma oder persönliche Garantien</li>
+                    <li><strong>Verkäuferdarlehen:</strong> 10–30 % — der Altinhaber stundet einen Teil des Kaufpreises</li>
+                    <li><strong>Mezzanine-Finanzierung:</strong> Nachrangige Darlehen oder stille Beteiligungen für Lücken</li>
+                </ul>
+                <div class="infobox">
+                    <strong>Wichtig:</strong> Die Tragbarkeit der Finanzierung muss anhand des zukünftigen Cashflows der Firma
+                    geprüft werden. Hohe Schulden können die unternehmerische Handlungsfähigkeit einschränken.
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2>Knowhow-Transfer und Vorbereitung</h2>
+                <p>
+                    Selbst wenn das Management das Unternehmen gut kennt, braucht es Zeit für den vollständigen Wissenstransfer.
+                    Viele strategische Entscheide, Kundenbeziehungen und Netzwerke hängen noch am Altinhaber.
+                </p>
+                <h3>Was übertragen werden muss:</h3>
+                <ul>
+                    <li>Strategisches Wissen und Unternehmensausrichtung</li>
+                    <li>Schlüsselkundenbeziehungen und persönliche Netzwerke</li>
+                    <li>Lieferanten- und Bankverbindungen</li>
+                    <li>Interne Prozesse, die nur der Inhaber kennt</li>
+                </ul>
+                <p>
+                    Eine <strong>strukturierte Übergabephase von 6–24 Monaten</strong> ist in den meisten Fällen unerlässlich.
+                </p>
+            </section>
+
+            <section class="article-section">
+                <h2>Die Rolle des Altinhabers nach dem Verkauf</h2>
+                <p>
+                    Nach einem MBO stellt sich oft die Frage: Wie geht es weiter für den bisherigen Inhaber?
+                    Es gibt verschiedene Modelle:
+                </p>
+                <ul>
+                    <li><strong>Vollständiger Rückzug:</strong> Der Inhaber übergibt alle Verantwortung zum Stichtag</li>
+                    <li><strong>Beratermandat:</strong> Der Inhaber bleibt für 1–3 Jahre als Berater verfügbar</li>
+                    <li><strong>Verwaltungsratsmandat:</strong> Der Inhaber bleibt im VR und begleitet strategische Entscheide</li>
+                    <li><strong>Minderheitsbeteiligung:</strong> Der Inhaber behält einen kleinen Anteil und partizipiert am weiteren Wachstum</li>
+                </ul>
+                <div class="infobox">
+                    <strong>Empfehlung:</strong> Klären Sie die Rolle des Altinhabers schriftlich und mit klaren Zeitgrenzen.
+                    Unklare Verhältnisse führen häufig zu Konflikten und bremsen das neue Management.
+                </div>
+            </section>
+
+            <section class="article-section">
+                <h2>Bewertung: Faire Preisfindung für beide Seiten</h2>
+                <p>
+                    Die Unternehmensbewertung ist beim MBO besonders sensibel. Der Altinhaber möchte einen fairen Preis erzielen,
+                    der Käufer muss die Finanzierung tragen können. Eine <strong>neutrale, professionelle Bewertung</strong>
+                    verhindert Interessenkonflikte und schafft Vertrauen auf beiden Seiten.
+                </p>
+                <ul>
+                    <li>Ertragswert und DCF-Methode sind beim MBO besonders relevant (Fokus auf Cashflow-Tragbarkeit)</li>
+                    <li>Berücksichtigen Sie inhaberabhängige Erträge: Was bleibt ohne den bisherigen Inhaber?</li>
+                    <li>Earnout-Klauseln können einen Teil des Kaufpreises an künftige Leistung knüpfen</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <section class="article-cta">
+        <div class="article-container">
+            <h3>MBO konkret planen?</h3>
+            <p>Wir begleiten Sie und Ihr Management durch den gesamten Prozess — von der Bewertung bis zur Finanzierung.</p>
+            <button class="btn-cta" onclick="openContactDialog()">Kostenloses Erstgespräch vereinbaren</button>
+        </div>
+    </section>
+
+    <footer class="article-footer">
+        <div class="article-container">
+            <p>&copy; 2026 XY VermögensZentrum &nbsp;|&nbsp; <a href="#">Datenschutz</a> &nbsp;|&nbsp; <a href="#">Impressum</a> &nbsp;|&nbsp; <a href="../index.html">Zurück zur Hauptseite</a></p>
+        </div>
+    </footer>
+
+    <dialog id="contactDialog" class="contact-dialog">
+      <div class="contact-dialog-container">
+        <div class="contact-dialog-header">
+          <h2>Haben Sie Fragen?</h2>
+          <p>Vereinbaren Sie einen Termin. Das erste Gespräch ist kostenlos.</p>
+          <button class="contact-dialog-close" onclick="closeContactDialog()" aria-label="Dialog schliessen">&#10005;</button>
+        </div>
+        <div class="contact-dialog-content">
+          <div id="cdStage1" class="dialog-stage">
+            <h3>Thema auswählen</h3>
+            <p class="dialog-stage-desc">Wählen Sie die für Sie relevanten Themen aus.</p>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="cdTopic" value="Nachfolgeplanung" checked> Nachfolgeplanung</label>
+              <label><input type="checkbox" name="cdTopic" value="Management Buy Out"> Management Buy Out (MBO)</label>
+              <label><input type="checkbox" name="cdTopic" value="Unternehmensbewertung"> Unternehmensbewertung</label>
+              <label><input type="checkbox" name="cdTopic" value="Finanzierung"> Finanzierung der Nachfolge</label>
+              <label><input type="checkbox" name="cdTopic" value="Steueroptimierung"> Steueroptimierung</label>
+              <label><input type="checkbox" name="cdTopic" value="Sonstiges"> Sonstiges</label>
+            </div>
+            <div style="margin-top:24px;">
+              <label style="display:block; font-weight:600; margin-bottom:6px;">Ihre Mitteilung</label>
+              <textarea id="cdMessage" class="dialog-textarea" placeholder="Beschreiben Sie kurz Ihre Situation..."></textarea>
+            </div>
+          </div>
+          <div id="cdStage2" class="dialog-stage">
+            <h3>Persönliche Angaben</h3>
+            <p class="dialog-stage-desc">Bitte alle Felder ausfüllen.</p>
+            <form id="cdForm" novalidate style="display:grid; gap:16px;">
+              <div class="dialog-anrede-row">
+                <span style="font-weight:600;">Anrede</span>
+                <label><input type="radio" name="cdSalutation" value="Frau"> Frau</label>
+                <label><input type="radio" name="cdSalutation" value="Herr"> Herr</label>
+              </div>
+              <div class="dialog-form-grid-2">
+                <input type="text" class="dialog-input" placeholder="Vorname *" name="cdFirstName" required>
+                <input type="text" class="dialog-input" placeholder="Nachname *" name="cdLastName" required>
+              </div>
+              <div class="dialog-form-grid-3-1">
+                <input type="text" class="dialog-input" placeholder="Strasse *" name="cdStreet" required>
+                <input type="text" class="dialog-input" placeholder="Nr. *" name="cdStreetNr" required>
+              </div>
+              <div class="dialog-form-grid-1-2">
+                <input type="text" class="dialog-input" placeholder="PLZ *" name="cdZip" required>
+                <input type="text" class="dialog-input" placeholder="Ort *" name="cdCity" required>
+              </div>
+              <div class="dialog-form-grid-2">
+                <input type="tel" class="dialog-input" placeholder="Telefon *" name="cdPhone" required>
+                <input type="email" class="dialog-input" placeholder="E-Mail *" name="cdEmail" required>
+              </div>
+              <div class="dialog-infobox">Wir rufen Sie an, um einen Termin in einer Niederlassung in Ihrer Nähe zu vereinbaren.</div>
+              <label style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+                <input type="checkbox" name="cdConsent" required style="margin-top:3px; flex-shrink:0;">
+                <span>Ich bestätige, dass ich die <a href="#">Rechtlichen Hinweise</a> und die <a href="#">Datenschutzerklärung</a> gelesen und verstanden habe.</span>
+              </label>
+              <input type="hidden" id="cdCheckResult" name="cdCheckResult" value="Management Buy Out">
+            </form>
+          </div>
+        </div>
+        <div class="contact-dialog-footer">
+          <button class="btn btn-secondary" id="cdPrevBtn" onclick="cdPreviousStage()" style="display:none;">&#8592; Zurück</button>
+          <button class="btn btn-primary" id="cdNextBtn" onclick="cdNextStage()">Weiter &#8594;</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+        let cdCurrentStage = 1;
+        function openContactDialog() { const d = document.getElementById('contactDialog'); if(d){d.showModal(); cdShowStage(1);} }
+        function closeContactDialog() { const d = document.getElementById('contactDialog'); if(d){d.close(); cdResetDialog();} }
+        function cdShowStage(n) {
+            cdCurrentStage = n;
+            document.getElementById('cdStage1').classList.toggle('active', n===1);
+            document.getElementById('cdStage2').classList.toggle('active', n===2);
+            document.getElementById('cdPrevBtn').style.display = n===1 ? 'none' : 'inline-block';
+            document.getElementById('cdNextBtn').textContent = n===1 ? 'Weiter \u2192' : 'Absenden';
+        }
+        function cdNextStage() {
+            if (cdCurrentStage === 1) {
+                const topics = document.querySelectorAll('input[name="cdTopic"]:checked');
+                const msg = document.getElementById('cdMessage').value.trim();
+                if (!topics.length || !msg) { alert('Bitte wählen Sie mindestens ein Thema und geben Sie eine Mitteilung ein.'); return; }
+                cdShowStage(2);
+            } else { cdSubmitForm(); }
+        }
+        function cdPreviousStage() { cdShowStage(1); }
+        function cdSubmitForm() {
+            const form = document.getElementById('cdForm');
+            let valid = true;
+            form.querySelectorAll('[required]').forEach(el => { if(el.type==='checkbox'&&!el.checked) valid=false; else if(el.type!=='checkbox'&&!el.value.trim()) valid=false; });
+            if (!valid) { alert('Bitte füllen Sie alle erforderlichen Felder aus.'); return; }
+            console.log('Kontaktanfrage MBO');
+            alert('\u2713 Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.');
+            closeContactDialog();
+        }
+        function cdResetDialog() {
+            document.querySelectorAll('input[name="cdTopic"]').forEach(cb => cb.checked=false);
+            document.getElementById('cdMessage').value='';
+            const f=document.getElementById('cdForm'); if(f) f.reset();
+            cdShowStage(1);
+        }
+        document.getElementById('contactDialog').addEventListener('click', function(e){ if(e.target===this) closeContactDialog(); });
+    </script>
+</body>
+</html>
