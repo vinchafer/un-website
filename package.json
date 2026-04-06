@@ -1,0 +1,11 @@
+{
+  "name": "xy-unternehmensnachfolge",
+  "version": "1.0.0",
+  "description": "Landing Page für Unternehmensnachfolge",
+  "main": "public/index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000 --directory public"
+  },
+  "author": "",
+  "license": "ISC"
+}
