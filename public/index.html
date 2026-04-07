@@ -228,7 +228,7 @@
 
         /* Section Base */
         section {
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
         }
 
         section.bg-light {
@@ -913,7 +913,7 @@
         ============================================= */
         #proof-bar {
             background-color: var(--color-bg-light);
-            padding: 32px 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--color-border);
         }
 
@@ -931,7 +931,7 @@
         .proof-item {
             flex: 1;
             text-align: center;
-            padding: var(--space-md) var(--space-sm);
+            padding: 10px var(--space-sm);
             position: relative;
         }
 
@@ -947,11 +947,11 @@
 
         .proof-number {
             display: block;
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 700;
             color: var(--color-primary);
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .proof-label {
@@ -1148,32 +1148,32 @@
         /* =============================================
            REFERENZEN (SECTION 4)
         ============================================= */
-        #referenzen { background: #f8f9fa; padding: var(--space-2xl) 0; }
-        .referenzen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: var(--space-xl); }
+        #referenzen { background: #f8f9fa; padding: var(--space-xl) 0; }
+        .referenzen-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: var(--space-md); max-width: 800px; margin-left: auto; margin-right: auto; }
         @media(max-width:768px) { .referenzen-grid { grid-template-columns: 1fr; } }
-        .referenz-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 2px; padding: 24px; transition: box-shadow 0.2s; }
+        .referenz-card { background: #fff; border: 1px solid #e8e8e8; border-left: 4px solid var(--color-accent); border-radius: 2px; padding: 14px 16px; transition: box-shadow 0.2s; }
         .referenz-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.10); }
-        .referenz-logo-area { height: 60px; background: #f5f5f5; border-radius: 2px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 13px; margin-bottom: 16px; }
-        .referenz-card h4 { font-size: 17px; font-weight: 700; color: #191919; margin: 0 0 6px; }
-        .referenz-einzeiler { font-size: 14px; color: #555; margin: 0 0 6px; }
-        .referenz-meta { font-size: 12px; color: #999; margin: 0 0 12px; }
-        .referenz-zitat { font-style: italic; font-size: 14px; color: #333; border-left: 3px solid #004388; padding-left: 12px; margin: 0 0 8px; }
-        .referenz-person { font-size: 13px; color: #666; font-weight: 500; margin: 0; }
-        .referenzen-footer { text-align: center; margin-top: var(--space-xl); }
+        .referenz-logo-area { display: none; }
+        .referenz-card h4 { font-size: 15px; font-weight: 700; color: #191919; margin: 0 0 8px; }
+        .referenz-einzeiler { display: none; }
+        .referenz-mini-table { display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; margin: 0 0 8px; } .referenz-mini-label { display: block; font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; } .referenz-mini-val { display: block; font-size: 12px; font-weight: 600; color: #333; } .referenz-meta { display: none; }
+        .referenz-zitat { font-style: italic; font-size: 13px; color: #444; margin: 0; padding: 0; border: none; }
+        .referenz-person { display: none; }
+        .referenzen-footer { text-align: center; margin-top: var(--space-md); }
 
         /* =============================================
            AKTUELLE MANDATE (SECTION 5)
         ============================================= */
         #mandate {
             background-color: var(--color-bg-light);
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
         }
 
         .mandate-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-md);
-            margin-top: var(--space-xl);
+            gap: 10px;
+            margin-top: var(--space-md);
         }
 
         .mandat-card {
@@ -1195,7 +1195,7 @@
         }
 
         .mandat-card-body {
-            padding: 28px 28px 24px;
+            padding: 14px 16px;
         }
 
         .mandat-tag {
@@ -1216,8 +1216,8 @@
         .mandat-type.beteiligung { background:#fff3e0; color:#e65100; }
 
         .mandat-card-body h4 {
-            margin-top: var(--space-sm);
-            font-size: 17px;
+            margin-top: 6px;
+            font-size: 15px;
             color: var(--color-primary);
             line-height: 1.4;
             margin-bottom: var(--space-sm);
@@ -1238,13 +1238,7 @@
             gap: 4px;
         }
 
-        .mandat-card-body .mandat-desc {
-            margin-top: var(--space-sm);
-            font-size: 14px;
-            color: var(--color-text);
-            line-height: 1.6;
-            margin-bottom: var(--space-sm);
-        }
+        .mandat-card-body .mandat-desc { display: none; }
 
         .mandat-link {
             display: inline-block;
@@ -1262,7 +1256,7 @@
 
         .mandate-footer {
             text-align: center;
-            margin-top: var(--space-xl);
+            margin-top: var(--space-md);
         }
 
         @media (max-width: 768px) {
@@ -1279,7 +1273,7 @@
         ============================================= */
         #ansatz {
             background-color: var(--color-bg);
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
         }
 
         .phasen-tabs { background: #fff; border: 1px solid #e8e8e8; border-radius: 4px; overflow: hidden; }
@@ -1287,14 +1281,14 @@
         .phasen-tab-btn { flex: 1; padding: 16px 20px; background: none; border: none; font-size: 15px; font-weight: 500; color: #555; cursor: pointer; font-family: 'Inter', sans-serif; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.2s, border-color 0.2s; }
         .phasen-tab-btn:hover { color: #004388; }
         .phasen-tab-btn.active { color: #004388; font-weight: 600; border-bottom-color: #004388; }
-        .phasen-tab-panels { padding: 32px 40px; }
+        .phasen-tab-panels { padding: 20px 28px; }
         @media(max-width:768px) { .phasen-tab-nav { flex-direction: column; } .phasen-tab-btn { border-bottom: 1px solid #e8e8e8; margin-bottom: 0; } .phasen-tab-panels { padding: 24px 20px; } }
         .phasen-tab-panel { display: none; }
         .phasen-tab-panel.active { display: block; }
         .phasen-tab-panel h3 { font-size: 20px; font-weight: 700; color: #004388; margin: 0 0 8px; }
         .phasen-tab-panel > p { color: #555; margin: 0 0 20px; font-size: 16px; }
-        .phase-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-        .phase-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.5; color: #333; }
+        .phase-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+        .phase-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.3; color: #333; }
         .phase-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-accent); flex-shrink: 0; margin-top: 7px; }
         .phase-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 16px; }
         .phase-links a { color: #004388; text-decoration: none; font-size: 14px; font-weight: 500; }
@@ -1304,7 +1298,7 @@
         .ansatz-highlight {
             border: 1px solid #e8e8e8;
             background-color: #f8f9fa;
-            padding: var(--space-lg);
+            padding: var(--space-md);
             border-radius: var(--radius-md);
             max-width: 800px;
             margin: var(--space-xl) auto 0;
@@ -1313,8 +1307,8 @@
 
         .ansatz-highlight p {
             color: #333;
-            font-size: 18px;
-            line-height: 1.7;
+            font-size: 16px;
+            line-height: 1.5;
             margin: 0;
         }
 
@@ -1327,7 +1321,7 @@
         ============================================= */
         #kompetenz {
             background-color: var(--color-bg-light);
-            padding: var(--space-2xl) 0;
+            padding: var(--space-xl) 0;
         }
 
         #kompetenz .section-header {
@@ -1338,7 +1332,7 @@
         /* Team Karten */
         .team-subheader {
             text-align: center;
-            margin-bottom: var(--space-xl);
+            margin-bottom: var(--space-md);
         }
 
         .team-subheader h3 {
@@ -1357,14 +1351,14 @@
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-md);
-            margin-top: var(--space-xl);
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
         }
 
         .team-card {
             background-color: white;
             border: 1px solid var(--color-border);
-            padding: 32px 24px;
+            padding: 16px;
             text-align: center;
             border-radius: var(--radius-md);
             transition: box-shadow 0.25s ease, transform 0.25s ease;
@@ -1376,29 +1370,29 @@
         }
 
         .team-card-icon {
-            width: 40px;
-            height: 40px;
+            width: 28px;
+            height: 28px;
             color: var(--color-accent);
             margin: 0 auto;
             display: block;
         }
 
         .team-card h4 {
-            margin-top: var(--space-sm);
-            font-size: 16px;
+            margin-top: 8px;
+            font-size: 14px;
             color: var(--color-primary);
             margin-bottom: 6px;
         }
 
         .team-card p {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--color-text-light);
-            line-height: 1.5;
+            line-height: 1.35;
             margin: 0;
         }
 
         .muttermarke-note {
-            margin-top: var(--space-xl);
+            margin-top: var(--space-md);
             text-align: center;
             font-size: 14px;
             color: var(--color-text-light);
@@ -2187,13 +2181,13 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: var(--space-md);
-            margin-top: var(--space-lg);
-            margin-bottom: var(--space-lg);
+            margin-top: var(--space-md);
+            margin-bottom: var(--space-md);
         }
 
         .nachfolge-card {
             background-color: white;
-            padding: var(--space-md);
+            padding: 14px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
             display: flex;
@@ -2214,11 +2208,11 @@
         }
 
         .nachfolge-card p {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--color-text-light);
-            line-height: 1.5;
+            line-height: 1.35;
             flex: 1;
-            margin-bottom: var(--space-sm);
+            margin-bottom: 8px;
         }
 
         .nachfolge-card-link {
@@ -2231,7 +2225,7 @@
 
         .nachfolge-cta-box {
             background-color: white;
-            padding: var(--space-lg);
+            padding: var(--space-sm) var(--space-md);
             border-radius: var(--radius-md);
             text-align: center;
             border-left: 4px solid var(--color-accent);
@@ -2861,6 +2855,12 @@
                 <h2>Welche Nachfolge passt zu Ihnen?</h2>
             </div>
 
+            <!-- CTA Box — oben -->
+            <div class="nachfolge-cta-box reveal">
+                <p><strong>Unsicher welcher Weg der richtige ist?</strong> In 3 Minuten wissen Sie mehr.</p>
+                <button class="btn btn-primary" onclick="openCheckModal()">Nachfolge-Check starten →</button>
+            </div>
+
             <!-- Horizontales 3-Spalten-Layout -->
             <div class="nachfolge-cards-grid reveal-group">
                 <!-- Card 1 -->
@@ -2882,12 +2882,6 @@
                     <a href="unternehmensnachfolge/firmenverkauf.html" class="nachfolge-card-link">Mehr erfahren →</a>
                 </div>
             </div>
-
-            <!-- CTA Box -->
-            <div class="nachfolge-cta-box reveal">
-                <p><strong>Unsicher welcher Weg der richtige ist?</strong> In 3 Minuten wissen Sie mehr.</p>
-                <button class="btn btn-primary" onclick="openCheckModal()">Nachfolge-Check starten →</button>
-            </div>
         </div>
     </section>
 
@@ -2902,57 +2896,69 @@
             <div class="referenzen-grid reveal-group">
                 <!-- Referenz 1 -->
                 <div class="referenz-card reveal">
-                    <div class="referenz-logo-area">[Logo Platzhalter]</div>
                     <h4>Hunn Gartenmöbel AG</h4>
-                    <p class="referenz-einzeiler">Erfolgreiche Nachfolge eines Möbelherstellers mit 40 Jahren Tradition</p>
-                    <p class="referenz-meta">Produktion · Deutschschweiz · 2021</p>
-                    <blockquote class="referenz-zitat">«Die Begleitung war fachlich einwandfrei und menschlich respektvoll.»</blockquote>
-                    <p class="referenz-person">Barbara &amp; Jürg Bänninger, ehem. Inhaber</p>
+                    <div class="referenz-mini-table">
+                        <div><span class="referenz-mini-label">Branche</span><span class="referenz-mini-val">Produktion</span></div>
+                        <div><span class="referenz-mini-label">Mitarbeitende</span><span class="referenz-mini-val">40 MA</span></div>
+                        <div><span class="referenz-mini-label">Jahr</span><span class="referenz-mini-val">2021</span></div>
+                        <div><span class="referenz-mini-label">Grösse</span><span class="referenz-mini-val">CHF 5–10 Mio</span></div>
+                    </div>
+                    <blockquote class="referenz-zitat">«Die Begleitung war fachlich einwandfrei und menschlich respektvoll.» — Barbara &amp; Jürg Bänninger</blockquote>
                 </div>
                 <!-- Referenz 2 -->
                 <div class="referenz-card reveal">
-                    <div class="referenz-logo-area">[Logo Platzhalter]</div>
                     <h4>Frikarti Stauden AG</h4>
-                    <p class="referenz-einzeiler">Übergabe eines spezialisierten Gartenbaubetriebs</p>
-                    <p class="referenz-meta">Gartenbau · Deutschschweiz · 2023</p>
-                    <blockquote class="referenz-zitat">«Selbst in schwierigen Situationen blieb die Zusammenarbeit transparent und ehrlich.»</blockquote>
-                    <p class="referenz-person">Beat Graf, ehem. Inhaber &amp; VRP</p>
+                    <div class="referenz-mini-table">
+                        <div><span class="referenz-mini-label">Branche</span><span class="referenz-mini-val">Gartenbau</span></div>
+                        <div><span class="referenz-mini-label">Mitarbeitende</span><span class="referenz-mini-val">15–20 MA</span></div>
+                        <div><span class="referenz-mini-label">Jahr</span><span class="referenz-mini-val">2023</span></div>
+                        <div><span class="referenz-mini-label">Grösse</span><span class="referenz-mini-val">CHF 2–4 Mio</span></div>
+                    </div>
+                    <blockquote class="referenz-zitat">«Selbst in schwierigen Situationen blieb die Zusammenarbeit transparent und ehrlich.» — Beat Graf</blockquote>
                 </div>
                 <!-- Referenz 3 -->
                 <div class="referenz-card reveal">
-                    <div class="referenz-logo-area">[Logo Platzhalter]</div>
                     <h4>Bahnhof-Apotheke Zbinden AG</h4>
-                    <p class="referenz-einzeiler">Nachfolgelösung für eine traditionsreiche Apotheke</p>
-                    <p class="referenz-meta">Pharma/Detailhandel · Deutschschweiz · 2022</p>
-                    <blockquote class="referenz-zitat">«XY begleitete uns mit hoher Fach- und Sozialkompetenz.»</blockquote>
-                    <p class="referenz-person">Yvonne &amp; Thomas Zbinden, ehem. Inhaber</p>
+                    <div class="referenz-mini-table">
+                        <div><span class="referenz-mini-label">Branche</span><span class="referenz-mini-val">Pharma</span></div>
+                        <div><span class="referenz-mini-label">Mitarbeitende</span><span class="referenz-mini-val">10–15 MA</span></div>
+                        <div><span class="referenz-mini-label">Jahr</span><span class="referenz-mini-val">2022</span></div>
+                        <div><span class="referenz-mini-label">Grösse</span><span class="referenz-mini-val">CHF 1–3 Mio</span></div>
+                    </div>
+                    <blockquote class="referenz-zitat">«XY begleitete uns mit hoher Fach- und Sozialkompetenz.» — Yvonne &amp; Thomas Zbinden</blockquote>
                 </div>
                 <!-- Referenz 4 -->
                 <div class="referenz-card reveal">
-                    <div class="referenz-logo-area">[Logo Platzhalter]</div>
                     <h4>ipet.ch / Escher &amp; Büttner</h4>
-                    <p class="referenz-einzeiler">Verkauf der Aktienmehrheit eines E-Commerce Unternehmens</p>
-                    <p class="referenz-meta">E-Commerce · Deutschschweiz · 2023</p>
-                    <blockquote class="referenz-zitat">«Der Verkauf einer Firma ist komplex — XY hat Klarheit geschaffen.»</blockquote>
-                    <p class="referenz-person">Matthias Escher &amp; Sabina Büttner</p>
+                    <div class="referenz-mini-table">
+                        <div><span class="referenz-mini-label">Branche</span><span class="referenz-mini-val">E-Commerce</span></div>
+                        <div><span class="referenz-mini-label">Mitarbeitende</span><span class="referenz-mini-val">20–30 MA</span></div>
+                        <div><span class="referenz-mini-label">Jahr</span><span class="referenz-mini-val">2023</span></div>
+                        <div><span class="referenz-mini-label">Grösse</span><span class="referenz-mini-val">CHF 3–6 Mio</span></div>
+                    </div>
+                    <blockquote class="referenz-zitat">«Der Verkauf einer Firma ist komplex — XY hat Klarheit geschaffen.» — Matthias Escher &amp; Sabina Büttner</blockquote>
                 </div>
                 <!-- Referenz 5 -->
                 <div class="referenz-card reveal">
-                    <div class="referenz-logo-area">[Logo Platzhalter]</div>
                     <h4>[Firma Platzhalter 5]</h4>
-                    <p class="referenz-einzeiler">Nachfolge im IT-Dienstleistungsbereich</p>
-                    <p class="referenz-meta">IT · Zürich · 2024</p>
-                    <blockquote class="referenz-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="referenz-person">[Name Platzhalter]</p>
+                    <div class="referenz-mini-table">
+                        <div><span class="referenz-mini-label">Branche</span><span class="referenz-mini-val">IT</span></div>
+                        <div><span class="referenz-mini-label">Mitarbeitende</span><span class="referenz-mini-val">15–25 MA</span></div>
+                        <div><span class="referenz-mini-label">Jahr</span><span class="referenz-mini-val">2024</span></div>
+                        <div><span class="referenz-mini-label">Grösse</span><span class="referenz-mini-val">CHF 2–5 Mio</span></div>
+                    </div>
+                    <blockquote class="referenz-zitat">«[Platzhalter-Zitat]» — [Name Platzhalter]</blockquote>
                 </div>
                 <!-- Referenz 6 -->
                 <div class="referenz-card reveal">
-                    <div class="referenz-logo-area">[Logo Platzhalter]</div>
                     <h4>[Firma Platzhalter 6]</h4>
-                    <p class="referenz-einzeiler">Generationenwechsel in einem Familienbetrieb</p>
-                    <p class="referenz-meta">Handwerk · Bern · 2024</p>
-                    <blockquote class="referenz-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="referenz-person">[Name Platzhalter]</p>
+                    <div class="referenz-mini-table">
+                        <div><span class="referenz-mini-label">Branche</span><span class="referenz-mini-val">Handwerk</span></div>
+                        <div><span class="referenz-mini-label">Mitarbeitende</span><span class="referenz-mini-val">10–20 MA</span></div>
+                        <div><span class="referenz-mini-label">Jahr</span><span class="referenz-mini-val">2024</span></div>
+                        <div><span class="referenz-mini-label">Grösse</span><span class="referenz-mini-val">CHF 1–4 Mio</span></div>
+                    </div>
+                    <blockquote class="referenz-zitat">«[Platzhalter-Zitat]» — [Name Platzhalter]</blockquote>
                 </div>
             </div>
             <div class="referenzen-footer reveal">
@@ -2986,7 +2992,6 @@
                             <span>&#128200; CHF 8–12 Mio.</span>
                             <span>&#128101; 30–50 MA</span>
                         </div>
-                        <p class="mandat-desc">Etabliertes Unternehmen mit starker Marktposition und loyaler Kundenbasis. Der Inhaber sucht einen Nachfolger, der die Erfolgsgeschichte fortführt.</p>
                         <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
@@ -3003,7 +3008,6 @@
                             <span>&#128200; CHF 3–6 Mio.</span>
                             <span>&#128101; 15–25 MA</span>
                         </div>
-                        <p class="mandat-desc">Spezialisiertes IT-Unternehmen mit langjährigen Kundenverträgen und hoher Wiederkaufrate. Ideale Übernahme für strategischen Käufer oder MBO.</p>
                         <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
@@ -3020,7 +3024,6 @@
                             <span>&#128200; CHF 5–8 Mio.</span>
                             <span>&#128101; 20–35 MA</span>
                         </div>
-                        <p class="mandat-desc">Fachhandelsunternehmen mit über 20 Jahren Marktpräsenz, exklusiven Lieferantenbeziehungen und stabilem Stammkundengeschäft.</p>
                         <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
@@ -3037,7 +3040,6 @@
                             <span>&#128200; CHF 2–4 Mio.</span>
                             <span>&#128101; 10–20 MA</span>
                         </div>
-                        <p class="mandat-desc">Gut positionierter Handwerksbetrieb mit ausgezeichnetem Ruf, eingespieltem Team und voller Auftragspipeline für die nächsten 18 Monate.</p>
                         <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
@@ -3054,7 +3056,6 @@
                             <span>&#128200; CHF 4–7 Mio.</span>
                             <span>&#128101; 25–40 MA</span>
                         </div>
-                        <p class="mandat-desc">Etablierter Gastronomiebetrieb mit treuer Stammkundschaft, starker Marke und gutem EBIT. Inhaber sucht Nachfolger für geordneten Rückzug.</p>
                         <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
@@ -3071,7 +3072,6 @@
                             <span>&#128200; CHF 1–3 Mio.</span>
                             <span>&#128101; 10–15 MA</span>
                         </div>
-                        <p class="mandat-desc">Ingenieur- und Planungsbüro mit stabilen Auftraggebern aus dem öffentlichen Sektor. Ideal für einen strategischen Käufer oder MBO.</p>
                         <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
