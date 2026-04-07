@@ -120,17 +120,17 @@
     <style>
         /* Design System */
         :root {
-            --color-primary: #004388;
-            --color-secondary: #003070;
-            --color-accent: #004388;
+            --color-primary: #003B75;
+            --color-secondary: #002B5C;
+            --color-accent: #003B75;
             --color-text: #191919;
             --color-text-light: #555555;
             --color-bg: #FFFFFF;
-            --color-bg-light: #f5f5f5;
-            --color-bg-dark: #002244;
+            --color-bg-light: #F4F6F9;
+            --color-bg-dark: #002B5C;
             --color-border: #e0e0e0;
             --color-success: #2E7D32;
-            --color-orange: #C95321;
+            --color-orange: #E8611A;
 
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
             --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
@@ -162,11 +162,11 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            line-height: 1.5;
+            font-size: 17px;
+            line-height: 1.6;
             font-weight: 400;
             color: #191919;
-            background-color: #F5F5F7;
+            background-color: #FFFFFF;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -326,7 +326,7 @@
             transition: color 0.2s;
         }
 
-        .vz-utility-link:hover { color: #004388; text-decoration: underline; }
+        .vz-utility-link:hover { color: #003B75; text-decoration: underline; }
         .vz-utility-sep { color: #d0d0d0; font-size: 14px; }
 
         @media (max-width: 860px) { #vz-utility-bar { display: none; } }
@@ -370,20 +370,19 @@
         .vz-logo-square {
             width: 44px;
             height: 44px;
-            border-radius: 4px;
-            background: #004388;
-            color: #fff;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            flex-shrink: 0;
-            font-family: 'Inter', sans-serif;
         }
 
-        .vz-logo:hover .vz-logo-square { background: #003070; }
+        .vz-logo-square svg {
+            width: 44px;
+            height: 44px;
+            transition: opacity 0.2s;
+        }
+
+        .vz-logo:hover .vz-logo-square svg { opacity: 0.85; }
 
         .vz-logo-wordmark {
             font-size: 15px;
@@ -424,12 +423,12 @@
             transition: color 0.2s, border-color 0.2s;
         }
 
-        .vz-nav-item > a:hover { color: #004388; }
+        .vz-nav-item > a:hover { color: #003B75; }
 
         .vz-nav-item.active > a {
-            color: #004388;
+            color: #003B75;
             font-weight: 600;
-            border-bottom-color: #004388;
+            border-bottom-color: #003B75;
         }
 
         /* Dropdown */
@@ -439,14 +438,25 @@
             top: 100%;
             left: 0;
             background: #fff;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            border-top: 3px solid #004388;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+            border-top: 3px solid #003B75;
             min-width: 260px;
             padding: 8px 0;
             z-index: 2000;
         }
 
-        .vz-nav-item:hover .vz-dropdown { display: block; }
+        /* Bridge: invisible area below nav-item prevents hover gap to dropdown */
+        .vz-nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 8px;
+        }
+
+        .vz-nav-item:hover .vz-dropdown,
+        .vz-nav-item .vz-dropdown:hover { display: block; }
 
         .vz-dropdown-list {
             list-style: none;
@@ -464,11 +474,11 @@
             line-height: 1.4;
         }
 
-        .vz-dropdown-list a:hover { background: #F5F5F7; color: #004388; }
+        .vz-dropdown-list a:hover { background: #F4F6F9; color: #003B75; }
 
         .vz-dropdown-list a.vz-dropdown-active {
             font-weight: 700;
-            color: #004388;
+            color: #003B75;
         }
 
         /* CTA Button (orange pill) + Hamburger */
@@ -481,7 +491,7 @@
         }
 
         .vz-cta-btn {
-            background: #C95321;
+            background: #E8611A;
             color: #fff;
             border-radius: 100px;
             padding: 10px 22px;
@@ -496,7 +506,7 @@
             display: inline-block;
         }
 
-        .vz-cta-btn:hover { background: #a84218; color: #fff; }
+        .vz-cta-btn:hover { background: #c94e10; color: #fff; }
 
         .vz-hamburger {
             display: none;
@@ -529,40 +539,138 @@
         /* Mobile Menu */
         .mobile-menu {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: #004388;
-            z-index: 999;
+            top: 0; right: 0;
+            width: 320px; max-width: 100%;
+            height: 100%;
+            background: #002B5C;
+            z-index: 1100;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 28px;
+            overflow-y: auto;
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
 
         body.mobile-menu-open .mobile-menu { transform: translateX(0); }
 
-        .mobile-menu-links {
-            list-style: none;
-            margin: 0; padding: 0;
+        /* Overlay behind mobile menu */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1099;
+        }
+        body.mobile-menu-open .mobile-menu-overlay { display: block; }
+
+        .mobile-menu-header {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 18px;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            flex-shrink: 0;
         }
 
-        .mobile-menu-links a {
-            font-size: 22px;
-            font-weight: 600;
-            color: #fff;
+        .mobile-menu-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
         }
 
-        .mobile-menu-links a:hover { opacity: 0.8; }
+        .mobile-menu-logo-sq {
+            width: 34px; height: 34px;
+            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
 
-        .mobile-menu-cta { margin-top: 8px; }
+        .mobile-menu-logo-text {
+            font-size: 14px; font-weight: 600;
+            color: #fff;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 4px 8px;
+            opacity: 0.8;
+        }
+        .mobile-menu-close:hover { opacity: 1; }
+
+        .mobile-menu-links {
+            list-style: none;
+            margin: 0; padding: 8px 0;
+            flex: 1;
+        }
+
+        .mobile-menu-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+        .mobile-menu-toggle {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            text-align: left;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle:hover { background: rgba(255,255,255,0.08); }
+
+        .mobile-menu-toggle.is-active { color: #fff; }
+
+        .mobile-menu-arrow {
+            font-size: 18px;
+            transition: transform 0.2s;
+            opacity: 0.7;
+        }
+
+        .mobile-menu-item.open .mobile-menu-arrow { transform: rotate(90deg); }
+
+        .mobile-submenu {
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0 0 8px;
+            background: rgba(0,0,0,0.15);
+        }
+
+        .mobile-menu-item.open .mobile-submenu { display: block; }
+
+        .mobile-submenu li a {
+            display: block;
+            padding: 10px 20px 10px 36px;
+            font-size: 15px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+        }
+
+        .mobile-submenu li a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+        .mobile-submenu li a.mobile-sub-active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .mobile-menu-cta {
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            flex-shrink: 0;
+        }
+
+        .mobile-menu-cta .vz-cta-btn { width: 100%; text-align: center; display: block; }
 
         @media (max-width: 860px) {
             .vz-main-nav { display: none; }
@@ -610,12 +718,12 @@
 
         .quicklink:first-child { padding-left: 0; }
 
-        .quicklink:hover { color: #004388; }
+        .quicklink:hover { color: #003B75; }
 
         .quicklink.active {
-            color: #004388;
+            color: #003B75;
             font-weight: 600;
-            border-bottom-color: #004388;
+            border-bottom-color: #003B75;
         }
 
         /* =============================================
@@ -639,7 +747,7 @@
         }
 
         .breadcrumb-inner a { color: #767676; text-decoration: none; }
-        .breadcrumb-inner a:hover { text-decoration: underline; color: #004388; }
+        .breadcrumb-inner a:hover { text-decoration: underline; color: #003B75; }
         .breadcrumb-sep { color: #bbb; }
         .breadcrumb-current { color: #191919; }
 
@@ -2157,7 +2265,7 @@
             bottom: 0;
             width: 100%;
             z-index: 900;
-            background-color: #003068;
+            background-color: #E8611A;
             padding: 12px 0;
             text-align: center;
         }
@@ -2168,19 +2276,19 @@
 
         .mobile-cta-bar a {
             color: white;
-            border: 1px solid rgba(255,255,255,0.6);
-            padding: 8px 24px;
-            font-size: 14px;
+            padding: 8px 32px;
+            font-size: 15px;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 2px;
+            border-radius: 100px;
+            border: 2px solid rgba(255,255,255,0.4);
         }
 
         footer {
-            background-color: #f5f5f5;
-            padding: 48px 0 24px;
-            border-top: 1px solid #e8e8e8;
-            color: #333;
+            background-color: #002B5C;
+            padding: 56px 0 24px;
+            border-top: none;
+            color: rgba(255,255,255,0.85);
         }
 
         .footer-grid {
@@ -2192,11 +2300,35 @@
             padding: 0 20px;
         }
 
-        .footer-col-title {
-            font-size: 14px;
+        .footer-logo-row {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .footer-logo-name {
+            font-size: 15px;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 12px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .footer-col-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
         }
 
         .footer-links {
@@ -2206,26 +2338,26 @@
         }
 
         .footer-links a {
-            font-size: 13px;
-            color: #666;
+            font-size: 14px;
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
             line-height: 2.1;
             display: block;
             transition: color 0.2s;
         }
 
-        .footer-links a:hover { color: #003068; }
+        .footer-links a:hover { color: #fff; }
 
         .footer-links a.footer-link-active {
             font-weight: 600;
-            color: #003068;
+            color: #fff;
         }
 
         .footer-secondary {
             max-width: 1200px;
             margin: 32px auto 0;
-            padding: 16px 20px 0;
-            border-top: 1px solid #ddd;
+            padding: 20px 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.12);
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -2240,16 +2372,16 @@
 
         .footer-secondary-group a {
             font-size: 13px;
-            color: #666;
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
             transition: color 0.2s;
         }
 
-        .footer-secondary-group a:hover { color: #003068; }
+        .footer-secondary-group a:hover { color: #fff; }
 
         .footer-social-lang {
             max-width: 1200px;
-            margin: 16px auto 0;
+            margin: 20px auto 0;
             padding: 0 20px;
             display: flex;
             justify-content: space-between;
@@ -2260,46 +2392,47 @@
 
         .footer-social {
             display: flex;
-            gap: 16px;
+            gap: 18px;
             align-items: center;
         }
 
         .footer-social a {
-            color: #999;
+            color: rgba(255,255,255,0.5);
             text-decoration: none;
             transition: color 0.2s;
             display: flex;
             align-items: center;
         }
 
-        .footer-social a:hover { color: #555; }
+        .footer-social a:hover { color: rgba(255,255,255,0.9); }
 
         .footer-lang {
             font-size: 13px;
-            color: #666;
+            color: rgba(255,255,255,0.55);
         }
 
-        .footer-lang a { color: #666; text-decoration: none; transition: color 0.2s; }
-        .footer-lang a:hover { color: #003068; }
+        .footer-lang a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+        .footer-lang a:hover { color: #fff; }
+        .footer-lang-sep { margin: 0 4px; color: rgba(255,255,255,0.25); }
 
         .footer-bottom {
             max-width: 1200px;
             margin: 24px auto 0;
             padding: 16px 20px 0;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid rgba(255,255,255,0.12);
         }
 
         .footer-legal {
             font-size: 12px;
-            color: #999;
+            color: rgba(255,255,255,0.4);
             display: flex;
             flex-wrap: wrap;
             gap: 4px;
         }
 
-        .footer-legal a { color: #999; text-decoration: none; transition: color 0.2s; }
-        .footer-legal a:hover { color: #555; }
-        .footer-legal-sep { color: #ccc; }
+        .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+        .footer-legal a:hover { color: rgba(255,255,255,0.75); }
+        .footer-legal-sep { color: rgba(255,255,255,0.2); }
 
         @media (max-width: 900px) {
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2428,6 +2561,9 @@
 
             /* Kontakt */
             .kontakt-trust { gap: 16px; }
+
+            /* Account for fixed mobile CTA bar */
+            body { padding-bottom: 56px; }
         }
 
         /* =============================================
@@ -2494,7 +2630,7 @@
     <!-- UTILITY BAR (oberste Zeile: Termin, Wissen, Finanzportal) -->
     <div id="vz-utility-bar">
         <div class="vz-utility-inner">
-            <a href="#" class="vz-utility-link">Termin</a>
+            <a href="#kontakt" class="vz-utility-link">Termin vereinbaren</a>
             <a href="#" class="vz-utility-link">Wissen</a>
             <a href="#" class="vz-utility-link">XY Finanzportal</a>
             <span class="vz-utility-sep">|</span>
@@ -2506,10 +2642,18 @@
     <header id="vz-header" role="banner">
         <div class="vz-header-inner">
 
-            <!-- Logo: blauer Quadrat-Block + Wortmarke -->
-            <a href="#" class="vz-logo" aria-label="XY VermögensZentrum – Startseite">
-                <span class="vz-logo-square">XY</span>
-                <span class="vz-logo-wordmark">VermögensZentrum</span>
+            <!-- Logo: SVG-Diamant + Wortmarke -->
+            <a href="#" class="vz-logo" aria-label="XY XxxxxZentrum – Startseite">
+                <span class="vz-logo-square">
+                    <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect width="44" height="44" rx="0" fill="#004388"/>
+                        <!-- Diamond shape -->
+                        <polygon points="22,7 37,22 22,37 7,22" fill="none" stroke="white" stroke-width="2"/>
+                        <!-- XY letters -->
+                        <text x="22" y="26" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle" letter-spacing="-0.5">XY</text>
+                    </svg>
+                </span>
+                <span class="vz-logo-wordmark">XxxxxZentrum</span>
             </a>
 
             <!-- Hauptmenü (Desktop) mit Dropdowns -->
@@ -2533,7 +2677,7 @@
                     <a href="#">Firmen</a>
                     <div class="vz-dropdown">
                         <ul class="vz-dropdown-list">
-                            <li><a href="#" class="vz-dropdown-active">Unternehmensnachfolge</a></li>
+                            <li><a href="index.html" class="vz-dropdown-active">Unternehmensnachfolge</a></li>
                             <li><a href="#">Pensionskasse</a></li>
                             <li><a href="#">Kadervorsorge</a></li>
                             <li><a href="#">Versicherungsmanagement</a></li>
@@ -2590,15 +2734,91 @@
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
+        <div class="mobile-menu-header">
+            <a href="#" class="mobile-menu-logo">
+                <span class="mobile-menu-logo-sq">
+                    <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34" aria-hidden="true">
+                        <rect width="34" height="34" fill="white" opacity="0.15"/>
+                        <polygon points="17,5 29,17 17,29 5,17" fill="none" stroke="white" stroke-width="1.5"/>
+                        <text x="17" y="21" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">XY</text>
+                    </svg>
+                </span>
+                <span class="mobile-menu-logo-text">XxxxxZentrum</span>
+            </a>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Menu schliessen">&times;</button>
+        </div>
+
         <ul class="mobile-menu-links" role="list">
-            <li><a href="#">Privatpersonen</a></li>
-            <li><a href="#">Firmen</a></li>
-            <li><a href="#">Ratgeber</a></li>
-            <li><a href="#">Über XY</a></li>
-            <li><a href="#">Börsen &amp; Märkte</a></li>
+            <li class="mobile-menu-item">
+                <button class="mobile-menu-toggle" aria-expanded="false">
+                    Privatpersonen <span class="mobile-menu-arrow">&#8250;</span>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="#">Pensionierung</a></li>
+                    <li><a href="#">Geldanlagen &amp; Vermögensverwaltung</a></li>
+                    <li><a href="#">Nachlass</a></li>
+                    <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+                    <li><a href="#">Steuern</a></li>
+                    <li><a href="#">Vorsorge</a></li>
+                    <li><a href="#">Versicherungen</a></li>
+                    <li><a href="#">Bankgeschäfte</a></li>
+                </ul>
+            </li>
+            <li class="mobile-menu-item open">
+                <button class="mobile-menu-toggle is-active" aria-expanded="true">
+                    Firmen <span class="mobile-menu-arrow">&#8250;</span>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="index.html" class="mobile-sub-active">Unternehmensnachfolge</a></li>
+                    <li><a href="#">Pensionskasse</a></li>
+                    <li><a href="#">Kadervorsorge</a></li>
+                    <li><a href="#">Versicherungsmanagement</a></li>
+                    <li><a href="#">Firmengründung</a></li>
+                </ul>
+            </li>
+            <li class="mobile-menu-item">
+                <button class="mobile-menu-toggle" aria-expanded="false">
+                    Ratgeber <span class="mobile-menu-arrow">&#8250;</span>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="#">Seminare &amp; Workshops</a></li>
+                    <li><a href="#">Merkblätter &amp; Bücher</a></li>
+                    <li><a href="#">Studien &amp; Dossiers</a></li>
+                    <li><a href="#">Wissensbeiträge</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Checks &amp; Analysen</a></li>
+                    <li><a href="#">Finanzrechner &amp; Vergleiche</a></li>
+                </ul>
+            </li>
+            <li class="mobile-menu-item">
+                <button class="mobile-menu-toggle" aria-expanded="false">
+                    Über XY <span class="mobile-menu-arrow">&#8250;</span>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="#">Unabhängige Beratung</a></li>
+                    <li><a href="#">Standorte</a></li>
+                    <li><a href="#">Portrait</a></li>
+                    <li><a href="#">Meinungen</a></li>
+                    <li><a href="#">Newsroom</a></li>
+                    <li><a href="#">Jobs &amp; Karriere</a></li>
+                    <li><a href="#">Kontakt &amp; Hilfe</a></li>
+                </ul>
+            </li>
+            <li class="mobile-menu-item">
+                <button class="mobile-menu-toggle" aria-expanded="false">
+                    Börsen &amp; Märkte <span class="mobile-menu-arrow">&#8250;</span>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="#" style="color:rgba(255,255,255,0.5);font-style:italic;">Vorschau nicht verfügbar</a></li>
+                </ul>
+            </li>
         </ul>
+
         <div class="mobile-menu-cta">
             <a href="#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
         </div>
@@ -3031,7 +3251,7 @@
 
             <!-- Muttermarken-Referenz -->
             <p class="muttermarke-note">
-                Der Bereich Unternehmensnachfolge ist Teil des <strong>VZ VermögensZentrums</strong> – mit über 1'800 Mitarbeitenden einer der grössten unabhängigen Finanzdienstleister der Schweiz.
+                Der Bereich Unternehmensnachfolge ist Teil des <strong>VZ XxxxxZentrums</strong> – mit über 1'800 Mitarbeitenden einer der grössten unabhängigen Finanzdienstleister der Schweiz.
             </p>
 
         </div>
@@ -3484,6 +3704,16 @@
     <!-- VZ FOOTER -->
     <footer>
 
+        <!-- Footer Logo -->
+        <div class="footer-logo-row">
+            <svg class="footer-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="40" height="40" fill="#004388"/>
+                <polygon points="20,6 34,20 20,34 6,20" fill="none" stroke="white" stroke-width="1.8"/>
+                <text x="20" y="24" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" letter-spacing="-0.5">XY</text>
+            </svg>
+            <span class="footer-logo-name">XxxxxZentrum</span>
+        </div>
+
         <!-- 4-Spalten Grid -->
         <div class="footer-grid">
             <!-- Spalte 1: Privatpersonen -->
@@ -3575,7 +3805,7 @@
                 </a>
             </div>
             <div class="footer-lang">
-                <a href="#">de</a> | <a href="#">fr</a> | <a href="#">en</a>
+                <a href="#">de</a><span class="footer-lang-sep">|</span><a href="#">fr</a><span class="footer-lang-sep">|</span><a href="#">it</a><span class="footer-lang-sep">|</span><a href="#">en</a>
             </div>
         </div>
 
@@ -3604,7 +3834,8 @@
         const vzHeader = document.getElementById('vz-header');
         const hamburger = document.getElementById('vz-hamburger');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
         // Sticky shadow
         window.addEventListener('scroll', () => {
@@ -3615,7 +3846,7 @@
         function openMobileMenu() {
             document.body.classList.add('mobile-menu-open');
             hamburger.setAttribute('aria-expanded', 'true');
-            mobileMenu.querySelector('a')?.focus();
+            mobileMenuClose.focus();
         }
         function closeMobileMenu() {
             document.body.classList.remove('mobile-menu-open');
@@ -3626,12 +3857,34 @@
             document.body.classList.contains('mobile-menu-open') ? closeMobileMenu() : openMobileMenu();
         });
 
-        mobileLinks.forEach(l => l.addEventListener('click', closeMobileMenu));
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close on link click (only actual <a> links, not toggle buttons)
+        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMobileMenu));
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) {
                 closeMobileMenu(); hamburger.focus();
             }
+        });
+
+        // Mobile accordion: toggle sub-menus
+        mobileMenu.querySelectorAll('.mobile-menu-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.mobile-menu-item');
+                const isOpen = item.classList.contains('open');
+                // Close all others
+                mobileMenu.querySelectorAll('.mobile-menu-item.open').forEach(openItem => {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.mobile-menu-toggle').setAttribute('aria-expanded', 'false');
+                });
+                // Toggle clicked
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
         });
 
         // =============================================

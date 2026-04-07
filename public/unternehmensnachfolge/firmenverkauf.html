@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #004388;
-            --color-accent: #004388;
+            --color-primary: #003B75;
+            --color-accent: #003B75;
             --color-text: #191919;
             --color-text-light: #555555;
             --color-bg: #FFFFFF;
-            --color-bg-light: #f5f5f5;
-            --color-bg-dark: #002244;
+            --color-bg-light: #F4F6F9;
+            --color-bg-dark: #002B5C;
             --color-border: #e0e0e0;
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
             --radius-sm: 2px;
@@ -30,7 +30,7 @@
             --space-3xl: 96px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--color-text); background-color: #F5F5F7; }
+        body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--color-text); background-color: #FFFFFF; }
         a { color: var(--color-accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
         h1 { font-size: 32px; line-height: 1.25; font-weight: 700; margin-bottom: var(--space-md); }
@@ -102,17 +102,49 @@
 </head>
 <body>
 
-    <nav class="sub-nav">
+    <!-- VZ UTILITY BAR -->
+    <div style="background:#fff;border-bottom:1px solid #e8e8e8;display:flex;justify-content:flex-end;align-items:center;height:40px;padding:0 24px;gap:20px;font-size:14px;">
+        <a href="../../index.html#kontakt" style="color:#191919;text-decoration:none;">Termin vereinbaren</a>
+        <a href="#" style="color:#191919;text-decoration:none;">Wissen</a>
+        <a href="#" style="color:#191919;text-decoration:none;">XY Finanzportal</a>
+        <span style="color:#d0d0d0;">|</span>
+        <a href="#" style="color:#191919;text-decoration:none;">Börsen &amp; Märkte</a>
+    </div>
+
+    <!-- VZ HEADER -->
+    <header style="background:#fff;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:1000;box-shadow:none;">
+        <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px;gap:0;">
+            <a href="../../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:40px;flex-shrink:0;">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="44" height="44" fill="#003B75"/>
+                    <polygon points="22,7 37,22 22,37 7,22" fill="none" stroke="white" stroke-width="2"/>
+                    <text x="22" y="26" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">XY</text>
+                </svg>
+                <span style="font-size:15px;font-weight:500;color:#191919;white-space:nowrap;">XxxxxZentrum</span>
+            </a>
+            <nav style="flex:1;display:flex;gap:0;list-style:none;height:100%;align-items:stretch;" role="navigation">
+                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Privatpersonen</a>
+                <a href="../../index.html" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#003B75;font-weight:600;text-decoration:none;border-bottom:3px solid #003B75;margin-bottom:-1px;">Firmen</a>
+                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Ratgeber</a>
+                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Über XY</a>
+                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Börsen &amp; Märkte</a>
+            </nav>
+            <a href="../../index.html#kontakt" style="background:#E8611A;color:#fff;border-radius:100px;padding:10px 22px;font-size:15px;font-weight:500;text-decoration:none;white-space:nowrap;margin-left:auto;">Termin vereinbaren</a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div style="background:#fff;border-bottom:1px solid #e8e8e8;padding:10px 0;">
         <div class="article-container">
             <div class="breadcrumb">
-                <a href="../index.html">Startseite</a>
+                <a href="../../index.html">Startseite</a>
                 <span>/</span>
-                <span>Unternehmensnachfolge</span>
+                <a href="../../index.html">Unternehmensnachfolge</a>
                 <span>/</span>
                 <span>Verkauf an externen Käufer</span>
             </div>
         </div>
-    </nav>
+    </div>
 
     <section class="article-hero">
         <div class="article-container">
@@ -243,9 +275,37 @@
         </div>
     </section>
 
-    <footer class="article-footer">
-        <div class="article-container">
-            <p>&copy; 2026 XY VermögensZentrum &nbsp;|&nbsp; <a href="#">Datenschutz</a> &nbsp;|&nbsp; <a href="#">Impressum</a> &nbsp;|&nbsp; <a href="../index.html">Zurück zur Hauptseite</a></p>
+    <!-- VZ FOOTER -->
+    <footer style="background:#002B5C;padding:48px 0 24px;color:rgba(255,255,255,0.8);">
+        <div style="max-width:1200px;margin:0 auto 32px;padding:0 24px;display:flex;align-items:center;gap:12px;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="#004388"/><polygon points="20,5 35,20 20,35 5,20" fill="none" stroke="white" stroke-width="1.8"/><text x="20" y="24" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">XY</text></svg>
+            <span style="font-size:15px;font-weight:600;color:#fff;">XxxxxZentrum</span>
+        </div>
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+            <div>
+                <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Privatpersonen</div>
+                <div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Pensionierung</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Geldanlagen</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Nachlass</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Immobilien</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Steuern</a></div>
+            </div>
+            <div>
+                <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Firmen</div>
+                <div style="font-size:14px;line-height:2.1;"><a href="../../index.html" style="color:#fff;font-weight:600;display:block;text-decoration:none;">Unternehmensnachfolge</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Pensionskasse</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Kadervorsorge</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Versicherungsmanagement</a></div>
+            </div>
+            <div>
+                <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Ratgeber</div>
+                <div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Seminare</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Merkblätter</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Studien</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Videos</a></div>
+            </div>
+            <div>
+                <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Über XY</div>
+                <div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Portrait</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Standorte</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Jobs</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Kontakt</a></div>
+            </div>
+        </div>
+        <div style="max-width:1200px;margin:24px auto 0;padding:16px 24px 0;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);display:flex;gap:16px;flex-wrap:wrap;">
+                <a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Datenschutzerklärung</a>
+                <a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Impressum</a>
+                <a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Rechtliche Hinweise</a>
+            </div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.35);">&copy; 2026 XY XxxxxZentrum AG</div>
         </div>
     </footer>
 
