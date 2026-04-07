@@ -1143,216 +1143,7 @@
             }
         }
 
-        /* =============================================
-           NACHFOLGE-CHECK WIDGET (CSS — modal version)
-        ============================================= */
-        .check-modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .check-modal-box {
-            background: #fff;
-            border-radius: 2px;
-            padding: 40px;
-            max-width: 560px;
-            width: 100%;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        @media(max-width: 600px) { .check-modal-box { padding: 24px 20px; } }
-
-        .check-modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #555;
-            line-height: 1;
-            padding: 4px 8px;
-        }
-
-        .check-modal-close:hover { color: #191919; }
-
-        .check-header {
-            text-align: center;
-            margin-bottom: var(--space-xl);
-        }
-
-        .check-header h3 {
-            font-size: 26px;
-            color: var(--color-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .check-header p {
-            color: var(--color-text-light);
-            font-size: 16px;
-            margin-bottom: 0;
-        }
-
-        .check-widget {
-            max-width: 640px;
-            margin: 0 auto;
-        }
-
-        .check-progress-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--color-text-light);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .check-progress-bar {
-            height: 4px;
-            background-color: var(--color-border);
-            border-radius: 2px;
-            margin-bottom: var(--space-lg);
-            overflow: hidden;
-        }
-
-        .check-progress-fill {
-            height: 100%;
-            background-color: var(--color-accent);
-            border-radius: 2px;
-            transition: width 0.4s ease;
-        }
-
-        .check-question {
-            font-size: 19px;
-            font-weight: 600;
-            color: var(--color-primary);
-            line-height: 1.4;
-            margin-bottom: var(--space-lg);
-        }
-
-        .check-answers {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .check-answer-btn {
-            width: 100%;
-            text-align: left;
-            padding: 14px 20px;
-            background: white;
-            border: 1.5px solid var(--color-border);
-            border-radius: var(--radius-md);
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--color-text);
-            cursor: pointer;
-            transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-            line-height: 1.4;
-        }
-
-        .check-answer-btn:hover {
-            border-color: var(--color-accent);
-            background-color: rgba(0,120,200,0.04);
-            color: var(--color-accent);
-        }
-
-        .check-answer-btn.selected {
-            border-color: var(--color-accent);
-            background-color: rgba(0,120,200,0.08);
-            color: var(--color-accent);
-            font-weight: 600;
-        }
-
-        /* Slide transition */
-        .check-step {
-            animation: slideIn 0.35s ease forwards;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(16px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Result screen */
-        .check-result {
-            text-align: center;
-        }
-
-        .check-result-badge {
-            display: inline-block;
-            background-color: rgba(0,120,200,0.1);
-            color: var(--color-accent);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 6px 16px;
-            border-radius: 100px;
-            margin-bottom: var(--space-sm);
-        }
-
-        .check-result h3 {
-            font-size: 24px;
-            color: var(--color-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .check-result p {
-            color: var(--color-text);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: var(--space-sm);
-        }
-
-        .check-result .result-note {
-            color: var(--color-text-light);
-            font-size: 14px;
-            font-style: italic;
-            margin-bottom: var(--space-md);
-        }
-
-        .check-result-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-md);
-        }
-
-        .check-restart {
-            font-size: 13px;
-            color: var(--color-text-light);
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-decoration: underline;
-            padding: 4px;
-            margin-top: var(--space-xs);
-        }
-
-        .check-restart:hover {
-            color: var(--color-accent);
-        }
-
-        @media (max-width: 680px) {
-            .check-widget {
-                padding: 28px 20px;
-                border-radius: var(--radius-md);
-            }
-            .check-question {
-                font-size: 17px;
-            }
-        }
+        /* Old check widget CSS removed — replaced by .check-modal / .check-q styles below */
 
         /* =============================================
            REFERENZEN (SECTION 4)
@@ -2390,32 +2181,72 @@
         }
 
         /* =============================================
-           COMPACT SZENARIO CARDS
+           NACHFOLGE KARTEN (horizontal)
         ============================================= */
-        .szenario-card {
-            padding: var(--space-md) !important;
-            min-height: 140px;
+        .nachfolge-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-lg);
         }
 
-        .szenario-icon {
-            width: 36px;
-            height: 36px;
-            margin-bottom: var(--space-xs);
+        .nachfolge-card {
+            background-color: white;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--color-border);
+            transition: box-shadow 0.2s, border-color 0.2s;
         }
 
-        .szenario-card h3 {
+        .nachfolge-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-accent);
+        }
+
+        .nachfolge-card h3 {
             font-size: 18px;
+            color: var(--color-primary);
             margin-bottom: var(--space-xs);
         }
 
-        .szenario-card p {
+        .nachfolge-card p {
             font-size: 14px;
-            line-height: 1.4;
+            color: var(--color-text-light);
+            line-height: 1.5;
+            flex: 1;
             margin-bottom: var(--space-sm);
         }
 
-        .szenario-card a {
+        .nachfolge-card-link {
             font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .nachfolge-card-link:hover { text-decoration: underline; }
+
+        .nachfolge-cta-box {
+            background-color: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+            border-left: 4px solid var(--color-accent);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .nachfolge-cta-box p { margin: 0; color: var(--color-text); font-size: 16px; }
+
+        @media (max-width: 900px) {
+            .nachfolge-cards-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+            .nachfolge-cta-box { flex-direction: column; text-align: center; }
         }
 
         /* =============================================
@@ -2453,16 +2284,144 @@
         }
 
         /* =============================================
-           2-STUFIGER KONTAKT-DIALOG
+           NACHFOLGE-CHECK MODAL (7 Fragen)
         ============================================= */
-        .contact-dialog {
+        .check-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 680px;
+            padding: 0;
+            border: none;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            z-index: 10001;
+        }
+
+        .check-modal::backdrop { background-color: rgba(0,0,0,0.55); }
+
+        .check-modal-container {
+            background-color: var(--color-bg);
+            padding: var(--space-lg);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-btn-check {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--color-text-light);
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .check-modal-container h2 { font-size: 22px; margin-bottom: var(--space-xs); padding-right: 40px; }
+
+        .check-subtitle { font-size: 14px; color: var(--color-text-light); margin-bottom: var(--space-md); }
+
+        .check-progress-bar-new {
+            width: 100%;
+            height: 4px;
+            background-color: var(--color-bg-light);
+            border-radius: 4px;
+            margin-bottom: var(--space-xs);
+            overflow: hidden;
+        }
+
+        .check-progress-fill-new {
+            height: 100%;
+            background-color: var(--color-accent);
+            transition: width 0.35s ease;
+        }
+
+        .check-progress-text {
+            font-size: 12px;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-lg);
+        }
+
+        .check-q { display: none; animation: checkFadeIn 0.25s ease; }
+        .check-q.active { display: block; }
+
+        @keyframes checkFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+        .check-q h3 { font-size: 18px; margin-bottom: var(--space-md); color: var(--color-text); font-weight: 600; }
+
+        .check-opts { display: flex; flex-direction: column; gap: 10px; }
+
+        .check-opts label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 12px var(--space-sm);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 15px;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .check-opts label:hover { background-color: var(--color-bg-light); border-color: var(--color-accent); }
+        .check-opts input[type="radio"] { flex-shrink: 0; cursor: pointer; accent-color: var(--color-accent); }
+
+        /* Result view */
+        .check-result-view { text-align: center; padding-top: var(--space-md); }
+        .check-result-icon { font-size: 44px; color: var(--color-success); margin-bottom: var(--space-sm); }
+        .check-result-view h3 { font-size: 22px; margin-bottom: var(--space-sm); }
+        .check-result-view > p { color: var(--color-text); margin-bottom: var(--space-xs); }
+        .check-result-sub { color: var(--color-text-light); font-size: 15px; margin-bottom: var(--space-md); }
+        .check-result-footnote { font-size: 14px; color: var(--color-text-light); margin: var(--space-md) 0; }
+
+        #checkResultOptions { display: grid; gap: var(--space-sm); text-align: left; margin: var(--space-md) 0; }
+
+        .check-result-badge-item {
+            background-color: var(--color-bg-light);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .check-result-badge-item strong { color: var(--color-primary); display: block; margin-bottom: 4px; }
+        .check-result-badge-item p { font-size: 14px; color: var(--color-text-light); margin: 0; }
+
+        .check-result-cta { width: 100%; margin-bottom: var(--space-sm); }
+
+        .check-restart-btn {
+            background: none;
+            border: none;
+            color: var(--color-text-light);
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0;
+            font-family: inherit;
+        }
+
+        @media (max-width: 600px) {
+            .check-modal { width: 96%; }
+            .check-modal-container { padding: var(--space-md); }
+            .check-q h3 { font-size: 16px; }
+        }
+
+        /* =============================================
+           TERMIN-DIALOG (2-stufig)
+        ============================================= */
+        .termin-dialog {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 90%;
             max-width: 600px;
-            max-height: 90vh;
             padding: 0;
             border: none;
             border-radius: var(--radius-lg);
@@ -2471,109 +2430,65 @@
             z-index: 10000;
         }
 
-        .contact-dialog::backdrop {
-            background-color: rgba(0,0,0,0.55);
-        }
+        .termin-dialog::backdrop { background-color: rgba(0,0,0,0.55); }
 
-        .contact-dialog-container {
+        .termin-dialog-container {
             background-color: #E8DCC8;
-            display: flex;
-            flex-direction: column;
             max-height: 90vh;
-        }
-
-        .contact-dialog-header {
+            overflow-y: auto;
             padding: var(--space-lg);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
             position: relative;
         }
 
-        .contact-dialog-header h2 {
-            margin: 0 0 4px 0;
-            font-size: 26px;
-            color: var(--color-text);
-        }
-
-        .contact-dialog-header p {
-            margin: 0;
-            color: var(--color-text-light);
-            font-size: 14px;
-        }
-
-        .contact-dialog-close {
+        .termin-close-btn {
             position: absolute;
-            top: var(--space-lg);
-            right: var(--space-lg);
+            top: var(--space-md);
+            right: var(--space-md);
             background: none;
             border: none;
-            font-size: 22px;
+            font-size: 20px;
             color: #A0734D;
             cursor: pointer;
-            padding: 0;
-            width: 32px;
-            height: 32px;
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .termin-dialog-header { margin-bottom: var(--space-md); padding-right: 40px; }
+        .termin-dialog-header h2 { font-size: 24px; margin: 0 0 4px 0; color: var(--color-text); }
+        .termin-dialog-header p { font-size: 14px; color: var(--color-text-light); margin: 0; }
+
+        .td-stage { display: none; }
+        .td-stage.active { display: block; }
+
+        .termin-dialog-nav {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
+            gap: var(--space-sm);
+            margin-top: var(--space-lg);
         }
 
-        .contact-dialog-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: var(--space-lg);
-        }
-
-        .dialog-stage { display: none; }
-        .dialog-stage.active { display: block; }
-
-        .dialog-stage h3 {
-            font-size: 20px;
+        .td-label {
+            display: block;
             font-weight: 600;
-            color: var(--color-text);
+            font-size: 15px;
             margin-bottom: var(--space-xs);
+            color: var(--color-text);
         }
 
-        .dialog-stage-desc {
-            color: var(--color-text-light);
-            font-size: 14px;
-            margin-bottom: var(--space-md);
-        }
-
-        .checkbox-group {
+        .td-check-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
         }
 
-        .checkbox-group label {
+        .td-check-group label {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            color: var(--color-text);
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .dialog-textarea {
-            width: 100%;
-            min-height: 90px;
-            padding: var(--space-sm);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
+            gap: 8px;
             font-size: 15px;
-            resize: vertical;
-            background: rgba(255,255,255,0.7);
+            cursor: pointer;
         }
 
+        /* Shared form helpers (used by both dialogs) */
         .dialog-input {
             width: 100%;
             padding: 10px var(--space-sm);
@@ -2584,27 +2499,21 @@
             background: rgba(255,255,255,0.7);
         }
 
+        .dialog-textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: var(--space-sm);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 15px;
+            resize: vertical;
+            background: rgba(255,255,255,0.7);
+        }
+
         .dialog-input:focus, .dialog-textarea:focus {
             outline: 2px solid var(--color-accent);
             outline-offset: 0;
-        }
-
-        .dialog-form-grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-sm);
-        }
-
-        .dialog-form-grid-3-1 {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: var(--space-sm);
-        }
-
-        .dialog-form-grid-1-2 {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: var(--space-sm);
         }
 
         .dialog-infobox {
@@ -2613,14 +2522,6 @@
             border-radius: var(--radius-md);
             font-size: 14px;
             color: var(--color-text);
-        }
-
-        .contact-dialog-footer {
-            padding: var(--space-md) var(--space-lg);
-            border-top: 1px solid rgba(0,0,0,0.1);
-            display: flex;
-            gap: var(--space-sm);
-            justify-content: flex-end;
         }
 
         .dialog-anrede-row {
@@ -2636,16 +2537,20 @@
             gap: 6px;
             font-size: 15px;
             cursor: pointer;
+            font-weight: normal;
         }
 
+        .dialog-form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+        .dialog-form-grid-3-1 { display: grid; grid-template-columns: 3fr 1fr; gap: var(--space-sm); }
+        .dialog-form-grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-sm); }
+
         @media (max-width: 600px) {
-            .contact-dialog { width: 96%; max-height: 96vh; }
-            .contact-dialog-header { padding: var(--space-md); }
-            .contact-dialog-content { padding: var(--space-md); }
-            .contact-dialog-footer { padding: var(--space-sm) var(--space-md); }
+            .termin-dialog { width: 96%; }
+            .termin-dialog-container { padding: var(--space-md); }
             .dialog-form-grid-2,
             .dialog-form-grid-3-1,
             .dialog-form-grid-1-2 { grid-template-columns: 1fr; }
+            .termin-dialog-nav { flex-direction: column; }
         }
     </style>
 </head>
@@ -2950,55 +2855,38 @@
     </section>
 
     <!-- SECTION 3: Nachfolge-Wege -->
-    <section id="szenarien">
+    <section id="szenarien" class="bg-light">
         <div class="container">
             <div class="section-header reveal">
                 <h2>Welche Nachfolge passt zu Ihnen?</h2>
             </div>
-            <div class="szenarien-grid reveal-group">
-                <!-- Karte 1 -->
-                <div class="szenario-card reveal">
-                    <svg class="szenario-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M8 42V22L24 8L40 22V42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M18 42V30H30V42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="34" cy="18" r="5" stroke="currentColor" stroke-width="2" fill="none"/>
-                        <path d="M28 32 Q28 25 34 25 Q40 25 40 32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </svg>
+
+            <!-- Horizontales 3-Spalten-Layout -->
+            <div class="nachfolge-cards-grid reveal-group">
+                <!-- Card 1 -->
+                <div class="nachfolge-card reveal">
                     <h3>Familieninterne Nachfolge</h3>
-                    <p>Der Generationenwechsel birgt Chancen und Risiken. Wir sorgen für Fairness und einen reibungslosen Übergang.</p>
-                    <a href="unternehmensnachfolge/familieninterne-nachfolge.html" class="szenario-more">Mehr erfahren →</a>
+                    <p>Der Generationenwechsel in der Familie mit klaren Strukturen und fairer Gleichstellung aller Beteiligten.</p>
+                    <a href="unternehmensnachfolge/familieninterne-nachfolge.html" class="nachfolge-card-link">Mehr erfahren →</a>
                 </div>
-                <!-- Karte 2 -->
-                <div class="szenario-card reveal">
-                    <svg class="szenario-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <circle cx="18" cy="14" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
-                        <path d="M6 40 Q6 28 18 28 Q30 28 30 40" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        <circle cx="34" cy="16" r="5" stroke="currentColor" stroke-width="2" fill="none"/>
-                        <path d="M28 40 Q28 30 34 30 Q42 30 42 40" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    </svg>
+                <!-- Card 2 -->
+                <div class="nachfolge-card reveal">
                     <h3>Management Buy Out (MBO)</h3>
-                    <p>Eine Übergabe an vertraute Personen schafft Kontinuität. Wir strukturieren Finanzierung und begleiten beide Seiten.</p>
-                    <a href="unternehmensnachfolge/management-buy-out.html" class="szenario-more">Mehr erfahren →</a>
+                    <p>Mitarbeitende übernehmen die Firma — mit Knowhow-Transfer, Finanzierung und maximaler Kontinuität.</p>
+                    <a href="unternehmensnachfolge/management-buy-out.html" class="nachfolge-card-link">Mehr erfahren →</a>
                 </div>
-                <!-- Karte 3 -->
-                <div class="szenario-card reveal">
-                    <svg class="szenario-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M6 28 L14 20 L20 26 L32 14 L42 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M16 36 Q16 30 22 30 L28 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                        <path d="M28 26 L28 34 L36 34 L36 26 Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
-                        <path d="M28 30 L36 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="22" cy="38" r="2.5" fill="currentColor"/>
-                        <circle cx="32" cy="38" r="2.5" fill="currentColor"/>
-                    </svg>
+                <!-- Card 3 -->
+                <div class="nachfolge-card reveal">
                     <h3>Verkauf an externen Käufer</h3>
-                    <p>Mit breitem Käufernetzwerk und 200+ abgeschlossenen Projekten finden wir den richtigen Partner für Ihr Unternehmen.</p>
-                    <a href="unternehmensnachfolge/firmenverkauf.html" class="szenario-more">Mehr erfahren →</a>
+                    <p>Zugang zu Käufer-Netzwerk und bestmöglichem Preis — strukturiert, diskret und professionell begleitet.</p>
+                    <a href="unternehmensnachfolge/firmenverkauf.html" class="nachfolge-card-link">Mehr erfahren →</a>
                 </div>
             </div>
-            <!-- Nachfolge-Check Trigger Box -->
-            <div class="check-trigger-box reveal">
-                <p>Unsicher welcher Weg der richtige ist? In 2 Minuten wissen Sie mehr.</p>
-                <button class="btn btn-secondary" onclick="openCheckModal()">Nachfolge-Check starten →</button>
+
+            <!-- CTA Box -->
+            <div class="nachfolge-cta-box reveal">
+                <p><strong>Unsicher welcher Weg der richtige ist?</strong> In 3 Minuten wissen Sie mehr.</p>
+                <button class="btn btn-primary" onclick="openCheckModal()">Nachfolge-Check starten →</button>
             </div>
         </div>
     </section>
@@ -3651,100 +3539,204 @@
         </div>
     </section>
 
-    <!-- NACHFOLGE-CHECK MODAL -->
-    <div id="check-modal-overlay" class="check-modal-overlay" role="dialog" aria-modal="true" aria-label="Nachfolge-Check" style="display:none;">
-        <div class="check-modal-box">
-            <button class="check-modal-close" id="check-modal-close" aria-label="Modal schliessen">&times;</button>
-            <div class="check-header">
-                <h3>Nachfolge-Check: Welcher Weg passt zu Ihnen?</h3>
-                <p>5 kurze Fragen – Ihre persönliche Ersteinschätzung in 2 Minuten.</p>
-            </div>
-            <div class="check-widget" role="form" aria-label="Nachfolge-Check">
-                <div class="check-progress-label" id="check-progress-label">Frage 1 von 5</div>
-                <div class="check-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1">
-                    <div class="check-progress-fill" id="check-progress-fill" style="width: 20%"></div>
-                </div>
-                <div id="check-steps-container"></div>
-            </div>
+    <!-- NACHFOLGE-CHECK MODAL (7 Fragen) -->
+    <dialog id="checkModal" class="check-modal" aria-label="Nachfolge-Check">
+      <div class="check-modal-container">
+        <button class="close-btn-check" onclick="closeCheckModal()" aria-label="Modal schliessen">&#10005;</button>
+        <h2>Nachfolge-Check: Welcher Weg passt zu Ihnen?</h2>
+        <p class="check-subtitle">7 Fragen – Ihre persönliche Ersteinschätzung in 3 Minuten.</p>
+
+        <div class="check-progress-bar-new">
+          <div class="check-progress-fill-new" id="checkProgressFill" style="width:14.28%"></div>
         </div>
-    </div>
+        <p class="check-progress-text"><span id="checkCurrentQ">1</span> / 7</p>
+
+        <div id="checkQuestions">
+
+          <div class="check-q active" id="cq1">
+            <h3>1. Hat jemand in Ihrer Familie Interesse und Fähigkeiten, die Firma zu übernehmen?</h3>
+            <div class="check-opts">
+              <label><input type="radio" name="cq1" value="ja_family" onchange="recordCheckAnswer('cq1','ja_family'); advanceCheck(2);"> Ja, ein Kind oder Nachkomme</label>
+              <label><input type="radio" name="cq1" value="nein_family" onchange="recordCheckAnswer('cq1','nein_family'); advanceCheck(2);"> Nein, keiner hat Interesse</label>
+              <label><input type="radio" name="cq1" value="unsicher_family" onchange="recordCheckAnswer('cq1','unsicher_family'); advanceCheck(2);"> Unsicher / Noch nicht geklärt</label>
+            </div>
+          </div>
+
+          <div class="check-q" id="cq2">
+            <h3>2. Wie wichtig ist es für Sie, dass Mitarbeitende die Firma übernehmen können?</h3>
+            <div class="check-opts">
+              <label><input type="radio" name="cq2" value="sehr_wichtig" onchange="recordCheckAnswer('cq2','sehr_wichtig'); advanceCheck(3);"> Sehr wichtig – ich möchte mein Team bewahren</label>
+              <label><input type="radio" name="cq2" value="nice_to_have" onchange="recordCheckAnswer('cq2','nice_to_have'); advanceCheck(3);"> Schön wärs, aber nicht zwingend</label>
+              <label><input type="radio" name="cq2" value="nicht_wichtig" onchange="recordCheckAnswer('cq2','nicht_wichtig'); advanceCheck(3);"> Nicht wichtig – bestmöglicher Preis ist Priorität</label>
+            </div>
+          </div>
+
+          <div class="check-q" id="cq3">
+            <h3>3. Sind Sie finanziell auf einen Verkaufserlös angewiesen?</h3>
+            <div class="check-opts">
+              <label><input type="radio" name="cq3" value="ja_fin" onchange="recordCheckAnswer('cq3','ja_fin'); advanceCheck(4);"> Ja, der Verkaufserlös ist essentiell für meine Rente</label>
+              <label><input type="radio" name="cq3" value="teilweise" onchange="recordCheckAnswer('cq3','teilweise'); advanceCheck(4);"> Teilweise – ein guter Erlös ist wichtig, aber nicht existenziell</label>
+              <label><input type="radio" name="cq3" value="nein_fin" onchange="recordCheckAnswer('cq3','nein_fin'); advanceCheck(4);"> Nein, ich bin nicht darauf angewiesen</label>
+            </div>
+          </div>
+
+          <div class="check-q" id="cq4">
+            <h3>4. In welchem Zeitrahmen möchten Sie die Nachfolge regeln?</h3>
+            <div class="check-opts">
+              <label><input type="radio" name="cq4" value="1j" onchange="recordCheckAnswer('cq4','1j'); advanceCheck(5);"> Schnell – innert 1–2 Jahren</label>
+              <label><input type="radio" name="cq4" value="3j" onchange="recordCheckAnswer('cq4','3j'); advanceCheck(5);"> Mittelfristig – 2–4 Jahre</label>
+              <label><input type="radio" name="cq4" value="5j" onchange="recordCheckAnswer('cq4','5j'); advanceCheck(5);"> Langfristig – 5+ Jahre</label>
+            </div>
+          </div>
+
+          <div class="check-q" id="cq5">
+            <h3>5. Wie ist Ihre aktuelle Situation?</h3>
+            <div class="check-opts">
+              <label><input type="radio" name="cq5" value="planmaessig" onchange="recordCheckAnswer('cq5','planmaessig'); advanceCheck(6);"> Ich plane vorausschauend – noch viel Zeit</label>
+              <label><input type="radio" name="cq5" value="pensionsalter" onchange="recordCheckAnswer('cq5','pensionsalter'); advanceCheck(6);"> Ich bin im Pensionsalter, aber noch aktiv</label>
+              <label><input type="radio" name="cq5" value="druck" onchange="recordCheckAnswer('cq5','druck'); advanceCheck(6);"> Ich bin unter Druck und brauche eine schnelle Lösung</label>
+            </div>
+          </div>
+
+          <div class="check-q" id="cq6">
+            <h3>6. Welche Branche / welcher Unternehmenstyp?</h3>
+            <div class="check-opts">
+              <label><input type="radio" name="cq6" value="handwerk" onchange="recordCheckAnswer('cq6','handwerk'); advanceCheck(7);"> Handwerk / Bau / Dienstleistung</label>
+              <label><input type="radio" name="cq6" value="handel" onchange="recordCheckAnswer('cq6','handel'); advanceCheck(7);"> Handel / Detailhandel / E-Commerce</label>
+              <label><input type="radio" name="cq6" value="industrie" onchange="recordCheckAnswer('cq6','industrie'); advanceCheck(7);"> Produktion / Industrie / Manufaktur</label>
+              <label><input type="radio" name="cq6" value="sonstig" onchange="recordCheckAnswer('cq6','sonstig'); advanceCheck(7);"> Sonstiges</label>
+            </div>
+          </div>
+
+          <div class="check-q" id="cq7">
+            <h3>7. Was ist heute Ihre grösste Herausforderung in der Nachfolgeplanung?</h3>
+            <div class="check-opts">
+              <label><input type="radio" name="cq7" value="wissen" onchange="recordCheckAnswer('cq7','wissen'); showCheckResult();"> Ich weiss nicht, wo ich anfangen soll</label>
+              <label><input type="radio" name="cq7" value="preis" onchange="recordCheckAnswer('cq7','preis'); showCheckResult();"> Den richtigen Preis festlegen / Wertermittlung</label>
+              <label><input type="radio" name="cq7" value="kaeufer" onchange="recordCheckAnswer('cq7','kaeufer'); showCheckResult();"> Einen passenden Nachfolger/Käufer finden</label>
+              <label><input type="radio" name="cq7" value="steuern" onchange="recordCheckAnswer('cq7','steuern'); showCheckResult();"> Steuerliche / rechtliche Optimierung</label>
+              <label><input type="radio" name="cq7" value="familie_gl" onchange="recordCheckAnswer('cq7','familie_gl'); showCheckResult();"> Familie / Gleichstellung Geschwister</label>
+            </div>
+          </div>
+
+        </div><!-- #checkQuestions -->
+
+        <!-- Ergebnis -->
+        <div class="check-result-view" id="checkResultView" style="display:none;">
+          <div class="check-result-icon">&#10003;</div>
+          <h3>Ihre Ersteinschätzung</h3>
+          <p><strong>Gute Nachricht:</strong> Egal welche Nachfolgeart — alle Optionen sind für Sie machbar!</p>
+          <p class="check-result-sub">Basierend auf Ihren Antworten passen folgende Modelle besonders gut zu Ihrer Situation:</p>
+          <div id="checkResultOptions"></div>
+          <p class="check-result-footnote">Der nächste Schritt: <strong>Gemeinsame Auslegeordnung</strong> mit unseren Experten. Wir schauen uns alle Optionen an und entwickeln die beste Strategie.</p>
+          <button class="btn btn-primary check-result-cta" onclick="openTerminDialogFromCheck()">Zum Erstgespräch →</button>
+          <button class="check-restart-btn" onclick="resetCheckModal()">Erneut starten</button>
+        </div>
+
+      </div>
+    </dialog>
 
     <!-- Mobile CTA Bar (nur Mobile) -->
     <div class="mobile-cta-bar">
         <a href="#kontakt">Termin vereinbaren</a>
     </div>
 
-    <!-- 2-STUFIGER KONTAKT-DIALOG -->
-    <dialog id="contactDialog" class="contact-dialog">
-      <div class="contact-dialog-container">
-        <div class="contact-dialog-header">
-          <h2 id="dialogTitle">Haben Sie Fragen?</h2>
-          <p id="dialogSubtitle">Vereinbaren Sie einen Termin. Das erste Gespräch ist kostenlos.</p>
-          <button class="contact-dialog-close" onclick="closeContactDialog()" aria-label="Dialog schliessen">&#10005;</button>
-        </div>
+    <!-- TERMIN-DIALOG (2-stufig) -->
+    <dialog id="terminDialog" class="termin-dialog" aria-label="Termin vereinbaren">
+      <div class="termin-dialog-container">
+        <button class="termin-close-btn" onclick="closeTerminDialog()" aria-label="Dialog schliessen">&#10005;</button>
 
-        <div class="contact-dialog-content">
-          <!-- STUFE 1: Thema + Nachricht -->
-          <div id="cdStage1" class="dialog-stage">
-            <h3>Thema auswählen</h3>
-            <p class="dialog-stage-desc">Wählen Sie die für Sie relevanten Themen aus. So können wir Sie gezielt unterstützen.</p>
-            <div class="checkbox-group">
-              <label><input type="checkbox" name="cdTopic" value="Nachfolgeplanung"> Nachfolgeplanung</label>
-              <label><input type="checkbox" name="cdTopic" value="Unternehmensbewertung"> Unternehmensbewertung</label>
-              <label><input type="checkbox" name="cdTopic" value="Finanzierung"> Finanzierung der Nachfolge</label>
-              <label><input type="checkbox" name="cdTopic" value="Steueroptimierung"> Steueroptimierung</label>
-              <label><input type="checkbox" name="cdTopic" value="Nachlass"> Nachlass &amp; Familie</label>
-              <label><input type="checkbox" name="cdTopic" value="Sonstiges"> Sonstiges</label>
-            </div>
-            <div style="margin-top: var(--space-lg);">
-              <label style="display:block; font-weight:600; margin-bottom:6px;">Ihre Mitteilung</label>
-              <p class="dialog-stage-desc" style="margin-bottom:8px;">Schildern Sie uns Ihre Situation oder Wünsche, damit wir das richtige Beratungsteam für Sie zusammenstellen können.</p>
-              <textarea id="cdMessage" class="dialog-textarea" placeholder="Beschreiben Sie kurz Ihre Situation..."></textarea>
-            </div>
+        <!-- STUFE 1: Persönliche Daten -->
+        <div id="tdStage1" class="td-stage active">
+          <div class="termin-dialog-header">
+            <h2>Haben Sie Fragen?</h2>
+            <p>Vereinbaren Sie einen Termin. Das erste Gespräch ist kostenlos.</p>
           </div>
-
-          <!-- STUFE 2: Persönliche Angaben -->
-          <div id="cdStage2" class="dialog-stage">
-            <h3>Persönliche Angaben</h3>
-            <p class="dialog-stage-desc">Bitte alle Felder ausfüllen.</p>
-            <form id="cdForm" novalidate style="display:grid; gap:var(--space-sm);">
-              <div class="dialog-anrede-row">
-                <span style="font-weight:600;">Anrede</span>
-                <label><input type="radio" name="cdSalutation" value="Frau"> Frau</label>
-                <label><input type="radio" name="cdSalutation" value="Herr"> Herr</label>
-              </div>
-              <div class="dialog-form-grid-2">
-                <input type="text" class="dialog-input" placeholder="Vorname *" name="cdFirstName" required>
-                <input type="text" class="dialog-input" placeholder="Nachname *" name="cdLastName" required>
-              </div>
-              <div class="dialog-form-grid-3-1">
-                <input type="text" class="dialog-input" placeholder="Strasse *" name="cdStreet" required>
-                <input type="text" class="dialog-input" placeholder="Nr. *" name="cdStreetNr" required>
-              </div>
-              <div class="dialog-form-grid-1-2">
-                <input type="text" class="dialog-input" placeholder="PLZ *" name="cdZip" required>
-                <input type="text" class="dialog-input" placeholder="Ort *" name="cdCity" required>
-              </div>
-              <div class="dialog-form-grid-2">
-                <input type="tel" class="dialog-input" placeholder="Telefon *" name="cdPhone" required>
-                <input type="email" class="dialog-input" placeholder="E-Mail *" name="cdEmail" required>
-              </div>
-              <div class="dialog-infobox">
-                Wir rufen Sie an, um einen Termin in einer Niederlassung in Ihrer Nähe zu vereinbaren.
-              </div>
-              <label style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
-                <input type="checkbox" name="cdConsent" required style="margin-top:3px; flex-shrink:0;">
-                <span>Ich bestätige, dass ich die <a href="#" style="text-decoration:underline;">Rechtlichen Hinweise</a> und die <a href="#" style="text-decoration:underline;">Datenschutzerklärung</a> gelesen und verstanden habe.</span>
-              </label>
-              <input type="hidden" id="cdCheckResult" name="cdCheckResult" value="">
-            </form>
+          <form id="tdForm1" novalidate style="display:grid; gap:var(--space-sm);">
+            <div class="dialog-anrede-row">
+              <span style="font-weight:600;">Anrede</span>
+              <label><input type="radio" name="tdSalutation" value="Frau"> Frau</label>
+              <label><input type="radio" name="tdSalutation" value="Herr"> Herr</label>
+            </div>
+            <div class="dialog-form-grid-2">
+              <input type="text" class="dialog-input" placeholder="Vorname *" name="tdFirstName" required>
+              <input type="text" class="dialog-input" placeholder="Nachname *" name="tdLastName" required>
+            </div>
+            <div class="dialog-form-grid-3-1">
+              <input type="text" class="dialog-input" placeholder="Strasse *" name="tdStreet" required>
+              <input type="text" class="dialog-input" placeholder="Nr. *" name="tdStreetNr" required>
+            </div>
+            <div class="dialog-form-grid-1-2">
+              <input type="text" class="dialog-input" placeholder="PLZ *" name="tdZip" required>
+              <input type="text" class="dialog-input" placeholder="Ort *" name="tdCity" required>
+            </div>
+            <div class="dialog-form-grid-2">
+              <input type="tel" class="dialog-input" placeholder="Telefon *" name="tdPhone" required>
+              <input type="email" class="dialog-input" placeholder="E-Mail *" name="tdEmail" required>
+            </div>
+            <div class="dialog-infobox">Wir rufen Sie an, um einen Termin in einer Niederlassung in Ihrer Nähe zu vereinbaren.</div>
+            <label style="display:flex; gap:10px; align-items:flex-start; font-size:14px;">
+              <input type="checkbox" name="tdConsent" required style="margin-top:3px; flex-shrink:0;">
+              <span>Ich bestätige, dass ich die <a href="#" style="text-decoration:underline;">Rechtlichen Hinweise</a> und die <a href="#" style="text-decoration:underline;">Datenschutzerklärung</a> gelesen und verstanden habe.</span>
+            </label>
+            <input type="hidden" id="tdCheckAnswers" name="tdCheckAnswers" value="">
+          </form>
+          <div class="termin-dialog-nav">
+            <button class="btn btn-secondary" onclick="closeTerminDialog()">Abbrechen</button>
+            <button class="btn btn-primary" onclick="tdStage1Next()" style="flex:1;">Weiter &#8594;</button>
           </div>
         </div>
 
-        <div class="contact-dialog-footer">
-          <button class="btn btn-secondary" id="cdPrevBtn" onclick="cdPreviousStage()" style="display:none;">&#8592; Zurück</button>
-          <button class="btn btn-primary" id="cdNextBtn" onclick="cdNextStage()">Weiter &#8594;</button>
+        <!-- STUFE 2: Freiwillige Zusatzinfos -->
+        <div id="tdStage2" class="td-stage">
+          <div class="termin-dialog-header">
+            <h2>Noch ein paar Infos?</h2>
+            <p>Freiwillig — damit wir Sie noch besser unterstützen können.</p>
+          </div>
+          <form id="tdForm2" style="display:grid; gap:var(--space-md);">
+            <div>
+              <label class="td-label">Welche Nachfolgeart interessiert Sie am meisten?</label>
+              <div class="td-check-group">
+                <label><input type="checkbox" name="tdSuccessorType" value="FBO"> Familieninterne Nachfolge (FBO)</label>
+                <label><input type="checkbox" name="tdSuccessorType" value="MBO"> Management Buy Out (MBO)</label>
+                <label><input type="checkbox" name="tdSuccessorType" value="Extern"> Verkauf an externen Käufer</label>
+                <label><input type="checkbox" name="tdSuccessorType" value="Unsicher"> Noch unsicher</label>
+              </div>
+            </div>
+            <div>
+              <label class="td-label">In welchem Zeitrahmen?</label>
+              <div class="td-check-group">
+                <label><input type="radio" name="tdTimeline" value="1j"> Innert 1–2 Jahren</label>
+                <label><input type="radio" name="tdTimeline" value="3j"> 2–4 Jahre</label>
+                <label><input type="radio" name="tdTimeline" value="5j"> 4–5 Jahre</label>
+                <label><input type="radio" name="tdTimeline" value="spaeter"> Später / Noch offen</label>
+              </div>
+            </div>
+            <div class="dialog-form-grid-2">
+              <div>
+                <label class="td-label">Mitarbeitende</label>
+                <input type="number" class="dialog-input" placeholder="Anzahl" name="tdEmployees" min="1">
+              </div>
+              <div>
+                <label class="td-label">Umsatz (CHF)</label>
+                <input type="text" class="dialog-input" placeholder="z.B. 2–5 Mio." name="tdRevenue">
+              </div>
+            </div>
+            <div>
+              <label class="td-label">Branche / Unternehmenstyp</label>
+              <input type="text" class="dialog-input" placeholder="z.B. Handwerk, Handel, Dienstleistung…" name="tdIndustry">
+            </div>
+            <div>
+              <label class="td-label">Grösste Herausforderung (optional)</label>
+              <textarea class="dialog-textarea" name="tdChallenge" placeholder="Schildern Sie kurz, wo Sie aktuell Unterstützung brauchen…"></textarea>
+            </div>
+          </form>
+          <div class="termin-dialog-nav">
+            <button class="btn btn-secondary" onclick="tdStage2Back()" style="flex:1;">&#8592; Zurück</button>
+            <button class="btn btn-primary" onclick="tdSubmit()" style="flex:1;">Absenden</button>
+          </div>
         </div>
+
       </div>
     </dialog>
 
@@ -3924,27 +3916,11 @@
             });
         });
 
-        // NACHFOLGE-CHECK MODAL
-        const checkModalOverlay = document.getElementById('check-modal-overlay');
-        const checkModalClose = document.getElementById('check-modal-close');
-        if (checkModalClose) {
-            checkModalClose.addEventListener('click', () => {
-                checkModalOverlay.style.display = 'none';
-                document.body.style.overflow = '';
-            });
-        }
-        if (checkModalOverlay) {
-            checkModalOverlay.addEventListener('click', (e) => {
-                if (e.target === checkModalOverlay) {
-                    checkModalOverlay.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && checkModalOverlay.style.display === 'flex') {
-                    checkModalOverlay.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
+        // Check modal backdrop click
+        const checkModalEl = document.getElementById('checkModal');
+        if (checkModalEl) {
+            checkModalEl.addEventListener('click', function(e) {
+                if (e.target === this) closeCheckModal();
             });
         }
 
@@ -4170,241 +4146,138 @@
         })();
 
         // =============================================
-        // NACHFOLGE-CHECK WIDGET
+        // NACHFOLGE-CHECK (7 Fragen)
         // =============================================
-        (function() {
-            const questions = [
-                {
-                    text: 'Gibt es in Ihrer Familie jemanden, der die Firma übernehmen könnte und möchte?',
-                    answers: [
-                        { label: 'Ja',       scores: { fbo: 3, mbo: 0, ext: 0 } },
-                        { label: 'Nein',     scores: { fbo: 0, mbo: 1, ext: 2 } },
-                        { label: 'Unsicher', scores: { fbo: 1, mbo: 1, ext: 1 } }
-                    ]
-                },
-                {
-                    text: 'Haben Sie Führungskräfte im Unternehmen, die als Nachfolger in Frage kämen?',
-                    answers: [
-                        { label: 'Ja',       scores: { fbo: 0, mbo: 3, ext: 0 } },
-                        { label: 'Nein',     scores: { fbo: 1, mbo: 0, ext: 2 } },
-                        { label: 'Unsicher', scores: { fbo: 0, mbo: 1, ext: 1 } }
-                    ]
-                },
-                {
-                    text: 'Wie wichtig ist es Ihnen, dass der Firmenname und die Unternehmenskultur erhalten bleiben?',
-                    answers: [
-                        { label: 'Sehr wichtig',     scores: { fbo: 2, mbo: 2, ext: 0 } },
-                        { label: 'Wichtig',          scores: { fbo: 1, mbo: 1, ext: 1 } },
-                        { label: 'Weniger wichtig',  scores: { fbo: 0, mbo: 0, ext: 2 } }
-                    ]
-                },
-                {
-                    text: 'In welchem Zeithorizont planen Sie die Übergabe?',
-                    answers: [
-                        { label: 'Innerhalb von 2 Jahren', scores: { fbo: 1, mbo: 1, ext: 2 } },
-                        { label: '3–5 Jahre',              scores: { fbo: 2, mbo: 2, ext: 1 } },
-                        { label: '5+ Jahre',               scores: { fbo: 2, mbo: 1, ext: 0 } },
-                        { label: 'Noch unklar',            scores: { fbo: 1, mbo: 1, ext: 1 } }
-                    ]
-                },
-                {
-                    text: 'Was ist Ihnen beim Verkauf am wichtigsten?',
-                    answers: [
-                        { label: 'Bestmöglicher Preis',             scores: { fbo: 0, mbo: 0, ext: 3 } },
-                        { label: 'Fortbestand des Unternehmens',    scores: { fbo: 2, mbo: 2, ext: 0 } },
-                        { label: 'Sicherheit für Mitarbeitende',    scores: { fbo: 1, mbo: 2, ext: 1 } },
-                        { label: 'Alles gleichermassen',            scores: { fbo: 1, mbo: 1, ext: 1 } }
-                    ]
-                }
-            ];
+        let checkAnswers = {};
 
-            const results = {
-                fbo: {
-                    title: 'Familieninterne Nachfolge empfohlen',
-                    text: 'Basierend auf Ihren Antworten deutet viel auf eine familieninterne Übergabe hin. Diese Option bietet Kontinuität und schützt das Lebenswerk – erfordert aber sorgfältige Planung und klare Strukturen für alle Beteiligten.',
-                    note: 'Im kostenlosen Erstgespräch vertiefen wir Ihre persönliche Situation und klären die nächsten konkreten Schritte.'
-                },
-                mbo: {
-                    title: 'Management Buy Out (MBO) empfohlen',
-                    text: 'Ihre Antworten legen nahe, dass eine Übergabe an das bestehende Management eine gute Option sein könnte. Dieser Weg schafft Kontinuität und belohnt langjährige Mitarbeitende – die Finanzierungsstruktur ist der entscheidende Erfolgsfaktor.',
-                    note: 'Im kostenlosen Erstgespräch vertiefen wir Ihre persönliche Situation und klären die nächsten konkreten Schritte.'
-                },
-                ext: {
-                    title: 'Verkauf an externen Käufer empfohlen',
-                    text: 'Basierend auf Ihren Angaben ist ein Verkauf an einen externen Käufer der wahrscheinlich passendste Weg. Mit unserem Netzwerk und 200+ abgeschlossenen Projekten finden wir den richtigen Partner für Ihr Unternehmen.',
-                    note: 'Im kostenlosen Erstgespräch vertiefen wir Ihre persönliche Situation und klären die nächsten konkreten Schritte.'
-                }
-            };
+        function recordCheckAnswer(qId, value) {
+            checkAnswers[qId] = value;
+        }
 
-            let currentStep = 0;
-            let scores = { fbo: 0, mbo: 0, ext: 0 };
-            const container = document.getElementById('check-steps-container');
-            const progressLabel = document.getElementById('check-progress-label');
-            const progressFill = document.getElementById('check-progress-fill');
-            const progressBar = progressFill ? progressFill.closest('[role="progressbar"]') : null;
+        function advanceCheck(nextQNum) {
+            // Hide all questions
+            document.querySelectorAll('.check-q').forEach(q => q.classList.remove('active'));
+            const next = document.getElementById('cq' + nextQNum);
+            if (next) {
+                next.classList.add('active');
+                const pct = Math.round((nextQNum / 7) * 100);
+                document.getElementById('checkProgressFill').style.width = pct + '%';
+                document.getElementById('checkCurrentQ').textContent = nextQNum;
+            }
+        }
 
-            if (!container) return;
+        function showCheckResult() {
+            document.getElementById('checkQuestions').style.display = 'none';
+            document.getElementById('checkProgressFill').style.width = '100%';
+            document.getElementById('checkCurrentQ').textContent = '7';
 
-            function renderQuestion(index) {
-                const q = questions[index];
-                const step = document.createElement('div');
-                step.className = 'check-step';
+            // Determine which badges to show
+            const a = checkAnswers;
+            let badges = [];
 
-                const answersHTML = q.answers.map((a, i) =>
-                    `<button class="check-answer-btn" data-index="${i}">${a.label}</button>`
-                ).join('');
-
-                step.innerHTML = `
-                    <p class="check-question">${q.text}</p>
-                    <div class="check-answers">${answersHTML}</div>
-                `;
-
-                container.innerHTML = '';
-                container.appendChild(step);
-
-                const stepNum = index + 1;
-                if (progressLabel) progressLabel.textContent = `Frage ${stepNum} von ${questions.length}`;
-                if (progressFill) progressFill.style.width = `${(stepNum / questions.length) * 100}%`;
-                if (progressBar) {
-                    progressBar.setAttribute('aria-valuenow', stepNum);
-                }
-
-                step.querySelectorAll('.check-answer-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        step.querySelectorAll('.check-answer-btn').forEach(b => b.classList.remove('selected'));
-                        this.classList.add('selected');
-                        const answerIndex = parseInt(this.dataset.index, 10);
-                        const answer = q.answers[answerIndex];
-                        scores.fbo += answer.scores.fbo;
-                        scores.mbo += answer.scores.mbo;
-                        scores.ext += answer.scores.ext;
-
-                        setTimeout(() => {
-                            if (currentStep < questions.length - 1) {
-                                currentStep++;
-                                renderQuestion(currentStep);
-                            } else {
-                                renderResult();
-                            }
-                        }, 300);
-                    });
+            if (a.cq1 === 'ja_family' || a.cq1 === 'unsicher_family') {
+                badges.push({
+                    title: 'Familieninterne Nachfolge (FBO)',
+                    desc: 'Ein Familienmitglied kann die Firma übernehmen — mit klaren Strukturen und fairer Gleichstellung.'
+                });
+            }
+            if (a.cq2 === 'sehr_wichtig' || a.cq2 === 'nice_to_have') {
+                badges.push({
+                    title: 'Management Buy Out (MBO)',
+                    desc: 'Ihre Führungskräfte kennen das Unternehmen — maximale Kontinuität für Team und Kunden.'
+                });
+            }
+            if (a.cq3 === 'ja_fin' || a.cq3 === 'teilweise' || a.cq2 === 'nicht_wichtig') {
+                badges.push({
+                    title: 'Verkauf an externen Käufer',
+                    desc: 'Zugang zu unserem Käufer-Netzwerk für bestmöglichen Erlös — strukturiert und diskret.'
+                });
+            }
+            if (badges.length === 0) {
+                badges.push({
+                    title: 'Alle Optionen sind machbar',
+                    desc: 'Lassen Sie uns in einem Gespräch gemeinsam evaluieren, welche Option am besten zu Ihnen passt.'
                 });
             }
 
-            function renderResult() {
-                let winner = 'ext';
-                if (scores.fbo > scores.mbo && scores.fbo > scores.ext) winner = 'fbo';
-                else if (scores.mbo > scores.fbo && scores.mbo > scores.ext) winner = 'mbo';
+            const optionsEl = document.getElementById('checkResultOptions');
+            optionsEl.innerHTML = badges.map(b => `
+                <div class="check-result-badge-item">
+                    <strong>${b.title}</strong>
+                    <p>${b.desc}</p>
+                </div>
+            `).join('');
 
-                const res = results[winner];
+            // Save to localStorage for termin dialog
+            try { localStorage.setItem('checkAnswers', JSON.stringify(checkAnswers)); } catch(e) {}
 
-                if (progressLabel) progressLabel.textContent = 'Ihr Ergebnis';
-                if (progressFill) progressFill.style.width = '100%';
-                if (progressBar) progressBar.setAttribute('aria-valuenow', 5);
+            document.getElementById('checkResultView').style.display = 'block';
+        }
 
-                const step = document.createElement('div');
-                step.className = 'check-step check-result';
-                step.innerHTML = `
-                    <div class="check-result-badge">Ihre Empfehlung</div>
-                    <h3>${res.title}</h3>
-                    <p>${res.text}</p>
-                    <p class="result-note">${res.note}</p>
-                    <div class="check-result-actions">
-                        <button class="btn btn-primary" onclick="openContactDialogFromCheck('${res.title.replace(/'/g, '&#39;')}')">Zum Erstgespräch →</button>
-                        <a href="#szenarien" style="font-size:14px; color:var(--color-text-light);" onclick="if(checkModalOverlay){checkModalOverlay.style.display='none';document.body.style.overflow='';}">Alle Optionen ansehen</a>
-                    </div>
-                    <button class="check-restart" aria-label="Nachfolge-Check neu starten">Erneut starten</button>
-                `;
-
-                container.innerHTML = '';
-                container.appendChild(step);
-
-                step.querySelector('.check-restart').addEventListener('click', () => {
-                    currentStep = 0;
-                    scores = { fbo: 0, mbo: 0, ext: 0 };
-                    renderQuestion(0);
-                });
-            }
-
-            renderQuestion(0);
-        })();
-
-        // =============================================
-        // GLOBAL CHECK MODAL OPENER
-        // =============================================
         function openCheckModal() {
-            const overlay = document.getElementById('check-modal-overlay');
-            if (overlay) {
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            }
+            const modal = document.getElementById('checkModal');
+            if (!modal) return;
+            resetCheckModal();
+            modal.showModal();
+        }
+
+        function closeCheckModal() {
+            const modal = document.getElementById('checkModal');
+            if (modal) modal.close();
+        }
+
+        function resetCheckModal() {
+            checkAnswers = {};
+            document.querySelectorAll('#checkModal input[type="radio"]').forEach(r => r.checked = false);
+            document.querySelectorAll('.check-q').forEach(q => q.classList.remove('active'));
+            const first = document.getElementById('cq1');
+            if (first) first.classList.add('active');
+            document.getElementById('checkProgressFill').style.width = '14.28%';
+            document.getElementById('checkCurrentQ').textContent = '1';
+            document.getElementById('checkQuestions').style.display = 'block';
+            document.getElementById('checkResultView').style.display = 'none';
         }
 
         // =============================================
-        // 2-STUFIGER KONTAKT-DIALOG
+        // TERMIN-DIALOG (2-stufig)
         // =============================================
-        let cdCurrentStage = 1;
+        function openContactDialog() { openTerminDialog(); }
 
-        function openContactDialog() {
-            const dialog = document.getElementById('contactDialog');
-            if (dialog) {
-                document.getElementById('cdCheckResult').value = '';
-                dialog.showModal();
-                cdShowStage(1);
-            }
+        function openTerminDialog() {
+            const dialog = document.getElementById('terminDialog');
+            if (!dialog) return;
+            document.getElementById('tdCheckAnswers').value = '';
+            tdShowStage(1);
+            dialog.showModal();
         }
 
-        function openContactDialogFromCheck(checkTitle) {
-            const overlay = document.getElementById('check-modal-overlay');
-            if (overlay) {
-                overlay.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-            const dialog = document.getElementById('contactDialog');
-            if (dialog) {
-                document.getElementById('cdCheckResult').value = checkTitle || '';
-                dialog.showModal();
-                cdShowStage(1);
-            }
+        function openTerminDialogFromCheck() {
+            closeCheckModal();
+            const dialog = document.getElementById('terminDialog');
+            if (!dialog) return;
+            try {
+                const saved = localStorage.getItem('checkAnswers') || '{}';
+                document.getElementById('tdCheckAnswers').value = saved;
+            } catch(e) {}
+            tdShowStage(1);
+            dialog.showModal();
         }
 
-        function closeContactDialog() {
-            const dialog = document.getElementById('contactDialog');
+        function closeTerminDialog() {
+            const dialog = document.getElementById('terminDialog');
             if (dialog) {
                 dialog.close();
-                cdResetDialog();
+                tdResetDialog();
             }
         }
 
-        function cdShowStage(n) {
-            cdCurrentStage = n;
-            document.getElementById('cdStage1').classList.toggle('active', n === 1);
-            document.getElementById('cdStage2').classList.toggle('active', n === 2);
-            document.getElementById('cdPrevBtn').style.display = n === 1 ? 'none' : 'inline-block';
-            const nextBtn = document.getElementById('cdNextBtn');
-            nextBtn.textContent = n === 1 ? 'Weiter \u2192' : 'Absenden';
+        function tdShowStage(n) {
+            document.getElementById('tdStage1').classList.toggle('active', n === 1);
+            document.getElementById('tdStage2').classList.toggle('active', n === 2);
         }
 
-        function cdNextStage() {
-            if (cdCurrentStage === 1) {
-                const topics = document.querySelectorAll('input[name="cdTopic"]:checked');
-                const msg = document.getElementById('cdMessage').value.trim();
-                if (topics.length === 0 || msg === '') {
-                    alert('Bitte wählen Sie mindestens ein Thema und geben Sie eine Mitteilung ein.');
-                    return;
-                }
-                cdShowStage(2);
-            } else {
-                cdSubmitForm();
-            }
-        }
-
-        function cdPreviousStage() {
-            cdShowStage(1);
-        }
-
-        function cdSubmitForm() {
-            const form = document.getElementById('cdForm');
+        function tdStage1Next() {
+            const form = document.getElementById('tdForm1');
             const required = form.querySelectorAll('[required]');
             let valid = true;
             required.forEach(el => {
@@ -4415,25 +4288,35 @@
                 alert('Bitte füllen Sie alle erforderlichen Felder aus und stimmen Sie den Datenschutzhinweisen zu.');
                 return;
             }
-            const topics = Array.from(document.querySelectorAll('input[name="cdTopic"]:checked')).map(cb => cb.value).join(', ');
-            const message = document.getElementById('cdMessage').value;
-            const formData = Object.fromEntries(new FormData(form));
-            console.log('Kontaktanfrage:', { topics, message, ...formData });
+            tdShowStage(2);
+        }
+
+        function tdStage2Back() { tdShowStage(1); }
+
+        function tdSubmit() {
+            const form1 = document.getElementById('tdForm1');
+            const form2 = document.getElementById('tdForm2');
+            const data = {
+                stage1: Object.fromEntries(new FormData(form1)),
+                stage2: Object.fromEntries(new FormData(form2)),
+                checkAnswers: document.getElementById('tdCheckAnswers').value
+            };
+            console.log('Termin-Anfrage:', data);
             alert('\u2713 Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.');
-            closeContactDialog();
+            closeTerminDialog();
         }
 
-        function cdResetDialog() {
-            document.querySelectorAll('input[name="cdTopic"]').forEach(cb => cb.checked = false);
-            document.getElementById('cdMessage').value = '';
-            const form = document.getElementById('cdForm');
-            if (form) form.reset();
-            cdShowStage(1);
+        function tdResetDialog() {
+            const f1 = document.getElementById('tdForm1');
+            const f2 = document.getElementById('tdForm2');
+            if (f1) f1.reset();
+            if (f2) f2.reset();
+            tdShowStage(1);
         }
 
-        // Close dialog on backdrop click
-        document.getElementById('contactDialog').addEventListener('click', function(e) {
-            if (e.target === this) closeContactDialog();
+        // Backdrop click closes termin dialog
+        document.getElementById('terminDialog').addEventListener('click', function(e) {
+            if (e.target === this) closeTerminDialog();
         });
 
     </script>
