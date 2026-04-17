@@ -767,7 +767,7 @@
                     rgba(255,255,255,0.015) 40px,
                     rgba(255,255,255,0.015) 41px
                 );
-            padding: 48px 0 64px;
+            padding: 28px 0 44px;
         }
 
         .hero-content {
@@ -917,7 +917,7 @@
         ============================================= */
         #proof-bar {
             background-color: var(--color-bg-light);
-            padding: var(--space-lg) 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--color-border);
         }
 
@@ -1043,13 +1043,21 @@
             border-radius: var(--radius-md);
             padding: 40px 32px;
             transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-            cursor: default;
+            cursor: pointer;
         }
 
         .szenario-card:hover {
             box-shadow: var(--shadow-md);
             border-color: var(--color-accent);
             transform: translateY(-3px);
+        }
+
+        .szenario-link {
+            display: inline-block;
+            margin-top: var(--space-md);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-accent);
         }
 
         .szenario-icon {
@@ -2235,30 +2243,6 @@
         /* =============================================
            VZ FOOTER
         ============================================= */
-        .mobile-cta-bar {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 900;
-            background-color: #E8611A;
-            padding: 12px 0;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-cta-bar { display: block; }
-        }
-
-        .mobile-cta-bar a {
-            color: white;
-            padding: 8px 32px;
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 100px;
-            border: 2px solid rgba(255,255,255,0.4);
-        }
 
         footer {
             background-color: #002B5C;
@@ -2484,6 +2468,11 @@
             /* Multi-col grids → 2 cols */
             .szenarien-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .szenarien-grid .szenario-card:last-child:nth-child(odd) {
+                grid-column: 1 / -1;
+                max-width: calc(50% - 16px);
+                margin: 0 auto;
             }
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -2888,13 +2877,115 @@
             .kontakt-form-card { padding: 28px 20px; }
             #kontakt h2 { font-size: 28px; }
         }
+
+        /* =============================================
+           TERMIN MODAL
+        ============================================= */
+        .termin-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .termin-modal-overlay.is-open {
+            display: flex;
+        }
+        .termin-modal {
+            background: white;
+            border-radius: 6px;
+            padding: 40px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .termin-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #888;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+        }
+        .termin-modal-close:hover { color: #333; }
+        .termin-modal h3 {
+            font-size: 22px;
+            color: var(--color-primary);
+            margin-bottom: 6px;
+        }
+        .termin-modal-note {
+            font-size: 14px;
+            color: var(--color-text-light);
+            margin-bottom: 24px;
+        }
+        .termin-modal-type-badge {
+            display: inline-block;
+            background: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: 100px;
+            padding: 4px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+        @media (max-width: 520px) {
+            .termin-modal { padding: 28px 20px; }
+        }
     </style>
 </head>
 <body>
+    <!-- TERMIN MODAL -->
+    <div id="termin-modal-overlay" class="termin-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="termin-modal-title">
+        <div class="termin-modal" id="termin-modal">
+            <button class="termin-modal-close" id="termin-modal-close" aria-label="Schliessen">&times;</button>
+            <h3 id="termin-modal-title">Termin vereinbaren</h3>
+            <p class="termin-modal-note">Wir melden uns innert 1 Werktag bei Ihnen.</p>
+            <div id="termin-modal-type-badge" class="termin-modal-type-badge" style="display:none;"></div>
+
+            <form id="termin-modal-form" novalidate>
+                <input type="hidden" id="termin-modal-type" name="typ" value="">
+
+                <div class="form-field">
+                    <input type="text" id="termin-modal-name" class="form-input-card" placeholder="Ihr Name *" autocomplete="name" required>
+                    <div class="form-error-msg" id="termin-error-name">Bitte geben Sie Ihren Namen ein.</div>
+                </div>
+                <div class="form-field">
+                    <input type="tel" id="termin-modal-phone" class="form-input-card" placeholder="Ihre Telefonnummer *" autocomplete="tel" required>
+                    <div class="form-error-msg" id="termin-error-phone">Bitte geben Sie Ihre Telefonnummer ein.</div>
+                </div>
+                <div class="form-field">
+                    <textarea id="termin-modal-message" class="form-textarea-card" placeholder="Ihre Nachricht (optional)"></textarea>
+                </div>
+                <div class="form-field">
+                    <div class="form-checkbox-row-card">
+                        <input type="checkbox" id="termin-modal-privacy" required>
+                        <label for="termin-modal-privacy">Ich bin mit der <a href="#" style="color:var(--color-accent);text-decoration:underline;">Datenschutzerklärung</a> einverstanden.</label>
+                    </div>
+                    <div class="form-error-msg" id="termin-error-privacy">Bitte stimmen Sie der Datenschutzerklärung zu.</div>
+                </div>
+                <button type="submit" class="form-submit-card">Termin anfragen</button>
+                <div class="form-success-card" id="termin-modal-success" role="alert">
+                    &#10003;&nbsp; Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- UTILITY BAR (oberste Zeile: Termin, Wissen, Finanzportal) -->
     <div id="vz-utility-bar">
         <div class="vz-utility-inner">
-            <a href="#kontakt" class="vz-utility-link">Termin vereinbaren</a>
+            <a href="#" onclick="openTerminModal(event)" class="vz-utility-link">Termin vereinbaren</a>
             <a href="#" class="vz-utility-link">Wissen</a>
             <a href="#" class="vz-utility-link">XY Finanzportal</a>
             <span class="vz-utility-sep">|</span>
@@ -2980,7 +3071,7 @@
 
             <!-- Rechts: CTA + Hamburger -->
             <div class="vz-header-right">
-                <a href="#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
+                <a href="#" onclick="openTerminModal(event)" class="vz-cta-btn">Termin vereinbaren</a>
                 <button class="vz-hamburger" id="vz-hamburger" aria-label="Menu öffnen" aria-expanded="false" aria-controls="mobile-menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -3068,7 +3159,7 @@
         </ul>
 
         <div class="mobile-menu-cta">
-            <a href="#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
+            <a href="#" onclick="openTerminModal(event)" class="vz-cta-btn">Termin vereinbaren</a>
         </div>
     </div>
 
@@ -3109,7 +3200,7 @@
                     <h1>Ihr Lebenswerk verdient den richtigen Nachfolger.</h1>
                     <p class="hero-sub">Die Übergabe Ihres Unternehmens ist eine der wichtigsten Entscheidungen Ihres Lebens. Wir begleiten Sie – lange bevor der Prozess beginnt, bis lange nachdem er abgeschlossen ist.</p>
                     <div class="hero-ctas">
-                        <a href="#kontakt" class="btn-hero-primary">Termin vereinbaren</a>
+                        <a href="#" onclick="openTerminModal(event)" class="btn-hero-primary">Termin vereinbaren</a>
                         <a href="#nachfolge-check" class="btn-hero-secondary">Nachfolge-Check starten</a>
                     </div>
                     <p class="hero-trust">&#10003; Kostenlos &nbsp;·&nbsp; &#10003; Unverbindlich &nbsp;·&nbsp; &#10003; Diskret</p>
@@ -3201,7 +3292,7 @@
             <div class="szenarien-grid reveal-group">
 
                 <!-- Karte 1: Familiennachfolge -->
-                <div class="szenario-card reveal">
+                <a class="szenario-card reveal" href="unternehmensnachfolge/familieninterne-nachfolge.html" style="text-decoration:none;color:inherit;display:block;">
                     <svg class="szenario-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M8 42V22L24 8L40 22V42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M18 42V30H30V42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3216,10 +3307,11 @@
                         <span class="tag">Steueroptimierung</span>
                         <span class="tag">Aktionärsbindungsvertrag</span>
                     </div>
-                </div>
+                    <span class="szenario-link">Mehr erfahren →</span>
+                </a>
 
                 <!-- Karte 2: MBO -->
-                <div class="szenario-card reveal">
+                <a class="szenario-card reveal" href="unternehmensnachfolge/management-buy-out.html" style="text-decoration:none;color:inherit;display:block;">
                     <svg class="szenario-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <circle cx="18" cy="14" r="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
                         <path d="M6 40 Q6 28 18 28 Q30 28 30 40" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -3234,10 +3326,11 @@
                         <span class="tag">Management-Auswahl</span>
                         <span class="tag">Vertragsgestaltung</span>
                     </div>
-                </div>
+                    <span class="szenario-link">Mehr erfahren →</span>
+                </a>
 
                 <!-- Karte 3: Externer Verkauf -->
-                <div class="szenario-card reveal">
+                <a class="szenario-card reveal" href="unternehmensnachfolge/firmenverkauf.html" style="text-decoration:none;color:inherit;display:block;">
                     <svg class="szenario-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M6 28 L14 20 L20 26 L32 14 L42 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M16 36 Q16 30 22 30 L28 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
@@ -3254,7 +3347,8 @@
                         <span class="tag">Verhandlungsführung</span>
                         <span class="tag">Transaktionsstruktur</span>
                     </div>
-                </div>
+                    <span class="szenario-link">Mehr erfahren →</span>
+                </a>
 
             </div>
 
@@ -3276,7 +3370,7 @@
 
             <div class="check-widget" role="form" aria-label="Nachfolge-Check">
                 <!-- Progress -->
-                <div class="check-progress-label" id="check-progress-label">Frage 1 von 5</div>
+                <div class="check-progress-label" id="check-progress-label">Frage 1</div>
                 <div class="check-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1">
                     <div class="check-progress-fill" id="check-progress-fill" style="width: 20%"></div>
                 </div>
@@ -3296,7 +3390,7 @@
             <div class="section-header reveal">
                 <span class="eyebrow">Referenzen</span>
                 <h2>Über 200 Unternehmer vertrauen uns ihr Lebenswerk an.</h2>
-                <p style="color: var(--color-text-light); font-size: 14px;">Jedes Projekt ist einzigartig. Hier zeigen wir, wie wir Nachfolgen erfolgreich begleitet haben.</p>
+                <p style="color: var(--color-text-light); font-size: 14px;">Jedes Projekt ist einzigartig. Hier zeigen wir Ihnen, welche Nachfolgen wir bisher erfolgreich begleitet haben.</p>
             </div>
 
             <div class="ref-home-grid reveal-group">
@@ -3310,7 +3404,7 @@
                         <div><strong>40 MA</strong></div>
                         <div><strong>2021</strong></div>
                     </div>
-                    <a href="public/referenzen.html#hunn" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
                 <!-- Referenz 2: Frikarti -->
@@ -3322,7 +3416,7 @@
                         <div><strong>15–20 MA</strong></div>
                         <div><strong>2023</strong></div>
                     </div>
-                    <a href="public/referenzen.html#frikarti" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
                 <!-- Referenz 3: Bahnhof-Apotheke -->
@@ -3334,7 +3428,7 @@
                         <div><strong>Deutschschweiz</strong></div>
                         <div><strong>2022</strong></div>
                     </div>
-                    <a href="public/referenzen.html#apotheke" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
                 <!-- Referenz 4: ipet.ch -->
@@ -3346,13 +3440,13 @@
                         <div><strong>Deutschschweiz</strong></div>
                         <div><strong>2023</strong></div>
                     </div>
-                    <a href="public/referenzen.html#ipet" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
             </div>
 
             <div class="ref-home-footer">
-                <a href="public/referenzen.html" class="btn btn-secondary">Alle Referenzprojekte ansehen &#8594;</a>
+                <a href="referenzen.html" class="btn btn-secondary">Alle Referenzprojekte ansehen &#8594;</a>
             </div>
 
         </div>
@@ -3383,7 +3477,7 @@
                             <span>&#128101; 30–50 MA</span>
                         </div>
                         <p class="mandat-desc">Etabliertes Unternehmen mit starker Marktposition und loyaler Kundenbasis. Der Inhaber sucht einen Nachfolger, der die Erfolgsgeschichte fortführt.</p>
-                        <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
 
@@ -3399,7 +3493,7 @@
                             <span>&#128101; 15–25 MA</span>
                         </div>
                         <p class="mandat-desc">Spezialisiertes IT-Unternehmen mit langjährigen Kundenverträgen und hoher Wiederkaufrate. Ideale Übernahme für strategischen Käufer oder MBO.</p>
-                        <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
 
@@ -3415,7 +3509,7 @@
                             <span>&#128101; 20–35 MA</span>
                         </div>
                         <p class="mandat-desc">Fachhandelsunternehmen mit über 20 Jahren Marktpräsenz, exklusiven Lieferantenbeziehungen und stabilem Stammkundengeschäft.</p>
-                        <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
 
@@ -3431,14 +3525,14 @@
                             <span>&#128101; 10–20 MA</span>
                         </div>
                         <p class="mandat-desc">Gut positionierter Handwerksbetrieb mit ausgezeichnetem Ruf, eingespieltem Team und voller Auftragspipeline für die nächsten 18 Monate.</p>
-                        <a href="#kontakt" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
                     </div>
                 </div>
 
             </div>
 
             <div class="mandate-footer">
-                <a href="#kontakt" class="btn btn-secondary">Alle aktuellen Mandate ansehen &#8594;</a>
+                <a href="mandate.html" class="btn btn-secondary">Alle aktuellen Mandate ansehen &#8594;</a>
             </div>
 
         </div>
@@ -3451,7 +3545,7 @@
             <div class="section-header reveal">
                 <span class="eyebrow">Käufer &amp; Investoren</span>
                 <h2>Oder sind Sie auf der Suche nach einem Unternehmen?</h2>
-                <p>Wir begleiten nicht nur Verkäufer – sondern auch Käufer, die das passende KMU suchen.</p>
+                <p>Gerne tauschen wir uns mit Ihnen aus, um zu schauen, wie wir Sie bei Ihrer Suche am besten unterstützen können.</p>
             </div>
 
             <div class="kauf-grid reveal-group">
@@ -3470,6 +3564,7 @@
                         <span class="tag">Integration</span>
                         <span class="tag">Due Diligence</span>
                     </div>
+                    <a href="#" onclick="openTerminModal(event, 'Strategischer Käufer')" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als Strategischer Käufer vereinbaren →</a>
                 </div>
 
                 <!-- Karte 2: Management Buy-In -->
@@ -3486,6 +3581,7 @@
                         <span class="tag">Finanzierung</span>
                         <span class="tag">Übergabeplanung</span>
                     </div>
+                    <a href="#" onclick="openTerminModal(event, 'MBI Kandidat')" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als MBI Kandidat vereinbaren →</a>
                 </div>
 
                 <!-- Karte 3: Finanzinvestor -->
@@ -3502,6 +3598,7 @@
                         <span class="tag">Portfolioaufbau</span>
                         <span class="tag">Transaktionsstruktur</span>
                     </div>
+                    <a href="#" onclick="openTerminModal(event, 'Finanzinvestor')" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als Finanzinvestor vereinbaren →</a>
                 </div>
 
             </div>
@@ -3526,7 +3623,7 @@
                 <div class="timeline-grid">
 
                     <!-- Phase 1: Vor dem Verkauf -->
-                    <div class="timeline-phase" id="phase-1">
+                    <a class="timeline-phase" id="phase-1" href="zeitpunkt/vor-dem-verkauf.html" style="text-decoration:none;">
                         <div class="phase-marker"><div class="phase-marker-circle"></div></div>
                         <span class="phase-badge">5–8 Jahre vorher</span>
                         <h3>Vor dem Verkauf</h3>
@@ -3541,10 +3638,11 @@
                             <li>Private Vorsorge planen</li>
                             <li>Optimalen Zeitpunkt definieren</li>
                         </ul>
-                    </div>
+                        <span style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">Mehr erfahren →</span>
+                    </a>
 
                     <!-- Phase 2: Während des Verkaufs -->
-                    <div class="timeline-phase" id="phase-2">
+                    <a class="timeline-phase" id="phase-2" href="zeitpunkt/waehrend-des-verkaufs.html" style="text-decoration:none;">
                         <div class="phase-marker"><div class="phase-marker-circle"></div></div>
                         <span class="phase-badge">Der Prozess</span>
                         <h3>Während des Verkaufs</h3>
@@ -3559,10 +3657,11 @@
                             <li>Due Diligence begleiten</li>
                             <li>Verhandlungen führen und abschliessen</li>
                         </ul>
-                    </div>
+                        <span style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">Mehr erfahren →</span>
+                    </a>
 
                     <!-- Phase 3: Nach dem Verkauf -->
-                    <div class="timeline-phase" id="phase-3">
+                    <a class="timeline-phase" id="phase-3" href="zeitpunkt/nach-dem-verkauf.html" style="text-decoration:none;">
                         <div class="phase-marker"><div class="phase-marker-circle"></div></div>
                         <span class="phase-badge">Ihre Zukunft</span>
                         <h3>Nach dem Verkauf</h3>
@@ -3577,14 +3676,15 @@
                             <li>Steueroptimierung (Kapitalgewinn)</li>
                             <li>Familiäre Vermögensübergabe</li>
                         </ul>
-                    </div>
+                        <span style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.8);">Mehr erfahren →</span>
+                    </a>
 
                 </div>
             </div>
 
             <!-- Highlight Box -->
             <div class="ansatz-highlight">
-                <p>Der entscheidende Unterschied: Bei XY steht <strong>der Aktionär im Mittelpunkt</strong> – nicht die Transaktion. Mehr Zeit, bessere Vorbereitung, optimierter Verkaufspreis und finanzielle Sicherheit nach dem Verkauf.</p>
+                <p>Der entscheidende Unterschied: Bei XY steht <strong>der Aktionär im Mittelpunkt</strong> – nicht nur die Transaktion. Mehr Zeit, bessere Vorbereitung führen zu besseren Verkaufserlösen. Ein optimierter Verkaufspreis sorgt für finanzielle Sicherheit nach dem Verkauf.</p>
             </div>
 
         </div>
@@ -3998,10 +4098,6 @@
         </div>
     </section>
 
-    <!-- Mobile CTA Bar (nur Mobile) -->
-    <div class="mobile-cta-bar">
-        <a href="#kontakt">Termin vereinbaren</a>
-    </div>
 
     <!-- VZ FOOTER -->
     <footer>
@@ -4435,50 +4531,87 @@
         // NACHFOLGE-CHECK WIDGET
         // =============================================
         (function() {
-            const questions = [
-                {
+            // Adaptive question tree — each answer's `next` determines the next question ID.
+            // null = last question → show result.
+            const questionTree = {
+                q1: {
+                    id: 'q1',
                     text: 'Gibt es in Ihrer Familie jemanden, der die Firma übernehmen könnte und möchte?',
                     answers: [
-                        { label: 'Ja',       scores: { fbo: 3, mbo: 0, ext: 0 } },
-                        { label: 'Nein',     scores: { fbo: 0, mbo: 1, ext: 2 } },
-                        { label: 'Unsicher', scores: { fbo: 1, mbo: 1, ext: 1 } }
+                        { label: 'Ja',             scores: { fbo: 3, mbo: 0, ext: 0 }, next: 'q_fam1' },
+                        { label: 'Nein',           scores: { fbo: 0, mbo: 1, ext: 1 }, next: 'q_ext1' },
+                        { label: 'Noch unsicher',  scores: { fbo: 1, mbo: 0, ext: 0 }, next: 'q_uns1' }
                     ]
                 },
-                {
-                    text: 'Haben Sie Führungskräfte im Unternehmen, die als Nachfolger in Frage kämen?',
+                // --- FAMILIENWEG ---
+                q_fam1: {
+                    id: 'q_fam1',
+                    text: 'Hat der potenzielle Nachfolger bereits Erfahrung in der Unternehmensführung?',
                     answers: [
-                        { label: 'Ja',       scores: { fbo: 0, mbo: 3, ext: 0 } },
-                        { label: 'Nein',     scores: { fbo: 1, mbo: 0, ext: 2 } },
-                        { label: 'Unsicher', scores: { fbo: 0, mbo: 1, ext: 1 } }
+                        { label: 'Ja, langjährige Führungserfahrung', scores: { fbo: 2, mbo: 0, ext: 0 }, next: 'q_common1' },
+                        { label: 'Teilweise vorhanden',               scores: { fbo: 1, mbo: 0, ext: 0 }, next: 'q_fam2'    },
+                        { label: 'Noch nicht / kaum',                 scores: { fbo: 0, mbo: 1, ext: 1 }, next: 'q_fam2'    }
                     ]
                 },
-                {
-                    text: 'Wie wichtig ist es Ihnen, dass der Firmenname und die Unternehmenskultur erhalten bleiben?',
+                q_fam2: {
+                    id: 'q_fam2',
+                    text: 'Wäre eine schrittweise Einarbeitung über 3–5 Jahre realistisch?',
                     answers: [
-                        { label: 'Sehr wichtig',     scores: { fbo: 2, mbo: 2, ext: 0 } },
-                        { label: 'Wichtig',          scores: { fbo: 1, mbo: 1, ext: 1 } },
-                        { label: 'Weniger wichtig',  scores: { fbo: 0, mbo: 0, ext: 2 } }
+                        { label: 'Ja, das ist gut planbar',                   scores: { fbo: 2, mbo: 0, ext: 0 }, next: 'q_common1' },
+                        { label: 'Ich möchte früher übergeben (< 2 Jahre)', scores: { fbo: 0, mbo: 1, ext: 2 }, next: 'q_ext1'    }
                     ]
                 },
-                {
+                // --- UNSICHERHEITSWEG ---
+                q_uns1: {
+                    id: 'q_uns1',
+                    text: 'Was macht Sie bei der Nachfolgeplanung am unsichersten?',
+                    answers: [
+                        { label: 'Ob die Familie wirklich geeignet ist',     scores: { fbo: 0, mbo: 1, ext: 1 }, next: 'q_ext1'    },
+                        { label: 'Den richtigen Zeitpunkt zu finden',        scores: { fbo: 1, mbo: 1, ext: 1 }, next: 'q_common1' },
+                        { label: 'Den fairen Unternehmenswert zu ermitteln', scores: { fbo: 1, mbo: 1, ext: 1 }, next: 'q_common2' }
+                    ]
+                },
+                // --- MBO / EXTERN-WEG ---
+                q_ext1: {
+                    id: 'q_ext1',
+                    text: 'Haben Sie Führungskräfte im Unternehmen, die eine Übernahme anstreben könnten?',
+                    answers: [
+                        { label: 'Ja',       scores: { fbo: 0, mbo: 3, ext: 0 }, next: 'q_mbo1'    },
+                        { label: 'Nein',     scores: { fbo: 0, mbo: 0, ext: 2 }, next: 'q_common1' },
+                        { label: 'Unsicher', scores: { fbo: 0, mbo: 1, ext: 1 }, next: 'q_common1' }
+                    ]
+                },
+                q_mbo1: {
+                    id: 'q_mbo1',
+                    text: 'Könnten sich Ihre Führungskräfte eine Übernahme auch finanziell vorstellen (z.B. mit Bankfinanzierung)?',
+                    answers: [
+                        { label: 'Ja, das ist realistisch',   scores: { fbo: 0, mbo: 2, ext: 0 }, next: 'q_common1' },
+                        { label: 'Eher nicht',                scores: { fbo: 0, mbo: 0, ext: 2 }, next: 'q_common1' },
+                        { label: 'Weiss ich nicht',           scores: { fbo: 0, mbo: 1, ext: 1 }, next: 'q_common1' }
+                    ]
+                },
+                // --- GEMEINSAME FRAGEN (alle Wege) ---
+                q_common1: {
+                    id: 'q_common1',
                     text: 'In welchem Zeithorizont planen Sie die Übergabe?',
                     answers: [
-                        { label: 'Innerhalb von 2 Jahren', scores: { fbo: 1, mbo: 1, ext: 2 } },
-                        { label: '3–5 Jahre',              scores: { fbo: 2, mbo: 2, ext: 1 } },
-                        { label: '5+ Jahre',               scores: { fbo: 2, mbo: 1, ext: 0 } },
-                        { label: 'Noch unklar',            scores: { fbo: 1, mbo: 1, ext: 1 } }
+                        { label: 'Innerhalb von 2 Jahren', scores: { fbo: 0, mbo: 0, ext: 2 }, next: 'q_common2' },
+                        { label: '3–5 Jahre',              scores: { fbo: 2, mbo: 2, ext: 1 }, next: 'q_common2' },
+                        { label: '5+ Jahre',               scores: { fbo: 2, mbo: 1, ext: 0 }, next: 'q_common2' },
+                        { label: 'Noch unklar',            scores: { fbo: 1, mbo: 1, ext: 1 }, next: 'q_common2' }
                     ]
                 },
-                {
-                    text: 'Was ist Ihnen beim Verkauf am wichtigsten?',
+                q_common2: {
+                    id: 'q_common2',
+                    text: 'Was ist Ihnen bei der Übergabe am wichtigsten?',
                     answers: [
-                        { label: 'Bestmöglicher Preis',             scores: { fbo: 0, mbo: 0, ext: 3 } },
-                        { label: 'Fortbestand des Unternehmens',    scores: { fbo: 2, mbo: 2, ext: 0 } },
-                        { label: 'Sicherheit für Mitarbeitende',    scores: { fbo: 1, mbo: 2, ext: 1 } },
-                        { label: 'Alles gleichermassen',            scores: { fbo: 1, mbo: 1, ext: 1 } }
+                        { label: 'Bestmöglicher Verkaufspreis',             scores: { fbo: 0, mbo: 0, ext: 3 }, next: null },
+                        { label: 'Fortbestand und Kultur des Unternehmens', scores: { fbo: 2, mbo: 2, ext: 0 }, next: null },
+                        { label: 'Sicherheit für meine Mitarbeitenden',     scores: { fbo: 1, mbo: 2, ext: 1 }, next: null },
+                        { label: 'Alles gleichermassen',                    scores: { fbo: 1, mbo: 1, ext: 1 }, next: null }
                     ]
                 }
-            ];
+            };
 
             const results = {
                 fbo: {
@@ -4498,17 +4631,36 @@
                 }
             };
 
-            let currentStep = 0;
+            let currentQuestionId = 'q1';
+            let stepNumber = 1;
             let scores = { fbo: 0, mbo: 0, ext: 0 };
             const container = document.getElementById('check-steps-container');
             const progressLabel = document.getElementById('check-progress-label');
             const progressFill = document.getElementById('check-progress-fill');
             const progressBar = progressFill ? progressFill.closest('[role="progressbar"]') : null;
 
+            // Estimate max path length for progress bar (worst case = 6 steps)
+            const ESTIMATED_TOTAL = 5;
+
             if (!container) return;
 
-            function renderQuestion(index) {
-                const q = questions[index];
+            function updateProgress(num, isResult) {
+                if (isResult) {
+                    if (progressLabel) progressLabel.textContent = 'Ihr Ergebnis';
+                    if (progressFill) progressFill.style.width = '100%';
+                    if (progressBar) progressBar.setAttribute('aria-valuenow', ESTIMATED_TOTAL);
+                } else {
+                    if (progressLabel) progressLabel.textContent = `Frage ${num}`;
+                    const pct = Math.min((num / ESTIMATED_TOTAL) * 100, 90);
+                    if (progressFill) progressFill.style.width = `${pct}%`;
+                    if (progressBar) progressBar.setAttribute('aria-valuenow', num);
+                }
+            }
+
+            function renderQuestion(qId) {
+                const q = questionTree[qId];
+                if (!q) return;
+
                 const step = document.createElement('div');
                 step.className = 'check-step';
 
@@ -4521,23 +4673,15 @@
                     <div class="check-answers">${answersHTML}</div>
                 `;
 
-                // Clear + insert
                 container.innerHTML = '';
                 container.appendChild(step);
+                updateProgress(stepNumber, false);
 
-                // Update progress
-                const stepNum = index + 1;
-                if (progressLabel) progressLabel.textContent = `Frage ${stepNum} von ${questions.length}`;
-                if (progressFill) progressFill.style.width = `${(stepNum / questions.length) * 100}%`;
-                if (progressBar) {
-                    progressBar.setAttribute('aria-valuenow', stepNum);
-                }
-
-                // Bind answer buttons
                 step.querySelectorAll('.check-answer-btn').forEach(btn => {
                     btn.addEventListener('click', function() {
                         step.querySelectorAll('.check-answer-btn').forEach(b => b.classList.remove('selected'));
                         this.classList.add('selected');
+
                         const answerIndex = parseInt(this.dataset.index, 10);
                         const answer = q.answers[answerIndex];
                         scores.fbo += answer.scores.fbo;
@@ -4545,9 +4689,10 @@
                         scores.ext += answer.scores.ext;
 
                         setTimeout(() => {
-                            if (currentStep < questions.length - 1) {
-                                currentStep++;
-                                renderQuestion(currentStep);
+                            if (answer.next) {
+                                stepNumber++;
+                                currentQuestionId = answer.next;
+                                renderQuestion(currentQuestionId);
                             } else {
                                 renderResult();
                             }
@@ -4557,16 +4702,12 @@
             }
 
             function renderResult() {
-                // Determine winner; tie → ext
                 let winner = 'ext';
                 if (scores.fbo > scores.mbo && scores.fbo > scores.ext) winner = 'fbo';
                 else if (scores.mbo > scores.fbo && scores.mbo > scores.ext) winner = 'mbo';
 
                 const res = results[winner];
-
-                if (progressLabel) progressLabel.textContent = 'Ihr Ergebnis';
-                if (progressFill) progressFill.style.width = '100%';
-                if (progressBar) progressBar.setAttribute('aria-valuenow', 5);
+                updateProgress(null, true);
 
                 const step = document.createElement('div');
                 step.className = 'check-step check-result';
@@ -4586,13 +4727,93 @@
                 container.appendChild(step);
 
                 step.querySelector('.check-restart').addEventListener('click', () => {
-                    currentStep = 0;
+                    currentQuestionId = 'q1';
+                    stepNumber = 1;
                     scores = { fbo: 0, mbo: 0, ext: 0 };
-                    renderQuestion(0);
+                    renderQuestion('q1');
                 });
             }
 
-            renderQuestion(0);
+            renderQuestion('q1');
+        })();
+
+        // =============================================
+        // TERMIN MODAL
+        // =============================================
+        (function() {
+            const overlay = document.getElementById('termin-modal-overlay');
+            const closeBtn = document.getElementById('termin-modal-close');
+            const form = document.getElementById('termin-modal-form');
+            const typeBadge = document.getElementById('termin-modal-type-badge');
+            const typeInput = document.getElementById('termin-modal-type');
+            const successMsg = document.getElementById('termin-modal-success');
+
+            function openModal(type) {
+                overlay.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+                if (type) {
+                    typeInput.value = type;
+                    typeBadge.textContent = type;
+                    typeBadge.style.display = 'inline-block';
+                } else {
+                    typeInput.value = '';
+                    typeBadge.style.display = 'none';
+                }
+                successMsg.style.display = 'none';
+                form.reset();
+                document.getElementById('termin-modal-name').focus();
+            }
+
+            function closeModal() {
+                overlay.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+
+            window.openTerminModal = function(event, type) {
+                event.preventDefault();
+                openModal(type || '');
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closeModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let valid = true;
+                const name = document.getElementById('termin-modal-name');
+                const phone = document.getElementById('termin-modal-phone');
+                const privacy = document.getElementById('termin-modal-privacy');
+
+                document.getElementById('termin-error-name').style.display = 'none';
+                document.getElementById('termin-error-phone').style.display = 'none';
+                document.getElementById('termin-error-privacy').style.display = 'none';
+                name.classList.remove('error');
+                phone.classList.remove('error');
+
+                if (!name.value.trim()) {
+                    name.classList.add('error');
+                    document.getElementById('termin-error-name').style.display = 'block';
+                    valid = false;
+                }
+                if (!phone.value.trim()) {
+                    phone.classList.add('error');
+                    document.getElementById('termin-error-phone').style.display = 'block';
+                    valid = false;
+                }
+                if (!privacy.checked) {
+                    document.getElementById('termin-error-privacy').style.display = 'block';
+                    valid = false;
+                }
+                if (valid) {
+                    successMsg.style.display = 'block';
+                    form.querySelectorAll('input, textarea, button[type="submit"]').forEach(el => el.disabled = true);
+                }
+            });
         })();
 
     </script>
