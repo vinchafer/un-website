@@ -1,437 +1,270 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ipet.ch / Escher &amp; Büttner | Referenzprojekt Unternehmensnachfolge</title>
-    <meta name="description" content="Erfolgreiche Unternehmensnachfolge bei ipet.ch – führender E-Commerce-Anbieter für Heimtierbedarf. Lesen Sie die Erfolgsgeschichte von Escher & Büttner.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --color-primary:#003B75; --color-secondary:#002B5C; --color-accent:#003B75; --color-text:#191919; --color-text-light:#555555; --color-bg:#FFFFFF; --color-bg-light:#F4F6F9; --color-border:#e0e0e0; --color-orange:#E8611A; --shadow-sm:0 2px 8px rgba(0,0,0,0.06); --shadow-md:0 4px 16px rgba(0,0,0,0.10); --shadow-lg:0 8px 32px rgba(0,0,0,0.12); --radius-sm:2px; --radius-md:2px; --radius-lg:4px; --space-xs:8px; --space-sm:16px; --space-md:24px; --space-lg:40px; --space-xl:64px; --space-2xl:64px; }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:'Inter',sans-serif; font-size:17px; line-height:1.6; color:#191919; background:#fff; -webkit-font-smoothing:antialiased; }
-        a { color:var(--color-accent); text-decoration:none; transition:color 0.2s; }
-        a:hover { color:var(--color-secondary); }
-        .container { max-width:1200px; margin:0 auto; padding:0 var(--space-md); }
-        #vz-utility-bar { background:#fff; border-bottom:1px solid #e8e8e8; padding:0; }
-        .vz-utility-inner { max-width:1280px; margin:0 auto; padding:0 24px; display:flex; justify-content:flex-end; align-items:center; height:40px; gap:20px; }
-        .vz-utility-link { color:#191919; text-decoration:none; font-size:15px; white-space:nowrap; transition:color 0.2s; }
-        .vz-utility-link:hover { color:#003B75; text-decoration:underline; }
-        .vz-utility-sep { color:#d0d0d0; font-size:14px; }
-        @media(max-width:860px){ #vz-utility-bar{display:none;} }
-        #vz-header { background:#fff; border-bottom:1px solid #e8e8e8; position:sticky; top:0; z-index:1000; transition:box-shadow 0.25s; }
-        #vz-header.nav-scrolled { box-shadow:0 2px 16px rgba(0,0,0,0.12); }
-        .vz-header-inner { max-width:1280px; margin:0 auto; padding:0 24px; display:flex; align-items:center; height:72px; }
-        .vz-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; margin-right:40px; }
-        .vz-logo-wordmark { font-size:15px; font-weight:500; color:#191919; white-space:nowrap; }
-        .vz-main-nav { display:flex; align-items:stretch; list-style:none; flex:1; height:100%; }
-        .vz-nav-item { position:relative; display:flex; align-items:stretch; }
-        .vz-nav-item > a { display:flex; align-items:center; padding:0 16px; font-size:17px; color:#191919; text-decoration:none; white-space:nowrap; border-bottom:3px solid transparent; margin-bottom:-1px; transition:color 0.2s,border-color 0.2s; }
-        .vz-nav-item > a:hover { color:#003B75; }
-        .vz-nav-item.active > a { color:#003B75; font-weight:600; border-bottom-color:#003B75; }
-        .vz-dropdown { display:none; position:absolute; top:100%; left:0; background:#fff; box-shadow:0 8px 32px rgba(0,0,0,0.12); border-top:3px solid #003B75; min-width:260px; padding:8px 0; z-index:2000; }
-        .vz-nav-item::after { content:''; position:absolute; bottom:-8px; left:0; right:0; height:8px; }
-        .vz-nav-item:hover .vz-dropdown,.vz-nav-item .vz-dropdown:hover { display:block; }
-        .vz-dropdown-list { list-style:none; }
-        .vz-dropdown-list a { display:block; padding:10px 24px; font-size:16px; color:#191919; text-decoration:none; transition:background 0.15s,color 0.15s; }
-        .vz-dropdown-list a:hover { background:#F5F5F7; color:#003B75; }
-        .vz-dropdown-list a.vz-dropdown-active { font-weight:700; color:#003B75; }
-        .vz-header-right { display:flex; align-items:center; gap:12px; margin-left:auto; flex-shrink:0; }
-        .vz-cta-btn { background:#C95321; color:#fff; border-radius:100px; padding:10px 22px; font-size:15px; font-weight:500; text-decoration:none; white-space:nowrap; transition:background 0.2s; border:none; cursor:pointer; font-family:'Inter',sans-serif; display:inline-block; }
-        .vz-cta-btn:hover { background:#a84218; color:#fff; }
-        .vz-hamburger { display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:40px; height:40px; background:none; border:none; cursor:pointer; padding:4px; }
-        .vz-hamburger span { display:block; width:24px; height:2px; background:#191919; border-radius:1px; transition:transform 0.3s,opacity 0.3s; transform-origin:center; }
-        body.mobile-menu-open .vz-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-        body.mobile-menu-open .vz-hamburger span:nth-child(2){opacity:0;transform:scaleX(0);}
-        body.mobile-menu-open .vz-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-        .mobile-menu { position:fixed; top:0; right:0; width:320px; max-width:100%; height:100%; background:#003B75; z-index:1100; display:flex; flex-direction:column; overflow-y:auto; transform:translateX(100%); transition:transform 0.3s ease; }
-        body.mobile-menu-open .mobile-menu { transform:translateX(0); }
-        .mobile-menu-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:1099; }
-        body.mobile-menu-open .mobile-menu-overlay { display:block; }
-        .mobile-menu-header { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid rgba(255,255,255,0.15); }
-        .mobile-menu-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-        .mobile-menu-logo-sq { width:34px; height:34px; background:#fff; color:#003B75; border-radius:3px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; }
-        .mobile-menu-logo-text { font-size:14px; font-weight:600; color:#fff; }
-        .mobile-menu-close { background:none; border:none; color:#fff; font-size:22px; cursor:pointer; padding:4px 8px; opacity:0.8; }
-        .mobile-menu-links { list-style:none; padding:8px 0; flex:1; }
-        .mobile-menu-item { border-bottom:1px solid rgba(255,255,255,0.1); }
-        .mobile-menu-toggle { width:100%; background:none; border:none; color:#fff; font-size:17px; font-weight:600; font-family:'Inter',sans-serif; text-align:left; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; }
-        .mobile-menu-arrow { font-size:17px; transition:transform 0.2s; opacity:0.7; }
-        .mobile-menu-item.open .mobile-menu-arrow { transform:rotate(90deg); }
-        .mobile-submenu { display:none; list-style:none; padding:0 0 8px; background:rgba(0,0,0,0.15); }
-        .mobile-menu-item.open .mobile-submenu { display:block; }
-        .mobile-submenu li a { display:block; padding:10px 20px 10px 36px; font-size:15px; color:rgba(255,255,255,0.85); text-decoration:none; }
-        .mobile-submenu li a:hover { color:#fff; background:rgba(255,255,255,0.08); }
-        .mobile-menu-cta { padding:16px 20px; border-top:1px solid rgba(255,255,255,0.15); }
-        .mobile-menu-cta .vz-cta-btn { width:100%; text-align:center; display:block; }
-        @media(max-width:860px){ .vz-main-nav{display:none;} .vz-header-inner{height:60px;} .vz-hamburger{display:flex;} .vz-cta-btn{display:none;} }
-        #vz-quicklinks { background:#fff; border-bottom:1px solid #e8e8e8; overflow-x:auto; scrollbar-width:none; }
-        #vz-quicklinks::-webkit-scrollbar { display:none; }
-        .quicklinks-inner { max-width:1280px; margin:0 auto; padding:0 24px; display:flex; gap:0; white-space:nowrap; height:48px; align-items:center; }
-        .quicklink { color:#191919; text-decoration:none; font-size:17px; padding:0 16px; height:100%; display:flex; align-items:center; border-bottom:3px solid transparent; transition:color 0.2s,border-color 0.2s; }
-        .quicklink:first-child { padding-left:0; }
-        .quicklink:hover { color:#003B75; }
-        .quicklink.active { color:#003B75; font-weight:600; border-bottom-color:#003B75; }
-        #vz-breadcrumb { background:#fff; border-bottom:1px solid #e8e8e8; padding:10px 0; }
-        .breadcrumb-inner { max-width:1280px; margin:0 auto; padding:0 24px; display:flex; align-items:center; gap:8px; font-size:14px; color:#767676; flex-wrap:wrap; }
-        .breadcrumb-inner a { color:#767676; text-decoration:none; }
-        .breadcrumb-inner a:hover { text-decoration:underline; color:#003B75; }
-        .breadcrumb-sep { color:#bbb; }
-        .breadcrumb-current { color:#191919; }
-        #ref-detail-hero { background:var(--color-primary); padding:48px 0 56px; }
-        .ref-detail-hero-inner { max-width:1200px; margin:0 auto; padding:0 var(--space-md); }
-        .ref-detail-tag { display:inline-block; background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.9); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; padding:4px 12px; border-radius:2px; margin-bottom:16px; }
-        #ref-detail-hero h1 { color:#fff; font-size:36px; line-height:1.2; max-width:700px; margin-bottom:12px; }
-        .ref-detail-sub { color:rgba(255,255,255,0.75); font-size:18px; max-width:580px; }
-        @media(max-width:768px){ #ref-detail-hero{padding:36px 0 40px;} #ref-detail-hero h1{font-size:26px;} }
-        #ref-detail-content { padding:var(--space-2xl) 0; }
-        .ref-detail-grid { display:grid; grid-template-columns:1fr 340px; gap:56px; align-items:flex-start; }
-        @media(max-width:900px){ .ref-detail-grid{grid-template-columns:1fr;gap:40px;} }
-        .ref-detail-text h2 { font-size:26px; color:var(--color-primary); margin-bottom:16px; }
-        .ref-detail-text h3 { font-size:20px; color:var(--color-primary); margin:28px 0 12px; }
-        .ref-detail-text p { font-size:17px; line-height:1.7; color:var(--color-text); margin-bottom:20px; }
-        .ref-quote { background:var(--color-bg-light); border-left:4px solid var(--color-primary); padding:24px 28px; margin:32px 0; border-radius:0 var(--radius-lg) var(--radius-lg) 0; }
-        .ref-quote blockquote { font-size:18px; font-style:italic; line-height:1.6; color:var(--color-text); margin-bottom:12px; }
-        .ref-quote-author { font-size:14px; font-weight:600; color:var(--color-text-light); }
-        .ref-sidebar { position:sticky; top:88px; }
-        .ref-sidebar-card { background:var(--color-bg-light); border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:28px 24px; margin-bottom:24px; }
-        .ref-sidebar-card h4 { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--color-text-light); margin-bottom:16px; }
-        .ref-fact-row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-bottom:1px solid var(--color-border); font-size:14px; }
-        .ref-fact-row:last-child { border-bottom:none; }
-        .ref-fact-label { color:var(--color-text-light); }
-        .ref-fact-value { font-weight:600; color:var(--color-text); text-align:right; }
-        .ref-cta-card { background:var(--color-primary); border-radius:var(--radius-lg); padding:28px 24px; text-align:center; }
-        .ref-cta-card h4 { color:#fff; font-size:18px; margin-bottom:10px; }
-        .ref-cta-card p { color:rgba(255,255,255,0.75); font-size:14px; margin-bottom:20px; line-height:1.5; }
-        .ref-cta-btn { display:block; background:#C77649; color:#fff; padding:12px 20px; border-radius:var(--radius-sm); font-size:15px; font-weight:600; text-decoration:none; transition:background 0.2s; border:none; cursor:pointer; font-family:inherit; width:100%; }
-        .ref-cta-btn:hover { background:#a85e38; color:#fff; }
-        #ref-bottom-cta { background:var(--color-bg-light); border-top:1px solid var(--color-border); padding:var(--space-2xl) 0; text-align:center; }
-        #ref-bottom-cta h2 { font-size:28px; color:var(--color-primary); margin-bottom:12px; }
-        #ref-bottom-cta p { color:var(--color-text-light); font-size:17px; margin-bottom:var(--space-lg); }
-        .ref-bottom-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-        .btn-primary-lg { background:var(--color-primary); color:#fff; padding:14px 32px; font-size:16px; font-weight:600; border-radius:var(--radius-sm); text-decoration:none; transition:background 0.2s; border:none; cursor:pointer; font-family:inherit; }
-        .btn-primary-lg:hover { background:#003070; color:#fff; }
-        .btn-secondary-lg { border:2px solid var(--color-primary); color:var(--color-primary); background:transparent; padding:12px 30px; font-size:16px; font-weight:600; border-radius:var(--radius-sm); text-decoration:none; transition:background 0.2s; }
-        .btn-secondary-lg:hover { background:var(--color-primary); color:#fff; }
-        .mobile-cta-bar { display:none; position:fixed; bottom:0; width:100%; z-index:900; background:#fff; padding:10px 0; text-align:center; box-shadow:0 -2px 8px rgba(0,0,0,0.08); }
-        @media(max-width:768px){ .mobile-cta-bar{display:block;} body{padding-bottom:56px;} }
-        .mobile-cta-bar button { color:#fff; background:#E8611A; border:none; padding:10px 28px; font-size:15px; font-weight:600; text-decoration:none; border-radius:100px; cursor:pointer; font-family:inherit; }
-        .termin-dialog-vz { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:92%; max-width:920px; max-height:92vh; padding:0; border:none; border-radius:6px; box-shadow:0 10px 40px rgba(0,0,0,0.25); background:transparent; z-index:10000; }
-        .termin-dialog-vz::backdrop { background-color:rgba(0,0,0,0.5); }
-        .termin-dialog-vz-content { background-color:#E8DCC8; border-radius:6px; padding:40px; max-height:92vh; overflow-y:auto; position:relative; }
-        .termin-dialog-vz-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:flex-start; }
-        .termin-close { position:absolute; top:16px; right:20px; background:none; border:none; font-size:26px; cursor:pointer; color:#A0734D; padding:0; width:36px; height:36px; display:flex; align-items:center; justify-content:center; }
-        .termin-close:hover { color:#7A4F2D; }
-        .termin-left h2 { font-size:26px; font-weight:700; color:#191919; margin-bottom:16px; }
-        .termin-left p { font-size:14px; line-height:1.6; color:#555; margin-bottom:0; }
-        .termin-form-group { margin-bottom:20px; }
-        .termin-form-label { font-weight:600; display:block; margin-bottom:10px; font-size:14px; color:#191919; }
-        .termin-checkbox-list { display:grid; gap:8px; }
-        .termin-checkbox-row { display:flex; align-items:center; gap:10px; cursor:pointer; font-size:14px; color:#191919; }
-        .termin-checkbox-row input[type="checkbox"] { cursor:pointer; accent-color:#A0734D; width:15px; height:15px; }
-        .termin-textarea { width:100%; min-height:80px; padding:10px 12px; border:1px solid #c8b89a; border-radius:3px; font-family:inherit; font-size:14px; resize:vertical; background:rgba(255,255,255,0.6); }
-        .termin-textarea:focus { outline:none; border-color:#A0734D; background:#fff; }
-        .termin-personal-toggle { display:flex; align-items:center; gap:10px; cursor:pointer; font-weight:600; font-size:14px; color:#191919; }
-        .termin-personal-toggle input { cursor:pointer; accent-color:#A0734D; width:15px; height:15px; }
-        .termin-personal-hint { font-size:12px; color:#555; margin:4px 0 0; }
-        .termin-personal-fields { display:none; margin-top:16px; }
-        .termin-personal-fields.open { display:grid; gap:10px; }
-        .termin-input { width:100%; padding:9px 12px; border:1px solid #c8b89a; border-radius:3px; font-family:inherit; font-size:14px; background:rgba(255,255,255,0.6); }
-        .termin-input:focus { outline:none; border-color:#A0734D; background:#fff; }
-        .termin-input-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-        .termin-input-row-addr { display:grid; grid-template-columns:2fr 1fr; gap:10px; }
-        .termin-input-row-zip { display:grid; grid-template-columns:1fr 2fr; gap:10px; }
-        .termin-select { padding:9px 12px; border:1px solid #c8b89a; border-radius:3px; font-family:inherit; font-size:14px; background:rgba(255,255,255,0.6); }
-        .termin-anrede-row { display:flex; gap:20px; align-items:center; }
-        .termin-anrede-label { font-size:14px; font-weight:600; color:#191919; }
-        .termin-radio-row { display:flex; align-items:center; gap:6px; font-size:14px; cursor:pointer; }
-        .termin-radio-row input { cursor:pointer; accent-color:#A0734D; }
-        .termin-tel-row { display:grid; grid-template-columns:100px 1fr; gap:10px; }
-        .termin-info-text { font-size:13px; color:#191919; line-height:1.5; margin:12px 0 0; }
-        .termin-consent-row { display:flex; gap:10px; align-items:flex-start; font-size:12px; margin-top:16px; }
-        .termin-consent-row input { cursor:pointer; accent-color:#A0734D; margin-top:2px; flex-shrink:0; }
-        .termin-consent-row a { color:#A0734D; text-decoration:underline; }
-        .termin-dialog-footer { display:flex; gap:12px; justify-content:flex-end; margin-top:28px; padding-top:20px; border-top:1px solid rgba(0,0,0,0.1); }
-        .termin-btn-close { padding:11px 24px; border:2px solid #A0734D; border-radius:3px; color:#A0734D; background:transparent; font-size:15px; font-weight:600; cursor:pointer; font-family:inherit; }
-        .termin-btn-close:hover { background:rgba(160,115,77,0.1); }
-        .termin-btn-submit { padding:11px 28px; border:none; border-radius:3px; background:#C77649; color:#fff; font-size:15px; font-weight:600; cursor:pointer; font-family:inherit; }
-        .termin-btn-submit:hover { background:#a85e38; }
-        @media(max-width:760px){ .termin-dialog-vz-grid{grid-template-columns:1fr;gap:24px;} .termin-dialog-vz-content{padding:28px 20px;} .termin-left h2{font-size:22px;} }
-        :focus-visible { outline:2px solid var(--color-accent); outline-offset:2px; border-radius:2px; }
-        :focus:not(:focus-visible) { outline:none; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/vz.css">
+<title>ipet.ch | Referenzprojekt Unternehmensnachfolge</title>
+<meta name="description" content="Referenzprojekt: ipet.ch / Escher &amp; Büttner. Verkauf der Aktienmehrheit eines erfolgreichen E-Commerce-Unternehmens an eine Investorengruppe — ein Musterbeispiel einer durchdachten, digital geprägten Nachf">
+<style>
+/* Facts table in sidebar */
+.vz-sidebar table th {
+  font-weight: 600;
+  color: var(--vz-text-muted);
+  padding: 8px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--vz-border-light);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  width: 100%;
+  display: block;
+}
+.vz-sidebar table td {
+  font-weight: 500;
+  color: var(--vz-text);
+  padding: 2px 0 10px;
+  border-bottom: 1px solid var(--vz-border-light);
+  display: block;
+}
+.vz-sidebar table tr:last-child th,
+.vz-sidebar table tr:last-child td {
+  border-bottom: 0;
+}
+</style>
+
 </head>
 <body>
 
-    <dialog id="terminDialog" class="termin-dialog-vz" aria-labelledby="termin-dialog-title">
-        <div class="termin-dialog-vz-content">
-            <button class="termin-close" onclick="closeTerminDialog()" aria-label="Schliessen">&#x2715;</button>
-            <div class="termin-dialog-vz-grid">
-                <div class="termin-left">
-                    <h2 id="termin-dialog-title">Möchten Sie mehr erfahren?</h2>
-                    <p style="margin-bottom:12px;">Vereinbaren Sie einen Termin für ein erstes Gespräch.</p>
-                    <p style="font-size:13px;color:#191919;">Wir begleiten KMU-Inhaber von der ersten Orientierung bis zum erfolgreichen Abschluss – diskret, professionell und ganzheitlich.</p>
-                </div>
-                <form id="terminForm" novalidate>
-                    <div class="termin-form-group">
-                        <label class="termin-form-label">Thema auswählen</label>
-                        <div class="termin-checkbox-list">
-                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Unternehmensnachfolge" checked> Unternehmensnachfolge</label>
-                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Pensionskasse"> Pensionskasse</label>
-                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Kadervorsorge"> Kadervorsorge</label>
-                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Versicherungsmanagement"> Versicherungsmanagement</label>
-                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Firmengründung"> Firmengründung</label>
-                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Dienstleistungen für Privatkunden"> Dienstleistungen für Privatkunden</label>
-                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Andere Interessen"> Andere Interessen</label>
-                        </div>
-                    </div>
-                    <div class="termin-form-group">
-                        <label class="termin-form-label">Ihre Mitteilung</label>
-                        <textarea name="message" class="termin-textarea" placeholder="Schildern Sie uns Ihre Situation oder Wünsche"></textarea>
-                    </div>
-                    <div class="termin-form-group">
-                        <label class="termin-personal-toggle">
-                            <input type="checkbox" id="expandPersonal" onchange="togglePersonalFields()">
-                            Persönliche Angaben
-                        </label>
-                        <p class="termin-personal-hint">Bitte alle Felder ausfüllen</p>
-                    </div>
-                    <div id="personalFieldsContainer" class="termin-personal-fields">
-                        <div class="termin-anrede-row">
-                            <span class="termin-anrede-label">Anrede</span>
-                            <label class="termin-radio-row"><input type="radio" name="salutation" value="Frau"> Frau</label>
-                            <label class="termin-radio-row"><input type="radio" name="salutation" value="Herr"> Herr</label>
-                        </div>
-                        <div class="termin-input-row">
-                            <input type="text" name="firstName" class="termin-input" placeholder="Vorname *">
-                            <input type="text" name="lastName" class="termin-input" placeholder="Nachname *">
-                        </div>
-                        <div class="termin-input-row">
-                            <input type="text" name="company" class="termin-input" placeholder="Firma *">
-                            <input type="text" name="position" class="termin-input" placeholder="Funktion">
-                        </div>
-                        <div class="termin-input-row-addr">
-                            <input type="text" name="street" class="termin-input" placeholder="Strasse *">
-                            <input type="text" name="streetNumber" class="termin-input" placeholder="Nr. *">
-                        </div>
-                        <div class="termin-input-row-zip">
-                            <input type="text" name="zip" class="termin-input" placeholder="PLZ *">
-                            <input type="text" name="city" class="termin-input" placeholder="Ort *">
-                        </div>
-                        <div class="termin-input-row">
-                            <div class="termin-tel-row">
-                                <select name="phoneType" class="termin-select termin-input"><option>Mobil</option><option>Telefon</option></select>
-                                <input type="tel" name="phone" class="termin-input" placeholder="Telefonnummer *">
-                            </div>
-                            <input type="email" name="email" class="termin-input" placeholder="E-Mail *">
-                        </div>
-                        <p class="termin-info-text">Wir rufen Sie an, um einen Termin in einer Niederlassung in Ihrer Nähe zu vereinbaren.</p>
-                        <label class="termin-consent-row">
-                            <input type="checkbox" name="consent" id="terminConsent">
-                            <span>Ich bestätige, dass ich die <a href="#">Rechtlichen Hinweise</a> und die <a href="#">Datenschutzerklärung</a> gelesen habe.</span>
-                        </label>
-                    </div>
-                </form>
-            </div>
-            <div class="termin-dialog-footer">
-                <button class="termin-btn-close" onclick="closeTerminDialog()">Schliessen</button>
-                <button class="termin-btn-submit" onclick="submitTerminForm()">Absenden</button>
-            </div>
-        </div>
-    </dialog>
-
-    <div id="vz-utility-bar">
-        <div class="vz-utility-inner">
-            <button onclick="openTerminDialog()" class="vz-utility-link" style="background:none;border:none;cursor:pointer;font-family:inherit;">Termin vereinbaren</button>
-            <a href="#" class="vz-utility-link">Wissen</a>
-            <a href="#" class="vz-utility-link">XY Finanzportal</a>
-            <span class="vz-utility-sep">|</span>
-            <a href="#" class="vz-utility-link">Börsen &amp; Märkte</a>
-        </div>
-    </div>
-
-    <header id="vz-header" role="banner">
-        <div class="vz-header-inner">
-            <a href="../index.html" class="vz-logo" aria-label="XY XxxxxZentrum – Startseite">
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" fill="#003B75"/><polygon points="22,7 37,22 22,37 7,22" fill="none" stroke="white" stroke-width="2"/><text x="22" y="26" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">XY</text></svg>
-                <span class="vz-logo-wordmark">XxxxxZentrum</span>
-            </a>
-            <ul class="vz-main-nav" role="list">
-                <li class="vz-nav-item"><a href="#">Privatpersonen</a><div class="vz-dropdown"><ul class="vz-dropdown-list"><li><a href="#">Pensionierung</a></li><li><a href="#">Geldanlagen</a></li><li><a href="#">Nachlass</a></li></ul></div></li>
-                <li class="vz-nav-item active"><a href="#">Firmen</a><div class="vz-dropdown"><ul class="vz-dropdown-list"><li><a href="../index.html" class="vz-dropdown-active">Unternehmensnachfolge</a></li><li><a href="#">Pensionskasse</a></li><li><a href="#">Kadervorsorge</a></li></ul></div></li>
-                <li class="vz-nav-item"><a href="#">Ratgeber</a><div class="vz-dropdown"><ul class="vz-dropdown-list"><li><a href="#">Seminare</a></li><li><a href="#">Merkblätter</a></li></ul></div></li>
-                <li class="vz-nav-item"><a href="#">Über XY</a><div class="vz-dropdown"><ul class="vz-dropdown-list"><li><a href="#">Portrait</a></li><li><a href="#">Standorte</a></li></ul></div></li>
-            </ul>
-            <div class="vz-header-right">
-                <button onclick="openTerminDialog()" class="vz-cta-btn">Termin vereinbaren</button>
-                <button class="vz-hamburger" id="vz-hamburger" aria-label="Menu öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
-            </div>
-        </div>
-    </header>
-
-    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
-    <div id="mobile-menu" class="mobile-menu">
-        <div class="mobile-menu-header">
-            <a href="../index.html" class="mobile-menu-logo"><span class="mobile-menu-logo-sq">XY</span><span class="mobile-menu-logo-text">XxxxxZentrum</span></a>
-            <button class="mobile-menu-close" id="mobile-menu-close">&times;</button>
-        </div>
-        <ul class="mobile-menu-links"><li class="mobile-menu-item open"><button class="mobile-menu-toggle is-active">Firmen <span class="mobile-menu-arrow">&#8250;</span></button><ul class="mobile-submenu"><li><a href="../index.html" class="mobile-sub-active">Unternehmensnachfolge</a></li></ul></li></ul>
-        <div class="mobile-menu-cta"><button onclick="openTerminDialog()" class="vz-cta-btn" style="width:100%;display:block;">Termin vereinbaren</button></div>
-    </div>
-
-    <nav id="vz-quicklinks">
-        <div class="quicklinks-inner">
-            <a href="#" class="quicklink">Pensionierung</a>
-            <a href="#" class="quicklink">Geldanlagen</a>
-            <a href="#" class="quicklink">Nachlass</a>
-            <a href="#" class="quicklink active">Firmen</a>
-        </div>
+<div class="vz-top-bar">
+  <div class="vz-top-bar-inner">
+    <a href="#" class="vz-top-appointment" data-modal-open="termin-modal">Termin vereinbaren</a>
+    <span class="sep">|</span>
+    <a href="#">Wissen</a>
+    <span class="sep">|</span>
+    <a href="#">XY Finanzportal</a>
+    <span class="sep">|</span>
+    <a href="#">Börsen &amp; Märkte</a>
+  </div>
+</div>
+<header class="vz-header">
+  <div class="vz-header-inner">
+    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum Startseite">
+      <span class="vz-logo-mark">XY</span>
+      <span class="vz-logo-text">XxxxxZentrum</span>
+    </a>
+    <nav class="vz-nav-right" aria-label="Hauptnavigation">
+      <a href="#" class="vz-header-termin" data-modal-open="termin-modal">Termin vereinbaren</a>
+      <button class="vz-menu-btn" data-mobile-nav-toggle aria-label="Menü öffnen">≡ Menü</button>
     </nav>
+  </div>
+</header>
+<div class="vz-quicklinks">
+  <div class="vz-quicklinks-inner">
+    <a href="#">Pensionierung</a>
+    <a href="#">Geldanlagen</a>
+    <a href="#">Nachlass</a>
+    <a href="#">Immobilien</a>
+    <a href="#">Steuern</a>
+    <a href="#">Vorsorge</a>
+    <a href="#">Versicherungen</a>
+    <a href="#">Bankgeschäfte</a>
+    <a href="#">Firmen</a>
+  </div>
+</div>
 
-    <div id="vz-breadcrumb">
-        <div class="breadcrumb-inner">
-            <a href="#">Startseite</a>
-            <span class="breadcrumb-sep">&rsaquo;</span>
-            <a href="#">Firmen</a>
-            <span class="breadcrumb-sep">&rsaquo;</span>
-            <a href="../index.html">Unternehmensnachfolge</a>
-            <span class="breadcrumb-sep">&rsaquo;</span>
-            <a href="../referenzen.html">Referenzen</a>
-            <span class="breadcrumb-sep">&rsaquo;</span>
-            <span class="breadcrumb-current">ipet.ch / Escher &amp; Büttner</span>
+<nav class="vz-breadcrumb" aria-label="Brotkrumen"><a href="#">Startseite</a><span class="sep">›</span><a href="#">Firmen</a><span class="sep">›</span><a href="/index.html">Unternehmensnachfolge</a><span class="sep">›</span><a href="/referenzen.html">Referenzen</a><span class="sep">›</span><span>ipet.ch</span></nav>
+
+<main class="vz-main">
+
+  <div class="vz-card">
+    <p class="vz-eyebrow">Referenzprojekt · E-Commerce · 2023</p>
+    <h1 style="font-size:2.3rem;margin:0 0 16px;">ipet.ch / Escher &amp; Büttner</h1>
+    <p style="font-size:1.2rem;max-width:800px;color:var(--vz-text);margin:0;">Verkauf der Aktienmehrheit eines erfolgreichen E-Commerce-Unternehmens an eine Investorengruppe — ein Musterbeispiel einer durchdachten, digital geprägten Nachfolge.</p>
+  </div>
+
+  <div class="vz-card">
+    <div class="vz-layout-2col">
+      <div class="vz-content-block">
+        <!-- Inhaber-Bild (prominent platziert, genau hier ist der beste Ort) -->
+        <div style="width:100%;aspect-ratio:16/9;background:#c8c8cc;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:16px;margin-bottom:32px;">
+          <!-- [PLATZHALTER: Bild der Inhaber]-->
+          <div>Portraitfoto<br>Matthias Escher &amp; Sabina Büttner<br>ipet.ch</div>
         </div>
+
+        <h2>Ausgangslage</h2>
+        <p>Matthias Escher und Sabina Büttner haben mit ipet.ch über Jahre einen erfolgreichen Schweizer Online-Tierfutter-Shop aufgebaut. Das Unternehmen wuchs stark, gewann ein breites Kundensegment und etablierte sich als einer der führenden Akteure in seiner Nische.</p><p>Nach Jahren intensiver Aufbauarbeit stellten sich die Gründer die Frage, wie sie das Unternehmen auf die nächste Wachstumsstufe bringen und ihre Aktienmehrheit strukturiert übergeben können — ohne dass die Identität der Firma verloren geht.</p>
+
+        <h2>Unser Vorgehen</h2>
+        <p>Wir strukturierten den Prozess als Mehrheitsverkauf mit fortgesetzter operativer Einbindung der Gründer für eine definierte Übergangsphase. Die Bewertung orientierte sich an E-Commerce-typischen Multiples unter Berücksichtigung von Wachstum und Wiederkaufrate.</p><p>Die Käufersuche fokussierte auf Investorengruppen mit Erfahrung im Online-Handel. Mehrere Interessenten wurden sorgfältig geprüft, bevor die Transaktion mit dem passenden Partner abgeschlossen wurde.</p>
+
+        <div class="vz-testimonial" style="margin:32px 0;">
+          <div class="vz-testimonial-img" aria-hidden="true">
+            Portraitfoto<br>Matthias Escher &amp; Sabina Büttner
+          </div>
+          <div>
+            <p class="vz-testimonial-quote">«Der Verkauf einer Firma ist sehr komplex — wir haben einen klaren Weg durch diese Komplexität gefunden. Wir wurden nicht nur durch die Transaktion, sondern auch durch die emotionalen Momente begleitet.»</p>
+            <p class="vz-testimonial-name">Matthias Escher &amp; Sabina Büttner</p>
+            <p class="vz-testimonial-role">Gründer ipet.ch</p>
+          </div>
+        </div>
+
+        <h2>Ergebnis</h2>
+        <p>Die Aktienmehrheit wurde 2023 erfolgreich an eine Investorengruppe veräussert. Die Gründer bleiben operativ beteiligt und gestalten die nächste Wachstumsphase aktiv mit.</p><p>Der Deal schuf für beide Seiten Mehrwert: neue Ressourcen und strategische Expertise für das Unternehmen, eine abgesicherte finanzielle Zukunft für die Gründer.</p>
+      </div>
+
+      <aside class="vz-sidebar">
+        <div class="vz-advisor" style="margin-bottom:20px;">
+          <h3 style="margin:0 0 8px;font-size:1.05rem;">Kennzahlen</h3>
+          <table style="width:100%;font-size:0.9rem;margin:0;">
+            <tr><th>Unternehmen</th><td>ipet.ch</td></tr><tr><th>Branche</th><td>E-Commerce / Online-Handel</td></tr><tr><th>Region</th><td>Deutschschweiz</td></tr><tr><th>Transaktionsart</th><td>Mehrheitsverkauf an Investorengruppe</td></tr><tr><th>Abschluss</th><td>2023</td></tr><tr><th>Besonderheit</th><td>Gründer operativ weiter engagiert</td></tr>
+          </table>
+        </div>
+        <div style="background:var(--vz-primary);color:#fff;padding:24px;">
+          <h3 style="color:#fff;margin:0 0 8px;font-size:1.1rem;">Ihr Unternehmen hat Potenzial</h3>
+          <p style="font-size:0.9rem;margin:0 0 16px;opacity:0.95;">In einem kostenlosen Erstgespräch klären wir, wie wir Ihre Nachfolge erfolgreich gestalten können.</p>
+          <a href="#" class="vz-btn" data-modal-open="termin-modal" style="width:100%;text-align:center;">Termin vereinbaren</a>
+        </div>
+      </aside>
     </div>
+  </div>
 
-    <section id="ref-detail-hero">
-        <div class="ref-detail-hero-inner">
-            <span class="ref-detail-tag">Referenzprojekt · E-Commerce · 2023</span>
-            <h1>ipet.ch / Escher &amp; Büttner</h1>
-            <p class="ref-detail-sub">Erfolgreicher Verkauf eines wachsenden Online-Shops für Heimtierbedarf — mit Klarheit durch Komplexität begleitet.</p>
-        </div>
-    </section>
-
-    <section id="ref-detail-content">
-        <div class="container">
-            <div class="ref-detail-grid">
-                <div class="ref-detail-text">
-                    <h2>Ausgangslage</h2>
-                    <p>Matthias Escher und Sabina Büttner gründeten ipet.ch als kleines Nischenprojekt und bauten es über Jahre zu einem profitablen Online-Shop mit treuer Stammkundschaft aus. Mit einem breiten Sortiment an Heimtierprodukten und einer starken Marke in der Deutschschweiz hatte das Unternehmen eine solide Position im wachsenden E-Commerce-Markt.</p>
-                    <p>Als beide Gründer sich beruflich neu orientieren wollten, stand die Frage im Raum: Wie verkauft man ein digitales Unternehmen mit immateriellen Werten — Marke, Kundendaten, SEO-Rankings, Lieferantenverträge — zu einem fairen Preis? Und wer ist der richtige Käufer für ein solches Geschäftsmodell?</p>
-
-                    <h3>Unser Vorgehen</h3>
-                    <p>Die Bewertung eines E-Commerce-Unternehmens erfordert spezifisches Know-how jenseits klassischer KMU-Kennzahlen. Wir analysierten Wiederkaufsraten, Customer Lifetime Value, Traffic-Quellen und Margenstruktur, um ein marktgerechtes Bewertungsmodell zu erstellen.</p>
-                    <p>Im nächsten Schritt erarbeiteten wir ein detailliertes Exposé, das die digitale Infrastruktur, das Sortiment und das Wachstumspotenzial klar darstellte. Über unser Netzwerk konnten wir innerhalb von sechs Wochen mehrere qualifizierte Interessenten identifizieren — darunter einen strategischen Käufer aus dem Retail-Bereich, der ipet.ch als Einstieg in den Online-Handel nutzen wollte.</p>
-
-                    <div class="ref-quote">
-                        <blockquote>«Der Verkauf einer Firma ist komplex — XY hat Klarheit geschaffen. Wir wussten zu jedem Zeitpunkt, wo wir standen, was als nächstes kommt und was wir entscheiden müssen. Das hat uns enorm geholfen.»</blockquote>
-                        <p class="ref-quote-author">Matthias Escher &amp; Sabina Büttner, Gründer ipet.ch</p>
-                    </div>
-
-                    <h3>Ergebnis</h3>
-                    <p>ipet.ch wurde 2023 erfolgreich an einen strategischen Käufer übergeben. Die Plattform und Marke wurden vollständig übernommen, und Matthias Escher begleitete den neuen Inhaber für vier Monate als Berater in der Übergangsphase.</p>
-                    <p>Der erzielte Verkaufspreis übertraf die anfänglichen Erwartungen der Gründer deutlich — ein Ergebnis, das ohne strukturierte Vorbereitung und professionelle Käuferansprache nicht erreichbar gewesen wäre.</p>
-                </div>
-
-                <aside class="ref-sidebar">
-                    <div class="ref-sidebar-card">
-                        <h4>Kennzahlen</h4>
-                        <div class="ref-fact-row"><span class="ref-fact-label">Unternehmen</span><span class="ref-fact-value">ipet.ch</span></div>
-                        <div class="ref-fact-row"><span class="ref-fact-label">Branche</span><span class="ref-fact-value">E-Commerce</span></div>
-                        <div class="ref-fact-row"><span class="ref-fact-label">Region</span><span class="ref-fact-value">Deutschschweiz</span></div>
-                        <div class="ref-fact-row"><span class="ref-fact-label">Nachfolgeform</span><span class="ref-fact-value">Strategischer Verkauf</span></div>
-                        <div class="ref-fact-row"><span class="ref-fact-label">Abschluss</span><span class="ref-fact-value">2023</span></div>
-                        <div class="ref-fact-row"><span class="ref-fact-label">Prozessdauer</span><span class="ref-fact-value">8 Monate</span></div>
-                    </div>
-                    <div class="ref-cta-card">
-                        <h4>Ihr Unternehmen hat Potenzial</h4>
-                        <p>In einem kostenlosen Erstgespräch klären wir, wie wir Ihre Nachfolge erfolgreich gestalten.</p>
-                        <button onclick="openTerminDialog()" class="ref-cta-btn">Termin vereinbaren</button>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section id="ref-bottom-cta">
-        <div class="container">
-            <h2>Ihr Unternehmen könnte das nächste Referenzprojekt sein.</h2>
-            <p>Erfahren Sie in einem kostenlosen Erstgespräch, wie wir Ihre Nachfolge begleiten können.</p>
-            <div class="ref-bottom-btns">
-                <button onclick="openTerminDialog()" class="btn-primary-lg">Kostenloses Erstgespräch vereinbaren</button>
-                <a href="../referenzen.html" class="btn-secondary-lg">Alle Referenzen ansehen</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="mobile-cta-bar">
-        <button onclick="openTerminDialog()">Termin vereinbaren</button>
+  <div class="vz-cta-box">
+    <div>
+      <h2>Ihr Unternehmen könnte das nächste Referenzprojekt sein.</h2>
+      <p>Erfahren Sie in einem kostenlosen Erstgespräch, wie wir Ihre Nachfolge begleiten können.</p>
+      <a href="#" class="vz-btn" data-modal-open="termin-modal">Kostenloses Erstgespräch vereinbaren</a>
     </div>
+    <div class="vz-cta-contact">
+      <p style="font-size:0.85rem;opacity:0.85;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.05em;">Weitere Referenzen</p>
+      <p><a href="/referenzen.html" style="color:#fff;text-decoration:underline;">Alle abgeschlossenen Projekte ansehen ›</a></p>
+    </div>
+  </div>
 
-    <footer style="background:#002B5C;padding:48px 0 24px;color:rgba(255,255,255,0.8);">
-        <div style="max-width:1200px;margin:0 auto 32px;padding:0 24px;display:flex;align-items:center;gap:12px;">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="#003B75"/><polygon points="20,5 35,20 20,35 5,20" fill="none" stroke="white" stroke-width="1.8"/><text x="20" y="24" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">XY</text></svg>
-            <span style="font-size:15px;font-weight:600;color:#fff;">XxxxxZentrum</span>
-        </div>
-        <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Firmen</div><div style="font-size:14px;line-height:2.1;"><a href="../index.html" style="color:#fff;font-weight:600;display:block;text-decoration:none;">Unternehmensnachfolge</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Pensionskasse</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Kadervorsorge</a></div></div>
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Über XY</div><div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Portrait</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Standorte</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Kontakt</a></div></div>
-        </div>
-        <div style="max-width:1200px;margin:24px auto 0;padding:16px 24px 0;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <div style="font-size:12px;color:rgba(255,255,255,0.4);display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Datenschutzerklärung</a><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Impressum</a></div>
-            <div style="font-size:12px;color:rgba(255,255,255,0.35);">&copy; 2026 XY XxxxxZentrum AG</div>
-        </div>
-    </footer>
+</main>
 
-    <script>
-        const vzHeader = document.getElementById('vz-header');
-        const hamburger = document.getElementById('vz-hamburger');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        window.addEventListener('scroll', () => vzHeader.classList.toggle('nav-scrolled', window.scrollY > 10), { passive: true });
-        function openMobileMenu() { document.body.classList.add('mobile-menu-open'); hamburger.setAttribute('aria-expanded','true'); }
-        function closeMobileMenu() { document.body.classList.remove('mobile-menu-open'); hamburger.setAttribute('aria-expanded','false'); }
-        hamburger.addEventListener('click', () => document.body.classList.contains('mobile-menu-open') ? closeMobileMenu() : openMobileMenu());
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) closeMobileMenu(); });
+<footer class="vz-footer">
+  <div class="vz-footer-inner">
+    <div>
+      <a href="/index.html" class="vz-logo" style="margin-bottom:16px;">
+        <span class="vz-logo-mark" style="font-size:1.6rem;">XY</span>
+        <span class="vz-logo-text">XxxxxZentrum</span>
+      </a>
+      <p style="color:var(--vz-text-muted);font-size:0.88rem;margin:12px 0 0;">Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
+    </div>
+    <div>
+      <h4>Firmen</h4>
+      <ul>
+        <li><a href="/index.html">Unternehmensnachfolge</a></li>
+        <li><a href="#">Pensionskasse</a></li>
+        <li><a href="#">Kadervorsorge</a></li>
+        <li><a href="#">Versicherungsmanagement</a></li>
+        <li><a href="#">Firmengründung</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ratgeber</h4>
+      <ul>
+        <li><a href="#">Merkblätter &amp; Bücher</a></li>
+        <li><a href="#">Seminare &amp; Workshops</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Wissensbeiträge</a></li>
+        <li><a href="#">Finanzrechner</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Über XY</h4>
+      <ul>
+        <li><a href="#">Portrait</a></li>
+        <li><a href="#">Standorte</a></li>
+        <li><a href="#">Jobs &amp; Karriere</a></li>
+        <li><a href="#">Kontakt &amp; Hilfe</a></li>
+        <li><a href="#">Newsletter abonnieren</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="vz-footer-bottom">
+    <div>© 2026 XY XxxxxZentrum AG · Alle Rechte vorbehalten</div>
+    <ul>
+      <li><a href="#">Rechtliche Hinweise</a></li>
+      <li><a href="#">Datenschutzerklärung</a></li>
+      <li><a href="#">Impressum</a></li>
+      <li><a href="#">Cyber-Sicherheit</a></li>
+    </ul>
+  </div>
+</footer>
 
-        function togglePersonalFields() {
-            const cb = document.getElementById('expandPersonal');
-            const c = document.getElementById('personalFieldsContainer');
-            if (c) c.classList.toggle('open', cb.checked);
-        }
-        function openTerminDialog() {
-            const d = document.getElementById('terminDialog');
-            if (!d) return;
-            const f = document.getElementById('terminForm');
-            if (f) f.reset();
-            const c = document.getElementById('personalFieldsContainer');
-            if (c) c.classList.remove('open');
-            const cb = document.getElementById('expandPersonal');
-            if (cb) cb.checked = false;
-            d.showModal();
-        }
-        function closeTerminDialog() {
-            const d = document.getElementById('terminDialog');
-            if (d) d.close();
-        }
-        function submitTerminForm() {
-            const consent = document.getElementById('terminConsent');
-            const container = document.getElementById('personalFieldsContainer');
-            if (container && container.classList.contains('open') && consent && !consent.checked) {
-                alert('Bitte bestätigen Sie die Datenschutzerklärung.');
-                return;
-            }
-            alert('Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.');
-            closeTerminDialog();
-        }
-        const dlg = document.getElementById('terminDialog');
-        if (dlg) {
-            dlg.addEventListener('click', e => { if (e.target === dlg) closeTerminDialog(); });
-            dlg.addEventListener('cancel', e => { e.preventDefault(); closeTerminDialog(); });
-        }
-    </script>
+<aside class="vz-mobile-nav" aria-label="Mobiles Menü">
+  <button class="vz-mobile-nav-close" data-mobile-nav-close aria-label="Menü schliessen">×</button>
+  <h4>Privatpersonen</h4>
+  <ul>
+    <li><a href="#">Pensionierung</a></li>
+    <li><a href="#">Geldanlagen</a></li>
+    <li><a href="#">Nachlass</a></li>
+    <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+    <li><a href="#">Steuern</a></li>
+    <li><a href="#">Vorsorge</a></li>
+    <li><a href="#">Versicherungen</a></li>
+    <li><a href="#">Bankgeschäfte</a></li>
+  </ul>
+  <h4>Firmen</h4>
+  <ul>
+    <li><a href="/index.html">Unternehmensnachfolge</a></li>
+    <li><a href="#">Pensionskasse</a></li>
+    <li><a href="#">Kadervorsorge</a></li>
+    <li><a href="#">Versicherungsmanagement</a></li>
+    <li><a href="#">Firmengründung</a></li>
+  </ul>
+  <h4>Ratgeber</h4>
+  <ul>
+    <li><a href="#">Merkblätter &amp; Bücher</a></li>
+    <li><a href="#">Seminare</a></li>
+    <li><a href="#">Videos</a></li>
+  </ul>
+  <h4>Über XY</h4>
+  <ul>
+    <li><a href="#">Portrait</a></li>
+    <li><a href="#">Standorte</a></li>
+    <li><a href="#">Kontakt</a></li>
+  </ul>
+</aside>
+
+<div class="vz-modal-backdrop" id="termin-modal" role="dialog" aria-labelledby="termin-modal-title" aria-modal="true">
+  <div class="vz-modal">
+    <button class="vz-modal-close" data-modal-close="termin-modal" aria-label="Schliessen">×</button>
+    <h2 id="termin-modal-title">Termin vereinbaren</h2>
+    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Wir melden uns innert einem Werktag bei Ihnen. Das erste Gespräch ist kostenlos und unverbindlich.</p>
+    <form data-termin-form novalidate>
+      <div class="vz-form-field"><label for="tm-name">Name *</label><input type="text" id="tm-name" required></div>
+      <div class="vz-form-field"><label for="tm-tel">Telefon *</label><input type="tel" id="tm-tel" required></div>
+      <div class="vz-form-field"><label for="tm-email">E-Mail</label><input type="email" id="tm-email"></div>
+      <div class="vz-form-field"><label for="tm-topic">Thema</label>
+        <select id="tm-topic">
+          <option>Unternehmensnachfolge</option>
+          <option>Firmenverkauf</option>
+          <option>Firmenkauf</option>
+          <option>Unternehmensbewertung</option>
+          <option>Andere Interessen</option>
+        </select>
+      </div>
+      <div class="vz-form-field"><label for="tm-msg">Ihre Mitteilung</label><textarea id="tm-msg" rows="3"></textarea></div>
+      <div class="vz-form-check">
+        <input type="checkbox" id="tm-consent" required>
+        <label for="tm-consent" style="font-weight:400;">Ich bestätige, dass ich die <a href="#">Datenschutzerklärung</a> gelesen habe.</label>
+      </div>
+      <button type="submit" class="vz-btn">Termin anfragen</button>
+    </form>
+    <div data-termin-confirm style="display:none;padding:20px 0;">
+      <p style="color:var(--vz-primary);font-weight:600;font-size:1.1rem;">✓ Vielen Dank!</p>
+      <p>Wir melden uns innert einem Werktag bei Ihnen.</p>
+      <button class="vz-btn vz-btn--outline" data-modal-close="termin-modal">Schliessen</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/vz.js"></script>
 </body>
 </html>

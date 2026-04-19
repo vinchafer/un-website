@@ -1,262 +1,222 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nach dem Verkauf | XY – Unternehmensnachfolge Schweiz</title>
-    <meta name="description" content="Was nach dem Firmenverkauf zählt: Pensionierung, Vermögensanlage, Nachlassplanung, Steueroptimierung. XY begleitet Sie auch nach dem Closing.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #003B75;
-            --color-accent: #003B75;
-            --color-text: #191919;
-            --color-text-light: #555555;
-            --color-bg: #FFFFFF;
-            --color-bg-light: #F4F6F9;
-            --color-bg-dark: #002B5C;
-            --color-border: #e0e0e0;
-            --color-gold: #D4A853;
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
-            --radius-sm: 2px; --radius-md: 4px; --radius-lg: 8px;
-            --space-xs: 8px; --space-sm: 16px; --space-md: 24px;
-            --space-lg: 40px; --space-xl: 64px; --space-2xl: 64px; --space-3xl: 96px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--color-text); background-color: #FFFFFF; }
-        a { color: var(--color-accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        h1 { font-size: 32px; line-height: 1.25; font-weight: 700; margin-bottom: var(--space-md); }
-        h2 { font-size: 24px; line-height: 1.3; font-weight: 600; }
-        h3 { font-size: 20px; line-height: 1.35; font-weight: 600; }
-        p  { margin-bottom: var(--space-md); }
-        .article-container { max-width: 860px; margin: 0 auto; padding: 0 var(--space-md); }
-        .breadcrumb { font-size: 13px; color: var(--color-text-light); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .breadcrumb a { color: var(--color-accent); }
-        .article-hero { background-color: var(--color-bg-dark); color: white; padding: var(--space-2xl) 0; }
-        .article-hero h1 { color: white; max-width: 700px; }
-        .article-hero-sub { font-size: 18px; color: rgba(255,255,255,0.75); max-width: 620px; margin-bottom: 0; }
-        .phase-pill { display: inline-block; background: var(--color-gold); color: white; font-size: 13px; font-weight: 600; padding: 4px 16px; border-radius: 100px; margin-bottom: var(--space-md); letter-spacing: 0.3px; }
-        main { background-color: #fff; padding: var(--space-2xl) 0; }
-        .article-section { margin-bottom: var(--space-3xl); }
-        .article-section h2 { color: var(--color-primary); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-bg-light); }
-        .article-section h3 { margin-top: var(--space-lg); margin-bottom: var(--space-sm); color: var(--color-text); }
-        .article-section ul, .article-section ol { margin: var(--space-md) 0; padding-left: var(--space-lg); }
-        .article-section li { margin-bottom: var(--space-sm); }
-        .infobox { background-color: var(--color-bg-light); padding: var(--space-md); border-left: 4px solid var(--color-accent); border-radius: var(--radius-md); margin: var(--space-lg) 0; }
-        .infobox strong { color: var(--color-primary); }
-        .dl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin: var(--space-lg) 0; }
-        .dl-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-md); display: flex; align-items: flex-start; gap: var(--space-sm); transition: border-color 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; }
-        .dl-card:hover { border-color: var(--color-accent); box-shadow: 0 4px 16px rgba(0,0,0,0.08); text-decoration: none; }
-        .dl-card-icon { width: 40px; height: 40px; background: var(--color-bg-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-primary); }
-        .dl-card-text strong { display: block; font-size: 15px; color: var(--color-primary); margin-bottom: 4px; }
-        .dl-card-text span { font-size: 13px; color: var(--color-text-light); line-height: 1.5; }
-        @media (max-width: 600px) { .dl-grid { grid-template-columns: 1fr; } }
-        .article-cta { background-color: var(--color-bg-dark); color: white; padding: var(--space-2xl) 0; text-align: center; }
-        .article-cta h3 { color: white; font-size: 24px; margin-bottom: var(--space-sm); }
-        .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: var(--space-lg); }
-        .btn-cta { display: inline-block; padding: 14px 32px; background-color: white; color: var(--color-accent); border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; transition: opacity 0.2s; text-decoration: none; }
-        .btn-cta:hover { opacity: 0.9; text-decoration: none; }
-        .phase-nav { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); }
-        .phase-nav a { font-size: 14px; color: var(--color-text-light); padding: 6px 16px; border: 1px solid var(--color-border); border-radius: 100px; }
-        .phase-nav a:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
-        .phase-nav a.active { border-color: var(--color-primary); color: var(--color-primary); font-weight: 600; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/vz.css">
+<title>Nach dem Verkauf: Das neue Leben gestalten. | XY XxxxxZentrum Unternehmensnachfolge</title>
+<meta name="description" content="Mit der Vertragsunterzeichnung beginnt ein neuer Lebensabschnitt. Viele Unternehmer unterschätzen, wie anspruchsvoll diese Phase ist — finanziell wie persönlich">
+
+
 </head>
 <body>
 
-    <div style="background:#fff;border-bottom:1px solid #e8e8e8;display:flex;justify-content:flex-end;align-items:center;height:40px;padding:0 24px;gap:20px;font-size:14px;">
-        <a href="../../index.html#kontakt" style="color:#191919;text-decoration:none;">Termin vereinbaren</a>
-        <a href="#" style="color:#191919;text-decoration:none;">Wissen</a>
-        <a href="#" style="color:#191919;text-decoration:none;">XY Finanzportal</a>
-        <span style="color:#d0d0d0;">|</span>
-        <a href="#" style="color:#191919;text-decoration:none;">Börsen &amp; Märkte</a>
+<div class="vz-top-bar">
+  <div class="vz-top-bar-inner">
+    <a href="#" class="vz-top-appointment" data-modal-open="termin-modal">Termin vereinbaren</a>
+    <span class="sep">|</span>
+    <a href="#">Wissen</a>
+    <span class="sep">|</span>
+    <a href="#">XY Finanzportal</a>
+    <span class="sep">|</span>
+    <a href="#">Börsen &amp; Märkte</a>
+  </div>
+</div>
+<header class="vz-header">
+  <div class="vz-header-inner">
+    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum Startseite">
+      <span class="vz-logo-mark">XY</span>
+      <span class="vz-logo-text">XxxxxZentrum</span>
+    </a>
+    <nav class="vz-nav-right" aria-label="Hauptnavigation">
+      <a href="#" class="vz-header-termin" data-modal-open="termin-modal">Termin vereinbaren</a>
+      <button class="vz-menu-btn" data-mobile-nav-toggle aria-label="Menü öffnen">≡ Menü</button>
+    </nav>
+  </div>
+</header>
+<div class="vz-quicklinks">
+  <div class="vz-quicklinks-inner">
+    <a href="#">Pensionierung</a>
+    <a href="#">Geldanlagen</a>
+    <a href="#">Nachlass</a>
+    <a href="#">Immobilien</a>
+    <a href="#">Steuern</a>
+    <a href="#">Vorsorge</a>
+    <a href="#">Versicherungen</a>
+    <a href="#">Bankgeschäfte</a>
+    <a href="#">Firmen</a>
+  </div>
+</div>
+
+<nav class="vz-breadcrumb" aria-label="Brotkrumen"><a href="#">Startseite</a><span class="sep">›</span><a href="#">Firmen</a><span class="sep">›</span><a href="/index.html">Unternehmensnachfolge</a><span class="sep">›</span><span>Ihre Zukunft absichern</span></nav>
+
+<main class="vz-main">
+
+  <div class="vz-card">
+    <p class="vz-eyebrow">Ihre Zukunft absichern</p>
+    <h1 style="font-size:2.4rem;margin:0 0 16px;">Nach dem Verkauf: Das neue Leben gestalten.</h1>
+    <p style="font-size:1.2rem;max-width:800px;margin:0;color:var(--vz-text);line-height:1.5;">Mit der Vertragsunterzeichnung beginnt ein neuer Lebensabschnitt. Viele Unternehmer unterschätzen, wie anspruchsvoll diese Phase ist — finanziell wie persönlich. Wir begleiten Sie auch hier, damit Ihr Verkaufserlös seinen vollen Wert entfaltet.</p>
+  </div>
+
+  <div class="vz-card">
+    <div class="vz-layout-2col">
+      <div class="vz-content-block">
+        <h2>Pensionierungsplanung umsetzen</h2><p>Die Pläne, die Sie jahrelang geschmiedet haben, werden jetzt Realität. Wir setzen mit Ihnen die konkreten Schritte um: AHV-Bezug, Pensionskassenleistungen, Säule 3a-Bezüge, laufende Einnahmen aus dem Vermögen.</p><h2>Nachlass und familiäre Vermögensübergabe</h2><p>Ein grosser Verkaufserlös verändert die Nachlasssituation erheblich. Wir beraten Sie bei Ehe- und Erbverträgen, bei der Regelung der Vermögensübergabe an die nächste Generation und bei der steueroptimierten Struktur.</p><h2>Vermögensanlage und -verwaltung</h2><p>Der Verkaufserlös will so angelegt werden, dass er Ihren Lebensstandard langfristig sichert. Wir entwickeln eine Anlagestrategie, die zu Ihrer Risikobereitschaft, Ihrem Zeithorizont und Ihren Zielen passt — und setzen sie professionell um.</p><h2>Steueroptimierung nach dem Verkauf</h2><p>Nach dem Verkauf stehen neue Fragen an: Wohnsitzwahl, Dividenden aus privat gehaltenen Beteiligungen, Schenkungen, Stiftungen. Wir zeigen Ihnen die Gestaltungsoptionen und helfen, diese umzusetzen.</p><h2>Absicherung der finanziellen Zukunft</h2><p>Eine umfassende Vermögensstrategie schützt nicht nur vor Marktrisiken, sondern auch vor persönlichen Risiken wie Krankheit, Pflegebedürftigkeit und Langlebigkeit. Wir bringen alle Elemente in ein stimmiges Gesamtbild.</p>
+      </div>
+      <aside class="vz-sidebar">
+        <div class="vz-advisor">
+  <div class="vz-advisor-photo" aria-hidden="true">
+    <!-- [PLATZHALTER: Portrait Roger Hofstetter] -->
+    Portraitfoto<br>Roger Hofstetter
+  </div>
+  <p class="vz-advisor-name">Roger Hofstetter</p>
+  <p class="vz-advisor-role">Leiter Unternehmensnachfolge</p>
+  <p class="vz-advisor-meta"><strong>Telefon</strong><a href="tel:+41441234567">+41 44 123 45 67</a></p>
+  <p class="vz-advisor-meta"><strong>E-Mail</strong><a href="mailto:roger.hofstetter@xy.ch">roger.hofstetter@xy.ch</a></p>
+  <a href="#" class="vz-btn" data-modal-open="termin-modal" style="width:100%;text-align:center;margin-top:12px;">Termin vereinbaren</a>
+  <p style="font-size:0.82rem;color:var(--vz-text-muted);margin:10px 0 0;text-align:center;">Das erste Gespräch ist kostenlos.</p>
+</div>
+      </aside>
     </div>
-    <header style="background:#fff;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:1000;">
-        <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px;">
-            <a href="../../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:40px;flex-shrink:0;">
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" fill="#003B75"/><polygon points="22,7 37,22 22,37 7,22" fill="none" stroke="white" stroke-width="2"/><text x="22" y="26" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">XY</text></svg>
-                <span style="font-size:15px;font-weight:500;color:#191919;">XxxxxZentrum</span>
-            </a>
-            <nav style="flex:1;display:flex;align-items:stretch;height:100%;">
-                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Privatpersonen</a>
-                <a href="../../index.html" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#003B75;font-weight:600;text-decoration:none;border-bottom:3px solid #003B75;margin-bottom:-1px;">Firmen</a>
-                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Ratgeber</a>
-                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Über XY</a>
-            </nav>
-            <a href="../../index.html#kontakt" style="background:#003B75;color:#fff;border-radius:100px;padding:10px 22px;font-size:15px;font-weight:500;text-decoration:none;margin-left:auto;">Termin vereinbaren</a>
-        </div>
-    </header>
-    <div style="background:#fff;border-bottom:1px solid #e8e8e8;padding:10px 0;">
-        <div class="article-container">
-            <div class="breadcrumb">
-                <a href="../../index.html">Startseite</a>
-                <span>/</span>
-                <a href="../../index.html">Unternehmensnachfolge</a>
-                <span>/</span>
-                <span>Nach dem Verkauf</span>
-            </div>
-        </div>
+  </div>
+
+  <div class="vz-cta-box">
+    <div>
+      <h2>Bereit für den nächsten Schritt?</h2>
+      <p>In einem kostenlosen Erstgespräch analysieren wir Ihre Situation und zeigen Ihnen konkrete Handlungsoptionen für Ihre Phase der Nachfolge.</p>
+      <a href="#" class="vz-btn" data-modal-open="termin-modal">Kostenloses Erstgespräch vereinbaren</a>
     </div>
+    <div class="vz-cta-contact">
+      <p style="font-size:0.85rem;opacity:0.85;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.05em;">Direkter Kontakt</p>
+      <p style="margin:0 0 4px;"><a href="tel:+41441234567" style="font-size:1.15rem;">📞 +41 44 123 45 67</a></p>
+      <p><a href="mailto:unternehmensnachfolge@xy.ch">✉ unternehmensnachfolge@xy.ch</a></p>
+    </div>
+  </div>
 
-    <section class="article-hero">
-        <div class="article-container">
-            <span class="phase-pill">Ihre Zukunft</span>
-            <h1>Nach dem Verkauf: Der zweite Lebensabschnitt verdient Planung</h1>
-            <p class="article-hero-sub">
-                Der Vertrag ist unterzeichnet — aber die wichtigsten Fragen fangen jetzt erst an. Wie legen Sie das Erlös an? Wie strukturieren Sie Ihr Erbe? XY begleitet Sie auch nach dem Closing.
-            </p>
-        </div>
-    </section>
+</main>
 
-    <main>
-        <div class="article-container">
+<footer class="vz-footer">
+  <div class="vz-footer-inner">
+    <div>
+      <a href="/index.html" class="vz-logo" style="margin-bottom:16px;">
+        <span class="vz-logo-mark" style="font-size:1.6rem;">XY</span>
+        <span class="vz-logo-text">XxxxxZentrum</span>
+      </a>
+      <p style="color:var(--vz-text-muted);font-size:0.88rem;margin:12px 0 0;">Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
+    </div>
+    <div>
+      <h4>Firmen</h4>
+      <ul>
+        <li><a href="/index.html">Unternehmensnachfolge</a></li>
+        <li><a href="#">Pensionskasse</a></li>
+        <li><a href="#">Kadervorsorge</a></li>
+        <li><a href="#">Versicherungsmanagement</a></li>
+        <li><a href="#">Firmengründung</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ratgeber</h4>
+      <ul>
+        <li><a href="#">Merkblätter &amp; Bücher</a></li>
+        <li><a href="#">Seminare &amp; Workshops</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Wissensbeiträge</a></li>
+        <li><a href="#">Finanzrechner</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Über XY</h4>
+      <ul>
+        <li><a href="#">Portrait</a></li>
+        <li><a href="#">Standorte</a></li>
+        <li><a href="#">Jobs &amp; Karriere</a></li>
+        <li><a href="#">Kontakt &amp; Hilfe</a></li>
+        <li><a href="#">Newsletter abonnieren</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="vz-footer-bottom">
+    <div>© 2026 XY XxxxxZentrum AG · Alle Rechte vorbehalten</div>
+    <ul>
+      <li><a href="#">Rechtliche Hinweise</a></li>
+      <li><a href="#">Datenschutzerklärung</a></li>
+      <li><a href="#">Impressum</a></li>
+      <li><a href="#">Cyber-Sicherheit</a></li>
+    </ul>
+  </div>
+</footer>
 
-            <div class="phase-nav">
-                <a href="vor-dem-verkauf.html">5–8 Jahre vorher</a>
-                <a href="waehrend-des-verkaufs.html">Während des Verkaufs</a>
-                <a href="nach-dem-verkauf.html" class="active">Nach dem Verkauf</a>
-            </div>
+<aside class="vz-mobile-nav" aria-label="Mobiles Menü">
+  <button class="vz-mobile-nav-close" data-mobile-nav-close aria-label="Menü schliessen">×</button>
+  <h4>Privatpersonen</h4>
+  <ul>
+    <li><a href="#">Pensionierung</a></li>
+    <li><a href="#">Geldanlagen</a></li>
+    <li><a href="#">Nachlass</a></li>
+    <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+    <li><a href="#">Steuern</a></li>
+    <li><a href="#">Vorsorge</a></li>
+    <li><a href="#">Versicherungen</a></li>
+    <li><a href="#">Bankgeschäfte</a></li>
+  </ul>
+  <h4>Firmen</h4>
+  <ul>
+    <li><a href="/index.html">Unternehmensnachfolge</a></li>
+    <li><a href="#">Pensionskasse</a></li>
+    <li><a href="#">Kadervorsorge</a></li>
+    <li><a href="#">Versicherungsmanagement</a></li>
+    <li><a href="#">Firmengründung</a></li>
+  </ul>
+  <h4>Ratgeber</h4>
+  <ul>
+    <li><a href="#">Merkblätter &amp; Bücher</a></li>
+    <li><a href="#">Seminare</a></li>
+    <li><a href="#">Videos</a></li>
+  </ul>
+  <h4>Über XY</h4>
+  <ul>
+    <li><a href="#">Portrait</a></li>
+    <li><a href="#">Standorte</a></li>
+    <li><a href="#">Kontakt</a></li>
+  </ul>
+</aside>
 
-            <section class="article-section" style="margin-top: var(--space-2xl);">
-                <h2>Warum die Zeit nach dem Verkauf oft unterschätzt wird</h2>
-                <p>
-                    Viele Unternehmer sind nach dem Closing erleichtert — und gleichzeitig überfordert. Plötzlich ist ein grosser Betrag auf dem Konto, die Tagesstruktur fehlt, und die Fragen türmen sich: Wie anlegen? Wie vererben? Was tue ich mit meiner Zeit?
-                </p>
-                <p>
-                    Der Erlös aus dem Firmenverkauf ist oft das grösste Kapital, das ein Unternehmer je besitzen wird. Wie er investiert, strukturiert und weitergegeben wird, bestimmt den Lebensstandard für Jahrzehnte — und das Erbe für die nächste Generation.
-                </p>
-                <div class="infobox">
-                    <strong>Häufiger Fehler:</strong> Den Erlös zu lange «parkieren» (Sparkonto, Festgeld) ohne Anlagestrategie. Inflation, Steuern und verpasste Renditen kosten langfristig viel Geld.
-                </div>
-            </section>
+<div class="vz-modal-backdrop" id="termin-modal" role="dialog" aria-labelledby="termin-modal-title" aria-modal="true">
+  <div class="vz-modal">
+    <button class="vz-modal-close" data-modal-close="termin-modal" aria-label="Schliessen">×</button>
+    <h2 id="termin-modal-title">Termin vereinbaren</h2>
+    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Wir melden uns innert einem Werktag bei Ihnen. Das erste Gespräch ist kostenlos und unverbindlich.</p>
+    <form data-termin-form novalidate>
+      <div class="vz-form-field"><label for="tm-name">Name *</label><input type="text" id="tm-name" required></div>
+      <div class="vz-form-field"><label for="tm-tel">Telefon *</label><input type="tel" id="tm-tel" required></div>
+      <div class="vz-form-field"><label for="tm-email">E-Mail</label><input type="email" id="tm-email"></div>
+      <div class="vz-form-field"><label for="tm-topic">Thema</label>
+        <select id="tm-topic">
+          <option>Unternehmensnachfolge</option>
+          <option>Firmenverkauf</option>
+          <option>Firmenkauf</option>
+          <option>Unternehmensbewertung</option>
+          <option>Andere Interessen</option>
+        </select>
+      </div>
+      <div class="vz-form-field"><label for="tm-msg">Ihre Mitteilung</label><textarea id="tm-msg" rows="3"></textarea></div>
+      <div class="vz-form-check">
+        <input type="checkbox" id="tm-consent" required>
+        <label for="tm-consent" style="font-weight:400;">Ich bestätige, dass ich die <a href="#">Datenschutzerklärung</a> gelesen habe.</label>
+      </div>
+      <button type="submit" class="vz-btn">Termin anfragen</button>
+    </form>
+    <div data-termin-confirm style="display:none;padding:20px 0;">
+      <p style="color:var(--vz-primary);font-weight:600;font-size:1.1rem;">✓ Vielen Dank!</p>
+      <p>Wir melden uns innert einem Werktag bei Ihnen.</p>
+      <button class="vz-btn vz-btn--outline" data-modal-close="termin-modal">Schliessen</button>
+    </div>
+  </div>
+</div>
 
-            <section class="article-section">
-                <h2>Was in dieser Phase wichtig ist</h2>
-
-                <h3>1. Steueroptimierung des Verkaufserlöses</h3>
-                <p>In der Schweiz ist ein Kapitalgewinn aus dem Privatvermögen grundsätzlich steuerfrei. Dennoch gibt es wichtige steuerliche Aspekte:</p>
-                <ul>
-                    <li>Unterschied zwischen privatem Kapitalgewinn und gewerbsmässigem Wertschriftenhandel</li>
-                    <li>Behandlung von Mitarbeiterbeteiligungen und Optionen</li>
-                    <li>Kantonale Besonderheiten bei der Einkommens- und Vermögenssteuer</li>
-                    <li>Meldepflichten bei grossen Transaktionen</li>
-                </ul>
-
-                <h3>2. Vermögensanlage strukturieren</h3>
-                <p>Viele ehemalige Unternehmer hatten ihr gesamtes Kapital in der Firma. Nach dem Verkauf brauchen Sie eine professionelle Anlagestrategie:</p>
-                <ul>
-                    <li><strong>Liquiditätsbedarf:</strong> Kurzfristiger Bedarf separat halten (6–12 Monate Lebenshaltungskosten)</li>
-                    <li><strong>Diversifikation:</strong> Nicht alles auf eine Karte — Aktien, Obligationen, Immobilien</li>
-                    <li><strong>Risikoprofil:</strong> Was können und wollen Sie sich leisten zu riskieren?</li>
-                    <li><strong>Kosten:</strong> Produkt- und Verwaltungskosten direkt vergleichen</li>
-                    <li><strong>ESG &amp; Nachhaltigkeit:</strong> Falls gewünscht, nachhaltige Anlagestrategien</li>
-                </ul>
-
-                <h3>3. Pensionierungsplanung</h3>
-                <ul>
-                    <li>AHV-Beitragspflicht als Nichterwerbstätiger prüfen</li>
-                    <li>Pensionskasse: Kapitalbezug vs. Rente abwägen</li>
-                    <li>3. Säule: Bezug planen und staffeln</li>
-                    <li>Budgetplanung für den Ruhestand (Einnahmen und Ausgaben bis ins hohe Alter)</li>
-                </ul>
-
-                <h3>4. Nachlassplanung</h3>
-                <p>Der Firmenverkaufserlös verändert das Nachlassprofil grundlegend. Eine neue Nachlassplanung ist zwingend:</p>
-                <ul>
-                    <li>Testament oder Erbvertrag aktualisieren</li>
-                    <li>Pflichtteilsansprüche der Kinder berücksichtigen</li>
-                    <li>Schenkungen zu Lebzeiten prüfen (steueroptimiert)</li>
-                    <li>Vorsorgevollmacht und Patientenverfügung</li>
-                    <li>Güterrechtliche Situation mit Ehepartner klären</li>
-                </ul>
-
-                <div class="infobox">
-                    <strong>Tipp:</strong> Planen Sie die Nachlassplanung nicht auf die lange Bank. Das neue Erbrecht (seit 2023) bietet mehr Gestaltungsspielraum — nutzen Sie ihn aktiv.
-                </div>
-
-                <h3>5. Was jetzt statt Arbeit?</h3>
-                <p>Unterschätzt aber entscheidend: Die Suche nach einem neuen Lebensinhalt nach Jahrzehnten als Unternehmer. Viele finden ihren Platz in:</p>
-                <ul>
-                    <li>Verwaltungsratsmandaten (VR-Mandat)</li>
-                    <li>Mentoring und Investoren-Engagements</li>
-                    <li>Philanthropie und Stiftungen</li>
-                    <li>Familie und Freizeit — bewusst geniessen</li>
-                </ul>
-            </section>
-
-            <section class="article-section">
-                <h2>Was XY in dieser Phase für Sie tut</h2>
-                <p>XY begleitet Sie nicht nur bis zum Closing. Als Vollserviceanbieter für Privatpersonen und Firmenkunden sind wir auch nach dem Verkauf Ihr Partner:</p>
-
-                <div class="dl-grid">
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 19V7l8-5 8 5v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="13" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Vermögensverwaltung</strong>
-                            <span>Unabhängige, massgeschneiderte Anlagestrategie für Ihr neues Kapital</span>
-                        </div>
-                    </a>
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2v4M11 16v4M4.22 4.22l2.83 2.83M14.95 14.95l2.83 2.83M2 11h4M16 11h4M4.22 17.78l2.83-2.83M14.95 7.05l2.83-2.83" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Pensionierungsplanung</strong>
-                            <span>AHV, PK, 3. Säule — alles aufeinander abgestimmt</span>
-                        </div>
-                    </a>
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L3 7v8l8 5 8-5V7L11 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Nachlassplanung</strong>
-                            <span>Testament, Erbvertrag, Schenkungen — rechtlich und steuerlich optimiert</span>
-                        </div>
-                    </a>
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="11" width="5" height="8" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="7" width="5" height="12" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="5" height="16" rx="1" stroke="currentColor" stroke-width="1.8"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Steuerberatung</strong>
-                            <span>Optimierung des Verkaufserlöses und laufende Steuerplanung</span>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <section class="article-cta">
-        <div class="article-container">
-            <h3>Den nächsten Lebensabschnitt gut planen</h3>
-            <p>Das erste Gespräch über Ihre Zukunft nach dem Verkauf ist kostenlos und unverbindlich.</p>
-            <a href="../../index.html#kontakt" class="btn-cta">Kostenloses Gespräch vereinbaren</a>
-        </div>
-    </section>
-
-    <footer style="background:#002B5C;padding:48px 0 24px;color:rgba(255,255,255,0.8);">
-        <div style="max-width:1200px;margin:0 auto 32px;padding:0 24px;display:flex;align-items:center;gap:12px;">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="#004388"/><polygon points="20,5 35,20 20,35 5,20" fill="none" stroke="white" stroke-width="1.8"/><text x="20" y="24" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">XY</text></svg>
-            <span style="font-size:15px;font-weight:600;color:#fff;">XxxxxZentrum</span>
-        </div>
-        <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Privatpersonen</div><div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Pensionierung</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Geldanlagen</a></div></div>
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Firmen</div><div style="font-size:14px;line-height:2.1;"><a href="../../index.html" style="color:#fff;font-weight:600;display:block;text-decoration:none;">Unternehmensnachfolge</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Pensionskasse</a></div></div>
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Ratgeber</div><div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Merkblätter</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Videos</a></div></div>
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Über XY</div><div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Portrait</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Kontakt</a></div></div>
-        </div>
-        <div style="max-width:1200px;margin:24px auto 0;padding:16px 24px 0;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <div style="font-size:12px;color:rgba(255,255,255,0.4);display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Datenschutzerklärung</a><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Impressum</a></div>
-            <div style="font-size:12px;color:rgba(255,255,255,0.35);">&copy; 2026 XY XxxxxZentrum AG</div>
-        </div>
-    </footer>
-
+<script src="/assets/vz.js"></script>
 </body>
 </html>

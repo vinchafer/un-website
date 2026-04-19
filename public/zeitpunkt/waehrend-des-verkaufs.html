@@ -1,259 +1,222 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Während des Verkaufs | XY – Unternehmensnachfolge Schweiz</title>
-    <meta name="description" content="Was während des Verkaufsprozesses zählt: Bewertung, Käufersuche, Due Diligence, Verhandlung. XY begleitet Sie durch jeden Schritt.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #003B75;
-            --color-accent: #003B75;
-            --color-text: #191919;
-            --color-text-light: #555555;
-            --color-bg: #FFFFFF;
-            --color-bg-light: #F4F6F9;
-            --color-bg-dark: #002B5C;
-            --color-border: #e0e0e0;
-            --color-blue: #0078C8;
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
-            --radius-sm: 2px; --radius-md: 4px; --radius-lg: 8px;
-            --space-xs: 8px; --space-sm: 16px; --space-md: 24px;
-            --space-lg: 40px; --space-xl: 64px; --space-2xl: 64px; --space-3xl: 96px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.6; color: var(--color-text); background-color: #FFFFFF; }
-        a { color: var(--color-accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        h1 { font-size: 32px; line-height: 1.25; font-weight: 700; margin-bottom: var(--space-md); }
-        h2 { font-size: 24px; line-height: 1.3; font-weight: 600; }
-        h3 { font-size: 20px; line-height: 1.35; font-weight: 600; }
-        p  { margin-bottom: var(--space-md); }
-        .article-container { max-width: 860px; margin: 0 auto; padding: 0 var(--space-md); }
-        .breadcrumb { font-size: 13px; color: var(--color-text-light); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .breadcrumb a { color: var(--color-accent); }
-        .article-hero { background-color: var(--color-bg-dark); color: white; padding: var(--space-2xl) 0; }
-        .article-hero h1 { color: white; max-width: 700px; }
-        .article-hero-sub { font-size: 18px; color: rgba(255,255,255,0.75); max-width: 620px; margin-bottom: 0; }
-        .phase-pill { display: inline-block; background: var(--color-blue); color: white; font-size: 13px; font-weight: 600; padding: 4px 16px; border-radius: 100px; margin-bottom: var(--space-md); letter-spacing: 0.3px; }
-        main { background-color: #fff; padding: var(--space-2xl) 0; }
-        .article-section { margin-bottom: var(--space-3xl); }
-        .article-section h2 { color: var(--color-primary); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--color-bg-light); }
-        .article-section h3 { margin-top: var(--space-lg); margin-bottom: var(--space-sm); color: var(--color-text); }
-        .article-section ul, .article-section ol { margin: var(--space-md) 0; padding-left: var(--space-lg); }
-        .article-section li { margin-bottom: var(--space-sm); }
-        .infobox { background-color: var(--color-bg-light); padding: var(--space-md); border-left: 4px solid var(--color-accent); border-radius: var(--radius-md); margin: var(--space-lg) 0; }
-        .infobox strong { color: var(--color-primary); }
-        .dl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin: var(--space-lg) 0; }
-        .dl-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-md); display: flex; align-items: flex-start; gap: var(--space-sm); transition: border-color 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; }
-        .dl-card:hover { border-color: var(--color-accent); box-shadow: 0 4px 16px rgba(0,0,0,0.08); text-decoration: none; }
-        .dl-card-icon { width: 40px; height: 40px; background: var(--color-bg-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-primary); }
-        .dl-card-text strong { display: block; font-size: 15px; color: var(--color-primary); margin-bottom: 4px; }
-        .dl-card-text span { font-size: 13px; color: var(--color-text-light); line-height: 1.5; }
-        @media (max-width: 600px) { .dl-grid { grid-template-columns: 1fr; } }
-        .article-cta { background-color: var(--color-bg-dark); color: white; padding: var(--space-2xl) 0; text-align: center; }
-        .article-cta h3 { color: white; font-size: 24px; margin-bottom: var(--space-sm); }
-        .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: var(--space-lg); }
-        .btn-cta { display: inline-block; padding: 14px 32px; background-color: white; color: var(--color-accent); border: none; border-radius: var(--radius-md); font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; transition: opacity 0.2s; text-decoration: none; }
-        .btn-cta:hover { opacity: 0.9; text-decoration: none; }
-        .phase-nav { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); }
-        .phase-nav a { font-size: 14px; color: var(--color-text-light); padding: 6px 16px; border: 1px solid var(--color-border); border-radius: 100px; }
-        .phase-nav a:hover { border-color: var(--color-accent); color: var(--color-accent); text-decoration: none; }
-        .phase-nav a.active { border-color: var(--color-primary); color: var(--color-primary); font-weight: 600; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/vz.css">
+<title>Während des Verkaufs: Diskret, strukturiert, zielgerichtet. | XY XxxxxZentrum Unternehmensnachfolge</title>
+<meta name="description" content="Vom ersten Teaser bis zur Vertragsunterzeichnung vergehen bei einem externen Verkauf typischerweise neun bis achtzehn Monate. In dieser Zeit sind Sie von einem ">
+
+
 </head>
 <body>
 
-    <div style="background:#fff;border-bottom:1px solid #e8e8e8;display:flex;justify-content:flex-end;align-items:center;height:40px;padding:0 24px;gap:20px;font-size:14px;">
-        <a href="../../index.html#kontakt" style="color:#191919;text-decoration:none;">Termin vereinbaren</a>
-        <a href="#" style="color:#191919;text-decoration:none;">Wissen</a>
-        <a href="#" style="color:#191919;text-decoration:none;">XY Finanzportal</a>
-        <span style="color:#d0d0d0;">|</span>
-        <a href="#" style="color:#191919;text-decoration:none;">Börsen &amp; Märkte</a>
+<div class="vz-top-bar">
+  <div class="vz-top-bar-inner">
+    <a href="#" class="vz-top-appointment" data-modal-open="termin-modal">Termin vereinbaren</a>
+    <span class="sep">|</span>
+    <a href="#">Wissen</a>
+    <span class="sep">|</span>
+    <a href="#">XY Finanzportal</a>
+    <span class="sep">|</span>
+    <a href="#">Börsen &amp; Märkte</a>
+  </div>
+</div>
+<header class="vz-header">
+  <div class="vz-header-inner">
+    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum Startseite">
+      <span class="vz-logo-mark">XY</span>
+      <span class="vz-logo-text">XxxxxZentrum</span>
+    </a>
+    <nav class="vz-nav-right" aria-label="Hauptnavigation">
+      <a href="#" class="vz-header-termin" data-modal-open="termin-modal">Termin vereinbaren</a>
+      <button class="vz-menu-btn" data-mobile-nav-toggle aria-label="Menü öffnen">≡ Menü</button>
+    </nav>
+  </div>
+</header>
+<div class="vz-quicklinks">
+  <div class="vz-quicklinks-inner">
+    <a href="#">Pensionierung</a>
+    <a href="#">Geldanlagen</a>
+    <a href="#">Nachlass</a>
+    <a href="#">Immobilien</a>
+    <a href="#">Steuern</a>
+    <a href="#">Vorsorge</a>
+    <a href="#">Versicherungen</a>
+    <a href="#">Bankgeschäfte</a>
+    <a href="#">Firmen</a>
+  </div>
+</div>
+
+<nav class="vz-breadcrumb" aria-label="Brotkrumen"><a href="#">Startseite</a><span class="sep">›</span><a href="#">Firmen</a><span class="sep">›</span><a href="/index.html">Unternehmensnachfolge</a><span class="sep">›</span><span>Der strukturierte Prozess</span></nav>
+
+<main class="vz-main">
+
+  <div class="vz-card">
+    <p class="vz-eyebrow">Der strukturierte Prozess</p>
+    <h1 style="font-size:2.4rem;margin:0 0 16px;">Während des Verkaufs: Diskret, strukturiert, zielgerichtet.</h1>
+    <p style="font-size:1.2rem;max-width:800px;margin:0;color:var(--vz-text);line-height:1.5;">Vom ersten Teaser bis zur Vertragsunterzeichnung vergehen bei einem externen Verkauf typischerweise neun bis achtzehn Monate. In dieser Zeit sind Sie von einem erfahrenen Team begleitet, das den Prozess orchestriert und Ihnen den Rücken freihält.</p>
+  </div>
+
+  <div class="vz-card">
+    <div class="vz-layout-2col">
+      <div class="vz-content-block">
+        <h2>Fundierte Unternehmensbewertung erstellen</h2><p>Jede ernsthafte Transaktion beginnt mit einer realistischen Bewertung. Wir verwenden anerkannte Methoden (DCF, Multiplikatoren, Substanzwert) und gleichen das Ergebnis mit aktuellen Marktdaten ab. Sie erhalten eine Bewertung, die in Verhandlungen standhält.</p><h2>Käufer- oder Nachfolgersuche diskret führen</h2><p>Auf Basis eines anonymisierten Firmenprofils sprechen wir gezielt potenzielle Käufer an — strategische Käufer, Finanzinvestoren, MBI-Kandidaten. Diskretion hat für uns höchste Priorität: Weder Mitarbeitende noch Kunden erfahren vorzeitig vom Prozess.</p><h2>Transaktion steuerlich optimal strukturieren</h2><p>Die Wahl zwischen Aktien- und Asset-Deal, die Handhabung von Liegenschaften, die Behandlung stiller Reserven — zahlreiche Aspekte können den Nachsteuer-Erlös spürbar beeinflussen. Wir strukturieren die Transaktion gemeinsam mit unseren Steuerspezialisten.</p><h2>Due Diligence begleiten</h2><p>Wir bereiten Ihr Unternehmen auf die Due Diligence vor, richten einen professionellen Datenraum ein und begleiten Sie durch die Fragerunden potenzieller Käufer. So bleibt Ihre operative Arbeit unbelastet.</p><h2>Verhandlungen führen und abschliessen</h2><p>Die Endverhandlungen sind der entscheidende Moment. Unsere Erfahrung aus hunderten Transaktionen gibt Ihnen die Sicherheit, dass keine wichtigen Punkte übersehen werden — von der Earn-out-Struktur über Garantien bis zu Gewährleistungen.</p>
+      </div>
+      <aside class="vz-sidebar">
+        <div class="vz-advisor">
+  <div class="vz-advisor-photo" aria-hidden="true">
+    <!-- [PLATZHALTER: Portrait Roger Hofstetter] -->
+    Portraitfoto<br>Roger Hofstetter
+  </div>
+  <p class="vz-advisor-name">Roger Hofstetter</p>
+  <p class="vz-advisor-role">Leiter Unternehmensnachfolge</p>
+  <p class="vz-advisor-meta"><strong>Telefon</strong><a href="tel:+41441234567">+41 44 123 45 67</a></p>
+  <p class="vz-advisor-meta"><strong>E-Mail</strong><a href="mailto:roger.hofstetter@xy.ch">roger.hofstetter@xy.ch</a></p>
+  <a href="#" class="vz-btn" data-modal-open="termin-modal" style="width:100%;text-align:center;margin-top:12px;">Termin vereinbaren</a>
+  <p style="font-size:0.82rem;color:var(--vz-text-muted);margin:10px 0 0;text-align:center;">Das erste Gespräch ist kostenlos.</p>
+</div>
+      </aside>
     </div>
-    <header style="background:#fff;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:1000;">
-        <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px;">
-            <a href="../../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:40px;flex-shrink:0;">
-                <svg width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" fill="#003B75"/><polygon points="22,7 37,22 22,37 7,22" fill="none" stroke="white" stroke-width="2"/><text x="22" y="26" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">XY</text></svg>
-                <span style="font-size:15px;font-weight:500;color:#191919;">XxxxxZentrum</span>
-            </a>
-            <nav style="flex:1;display:flex;align-items:stretch;height:100%;">
-                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Privatpersonen</a>
-                <a href="../../index.html" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#003B75;font-weight:600;text-decoration:none;border-bottom:3px solid #003B75;margin-bottom:-1px;">Firmen</a>
-                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Ratgeber</a>
-                <a href="#" style="display:flex;align-items:center;padding:0 16px;font-size:16px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;">Über XY</a>
-            </nav>
-            <a href="../../index.html#kontakt" style="background:#003B75;color:#fff;border-radius:100px;padding:10px 22px;font-size:15px;font-weight:500;text-decoration:none;margin-left:auto;">Termin vereinbaren</a>
-        </div>
-    </header>
-    <div style="background:#fff;border-bottom:1px solid #e8e8e8;padding:10px 0;">
-        <div class="article-container">
-            <div class="breadcrumb">
-                <a href="../../index.html">Startseite</a>
-                <span>/</span>
-                <a href="../../index.html">Unternehmensnachfolge</a>
-                <span>/</span>
-                <span>Während des Verkaufs</span>
-            </div>
-        </div>
+  </div>
+
+  <div class="vz-cta-box">
+    <div>
+      <h2>Bereit für den nächsten Schritt?</h2>
+      <p>In einem kostenlosen Erstgespräch analysieren wir Ihre Situation und zeigen Ihnen konkrete Handlungsoptionen für Ihre Phase der Nachfolge.</p>
+      <a href="#" class="vz-btn" data-modal-open="termin-modal">Kostenloses Erstgespräch vereinbaren</a>
     </div>
+    <div class="vz-cta-contact">
+      <p style="font-size:0.85rem;opacity:0.85;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.05em;">Direkter Kontakt</p>
+      <p style="margin:0 0 4px;"><a href="tel:+41441234567" style="font-size:1.15rem;">📞 +41 44 123 45 67</a></p>
+      <p><a href="mailto:unternehmensnachfolge@xy.ch">✉ unternehmensnachfolge@xy.ch</a></p>
+    </div>
+  </div>
 
-    <section class="article-hero">
-        <div class="article-container">
-            <span class="phase-pill">Der Prozess</span>
-            <h1>Während des Verkaufs: Vom ersten Gespräch bis zum Closing</h1>
-            <p class="article-hero-sub">
-                Der Verkaufsprozess ist komplex — und entscheidend für das Ergebnis. Erfahren Sie, welche Phasen Sie durchlaufen werden und wie XY Sie dabei begleitet.
-            </p>
-        </div>
-    </section>
+</main>
 
-    <main>
-        <div class="article-container">
+<footer class="vz-footer">
+  <div class="vz-footer-inner">
+    <div>
+      <a href="/index.html" class="vz-logo" style="margin-bottom:16px;">
+        <span class="vz-logo-mark" style="font-size:1.6rem;">XY</span>
+        <span class="vz-logo-text">XxxxxZentrum</span>
+      </a>
+      <p style="color:var(--vz-text-muted);font-size:0.88rem;margin:12px 0 0;">Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
+    </div>
+    <div>
+      <h4>Firmen</h4>
+      <ul>
+        <li><a href="/index.html">Unternehmensnachfolge</a></li>
+        <li><a href="#">Pensionskasse</a></li>
+        <li><a href="#">Kadervorsorge</a></li>
+        <li><a href="#">Versicherungsmanagement</a></li>
+        <li><a href="#">Firmengründung</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ratgeber</h4>
+      <ul>
+        <li><a href="#">Merkblätter &amp; Bücher</a></li>
+        <li><a href="#">Seminare &amp; Workshops</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Wissensbeiträge</a></li>
+        <li><a href="#">Finanzrechner</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Über XY</h4>
+      <ul>
+        <li><a href="#">Portrait</a></li>
+        <li><a href="#">Standorte</a></li>
+        <li><a href="#">Jobs &amp; Karriere</a></li>
+        <li><a href="#">Kontakt &amp; Hilfe</a></li>
+        <li><a href="#">Newsletter abonnieren</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="vz-footer-bottom">
+    <div>© 2026 XY XxxxxZentrum AG · Alle Rechte vorbehalten</div>
+    <ul>
+      <li><a href="#">Rechtliche Hinweise</a></li>
+      <li><a href="#">Datenschutzerklärung</a></li>
+      <li><a href="#">Impressum</a></li>
+      <li><a href="#">Cyber-Sicherheit</a></li>
+    </ul>
+  </div>
+</footer>
 
-            <div class="phase-nav">
-                <a href="vor-dem-verkauf.html">5–8 Jahre vorher</a>
-                <a href="waehrend-des-verkaufs.html" class="active">Während des Verkaufs</a>
-                <a href="nach-dem-verkauf.html">Nach dem Verkauf</a>
-            </div>
+<aside class="vz-mobile-nav" aria-label="Mobiles Menü">
+  <button class="vz-mobile-nav-close" data-mobile-nav-close aria-label="Menü schliessen">×</button>
+  <h4>Privatpersonen</h4>
+  <ul>
+    <li><a href="#">Pensionierung</a></li>
+    <li><a href="#">Geldanlagen</a></li>
+    <li><a href="#">Nachlass</a></li>
+    <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+    <li><a href="#">Steuern</a></li>
+    <li><a href="#">Vorsorge</a></li>
+    <li><a href="#">Versicherungen</a></li>
+    <li><a href="#">Bankgeschäfte</a></li>
+  </ul>
+  <h4>Firmen</h4>
+  <ul>
+    <li><a href="/index.html">Unternehmensnachfolge</a></li>
+    <li><a href="#">Pensionskasse</a></li>
+    <li><a href="#">Kadervorsorge</a></li>
+    <li><a href="#">Versicherungsmanagement</a></li>
+    <li><a href="#">Firmengründung</a></li>
+  </ul>
+  <h4>Ratgeber</h4>
+  <ul>
+    <li><a href="#">Merkblätter &amp; Bücher</a></li>
+    <li><a href="#">Seminare</a></li>
+    <li><a href="#">Videos</a></li>
+  </ul>
+  <h4>Über XY</h4>
+  <ul>
+    <li><a href="#">Portrait</a></li>
+    <li><a href="#">Standorte</a></li>
+    <li><a href="#">Kontakt</a></li>
+  </ul>
+</aside>
 
-            <section class="article-section" style="margin-top: var(--space-2xl);">
-                <h2>Was diese Phase bedeutet</h2>
-                <p>
-                    Der eigentliche Verkaufsprozess dauert in der Regel 9–18 Monate. Er ist intensiv, verlangt hohe Diskretion und erfordert professionelle Begleitung auf mehreren Ebenen gleichzeitig: rechtlich, steuerlich, finanziell und emotional.
-                </p>
-                <p>
-                    Viele Unternehmer unterschätzen den Aufwand — und wie viel auf dem Spiel steht. Ein schlecht geführter Prozess kostet bares Geld, kann die Firma destabilisieren und die Verhandlungsposition schwächen.
-                </p>
-                <div class="infobox">
-                    <strong>Durchschnittliche Prozessdauer:</strong> 9–18 Monate für einen externen Verkauf. Familieninterne Nachfolgen und MBOs können je nach Komplexität kürzer oder länger dauern.
-                </div>
-            </section>
+<div class="vz-modal-backdrop" id="termin-modal" role="dialog" aria-labelledby="termin-modal-title" aria-modal="true">
+  <div class="vz-modal">
+    <button class="vz-modal-close" data-modal-close="termin-modal" aria-label="Schliessen">×</button>
+    <h2 id="termin-modal-title">Termin vereinbaren</h2>
+    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Wir melden uns innert einem Werktag bei Ihnen. Das erste Gespräch ist kostenlos und unverbindlich.</p>
+    <form data-termin-form novalidate>
+      <div class="vz-form-field"><label for="tm-name">Name *</label><input type="text" id="tm-name" required></div>
+      <div class="vz-form-field"><label for="tm-tel">Telefon *</label><input type="tel" id="tm-tel" required></div>
+      <div class="vz-form-field"><label for="tm-email">E-Mail</label><input type="email" id="tm-email"></div>
+      <div class="vz-form-field"><label for="tm-topic">Thema</label>
+        <select id="tm-topic">
+          <option>Unternehmensnachfolge</option>
+          <option>Firmenverkauf</option>
+          <option>Firmenkauf</option>
+          <option>Unternehmensbewertung</option>
+          <option>Andere Interessen</option>
+        </select>
+      </div>
+      <div class="vz-form-field"><label for="tm-msg">Ihre Mitteilung</label><textarea id="tm-msg" rows="3"></textarea></div>
+      <div class="vz-form-check">
+        <input type="checkbox" id="tm-consent" required>
+        <label for="tm-consent" style="font-weight:400;">Ich bestätige, dass ich die <a href="#">Datenschutzerklärung</a> gelesen habe.</label>
+      </div>
+      <button type="submit" class="vz-btn">Termin anfragen</button>
+    </form>
+    <div data-termin-confirm style="display:none;padding:20px 0;">
+      <p style="color:var(--vz-primary);font-weight:600;font-size:1.1rem;">✓ Vielen Dank!</p>
+      <p>Wir melden uns innert einem Werktag bei Ihnen.</p>
+      <button class="vz-btn vz-btn--outline" data-modal-close="termin-modal">Schliessen</button>
+    </div>
+  </div>
+</div>
 
-            <section class="article-section">
-                <h2>Die Phasen des Verkaufsprozesses</h2>
-
-                <h3>Phase 1: Unternehmensbewertung</h3>
-                <p>Der faire Kaufpreis ist die Basis für alle Verhandlungen. Eine professionelle Bewertung:</p>
-                <ul>
-                    <li>Gibt Ihnen Sicherheit in Verhandlungen</li>
-                    <li>Macht Ihre Preisvorstellung für Käufer nachvollziehbar</li>
-                    <li>Berücksichtigt branchenspezifische Multiplikatoren und Marktlage</li>
-                    <li>Identifiziert wertsteigernde und wertmindernde Faktoren</li>
-                </ul>
-
-                <h3>Phase 2: Vorbereitung &amp; Dokumentation</h3>
-                <ul>
-                    <li><strong>Informationsmemorandum:</strong> Professionelles Dokument, das das Unternehmen darstellt</li>
-                    <li><strong>Anonymer Teaser:</strong> Für die erste Kontaktaufnahme ohne Preisgabe der Identität</li>
-                    <li><strong>Data Room:</strong> Strukturierte Bereitstellung aller relevanten Unterlagen</li>
-                </ul>
-
-                <h3>Phase 3: Käufersuche und Qualifizierung</h3>
-                <ul>
-                    <li>Anonyme Ansprache über unser Käufernetzwerk (200+ qualifizierte Kontakte)</li>
-                    <li>Unterzeichnung von Vertraulichkeitsvereinbarungen (NDA)</li>
-                    <li>Erstkontakt, Besichtigung und Bewertung der Kandidaten</li>
-                    <li>Auswahl des geeignetsten Käuferprofils — nicht immer der Meistbietende</li>
-                </ul>
-
-                <h3>Phase 4: Letter of Intent (LOI)</h3>
-                <p>Der LOI fixiert die wesentlichen Eckpunkte: Kaufpreis, Zahlungsstruktur, Exklusivität und Zeitplan. Er ist rechtlich nicht bindend, aber wegweisend für den weiteren Prozess.</p>
-
-                <h3>Phase 5: Due Diligence</h3>
-                <p>Der Käufer prüft das Unternehmen umfassend. XY begleitet Sie dabei:</p>
-                <ul>
-                    <li>Finanzielle Due Diligence: Jahresabschlüsse, Cashflow, Forderungen</li>
-                    <li>Rechtliche Due Diligence: Verträge, Lizenzen, Rechtsstreitigkeiten</li>
-                    <li>Steuerliche Due Diligence: Offene Steuerverfahren, Risiken</li>
-                    <li>Operative Due Diligence: Prozesse, IT, Personal</li>
-                </ul>
-
-                <h3>Phase 6: Verhandlung &amp; Closing</h3>
-                <ul>
-                    <li>Kaufpreisanpassungen auf Basis der DD-Ergebnisse</li>
-                    <li>Vertragsgestaltung (SPA — Share/Asset Purchase Agreement)</li>
-                    <li>Garantien und Gewährleistungen verhandeln</li>
-                    <li>Notarielle Beurkundung und Vollzug</li>
-                </ul>
-
-                <div class="infobox">
-                    <strong>Tipp:</strong> Lassen Sie sich nie unter Zeitdruck setzen. Käufer nutzen das bewusst. Ein erfahrener Berater an Ihrer Seite verhindert taktische Nachverhandlungen im letzten Moment.
-                </div>
-            </section>
-
-            <section class="article-section">
-                <h2>Was XY in dieser Phase für Sie tut</h2>
-
-                <div class="dl-grid">
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 18V6l7-4 7 4v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18v-6h6v6" stroke="currentColor" stroke-width="1.8"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Unternehmensbewertung</strong>
-                            <span>Professionelle Wertermittlung als solide Verhandlungsbasis</span>
-                        </div>
-                    </a>
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 19c0-3.866 3.134-7 7-7h1c3.866 0 7 3.134 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Käufersuche &amp; -selektion</strong>
-                            <span>Zugang zu 200+ qualifizierten Käufern in unserem Netzwerk</span>
-                        </div>
-                    </a>
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 7h8M7 11h8M7 15h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Due Diligence Begleitung</strong>
-                            <span>Anwälte, Treuhänder und Steuerexperten koordiniert einsetzen</span>
-                        </div>
-                    </a>
-                    <a href="../../index.html#kontakt" class="dl-card">
-                        <div class="dl-card-icon">
-                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 17l3-3 3 3 3-6 3 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6h16" stroke="currentColor" stroke-width="1.8"/></svg>
-                        </div>
-                        <div class="dl-card-text">
-                            <strong>Verhandlungsführung</strong>
-                            <span>Professionelle Vertretung Ihrer Interessen bis zum Closing</span>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <section class="article-cta">
-        <div class="article-container">
-            <h3>Bereit für den Verkaufsprozess?</h3>
-            <p>Wir begleiten Sie von der ersten Bewertung bis zum Vertragsabschluss. Unverbindliches Erstgespräch — kostenlos.</p>
-            <a href="../../index.html#kontakt" class="btn-cta">Kostenloses Erstgespräch vereinbaren</a>
-        </div>
-    </section>
-
-    <footer style="background:#002B5C;padding:48px 0 24px;color:rgba(255,255,255,0.8);">
-        <div style="max-width:1200px;margin:0 auto 32px;padding:0 24px;display:flex;align-items:center;gap:12px;">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" fill="#004388"/><polygon points="20,5 35,20 20,35 5,20" fill="none" stroke="white" stroke-width="1.8"/><text x="20" y="24" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">XY</text></svg>
-            <span style="font-size:15px;font-weight:600;color:#fff;">XxxxxZentrum</span>
-        </div>
-        <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Privatpersonen</div><div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Pensionierung</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Geldanlagen</a></div></div>
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Firmen</div><div style="font-size:14px;line-height:2.1;"><a href="../../index.html" style="color:#fff;font-weight:600;display:block;text-decoration:none;">Unternehmensnachfolge</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Pensionskasse</a></div></div>
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Ratgeber</div><div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Merkblätter</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Videos</a></div></div>
-            <div><div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;">Über XY</div><div style="font-size:14px;line-height:2.1;"><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Portrait</a><a href="#" style="color:rgba(255,255,255,0.75);display:block;text-decoration:none;">Kontakt</a></div></div>
-        </div>
-        <div style="max-width:1200px;margin:24px auto 0;padding:16px 24px 0;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <div style="font-size:12px;color:rgba(255,255,255,0.4);display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Datenschutzerklärung</a><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Impressum</a></div>
-            <div style="font-size:12px;color:rgba(255,255,255,0.35);">&copy; 2026 XY XxxxxZentrum AG</div>
-        </div>
-    </footer>
-
+<script src="/assets/vz.js"></script>
 </body>
 </html>
