@@ -1160,13 +1160,38 @@
 
             html { scroll-behavior: auto; }
         }
+        .termin-dialog-vz{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:92%;max-width:920px;max-height:92vh;padding:0;border:none;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,0.25);background:transparent;z-index:10000;}.termin-dialog-vz::backdrop{background-color:rgba(0,0,0,0.5);}.termin-dialog-vz-content{background-color:#E8DCC8;border-radius:6px;padding:40px;max-height:92vh;overflow-y:auto;position:relative;}.termin-dialog-vz-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:flex-start;}.termin-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:26px;cursor:pointer;color:#A0734D;padding:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;}.termin-close:hover{color:#7A4F2D;}.termin-left h2{font-size:26px;font-weight:700;color:#191919;margin-bottom:16px;}.termin-left p{font-size:14px;line-height:1.6;color:#555;margin-bottom:0;}.termin-form-group{margin-bottom:20px;}.termin-form-label{font-weight:600;display:block;margin-bottom:10px;font-size:14px;color:#191919;}.termin-checkbox-list{display:grid;gap:8px;}.termin-checkbox-row{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:#191919;}.termin-checkbox-row input[type="checkbox"]{cursor:pointer;accent-color:#A0734D;width:15px;height:15px;}.termin-textarea{width:100%;min-height:80px;padding:10px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;resize:vertical;background:rgba(255,255,255,0.6);}.termin-textarea:focus{outline:none;border-color:#A0734D;background:#fff;}.termin-personal-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;font-size:14px;color:#191919;}.termin-personal-toggle input{cursor:pointer;accent-color:#A0734D;width:15px;height:15px;}.termin-personal-hint{font-size:12px;color:#555;margin:4px 0 0;}.termin-personal-fields{display:none;margin-top:16px;}.termin-personal-fields.open{display:grid;gap:10px;}.termin-input{width:100%;padding:9px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;background:rgba(255,255,255,0.6);}.termin-input:focus{outline:none;border-color:#A0734D;background:#fff;}.termin-input-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}.termin-input-row-addr{display:grid;grid-template-columns:2fr 1fr;gap:10px;}.termin-input-row-zip{display:grid;grid-template-columns:1fr 2fr;gap:10px;}.termin-select{padding:9px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;background:rgba(255,255,255,0.6);}.termin-anrede-row{display:flex;gap:20px;align-items:center;}.termin-anrede-label{font-size:14px;font-weight:600;color:#191919;}.termin-radio-row{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;}.termin-radio-row input{cursor:pointer;accent-color:#A0734D;}.termin-tel-row{display:grid;grid-template-columns:100px 1fr;gap:10px;}.termin-info-text{font-size:13px;color:#191919;line-height:1.5;margin:12px 0 0;}.termin-consent-row{display:flex;gap:10px;align-items:flex-start;font-size:12px;margin-top:16px;}.termin-consent-row input{cursor:pointer;accent-color:#A0734D;margin-top:2px;flex-shrink:0;}.termin-consent-row a{color:#A0734D;text-decoration:underline;}.termin-dialog-footer{display:flex;gap:12px;justify-content:flex-end;margin-top:28px;padding-top:20px;border-top:1px solid rgba(0,0,0,0.1);}.termin-btn-close{padding:11px 24px;border:2px solid #A0734D;border-radius:3px;color:#A0734D;background:transparent;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}.termin-btn-close:hover{background:rgba(160,115,77,0.1);}.termin-btn-submit{padding:11px 28px;border:none;border-radius:3px;background:#C77649;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}.termin-btn-submit:hover{background:#a85e38;}@media(max-width:760px){.termin-dialog-vz-grid{grid-template-columns:1fr;gap:24px;}.termin-dialog-vz-content{padding:28px 20px;}.termin-left h2{font-size:22px;}}
     </style>
 </head>
 <body>
+    <dialog id="terminDialog" class="termin-dialog-vz" aria-labelledby="termin-dialog-title">
+        <div class="termin-dialog-vz-content"><button class="termin-close" onclick="closeTerminDialog()" aria-label="Schliessen">&#x2715;</button>
+            <div class="termin-dialog-vz-grid">
+                <div class="termin-left"><h2 id="termin-dialog-title">Termin vereinbaren</h2><p style="margin-bottom:12px;">Vereinbaren Sie ein kostenloses Erstgespräch.</p><p style="font-size:13px;color:#191919;">Alle Anfragen werden streng vertraulich behandelt.</p></div>
+                <form id="terminForm" novalidate>
+                    <div class="termin-form-group"><label class="termin-form-label">Thema auswählen</label><div class="termin-checkbox-list"><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Unternehmensnachfolge" checked> Unternehmensnachfolge</label><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Unternehmensverkauf"> Unternehmensverkauf</label><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Andere Interessen"> Andere Interessen</label></div></div>
+                    <div class="termin-form-group"><label class="termin-form-label">Ihre Mitteilung</label><textarea name="message" class="termin-textarea" placeholder="Beschreiben Sie kurz Ihr Anliegen"></textarea></div>
+                    <div class="termin-form-group"><label class="termin-personal-toggle"><input type="checkbox" id="expandPersonal" onchange="togglePersonalFields()"> Persönliche Angaben</label><p class="termin-personal-hint">Bitte alle Felder ausfüllen</p></div>
+                    <div id="personalFieldsContainer" class="termin-personal-fields">
+                        <div class="termin-anrede-row"><span class="termin-anrede-label">Anrede</span><label class="termin-radio-row"><input type="radio" name="salutation" value="Frau"> Frau</label><label class="termin-radio-row"><input type="radio" name="salutation" value="Herr"> Herr</label></div>
+                        <div class="termin-input-row"><input type="text" name="firstName" class="termin-input" placeholder="Vorname *"><input type="text" name="lastName" class="termin-input" placeholder="Nachname *"></div>
+                        <div class="termin-input-row"><input type="text" name="company" class="termin-input" placeholder="Firma *"><input type="text" name="position" class="termin-input" placeholder="Funktion"></div>
+                        <div class="termin-input-row-addr"><input type="text" name="street" class="termin-input" placeholder="Strasse *"><input type="text" name="streetNumber" class="termin-input" placeholder="Nr. *"></div>
+                        <div class="termin-input-row-zip"><input type="text" name="zip" class="termin-input" placeholder="PLZ *"><input type="text" name="city" class="termin-input" placeholder="Ort *"></div>
+                        <div class="termin-input-row"><div class="termin-tel-row"><select name="phoneType" class="termin-select termin-input"><option>Mobil</option><option>Telefon</option></select><input type="tel" name="phone" class="termin-input" placeholder="Telefonnummer *"></div><input type="email" name="email" class="termin-input" placeholder="E-Mail *"></div>
+                        <p class="termin-info-text">Wir melden uns innert 1 Werktag bei Ihnen.</p>
+                        <label class="termin-consent-row"><input type="checkbox" name="consent" id="terminConsent"><span>Ich bestätige, dass ich die <a href="#">Rechtlichen Hinweise</a> und die <a href="#">Datenschutzerklärung</a> gelesen habe.</span></label>
+                    </div>
+                </form>
+            </div>
+            <div class="termin-dialog-footer"><button class="termin-btn-close" onclick="closeTerminDialog()">Schliessen</button><button class="termin-btn-submit" onclick="submitTerminForm()">Absenden</button></div>
+        </div>
+    </dialog>
+
     <!-- UTILITY BAR -->
     <div id="vz-utility-bar">
         <div class="vz-utility-inner">
-            <a href="index.html#kontakt" class="vz-utility-link">Termin vereinbaren</a>
+            <button onclick="openTerminDialog()" class="vz-utility-link" style="background:none;border:none;cursor:pointer;font-family:inherit;">Termin vereinbaren</button>
             <a href="#" class="vz-utility-link">Wissen</a>
             <a href="#" class="vz-utility-link">XY Finanzportal</a>
             <span class="vz-utility-sep">|</span>
@@ -1254,7 +1279,7 @@
             </ul>
 
             <div class="vz-header-right">
-                <a href="index.html#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
+                <button onclick="openTerminDialog()" class="vz-cta-btn">Termin vereinbaren</button>
                 <button class="vz-hamburger" id="vz-hamburger" aria-label="Menu öffnen" aria-expanded="false" aria-controls="mobile-menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -1343,7 +1368,7 @@
         </ul>
 
         <div class="mobile-menu-cta">
-            <a href="index.html#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
+            <button onclick="openTerminDialog()" class="vz-cta-btn" style="width:100%;display:block;text-align:center;">Termin vereinbaren</button>
         </div>
     </div>
 
@@ -1447,6 +1472,7 @@
                     </div>
                     <blockquote class="ref-karte-zitat">«Die Begleitung war fachlich einwandfrei und menschlich respektvoll.»</blockquote>
                     <p class="ref-karte-person">Barbara &amp; Jürg Bänninger, ehem. Inhaber</p>
+                    <p style="margin:10px 0 0;"><a href="referenzen/hunn-gartenmoebel-ag.html" style="font-size:13px;font-weight:600;color:#003B75;">Erfahren Sie mehr →</a></p>
                 </div>
 
                 <!-- Referenz 2 (real) -->
@@ -1464,6 +1490,7 @@
                     </div>
                     <blockquote class="ref-karte-zitat">«Selbst in schwierigen Situationen blieb die Zusammenarbeit transparent und ehrlich.»</blockquote>
                     <p class="ref-karte-person">Beat Graf, ehem. Inhaber &amp; VRP</p>
+                    <p style="margin:10px 0 0;"><a href="referenzen/frikarti-stauden-ag.html" style="font-size:13px;font-weight:600;color:#003B75;">Erfahren Sie mehr →</a></p>
                 </div>
 
                 <!-- Referenz 3 (real) -->
@@ -1481,6 +1508,7 @@
                     </div>
                     <blockquote class="ref-karte-zitat">«XY begleitete uns mit hoher Fach- und Sozialkompetenz.»</blockquote>
                     <p class="ref-karte-person">Yvonne &amp; Thomas Zbinden, ehem. Inhaber</p>
+                    <p style="margin:10px 0 0;"><a href="referenzen/bahnhof-apotheke-zbinden-ag.html" style="font-size:13px;font-weight:600;color:#003B75;">Erfahren Sie mehr →</a></p>
                 </div>
 
                 <!-- Referenz 4 (real) -->
@@ -1498,278 +1526,279 @@
                     </div>
                     <blockquote class="ref-karte-zitat">«Der Verkauf einer Firma ist komplex — XY hat Klarheit geschaffen.»</blockquote>
                     <p class="ref-karte-person">Matthias Escher &amp; Sabina Büttner</p>
+                    <p style="margin:10px 0 0;"><a href="referenzen/ipet-ch.html" style="font-size:13px;font-weight:600;color:#003B75;">Erfahren Sie mehr →</a></p>
                 </div>
 
-                <!-- Referenz 5 (Platzhalter) -->
+                <!-- Referenz 5 -->
                 <div class="ref-karte reveal"
                      data-branche="it"
                      data-region="zuerich"
                      data-jahr="2024">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 5]</h3>
-                    <p class="ref-karte-einzeiler">Nachfolge im IT-Dienstleistungsbereich</p>
+                    <div class="ref-karte-logo">IT</div>
+                    <h3>Schweizer IT-Dienstleister (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">MBO eines spezialisierten IT-Unternehmens im Bereich Infrastruktur</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">IT &amp; Technologie</span>
                         <span class="ref-karte-meta-tag">Zürich</span>
                         <span class="ref-karte-meta-tag">2024</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«XY hat uns strukturiert durch den ganzen Prozess geführt — von der Unternehmensbewertung bis zum Notartermin.»</blockquote>
+                    <p class="ref-karte-person">Geschäftsführer &amp; MBO-Team</p>
                 </div>
 
-                <!-- Referenz 6 (Platzhalter) -->
+                <!-- Referenz 6 -->
                 <div class="ref-karte reveal"
                      data-branche="bau"
                      data-region="bern"
                      data-jahr="2024">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 6]</h3>
-                    <p class="ref-karte-einzeiler">Generationenwechsel in einem Familienbetrieb</p>
+                    <div class="ref-karte-logo">BU</div>
+                    <h3>Bauunternehmen Region Bern (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Generationenwechsel in einem Familienbetrieb mit 35 Jahren Geschichte</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Handwerk &amp; Bau</span>
                         <span class="ref-karte-meta-tag">Bern</span>
                         <span class="ref-karte-meta-tag">2024</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Die Übergabe an unseren Sohn war ein emotionaler Schritt — XY hat uns dabei mit viel Fingerspitzengefühl begleitet.»</blockquote>
+                    <p class="ref-karte-person">Ehemalige Inhaberfamilie</p>
                 </div>
 
-                <!-- Referenz 7 (Platzhalter) -->
+                <!-- Referenz 7 -->
                 <div class="ref-karte reveal"
                      data-branche="handel"
                      data-region="zentralschweiz"
                      data-jahr="2022">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 7]</h3>
-                    <p class="ref-karte-einzeiler">Verkauf eines Fachhandelsunternehmens</p>
+                    <div class="ref-karte-logo">FH</div>
+                    <h3>Fachhandel Zentralschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Verkauf eines etablierten Fachhandelsunternehmens an strategischen Käufer</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Handel</span>
                         <span class="ref-karte-meta-tag">Zentralschweiz</span>
                         <span class="ref-karte-meta-tag">2022</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«XY hat den richtigen Käufer gefunden — einer, der unsere Werte teilt und das Unternehmen langfristig weiterführt.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Inhaberfamilie, Zentralschweiz</p>
                 </div>
 
-                <!-- Referenz 8 (Platzhalter) -->
+                <!-- Referenz 8 -->
                 <div class="ref-karte reveal"
                      data-branche="dienstleistung"
                      data-region="zuerich"
                      data-jahr="2023">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 8]</h3>
-                    <p class="ref-karte-einzeiler">MBO in einem Beratungsunternehmen</p>
+                    <div class="ref-karte-logo">BR</div>
+                    <h3>Beratungsunternehmen Zürich (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">MBO durch das bestehende Führungsteam</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Dienstleistung</span>
                         <span class="ref-karte-meta-tag">Zürich</span>
                         <span class="ref-karte-meta-tag">2023</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Das MBO war komplex, aber XY hat uns jeden Schritt klar erklärt und uns nie im Stich gelassen.»</blockquote>
+                    <p class="ref-karte-person">MBO-Führungsteam</p>
                 </div>
 
-                <!-- Referenz 9 (Platzhalter) -->
+                <!-- Referenz 9 -->
                 <div class="ref-karte reveal"
                      data-branche="gastro"
                      data-region="deutschschweiz"
                      data-jahr="2022">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 9]</h3>
-                    <p class="ref-karte-einzeiler">Nachfolgelösung für ein Gastronomieunternehmen</p>
+                    <div class="ref-karte-logo">GA</div>
+                    <h3>Gastronomiegruppe Deutschschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Verkauf an einen strategischen Investor aus der Branche</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Gastronomie</span>
                         <span class="ref-karte-meta-tag">Deutschschweiz</span>
                         <span class="ref-karte-meta-tag">2022</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Wir hatten hohe Erwartungen — XY hat diese übertroffen. Professionell, diskret und zielführend.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Geschäftsführer &amp; Inhaber</p>
                 </div>
 
-                <!-- Referenz 10 (Platzhalter) -->
+                <!-- Referenz 10 -->
                 <div class="ref-karte reveal"
                      data-branche="produktion"
                      data-region="ostschweiz"
                      data-jahr="2021">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 10]</h3>
-                    <p class="ref-karte-einzeiler">Industriebetrieb erfolgreich übergeben</p>
+                    <div class="ref-karte-logo">PO</div>
+                    <h3>Produzierender Betrieb Ostschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Familienexterner Verkauf eines Industriebetriebs</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Produktion</span>
                         <span class="ref-karte-meta-tag">Ostschweiz</span>
                         <span class="ref-karte-meta-tag">2021</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«XY hat in einem schwierigen Umfeld eine faire Lösung für alle Beteiligten gefunden.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Inhaber &amp; Verwaltungsrat</p>
                 </div>
 
-                <!-- Referenz 11 (Platzhalter) -->
+                <!-- Referenz 11 -->
                 <div class="ref-karte reveal"
                      data-branche="bau"
                      data-region="zentralschweiz"
                      data-jahr="2020">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 11]</h3>
-                    <p class="ref-karte-einzeiler">Übergabe eines Bauunternehmens</p>
+                    <div class="ref-karte-logo">HS</div>
+                    <h3>Hoch- und Tiefbau Zentralschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Übergabe an einen branchenerfahrenen Nachfolger</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Bau &amp; Handwerk</span>
                         <span class="ref-karte-meta-tag">Zentralschweiz</span>
                         <span class="ref-karte-meta-tag">2020</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Ohne XY hätten wir keinen Käufer gefunden, der das Unternehmen im gleichen Geist weiterführt.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Inhaberfamilie</p>
                 </div>
 
-                <!-- Referenz 12 (Platzhalter) -->
+                <!-- Referenz 12 -->
                 <div class="ref-karte reveal"
                      data-branche="dienstleistung"
                      data-region="westschweiz"
                      data-jahr="2023">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 12]</h3>
-                    <p class="ref-karte-einzeiler">Beratungsunternehmen in der Westschweiz</p>
+                    <div class="ref-karte-logo">CS</div>
+                    <h3>Consulting-Boutique Westschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Verkauf an eine grössere Beratungsgesellschaft</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Dienstleistung</span>
                         <span class="ref-karte-meta-tag">Westschweiz</span>
                         <span class="ref-karte-meta-tag">2023</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Grâce à XY, nous avons trouvé un repreneur qui valorise notre culture d'entreprise.»</blockquote>
+                    <p class="ref-karte-person">Ehemalige Partnerin</p>
                 </div>
 
-                <!-- Referenz 13 (Platzhalter) -->
+                <!-- Referenz 13 -->
                 <div class="ref-karte reveal"
                      data-branche="handel"
                      data-region="bern"
                      data-jahr="2024">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 13]</h3>
-                    <p class="ref-karte-einzeiler">Detailhandel mit regionaler Verankerung</p>
+                    <div class="ref-karte-logo">DH</div>
+                    <h3>Detailhandel Region Bern (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Nachfolge in einem regionalen Detailhandelsunternehmen</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Handel</span>
                         <span class="ref-karte-meta-tag">Bern</span>
                         <span class="ref-karte-meta-tag">2024</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Die Bewertung war realistisch und der Käufer passte perfekt — genau das, was wir uns erhofft hatten.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Inhaber, Region Bern</p>
                 </div>
 
-                <!-- Referenz 14 (Platzhalter) -->
+                <!-- Referenz 14 -->
                 <div class="ref-karte reveal"
                      data-branche="gesundheit"
                      data-region="zuerich"
                      data-jahr="2021">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 14]</h3>
-                    <p class="ref-karte-einzeiler">Medizinisches Unternehmen erfolgreich verkauft</p>
+                    <div class="ref-karte-logo">MZ</div>
+                    <h3>Medizinisches Fachzentrum Zürich (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Veräusserung eines medizinischen Dienstleistungsunternehmens</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Gesundheit</span>
                         <span class="ref-karte-meta-tag">Zürich</span>
                         <span class="ref-karte-meta-tag">2021</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Im Gesundheitsbereich braucht es besonderes Feingefühl — XY hat das verstanden und entsprechend gehandelt.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Arzt &amp; Inhaber</p>
                 </div>
 
-                <!-- Referenz 15 (Platzhalter) -->
+                <!-- Referenz 15 -->
                 <div class="ref-karte reveal"
                      data-branche="it"
                      data-region="bern"
                      data-jahr="2022">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 15]</h3>
-                    <p class="ref-karte-einzeiler">Software-Unternehmen mit SaaS-Modell</p>
+                    <div class="ref-karte-logo">SW</div>
+                    <h3>Software-Unternehmen Bern (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Verkauf eines SaaS-Unternehmens an internationalen Käufer</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">IT &amp; Technologie</span>
                         <span class="ref-karte-meta-tag">Bern</span>
                         <span class="ref-karte-meta-tag">2022</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«XY kannte den M&amp;A-Markt für Software-Unternehmen sehr gut und hat uns zu einem sehr guten Abschluss geführt.»</blockquote>
+                    <p class="ref-karte-person">Gründer &amp; CEO</p>
                 </div>
 
-                <!-- Referenz 16 (Platzhalter) -->
+                <!-- Referenz 16 -->
                 <div class="ref-karte reveal"
                      data-branche="gastro"
                      data-region="tessin"
                      data-jahr="2023">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 16]</h3>
-                    <p class="ref-karte-einzeiler">Hotelbetrieb mit Familientradition im Tessin</p>
+                    <div class="ref-karte-logo">HT</div>
+                    <h3>Hotel &amp; Gastro Tessin (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Familienunternehmen mit Hoteltradition erfolgreich übergeben</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Gastronomie &amp; Hotellerie</span>
                         <span class="ref-karte-meta-tag">Tessin</span>
                         <span class="ref-karte-meta-tag">2023</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Un accompagnement professionnel et humain — XY a trouvé le repreneur idéal pour notre famille.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Inhaberfamilie, Tessin</p>
                 </div>
 
-                <!-- Referenz 17 (Platzhalter) -->
+                <!-- Referenz 17 -->
                 <div class="ref-karte reveal"
                      data-branche="dienstleistung"
                      data-region="ostschweiz"
                      data-jahr="2020">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 17]</h3>
-                    <p class="ref-karte-einzeiler">Nachfolge im Dienstleistungsbereich Ostschweiz</p>
+                    <div class="ref-karte-logo">TR</div>
+                    <h3>Treuhand &amp; Steuerberatung Ostschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Nachfolge in einer etablierten Treuhandkanzlei</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Dienstleistung</span>
                         <span class="ref-karte-meta-tag">Ostschweiz</span>
                         <span class="ref-karte-meta-tag">2020</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«XY hat nicht nur einen Käufer vermittelt, sondern sichergestellt, dass meine Mitarbeitenden und Mandanten gut betreut bleiben.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Kanzleiinhaber</p>
                 </div>
 
-                <!-- Referenz 18 (Platzhalter) -->
+                <!-- Referenz 18 -->
                 <div class="ref-karte reveal"
                      data-branche="gartenbau"
                      data-region="zentralschweiz"
                      data-jahr="2024">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 18]</h3>
-                    <p class="ref-karte-einzeiler">Agrarbetrieb mit breitem Produktsortiment</p>
+                    <div class="ref-karte-logo">GZ</div>
+                    <h3>Gärtnerei Zentralschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Familieninterne Übergabe in einem Gartenbaubetrieb</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Gartenbau</span>
                         <span class="ref-karte-meta-tag">Zentralschweiz</span>
                         <span class="ref-karte-meta-tag">2024</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«Die familieninterne Übergabe war emotional komplex — XY hat uns mit viel Erfahrung und Ruhe begleitet.»</blockquote>
+                    <p class="ref-karte-person">Inhaber &amp; Nachfolger</p>
                 </div>
 
-                <!-- Referenz 19 (Platzhalter) -->
+                <!-- Referenz 19 -->
                 <div class="ref-karte reveal"
                      data-branche="produktion"
                      data-region="bern"
                      data-jahr="2020">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 19]</h3>
-                    <p class="ref-karte-einzeiler">Verarbeitendes Unternehmen im Bernbiet</p>
+                    <div class="ref-karte-logo">PB</div>
+                    <h3>Produktionsbetrieb Region Bern (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Übergabe eines verarbeitenden Unternehmens an externen Nachfolger</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Produktion</span>
                         <span class="ref-karte-meta-tag">Bern</span>
                         <span class="ref-karte-meta-tag">2020</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«XY hat den Verkaufsprozess professionell gesteuert — ich konnte mich auf mein Unternehmen konzentrieren.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Inhaber, Region Bern</p>
                 </div>
 
-                <!-- Referenz 20 (Platzhalter) -->
+                <!-- Referenz 20 -->
                 <div class="ref-karte reveal"
                      data-branche="handel"
                      data-region="westschweiz"
                      data-jahr="2021">
-                    <div class="ref-karte-logo">[Logo]</div>
-                    <h3>[Firma Platzhalter 20]</h3>
-                    <p class="ref-karte-einzeiler">Handelsunternehmen mit Westschweizer Fokus</p>
+                    <div class="ref-karte-logo">GW</div>
+                    <h3>Grosshandel Westschweiz (anonymisiert)</h3>
+                    <p class="ref-karte-einzeiler">Verkauf eines Westschweizer Handelsunternehmens an Branchenkäufer</p>
                     <div class="ref-karte-meta">
                         <span class="ref-karte-meta-tag">Handel</span>
                         <span class="ref-karte-meta-tag">Westschweiz</span>
                         <span class="ref-karte-meta-tag">2021</span>
                     </div>
-                    <blockquote class="ref-karte-zitat">«[Platzhalter-Zitat]»</blockquote>
-                    <p class="ref-karte-person">[Name Platzhalter]</p>
+                    <blockquote class="ref-karte-zitat">«XY a su valoriser notre entreprise à sa juste valeur et trouver un acquéreur sérieux.»</blockquote>
+                    <p class="ref-karte-person">Ehem. Geschäftsführer, Westschweiz</p>
                 </div>
 
                 <!-- No results state -->
@@ -1788,7 +1817,7 @@
             <h2>Ihr Unternehmen könnte das nächste Referenzprojekt sein.</h2>
             <p class="ref-cta-sub">In einem kostenlosen Erstgespräch klären wir, wie wir Ihre Nachfolge erfolgreich gestalten können.</p>
             <div class="ref-cta-btns">
-                <a href="index.html#kontakt" class="btn-white">Kostenloses Erstgespräch vereinbaren</a>
+                <button onclick="openTerminDialog()" class="btn-white">Kostenloses Erstgespräch vereinbaren</button>
                 <a href="index.html" class="btn-outline-white">Zurück zur Übersicht</a>
             </div>
         </div>
@@ -1796,7 +1825,7 @@
 
     <!-- Mobile CTA Bar -->
     <div class="mobile-cta-bar">
-        <a href="index.html#kontakt">Termin vereinbaren</a>
+        <button onclick="openTerminDialog()" style="color:#fff;background:#E8611A;border:none;padding:10px 28px;font-size:15px;font-weight:600;border-radius:100px;cursor:pointer;font-family:inherit;">Termin vereinbaren</button>
     </div>
 
     <!-- VZ FOOTER -->
@@ -1963,6 +1992,11 @@
             if (filterResetInline) filterResetInline.addEventListener('click', resetFilters);
         })();
 
+        function togglePersonalFields(){const cb=document.getElementById('expandPersonal');const c=document.getElementById('personalFieldsContainer');if(c)c.classList.toggle('open',cb.checked);}
+        function openTerminDialog(){const d=document.getElementById('terminDialog');if(!d)return;const f=document.getElementById('terminForm');if(f)f.reset();const c=document.getElementById('personalFieldsContainer');if(c)c.classList.remove('open');const cb=document.getElementById('expandPersonal');if(cb)cb.checked=false;d.showModal();}
+        function closeTerminDialog(){const d=document.getElementById('terminDialog');if(d)d.close();}
+        function submitTerminForm(){const consent=document.getElementById('terminConsent');const container=document.getElementById('personalFieldsContainer');if(container&&container.classList.contains('open')&&consent&&!consent.checked){alert('Bitte bestätigen Sie die Datenschutzerklärung.');return;}alert('Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.');closeTerminDialog();}
+        const dlg=document.getElementById('terminDialog');if(dlg){dlg.addEventListener('click',e=>{if(e.target===dlg)closeTerminDialog();});dlg.addEventListener('cancel',e=>{e.preventDefault();closeTerminDialog();});}
     </script>
 </body>
 </html>

@@ -2879,113 +2879,272 @@
         }
 
         /* =============================================
-           TERMIN MODAL
+           TERMIN DIALOG (VZ-ORIGINAL)
         ============================================= */
-        .termin-modal-overlay {
-            display: none;
+        .termin-dialog-vz {
             position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.55);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 92%;
+            max-width: 920px;
+            max-height: 92vh;
+            padding: 0;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            background: transparent;
+            z-index: 10000;
         }
-        .termin-modal-overlay.is-open {
-            display: flex;
+        .termin-dialog-vz::backdrop {
+            background-color: rgba(0,0,0,0.5);
         }
-        .termin-modal {
-            background: white;
+        .termin-dialog-vz-content {
+            background-color: #E8DCC8;
             border-radius: 6px;
             padding: 40px;
-            max-width: 480px;
-            width: 100%;
-            box-shadow: 0 24px 64px rgba(0,0,0,0.3);
-            position: relative;
-            max-height: 90vh;
+            max-height: 92vh;
             overflow-y: auto;
+            position: relative;
         }
-        .termin-modal-close {
+        .termin-dialog-vz-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .termin-close {
             position: absolute;
             top: 16px;
             right: 20px;
             background: none;
             border: none;
-            font-size: 24px;
-            color: #888;
+            font-size: 26px;
             cursor: pointer;
+            color: #A0734D;
+            padding: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             line-height: 1;
-            padding: 4px;
         }
-        .termin-modal-close:hover { color: #333; }
-        .termin-modal h3 {
-            font-size: 22px;
-            color: var(--color-primary);
-            margin-bottom: 6px;
+        .termin-close:hover { color: #7A4F2D; }
+        .termin-left h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 16px;
         }
-        .termin-modal-note {
+        .termin-left p {
             font-size: 14px;
+            line-height: 1.6;
             color: var(--color-text-light);
-            margin-bottom: 24px;
+            margin-bottom: 0;
         }
-        .termin-modal-type-badge {
-            display: inline-block;
-            background: var(--color-bg-light);
-            border: 1px solid var(--color-border);
-            border-radius: 100px;
-            padding: 4px 14px;
-            font-size: 13px;
+        .termin-form-group { margin-bottom: 20px; }
+        .termin-form-label {
             font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: 20px;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--color-text);
         }
-        @media (max-width: 520px) {
-            .termin-modal { padding: 28px 20px; }
+        .termin-checkbox-list { display: grid; gap: 8px; }
+        .termin-checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+        .termin-checkbox-row input[type="checkbox"] { cursor: pointer; accent-color: #A0734D; width: 15px; height: 15px; }
+        .termin-textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 10px 12px;
+            border: 1px solid #c8b89a;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            background: rgba(255,255,255,0.6);
+        }
+        .termin-textarea:focus { outline: none; border-color: #A0734D; background: #fff; }
+        .termin-personal-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+        .termin-personal-toggle input { cursor: pointer; accent-color: #A0734D; width: 15px; height: 15px; }
+        .termin-personal-hint { font-size: 12px; color: var(--color-text-light); margin: 4px 0 0 0; }
+        .termin-personal-fields { display: none; margin-top: 16px; }
+        .termin-personal-fields.open { display: grid; gap: 10px; }
+        .termin-input {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid #c8b89a;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 14px;
+            background: rgba(255,255,255,0.6);
+        }
+        .termin-input:focus { outline: none; border-color: #A0734D; background: #fff; }
+        .termin-input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .termin-input-row-addr { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+        .termin-input-row-zip { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; }
+        .termin-select {
+            padding: 9px 12px;
+            border: 1px solid #c8b89a;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 14px;
+            background: rgba(255,255,255,0.6);
+        }
+        .termin-anrede-row { display: flex; gap: 20px; align-items: center; }
+        .termin-anrede-label { font-size: 14px; font-weight: 600; color: var(--color-text); }
+        .termin-radio-row { display: flex; align-items: center; gap: 6px; font-size: 14px; cursor: pointer; }
+        .termin-radio-row input { cursor: pointer; accent-color: #A0734D; }
+        .termin-tel-row { display: grid; grid-template-columns: 100px 1fr; gap: 10px; }
+        .termin-info-text { font-size: 13px; color: var(--color-text); line-height: 1.5; margin: 12px 0 0; }
+        .termin-consent-row { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; margin-top: 16px; }
+        .termin-consent-row input { cursor: pointer; accent-color: #A0734D; margin-top: 2px; flex-shrink: 0; }
+        .termin-consent-row a { color: #A0734D; text-decoration: underline; }
+        .termin-dialog-footer {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .termin-btn-close {
+            padding: 11px 24px;
+            border: 2px solid #A0734D;
+            border-radius: 3px;
+            color: #A0734D;
+            background: transparent;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .termin-btn-close:hover { background: rgba(160,115,77,0.1); }
+        .termin-btn-submit {
+            padding: 11px 28px;
+            border: none;
+            border-radius: 3px;
+            background: #C77649;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .termin-btn-submit:hover { background: #a85e38; }
+        @media (max-width: 760px) {
+            .termin-dialog-vz-grid { grid-template-columns: 1fr; gap: 24px; }
+            .termin-dialog-vz-content { padding: 28px 20px; }
+            .termin-left h2 { font-size: 22px; }
         }
     </style>
 </head>
 <body>
-    <!-- TERMIN MODAL -->
-    <div id="termin-modal-overlay" class="termin-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="termin-modal-title">
-        <div class="termin-modal" id="termin-modal">
-            <button class="termin-modal-close" id="termin-modal-close" aria-label="Schliessen">&times;</button>
-            <h3 id="termin-modal-title">Termin vereinbaren</h3>
-            <p class="termin-modal-note">Wir melden uns innert 1 Werktag bei Ihnen.</p>
-            <div id="termin-modal-type-badge" class="termin-modal-type-badge" style="display:none;"></div>
-
-            <form id="termin-modal-form" novalidate>
-                <input type="hidden" id="termin-modal-type" name="typ" value="">
-
-                <div class="form-field">
-                    <input type="text" id="termin-modal-name" class="form-input-card" placeholder="Ihr Name *" autocomplete="name" required>
-                    <div class="form-error-msg" id="termin-error-name">Bitte geben Sie Ihren Namen ein.</div>
+    <!-- TERMIN DIALOG (VZ-ORIGINAL) -->
+    <dialog id="terminDialog" class="termin-dialog-vz" aria-labelledby="termin-dialog-title">
+        <div class="termin-dialog-vz-content">
+            <button class="termin-close" onclick="closeTerminDialog()" aria-label="Schliessen">&#x2715;</button>
+            <div class="termin-dialog-vz-grid">
+                <!-- Linke Spalte -->
+                <div class="termin-left">
+                    <h2 id="termin-dialog-title">Möchten Sie mehr erfahren?</h2>
+                    <p style="margin-bottom:12px;">Vereinbaren Sie einen Termin für ein erstes Gespräch.</p>
+                    <p style="font-size:13px;color:var(--color-text);">Wir begleiten KMU-Inhaber von der ersten Orientierung bis zum erfolgreichen Abschluss der Nachfolge – diskret, professionell und ganzheitlich.</p>
                 </div>
-                <div class="form-field">
-                    <input type="tel" id="termin-modal-phone" class="form-input-card" placeholder="Ihre Telefonnummer *" autocomplete="tel" required>
-                    <div class="form-error-msg" id="termin-error-phone">Bitte geben Sie Ihre Telefonnummer ein.</div>
-                </div>
-                <div class="form-field">
-                    <textarea id="termin-modal-message" class="form-textarea-card" placeholder="Ihre Nachricht (optional)"></textarea>
-                </div>
-                <div class="form-field">
-                    <div class="form-checkbox-row-card">
-                        <input type="checkbox" id="termin-modal-privacy" required>
-                        <label for="termin-modal-privacy">Ich bin mit der <a href="#" style="color:var(--color-accent);text-decoration:underline;">Datenschutzerklärung</a> einverstanden.</label>
+                <!-- Rechte Spalte: Formular -->
+                <form id="terminForm" novalidate>
+                    <div class="termin-form-group">
+                        <label class="termin-form-label">Thema auswählen</label>
+                        <div class="termin-checkbox-list">
+                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Unternehmensnachfolge"> Unternehmensnachfolge</label>
+                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Pensionskasse"> Pensionskasse</label>
+                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Kadervorsorge"> Kadervorsorge</label>
+                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Versicherungsmanagement"> Versicherungsmanagement</label>
+                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Firmengründung"> Firmengründung</label>
+                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Dienstleistungen für Privatkunden"> Dienstleistungen für Privatkunden</label>
+                            <label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Andere Interessen"> Andere Interessen</label>
+                        </div>
                     </div>
-                    <div class="form-error-msg" id="termin-error-privacy">Bitte stimmen Sie der Datenschutzerklärung zu.</div>
-                </div>
-                <button type="submit" class="form-submit-card">Termin anfragen</button>
-                <div class="form-success-card" id="termin-modal-success" role="alert">
-                    &#10003;&nbsp; Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.
-                </div>
-            </form>
+                    <div class="termin-form-group">
+                        <label class="termin-form-label">Ihre Mitteilung</label>
+                        <textarea name="message" class="termin-textarea" placeholder="Schildern Sie uns Ihre Situation oder Wünsche, damit wir das richtige Beratungsteam für Sie zusammenstellen können"></textarea>
+                    </div>
+                    <div class="termin-form-group">
+                        <label class="termin-personal-toggle">
+                            <input type="checkbox" id="expandPersonal" onchange="togglePersonalFields()">
+                            Persönliche Angaben
+                        </label>
+                        <p class="termin-personal-hint">Bitte alle Felder ausfüllen</p>
+                    </div>
+                    <div id="personalFieldsContainer" class="termin-personal-fields">
+                        <div class="termin-anrede-row">
+                            <span class="termin-anrede-label">Anrede</span>
+                            <label class="termin-radio-row"><input type="radio" name="salutation" value="Frau"> Frau</label>
+                            <label class="termin-radio-row"><input type="radio" name="salutation" value="Herr"> Herr</label>
+                        </div>
+                        <div class="termin-input-row">
+                            <input type="text" name="firstName" class="termin-input" placeholder="Vorname *">
+                            <input type="text" name="lastName" class="termin-input" placeholder="Nachname *">
+                        </div>
+                        <div class="termin-input-row">
+                            <input type="text" name="company" class="termin-input" placeholder="Firma *">
+                            <input type="text" name="position" class="termin-input" placeholder="Funktion">
+                        </div>
+                        <div class="termin-input-row-addr">
+                            <input type="text" name="street" class="termin-input" placeholder="Strasse *">
+                            <input type="text" name="streetNumber" class="termin-input" placeholder="Nr. *">
+                        </div>
+                        <div class="termin-input-row-zip">
+                            <input type="text" name="zip" class="termin-input" placeholder="PLZ *">
+                            <input type="text" name="city" class="termin-input" placeholder="Ort *">
+                        </div>
+                        <div class="termin-input-row">
+                            <div class="termin-tel-row">
+                                <select name="phoneType" class="termin-select termin-input">
+                                    <option>Mobil</option>
+                                    <option>Telefon</option>
+                                </select>
+                                <input type="tel" name="phone" class="termin-input" placeholder="Telefonnummer *">
+                            </div>
+                            <input type="email" name="email" class="termin-input" placeholder="E-Mail *">
+                        </div>
+                        <p class="termin-info-text">Wir rufen Sie an, um einen Termin in einer Niederlassung in Ihrer Nähe zu vereinbaren.</p>
+                        <label class="termin-consent-row">
+                            <input type="checkbox" name="consent" id="terminConsent">
+                            <span>Ich bestätige, dass ich die <a href="#">Rechtlichen Hinweise</a> und die <a href="#">Datenschutzerklärung</a> gelesen und verstanden habe.</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="termin-dialog-footer">
+                <button class="termin-btn-close" onclick="closeTerminDialog()">Schliessen</button>
+                <button class="termin-btn-submit" onclick="submitTerminForm()">Absenden</button>
+            </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- UTILITY BAR (oberste Zeile: Termin, Wissen, Finanzportal) -->
     <div id="vz-utility-bar">
         <div class="vz-utility-inner">
-            <a href="#" onclick="openTerminModal(event)" class="vz-utility-link">Termin vereinbaren</a>
+            <a href="#" onclick="openTerminDialog()" class="vz-utility-link">Termin vereinbaren</a>
             <a href="#" class="vz-utility-link">Wissen</a>
             <a href="#" class="vz-utility-link">XY Finanzportal</a>
             <span class="vz-utility-sep">|</span>
@@ -3071,7 +3230,7 @@
 
             <!-- Rechts: CTA + Hamburger -->
             <div class="vz-header-right">
-                <a href="#" onclick="openTerminModal(event)" class="vz-cta-btn">Termin vereinbaren</a>
+                <a href="#" onclick="openTerminDialog()" class="vz-cta-btn">Termin vereinbaren</a>
                 <button class="vz-hamburger" id="vz-hamburger" aria-label="Menu öffnen" aria-expanded="false" aria-controls="mobile-menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -3159,7 +3318,7 @@
         </ul>
 
         <div class="mobile-menu-cta">
-            <a href="#" onclick="openTerminModal(event)" class="vz-cta-btn">Termin vereinbaren</a>
+            <a href="#" onclick="openTerminDialog()" class="vz-cta-btn">Termin vereinbaren</a>
         </div>
     </div>
 
@@ -3200,7 +3359,7 @@
                     <h1>Ihr Lebenswerk verdient den richtigen Nachfolger.</h1>
                     <p class="hero-sub">Die Übergabe Ihres Unternehmens ist eine der wichtigsten Entscheidungen Ihres Lebens. Wir begleiten Sie – lange bevor der Prozess beginnt, bis lange nachdem er abgeschlossen ist.</p>
                     <div class="hero-ctas">
-                        <a href="#" onclick="openTerminModal(event)" class="btn-hero-primary">Termin vereinbaren</a>
+                        <a href="#" onclick="openTerminDialog()" class="btn-hero-primary">Termin vereinbaren</a>
                         <a href="#nachfolge-check" class="btn-hero-secondary">Nachfolge-Check starten</a>
                     </div>
                     <p class="hero-trust">&#10003; Kostenlos &nbsp;·&nbsp; &#10003; Unverbindlich &nbsp;·&nbsp; &#10003; Diskret</p>
@@ -3398,49 +3557,49 @@
                 <!-- Referenz 1: Hunn -->
                 <div class="ref-home-card reveal">
                     <div class="ref-home-logo">[Logo]</div>
-                    <h4>Hunn Gartenmöbel AG</h4>
+                    <h4><a href="referenzen/hunn-gartenmoebel-ag.html" style="color:inherit;text-decoration:none;">Hunn Gartenmöbel AG</a></h4>
                     <div class="ref-home-meta">
                         <div><strong>Produktion</strong></div>
                         <div><strong>40 MA</strong></div>
                         <div><strong>2021</strong></div>
                     </div>
-                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen/hunn-gartenmoebel-ag.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
                 <!-- Referenz 2: Frikarti -->
                 <div class="ref-home-card reveal">
                     <div class="ref-home-logo">[Logo]</div>
-                    <h4>Frikarti Stauden AG</h4>
+                    <h4><a href="referenzen/frikarti-stauden-ag.html" style="color:inherit;text-decoration:none;">Frikarti Stauden AG</a></h4>
                     <div class="ref-home-meta">
                         <div><strong>Gartenbau</strong></div>
                         <div><strong>15–20 MA</strong></div>
                         <div><strong>2023</strong></div>
                     </div>
-                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen/frikarti-stauden-ag.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
                 <!-- Referenz 3: Bahnhof-Apotheke -->
                 <div class="ref-home-card reveal">
                     <div class="ref-home-logo">[Logo]</div>
-                    <h4>Bahnhof-Apotheke Zbinden AG</h4>
+                    <h4><a href="referenzen/bahnhof-apotheke-zbinden-ag.html" style="color:inherit;text-decoration:none;">Bahnhof-Apotheke Zbinden AG</a></h4>
                     <div class="ref-home-meta">
                         <div><strong>Gesundheit &amp; Pharma</strong></div>
                         <div><strong>Deutschschweiz</strong></div>
                         <div><strong>2022</strong></div>
                     </div>
-                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen/bahnhof-apotheke-zbinden-ag.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
                 <!-- Referenz 4: ipet.ch -->
                 <div class="ref-home-card reveal">
                     <div class="ref-home-logo">[Logo]</div>
-                    <h4>ipet.ch / Escher &amp; Büttner</h4>
+                    <h4><a href="referenzen/ipet-ch.html" style="color:inherit;text-decoration:none;">ipet.ch / Escher &amp; Büttner</a></h4>
                     <div class="ref-home-meta">
                         <div><strong>E-Commerce</strong></div>
                         <div><strong>Deutschschweiz</strong></div>
                         <div><strong>2023</strong></div>
                     </div>
-                    <a href="referenzen.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
+                    <a href="referenzen/ipet-ch.html" class="ref-home-link">Erfahren Sie mehr &#8594;</a>
                 </div>
 
             </div>
@@ -3477,7 +3636,7 @@
                             <span>&#128101; 30–50 MA</span>
                         </div>
                         <p class="mandat-desc">Etabliertes Unternehmen mit starker Marktposition und loyaler Kundenbasis. Der Inhaber sucht einen Nachfolger, der die Erfolgsgeschichte fortführt.</p>
-                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate/produktionsbetrieb-maschinenbau.html" class="mandat-link">Mehr erfahren &#8594;</a>
                     </div>
                 </div>
 
@@ -3493,7 +3652,7 @@
                             <span>&#128101; 15–25 MA</span>
                         </div>
                         <p class="mandat-desc">Spezialisiertes IT-Unternehmen mit langjährigen Kundenverträgen und hoher Wiederkaufrate. Ideale Übernahme für strategischen Käufer oder MBO.</p>
-                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate/it-dienstleister-zuerich.html" class="mandat-link">Mehr erfahren &#8594;</a>
                     </div>
                 </div>
 
@@ -3509,7 +3668,7 @@
                             <span>&#128101; 20–35 MA</span>
                         </div>
                         <p class="mandat-desc">Fachhandelsunternehmen mit über 20 Jahren Marktpräsenz, exklusiven Lieferantenbeziehungen und stabilem Stammkundengeschäft.</p>
-                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate/fachhandel-zentralschweiz.html" class="mandat-link">Mehr erfahren &#8594;</a>
                     </div>
                 </div>
 
@@ -3525,7 +3684,7 @@
                             <span>&#128101; 10–20 MA</span>
                         </div>
                         <p class="mandat-desc">Gut positionierter Handwerksbetrieb mit ausgezeichnetem Ruf, eingespieltem Team und voller Auftragspipeline für die nächsten 18 Monate.</p>
-                        <a href="mandate.html" class="mandat-link">Details anfragen &#8594;</a>
+                        <a href="mandate/handwerksbetrieb-bern.html" class="mandat-link">Mehr erfahren &#8594;</a>
                     </div>
                 </div>
 
@@ -3564,7 +3723,7 @@
                         <span class="tag">Integration</span>
                         <span class="tag">Due Diligence</span>
                     </div>
-                    <a href="#" onclick="openTerminModal(event, 'Strategischer Käufer')" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als Strategischer Käufer vereinbaren →</a>
+                    <a href="#" onclick="openTerminDialog()" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als Strategischer Käufer vereinbaren →</a>
                 </div>
 
                 <!-- Karte 2: Management Buy-In -->
@@ -3581,7 +3740,7 @@
                         <span class="tag">Finanzierung</span>
                         <span class="tag">Übergabeplanung</span>
                     </div>
-                    <a href="#" onclick="openTerminModal(event, 'MBI Kandidat')" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als MBI Kandidat vereinbaren →</a>
+                    <a href="#" onclick="openTerminDialog()" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als MBI Kandidat vereinbaren →</a>
                 </div>
 
                 <!-- Karte 3: Finanzinvestor -->
@@ -3598,7 +3757,7 @@
                         <span class="tag">Portfolioaufbau</span>
                         <span class="tag">Transaktionsstruktur</span>
                     </div>
-                    <a href="#" onclick="openTerminModal(event, 'Finanzinvestor')" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als Finanzinvestor vereinbaren →</a>
+                    <a href="#" onclick="openTerminDialog()" class="szenario-link" style="margin-top:20px;display:inline-block;">Termin als Finanzinvestor vereinbaren →</a>
                 </div>
 
             </div>
@@ -4738,10 +4897,61 @@
         })();
 
         // =============================================
-        // TERMIN MODAL
+        // TERMIN DIALOG (VZ-ORIGINAL)
         // =============================================
+        function togglePersonalFields() {
+            const cb = document.getElementById('expandPersonal');
+            const container = document.getElementById('personalFieldsContainer');
+            if (container) container.classList.toggle('open', cb.checked);
+        }
+
+        function openTerminDialog() {
+            const dialog = document.getElementById('terminDialog');
+            if (!dialog) return;
+            const form = document.getElementById('terminForm');
+            if (form) form.reset();
+            const container = document.getElementById('personalFieldsContainer');
+            if (container) container.classList.remove('open');
+            const cb = document.getElementById('expandPersonal');
+            if (cb) cb.checked = false;
+            dialog.showModal();
+        }
+
+        function closeTerminDialog() {
+            const dialog = document.getElementById('terminDialog');
+            if (dialog) dialog.close();
+        }
+
+        function submitTerminForm() {
+            const container = document.getElementById('personalFieldsContainer');
+            if (container && container.classList.contains('open')) {
+                const consent = document.getElementById('terminConsent');
+                if (!consent || !consent.checked) {
+                    alert('Bitte bestätigen Sie die Datenschutzerklärung.');
+                    return;
+                }
+            }
+            const form = document.getElementById('terminForm');
+            const topics = Array.from(document.querySelectorAll('#terminForm input[name="topic"]:checked')).map(c => c.value);
+            console.log('Termin-Anfrage:', { topics, form: new FormData(form) });
+            alert('Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.');
+            closeTerminDialog();
+        }
+
+        (function() {
+            const dialog = document.getElementById('terminDialog');
+            if (dialog) {
+                dialog.addEventListener('click', function(e) {
+                    if (e.target === dialog) closeTerminDialog();
+                });
+                dialog.addEventListener('cancel', function(e) { e.preventDefault(); closeTerminDialog(); });
+            }
+        })();
+
+        // LEGACY COMPAT (falls alte Links noch vorhanden)
         (function() {
             const overlay = document.getElementById('termin-modal-overlay');
+            if (!overlay) return;
             const closeBtn = document.getElementById('termin-modal-close');
             const form = document.getElementById('termin-modal-form');
             const typeBadge = document.getElementById('termin-modal-type-badge');

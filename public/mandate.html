@@ -1221,13 +1221,38 @@
             .reveal { opacity: 1; transform: none; transition: none; }
             html { scroll-behavior: auto; }
         }
+        .termin-dialog-vz{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:92%;max-width:920px;max-height:92vh;padding:0;border:none;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,0.25);background:transparent;z-index:10000;}.termin-dialog-vz::backdrop{background-color:rgba(0,0,0,0.5);}.termin-dialog-vz-content{background-color:#E8DCC8;border-radius:6px;padding:40px;max-height:92vh;overflow-y:auto;position:relative;}.termin-dialog-vz-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:flex-start;}.termin-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:26px;cursor:pointer;color:#A0734D;padding:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;}.termin-close:hover{color:#7A4F2D;}.termin-left h2{font-size:26px;font-weight:700;color:#191919;margin-bottom:16px;}.termin-left p{font-size:14px;line-height:1.6;color:#555;margin-bottom:0;}.termin-form-group{margin-bottom:20px;}.termin-form-label{font-weight:600;display:block;margin-bottom:10px;font-size:14px;color:#191919;}.termin-checkbox-list{display:grid;gap:8px;}.termin-checkbox-row{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:#191919;}.termin-checkbox-row input[type="checkbox"]{cursor:pointer;accent-color:#A0734D;width:15px;height:15px;}.termin-textarea{width:100%;min-height:80px;padding:10px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;resize:vertical;background:rgba(255,255,255,0.6);}.termin-textarea:focus{outline:none;border-color:#A0734D;background:#fff;}.termin-personal-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;font-size:14px;color:#191919;}.termin-personal-toggle input{cursor:pointer;accent-color:#A0734D;width:15px;height:15px;}.termin-personal-hint{font-size:12px;color:#555;margin:4px 0 0;}.termin-personal-fields{display:none;margin-top:16px;}.termin-personal-fields.open{display:grid;gap:10px;}.termin-input{width:100%;padding:9px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;background:rgba(255,255,255,0.6);}.termin-input:focus{outline:none;border-color:#A0734D;background:#fff;}.termin-input-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}.termin-input-row-addr{display:grid;grid-template-columns:2fr 1fr;gap:10px;}.termin-input-row-zip{display:grid;grid-template-columns:1fr 2fr;gap:10px;}.termin-select{padding:9px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;background:rgba(255,255,255,0.6);}.termin-anrede-row{display:flex;gap:20px;align-items:center;}.termin-anrede-label{font-size:14px;font-weight:600;color:#191919;}.termin-radio-row{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;}.termin-radio-row input{cursor:pointer;accent-color:#A0734D;}.termin-tel-row{display:grid;grid-template-columns:100px 1fr;gap:10px;}.termin-info-text{font-size:13px;color:#191919;line-height:1.5;margin:12px 0 0;}.termin-consent-row{display:flex;gap:10px;align-items:flex-start;font-size:12px;margin-top:16px;}.termin-consent-row input{cursor:pointer;accent-color:#A0734D;margin-top:2px;flex-shrink:0;}.termin-consent-row a{color:#A0734D;text-decoration:underline;}.termin-dialog-footer{display:flex;gap:12px;justify-content:flex-end;margin-top:28px;padding-top:20px;border-top:1px solid rgba(0,0,0,0.1);}.termin-btn-close{padding:11px 24px;border:2px solid #A0734D;border-radius:3px;color:#A0734D;background:transparent;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}.termin-btn-close:hover{background:rgba(160,115,77,0.1);}.termin-btn-submit{padding:11px 28px;border:none;border-radius:3px;background:#C77649;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}.termin-btn-submit:hover{background:#a85e38;}@media(max-width:760px){.termin-dialog-vz-grid{grid-template-columns:1fr;gap:24px;}.termin-dialog-vz-content{padding:28px 20px;}.termin-left h2{font-size:22px;}}
     </style>
 </head>
 <body>
+    <dialog id="terminDialog" class="termin-dialog-vz" aria-labelledby="termin-dialog-title">
+        <div class="termin-dialog-vz-content"><button class="termin-close" onclick="closeTerminDialog()" aria-label="Schliessen">&#x2715;</button>
+            <div class="termin-dialog-vz-grid">
+                <div class="termin-left"><h2 id="termin-dialog-title">Termin vereinbaren</h2><p style="margin-bottom:12px;">Vereinbaren Sie ein kostenloses Erstgespräch.</p><p style="font-size:13px;color:#191919;">Alle Anfragen werden streng vertraulich behandelt.</p></div>
+                <form id="terminForm" novalidate>
+                    <div class="termin-form-group"><label class="termin-form-label">Thema auswählen</label><div class="termin-checkbox-list"><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Unternehmensnachfolge" checked> Unternehmensnachfolge</label><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Mandat-Details"> Mandatsdetails anfragen</label><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Andere Interessen"> Andere Interessen</label></div></div>
+                    <div class="termin-form-group"><label class="termin-form-label">Ihre Mitteilung</label><textarea name="message" class="termin-textarea" placeholder="Beschreiben Sie kurz Ihr Anliegen"></textarea></div>
+                    <div class="termin-form-group"><label class="termin-personal-toggle"><input type="checkbox" id="expandPersonal" onchange="togglePersonalFields()"> Persönliche Angaben</label><p class="termin-personal-hint">Bitte alle Felder ausfüllen</p></div>
+                    <div id="personalFieldsContainer" class="termin-personal-fields">
+                        <div class="termin-anrede-row"><span class="termin-anrede-label">Anrede</span><label class="termin-radio-row"><input type="radio" name="salutation" value="Frau"> Frau</label><label class="termin-radio-row"><input type="radio" name="salutation" value="Herr"> Herr</label></div>
+                        <div class="termin-input-row"><input type="text" name="firstName" class="termin-input" placeholder="Vorname *"><input type="text" name="lastName" class="termin-input" placeholder="Nachname *"></div>
+                        <div class="termin-input-row"><input type="text" name="company" class="termin-input" placeholder="Firma *"><input type="text" name="position" class="termin-input" placeholder="Funktion"></div>
+                        <div class="termin-input-row-addr"><input type="text" name="street" class="termin-input" placeholder="Strasse *"><input type="text" name="streetNumber" class="termin-input" placeholder="Nr. *"></div>
+                        <div class="termin-input-row-zip"><input type="text" name="zip" class="termin-input" placeholder="PLZ *"><input type="text" name="city" class="termin-input" placeholder="Ort *"></div>
+                        <div class="termin-input-row"><div class="termin-tel-row"><select name="phoneType" class="termin-select termin-input"><option>Mobil</option><option>Telefon</option></select><input type="tel" name="phone" class="termin-input" placeholder="Telefonnummer *"></div><input type="email" name="email" class="termin-input" placeholder="E-Mail *"></div>
+                        <p class="termin-info-text">Wir melden uns innert 1 Werktag bei Ihnen.</p>
+                        <label class="termin-consent-row"><input type="checkbox" name="consent" id="terminConsent"><span>Ich bestätige, dass ich die <a href="#">Rechtlichen Hinweise</a> und die <a href="#">Datenschutzerklärung</a> gelesen habe.</span></label>
+                    </div>
+                </form>
+            </div>
+            <div class="termin-dialog-footer"><button class="termin-btn-close" onclick="closeTerminDialog()">Schliessen</button><button class="termin-btn-submit" onclick="submitTerminForm()">Absenden</button></div>
+        </div>
+    </dialog>
+
     <!-- UTILITY BAR -->
     <div id="vz-utility-bar">
         <div class="vz-utility-inner">
-            <a href="index.html#kontakt" class="vz-utility-link">Termin vereinbaren</a>
+            <button onclick="openTerminDialog()" class="vz-utility-link" style="background:none;border:none;cursor:pointer;font-family:inherit;">Termin vereinbaren</button>
             <a href="#" class="vz-utility-link">Wissen</a>
             <a href="#" class="vz-utility-link">XY Finanzportal</a>
             <span class="vz-utility-sep">|</span>
@@ -1315,7 +1340,7 @@
             </ul>
 
             <div class="vz-header-right">
-                <a href="index.html#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
+                <button onclick="openTerminDialog()" class="vz-cta-btn">Termin vereinbaren</button>
                 <button class="vz-hamburger" id="vz-hamburger" aria-label="Menu öffnen" aria-expanded="false" aria-controls="mobile-menu">
                     <span></span><span></span><span></span>
                 </button>
@@ -1404,7 +1429,7 @@
         </ul>
 
         <div class="mobile-menu-cta">
-            <a href="index.html#kontakt" class="vz-cta-btn">Termin vereinbaren</a>
+            <button onclick="openTerminDialog()" class="vz-cta-btn" style="width:100%;display:block;text-align:center;">Termin vereinbaren</button>
         </div>
     </div>
 
@@ -1497,7 +1522,7 @@
                         <p class="mandat-list-desc">Etabliertes Unternehmen mit starker Marktposition und loyaler Kundenbasis. Der Inhaber sucht einen Nachfolger, der die Erfolgsgeschichte fortführt.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
+                        <a href="mandate/produktionsbetrieb-maschinenbau.html" class="mandat-anfragen-btn">Details anfragen</a>
                         <span class="mandat-list-umsatz">CHF 8–12 Mio.</span>
                     </div>
                 </div>
@@ -1520,7 +1545,7 @@
                         <p class="mandat-list-desc">Spezialisiertes IT-Unternehmen mit langjährigen Kundenverträgen und hoher Wiederkaufrate. Ideale Übernahme für strategischen Käufer oder MBO.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
+                        <a href="mandate/it-dienstleister-zuerich.html" class="mandat-anfragen-btn">Details anfragen</a>
                         <span class="mandat-list-umsatz">CHF 3–6 Mio.</span>
                     </div>
                 </div>
@@ -1543,7 +1568,7 @@
                         <p class="mandat-list-desc">Fachhandelsunternehmen mit über 20 Jahren Marktpräsenz, exklusiven Lieferantenbeziehungen und stabilem Stammkundengeschäft.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
+                        <a href="mandate/fachhandel-zentralschweiz.html" class="mandat-anfragen-btn">Details anfragen</a>
                         <span class="mandat-list-umsatz">CHF 5–8 Mio.</span>
                     </div>
                 </div>
@@ -1566,7 +1591,7 @@
                         <p class="mandat-list-desc">Gut positionierter Handwerksbetrieb mit ausgezeichnetem Ruf, eingespieltem Team und voller Auftragspipeline für die nächsten 18 Monate.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
+                        <a href="mandate/handwerksbetrieb-bern.html" class="mandat-anfragen-btn">Details anfragen</a>
                         <span class="mandat-list-umsatz">CHF 2–4 Mio.</span>
                     </div>
                 </div>
@@ -1589,7 +1614,7 @@
                         <p class="mandat-list-desc">Etablierter Gastronomiebetrieb mit treuer Stammkundschaft, starker Marke und gutem EBIT. Inhaber sucht Nachfolger für geordneten Rückzug.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
+                        <a href="mandate/gastronomie-deutschschweiz.html" class="mandat-anfragen-btn">Details anfragen</a>
                         <span class="mandat-list-umsatz">CHF 4–7 Mio.</span>
                     </div>
                 </div>
@@ -1612,12 +1637,12 @@
                         <p class="mandat-list-desc">Ingenieur- und Planungsbüro mit stabilen Auftraggebern aus dem öffentlichen Sektor. Ideal für strategischen Käufer oder MBO.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
+                        <a href="mandate/ingenieurbuero-deutschschweiz.html" class="mandat-anfragen-btn">Details anfragen</a>
                         <span class="mandat-list-umsatz">CHF 1–3 Mio.</span>
                     </div>
                 </div>
 
-                <!-- Mandat 7 (Platzhalter) -->
+                <!-- Mandat 7 -->
                 <div class="mandat-list-card reveal"
                      data-branche="produktion"
                      data-region="ostschweiz">
@@ -1626,21 +1651,21 @@
                         <span class="mandat-list-branche">Produktion &amp; Industrie</span>
                     </div>
                     <div class="mandat-list-content">
-                        <h3>[Platzhalter: Produzierendes Unternehmen Ostschweiz]</h3>
+                        <h3>Zulieferbetrieb für Maschinenbau-Industrie</h3>
                         <div class="mandat-list-meta">
                             <span>&#128205; Ostschweiz</span>
-                            <span>&#128200; CHF [X–Y] Mio.</span>
-                            <span>&#128101; [X–Y] MA</span>
+                            <span>&#128200; CHF 6–10 Mio.</span>
+                            <span>&#128101; 25–40 MA</span>
                         </div>
-                        <p class="mandat-list-desc">[Platzhalter-Beschreibung: Kurze, anonymisierte Beschreibung des Unternehmens und der Nachfolge-Situation.]</p>
+                        <p class="mandat-list-desc">Spezialisierter Zulieferer mit langfristigen Rahmenverträgen und moderner Fertigungsanlage. Inhaber (65) plant schrittweisen Rückzug mit 12-monatiger Übergabe.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
-                        <span class="mandat-list-umsatz">CHF [X–Y] Mio.</span>
+                        <a href="mandate/zulieferbetrieb-ostschweiz.html" class="mandat-anfragen-btn">Details anfragen</a>
+                        <span class="mandat-list-umsatz">CHF 6–10 Mio.</span>
                     </div>
                 </div>
 
-                <!-- Mandat 8 (Platzhalter) -->
+                <!-- Mandat 8 -->
                 <div class="mandat-list-card reveal"
                      data-branche="handel"
                      data-region="zuerich">
@@ -1649,21 +1674,21 @@
                         <span class="mandat-list-branche">Handel</span>
                     </div>
                     <div class="mandat-list-content">
-                        <h3>[Platzhalter: Grosshandelsunternehmen Region Zürich]</h3>
+                        <h3>Grosshandel Konsumgüter mit E-Commerce-Anteil</h3>
                         <div class="mandat-list-meta">
                             <span>&#128205; Zürich &amp; Umgebung</span>
-                            <span>&#128200; CHF [X–Y] Mio.</span>
-                            <span>&#128101; [X–Y] MA</span>
+                            <span>&#128200; CHF 10–18 Mio.</span>
+                            <span>&#128101; 30–45 MA</span>
                         </div>
-                        <p class="mandat-list-desc">[Platzhalter-Beschreibung: Kurze, anonymisierte Beschreibung des Unternehmens und der Nachfolge-Situation.]</p>
+                        <p class="mandat-list-desc">Wachstumsstarkes Handelsunternehmen mit etabliertem Online-Kanal und breitem Lieferantennetzwerk. Inhaber sucht Wachstumspartner für nächste Expansionsphase.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
-                        <span class="mandat-list-umsatz">CHF [X–Y] Mio.</span>
+                        <a href="mandate/grosshandel-zuerich.html" class="mandat-anfragen-btn">Details anfragen</a>
+                        <span class="mandat-list-umsatz">CHF 10–18 Mio.</span>
                     </div>
                 </div>
 
-                <!-- Mandat 9 (Platzhalter) -->
+                <!-- Mandat 9 -->
                 <div class="mandat-list-card reveal"
                      data-branche="bau"
                      data-region="zentralschweiz">
@@ -1672,21 +1697,21 @@
                         <span class="mandat-list-branche">Bau &amp; Handwerk</span>
                     </div>
                     <div class="mandat-list-content">
-                        <h3>[Platzhalter: Bauunternehmen Zentralschweiz]</h3>
+                        <h3>Sanitär- und Heizungsunternehmen mit Serviceverträgen</h3>
                         <div class="mandat-list-meta">
                             <span>&#128205; Zentralschweiz</span>
-                            <span>&#128200; CHF [X–Y] Mio.</span>
-                            <span>&#128101; [X–Y] MA</span>
+                            <span>&#128200; CHF 3–5 Mio.</span>
+                            <span>&#128101; 15–25 MA</span>
                         </div>
-                        <p class="mandat-list-desc">[Platzhalter-Beschreibung: Kurze, anonymisierte Beschreibung des Unternehmens und der Nachfolge-Situation.]</p>
+                        <p class="mandat-list-desc">Gut ausgelasteter Handwerksbetrieb mit wiederkehrenden Wartungsverträgen und eingespieltem Montageteam. Ideale Übernahme für Branchenkenner oder Wachstumsplattform.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
-                        <span class="mandat-list-umsatz">CHF [X–Y] Mio.</span>
+                        <a href="mandate/sanitaer-zentralschweiz.html" class="mandat-anfragen-btn">Details anfragen</a>
+                        <span class="mandat-list-umsatz">CHF 3–5 Mio.</span>
                     </div>
                 </div>
 
-                <!-- Mandat 10 (Platzhalter) -->
+                <!-- Mandat 10 -->
                 <div class="mandat-list-card reveal"
                      data-branche="dienstleistung"
                      data-region="bern">
@@ -1695,17 +1720,17 @@
                         <span class="mandat-list-branche">Dienstleistung</span>
                     </div>
                     <div class="mandat-list-content">
-                        <h3>[Platzhalter: Dienstleistungsunternehmen Region Bern]</h3>
+                        <h3>Personalberatung mit Fokus Technik &amp; Engineering</h3>
                         <div class="mandat-list-meta">
                             <span>&#128205; Bern &amp; Umgebung</span>
-                            <span>&#128200; CHF [X–Y] Mio.</span>
-                            <span>&#128101; [X–Y] MA</span>
+                            <span>&#128200; CHF 2–4 Mio.</span>
+                            <span>&#128101; 8–12 MA</span>
                         </div>
-                        <p class="mandat-list-desc">[Platzhalter-Beschreibung: Kurze, anonymisierte Beschreibung des Unternehmens und der Nachfolge-Situation.]</p>
+                        <p class="mandat-list-desc">Spezialisierte Personalberatung mit starker Positionierung im technischen Fachkräftebereich, breitem Kundenstamm aus der Industrie und überdurchschnittlicher Marge.</p>
                     </div>
                     <div class="mandat-list-right">
-                        <a href="index.html#kontakt" class="mandat-anfragen-btn">Details anfragen</a>
-                        <span class="mandat-list-umsatz">CHF [X–Y] Mio.</span>
+                        <a href="mandate/personalberatung-bern.html" class="mandat-anfragen-btn">Details anfragen</a>
+                        <span class="mandat-list-umsatz">CHF 2–4 Mio.</span>
                     </div>
                 </div>
 
@@ -1739,7 +1764,7 @@
             <h2>Haben Sie ein Unternehmen zu verkaufen?</h2>
             <p class="mandate-cta-sub">Wir begleiten Sie vom ersten Gespräch bis zum erfolgreichen Abschluss — diskret, professionell, ganzheitlich.</p>
             <div class="mandate-cta-btns">
-                <a href="index.html#kontakt" class="btn-white">Kostenloses Erstgespräch vereinbaren</a>
+                <button onclick="openTerminDialog()" class="btn-white">Kostenloses Erstgespräch vereinbaren</button>
                 <a href="index.html" class="btn-outline-white">Zurück zur Übersicht</a>
             </div>
         </div>
@@ -1747,7 +1772,7 @@
 
     <!-- Mobile CTA Bar -->
     <div class="mobile-cta-bar">
-        <a href="index.html#kontakt">Termin vereinbaren</a>
+        <button onclick="openTerminDialog()" style="color:#fff;background:#E8611A;border:none;padding:10px 28px;font-size:15px;font-weight:600;border-radius:100px;cursor:pointer;font-family:inherit;">Termin vereinbaren</button>
     </div>
 
     <!-- VZ FOOTER -->
@@ -1909,6 +1934,11 @@
             if (filterResetInline) filterResetInline.addEventListener('click', resetFilters);
         })();
 
+        function togglePersonalFields(){const cb=document.getElementById('expandPersonal');const c=document.getElementById('personalFieldsContainer');if(c)c.classList.toggle('open',cb.checked);}
+        function openTerminDialog(){const d=document.getElementById('terminDialog');if(!d)return;const f=document.getElementById('terminForm');if(f)f.reset();const c=document.getElementById('personalFieldsContainer');if(c)c.classList.remove('open');const cb=document.getElementById('expandPersonal');if(cb)cb.checked=false;d.showModal();}
+        function closeTerminDialog(){const d=document.getElementById('terminDialog');if(d)d.close();}
+        function submitTerminForm(){const consent=document.getElementById('terminConsent');const container=document.getElementById('personalFieldsContainer');if(container&&container.classList.contains('open')&&consent&&!consent.checked){alert('Bitte bestätigen Sie die Datenschutzerklärung.');return;}alert('Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.');closeTerminDialog();}
+        const dlg=document.getElementById('terminDialog');if(dlg){dlg.addEventListener('click',e=>{if(e.target===dlg)closeTerminDialog();});dlg.addEventListener('cancel',e=>{e.preventDefault();closeTerminDialog();});}
     </script>
 </body>
 </html>
