@@ -8,61 +8,134 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/vz.css">
 <title>Frikarti Stauden AG | Referenzprojekt Unternehmensnachfolge</title>
-<meta name="description" content="Referenzprojekt: Frikarti Stauden AG. Übergabe eines spezialisierten Gartenbaubetriebs mit jahrzehntelanger Marktpräsenz und einer Branche, die stark von persönlichen Beziehungen geprägt ist.">
-<style>
-/* Facts table in sidebar */
-.vz-sidebar table th {
-  font-weight: 600;
-  color: var(--vz-text-muted);
-  padding: 8px 0;
-  text-align: left;
-  border-bottom: 1px solid var(--vz-border-light);
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  width: 100%;
-  display: block;
-}
-.vz-sidebar table td {
-  font-weight: 500;
-  color: var(--vz-text);
-  padding: 2px 0 10px;
-  border-bottom: 1px solid var(--vz-border-light);
-  display: block;
-}
-.vz-sidebar table tr:last-child th,
-.vz-sidebar table tr:last-child td {
-  border-bottom: 0;
-}
-</style>
+<meta name="description" content="Referenzprojekt: Frikarti Stauden AG. Übergabe eines spezialisierten Gartenbaubetriebs mit jahrzehntelanger Marktpräsenz — in einer Branche, die stark von persönlichen Beziehungen geprägt ist.">
 
 </head>
 <body>
-
-<div class="vz-top-bar">
-  <div class="vz-top-bar-inner">
-    <a href="#" class="vz-top-appointment" data-modal-open="termin-modal">Termin vereinbaren</a>
-    <span class="sep">|</span>
-    <a href="#">Wissen</a>
-    <span class="sep">|</span>
-    <a href="#">XY Finanzportal</a>
-    <span class="sep">|</span>
-    <a href="#">Börsen &amp; Märkte</a>
+<div id="vz-utility-bar">
+  <div class="vz-utility-inner">
+    <a href="#" onclick="openTerminDialog();return false;" class="vz-utility-link">Termin vereinbaren</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">Wissen</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">XY Finanzportal</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">Börsen &amp; Märkte</a>
   </div>
 </div>
-<header class="vz-header">
+<header id="vz-header">
   <div class="vz-header-inner">
-    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum Startseite">
-      <span class="vz-logo-mark">XY</span>
-      <span class="vz-logo-text">XxxxxZentrum</span>
+    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum – Startseite">
+      <strong>XY</strong><span class="vz-logo-wordmark">XxxxxZentrum</span>
     </a>
-    <nav class="vz-nav-right" aria-label="Hauptnavigation">
-      <a href="#" class="vz-header-termin" data-modal-open="termin-modal">Termin vereinbaren</a>
-      <button class="vz-menu-btn" data-mobile-nav-toggle aria-label="Menü öffnen">≡ Menü</button>
-    </nav>
+
+    <ul class="vz-main-nav" role="list">
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Privatpersonen</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Pensionierung</a></li>
+            <li><a href="#">Geldanlagen &amp; Vermögensverwaltung</a></li>
+            <li><a href="#">Nachlass</a></li>
+            <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+            <li><a href="#">Steuern</a></li>
+            <li><a href="#">Vorsorge</a></li>
+            <li><a href="#">Versicherungen</a></li>
+            <li><a href="#">Bankgeschäfte</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item active">
+        <a href="/index.html" class="vz-nav-link">Firmen</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="/index.html" class="vz-dropdown-active">Unternehmensnachfolge</a></li>
+            <li><a href="#">Pensionskasse</a></li>
+            <li><a href="#">Kadervorsorge</a></li>
+            <li><a href="#">Versicherungsmanagement</a></li>
+            <li><a href="#">Firmengründung</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Ratgeber</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Seminare &amp; Workshops</a></li>
+            <li><a href="#">Merkblätter &amp; Bücher</a></li>
+            <li><a href="#">Studien &amp; Dossiers</a></li>
+            <li><a href="#">Wissensbeiträge</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Checks &amp; Analysen</a></li>
+            <li><a href="#">Finanzrechner &amp; Vergleiche</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Über XY</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Unabhängige Beratung</a></li>
+            <li><a href="#">Standorte</a></li>
+            <li><a href="#">Portrait</a></li>
+            <li><a href="#">Meinungen</a></li>
+            <li><a href="#">Newsroom</a></li>
+            <li><a href="#">Jobs &amp; Karriere</a></li>
+            <li><a href="#">Kontakt &amp; Hilfe</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Börsen &amp; Märkte</a>
+      </li>
+    </ul>
+
+    <div class="vz-header-right">
+      <a href="#" onclick="openTerminDialog();return false;" class="vz-cta-btn">Termin vereinbaren</a>
+      <button class="vz-hamburger" id="vz-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="vz-mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
-<div class="vz-quicklinks">
+
+<nav id="vz-mobile-menu" aria-label="Mobiles Menü">
+  <ul>
+    <li>
+      <a href="#">Privatpersonen</a>
+      <ul>
+        <li><a href="#">Pensionierung</a></li>
+        <li><a href="#">Geldanlagen</a></li>
+        <li><a href="#">Nachlass</a></li>
+        <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+        <li><a href="#">Steuern</a></li>
+        <li><a href="#">Vorsorge</a></li>
+        <li><a href="#">Versicherungen</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/index.html">Firmen</a>
+      <ul>
+        <li><a href="/index.html">Unternehmensnachfolge</a></li>
+        <li><a href="#">Pensionskasse</a></li>
+        <li><a href="#">Kadervorsorge</a></li>
+        <li><a href="#">Versicherungsmanagement</a></li>
+        <li><a href="#">Firmengründung</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Ratgeber</a></li>
+    <li><a href="#">Über XY</a></li>
+    <li><a href="#">Börsen &amp; Märkte</a></li>
+    <li style="border-top:1px solid #e8e8e8;margin-top:8px;padding-top:8px;">
+      <a href="#" onclick="openTerminDialog();return false;" style="color:var(--vz-orange);">→ Termin vereinbaren</a>
+    </li>
+  </ul>
+</nav>
+<div id="vz-quicklinks">
   <div class="vz-quicklinks-inner">
     <a href="#">Pensionierung</a>
     <a href="#">Geldanlagen</a>
@@ -75,24 +148,24 @@
     <a href="#">Firmen</a>
   </div>
 </div>
+<nav class="vz-breadcrumb">
+  <div class="vz-breadcrumb-inner"><a href="#">Startseite</a> <span class="sep">›</span> <a href="#">Firmen</a> <span class="sep">›</span> <a href="/index.html">Unternehmensnachfolge</a> <span class="sep">›</span> <a href="/referenzen.html">Referenzen</a> <span class="sep">›</span> <span>Frikarti Stauden AG</span></div>
+</nav>
 
-<nav class="vz-breadcrumb" aria-label="Brotkrumen"><a href="#">Startseite</a><span class="sep">›</span><a href="#">Firmen</a><span class="sep">›</span><a href="/index.html">Unternehmensnachfolge</a><span class="sep">›</span><a href="/referenzen.html">Referenzen</a><span class="sep">›</span><span>Frikarti Stauden AG</span></nav>
-
-<main class="vz-main">
-
-  <div class="vz-card">
-    <p class="vz-eyebrow">Referenzprojekt · Gartenbau · 2023</p>
-    <h1 style="font-size:2.3rem;margin:0 0 16px;">Frikarti Stauden AG</h1>
-    <p style="font-size:1.2rem;max-width:800px;color:var(--vz-text);margin:0;">Übergabe eines spezialisierten Gartenbaubetriebs mit jahrzehntelanger Marktpräsenz und einer Branche, die stark von persönlichen Beziehungen geprägt ist.</p>
+<section class="detail-hero">
+  <div class="container">
+    <span class="eyebrow">Referenzprojekt · Gartenbau · 2023</span>
+    <h1>Frikarti Stauden AG</h1>
+    <p>Übergabe eines spezialisierten Gartenbaubetriebs mit jahrzehntelanger Marktpräsenz — in einer Branche, die stark von persönlichen Beziehungen geprägt ist.</p>
   </div>
+</section>
 
-  <div class="vz-card">
-    <div class="vz-layout-2col">
-      <div class="vz-content-block">
-        <!-- Inhaber-Bild (prominent platziert, genau hier ist der beste Ort) -->
-        <div style="width:100%;aspect-ratio:16/9;background:#c8c8cc;display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:16px;margin-bottom:32px;">
-          <!-- [PLATZHALTER: Bild der Inhaber]-->
-          <div>Portraitfoto<br>Beat Graf<br>Frikarti Stauden AG</div>
+<section class="detail-body">
+  <div class="container">
+    <div class="detail-layout">
+      <div class="detail-content">
+        <div class="ref-owner-img" data-caption="Beat Graf, ehemaliger Inhaber und VRP">
+          <!-- [PLATZHALTER: Foto der Inhaber ersetzen - 16:9] -->
         </div>
 
         <h2>Ausgangslage</h2>
@@ -101,14 +174,13 @@
         <h2>Unser Vorgehen</h2>
         <p>Wir erarbeiteten gemeinsam mit Herrn Graf eine strukturierte Nachfolgestrategie. Schwerpunkte waren die Reduzierung der Inhaberabhängigkeit, die Stärkung der zweiten Führungsebene und die Erstellung einer fundierten Bewertung.</p><p>Die Käufersuche erfolgte diskret und gezielt. Nach eingehender Prüfung mehrerer Interessenten wurde ein Käufer gefunden, der die gartenbauliche Tradition und die Ausrichtung des Unternehmens fortführen wollte.</p>
 
-        <div class="vz-testimonial" style="margin:32px 0;">
-          <div class="vz-testimonial-img" aria-hidden="true">
-            Portraitfoto<br>Beat Graf
+        <div class="testimonial-box">
+          <div class="t-photo">
+            <!-- [PLATZHALTER: Portrait-Foto des Inhabers] -->
           </div>
           <div>
-            <p class="vz-testimonial-quote">«Selbst in schwierigen Situationen blieb die Zusammenarbeit transparent und ehrlich. Wir haben uns zu jedem Zeitpunkt professionell beraten gefühlt.»</p>
-            <p class="vz-testimonial-name">Beat Graf</p>
-            <p class="vz-testimonial-role">ehem. Inhaber &amp; VRP Frikarti Stauden AG</p>
+            <blockquote>«Selbst in schwierigen Situationen blieb die Zusammenarbeit transparent und ehrlich. Wir haben uns zu jedem Zeitpunkt professionell beraten gefühlt.»</blockquote>
+            <cite>Beat Graf<span>ehem. Inhaber &amp; VRP Frikarti Stauden AG</span></cite>
           </div>
         </div>
 
@@ -116,74 +188,97 @@
         <p>Die Übergabe wurde 2023 erfolgreich abgeschlossen. Das Unternehmen wird unter dem bisherigen Namen und mit der bewährten Qualität weitergeführt. Alle Arbeitsplätze blieben erhalten.</p><p>Für Beat Graf war nach Abschluss des Verkaufs der Weg frei, sich auf seine Pensionierungsplanung zu konzentrieren — begleitet durch unser Team mit einer abgestimmten Vorsorge- und Anlagestrategie.</p>
       </div>
 
-      <aside class="vz-sidebar">
-        <div class="vz-advisor" style="margin-bottom:20px;">
-          <h3 style="margin:0 0 8px;font-size:1.05rem;">Kennzahlen</h3>
-          <table style="width:100%;font-size:0.9rem;margin:0;">
+      <aside class="detail-sidebar">
+        <div class="advisor-card">
+          <p style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--vz-text-muted);margin:0 0 14px;">Kennzahlen</p>
+          <table class="detail-fakten">
             <tr><th>Unternehmen</th><td>Frikarti Stauden AG</td></tr><tr><th>Branche</th><td>Gartenbau &amp; Landschaft</td></tr><tr><th>Region</th><td>Deutschschweiz</td></tr><tr><th>Mitarbeitende</th><td>15–20</td></tr><tr><th>Nachfolgeform</th><td>Familienexterner Verkauf</td></tr><tr><th>Abschluss</th><td>2023</td></tr><tr><th>Prozessdauer</th><td>ca. 12 Monate</td></tr>
           </table>
-        </div>
-        <div style="background:var(--vz-primary);color:#fff;padding:24px;">
-          <h3 style="color:#fff;margin:0 0 8px;font-size:1.1rem;">Ihr Unternehmen hat Potenzial</h3>
-          <p style="font-size:0.9rem;margin:0 0 16px;opacity:0.95;">In einem kostenlosen Erstgespräch klären wir, wie wir Ihre Nachfolge erfolgreich gestalten können.</p>
-          <a href="#" class="vz-btn" data-modal-open="termin-modal" style="width:100%;text-align:center;">Termin vereinbaren</a>
+          <hr style="border:0;border-top:1px solid var(--vz-border-light);margin:20px 0;">
+          <p style="font-size:13px;color:var(--vz-text-muted);margin:0 0 14px;line-height:1.5;">Ihr Unternehmen hat Potenzial? In einem kostenlosen Erstgespräch klären wir, wie wir Ihre Nachfolge gestalten können.</p>
+          <a href="#" onclick="openTerminDialog();return false;" class="btn btn-primary" style="width:100%;text-align:center;">Termin vereinbaren</a>
         </div>
       </aside>
     </div>
   </div>
+</section>
 
-  <div class="vz-cta-box">
-    <div>
-      <h2>Ihr Unternehmen könnte das nächste Referenzprojekt sein.</h2>
-      <p>Erfahren Sie in einem kostenlosen Erstgespräch, wie wir Ihre Nachfolge begleiten können.</p>
-      <a href="#" class="vz-btn" data-modal-open="termin-modal">Kostenloses Erstgespräch vereinbaren</a>
-    </div>
-    <div class="vz-cta-contact">
-      <p style="font-size:0.85rem;opacity:0.85;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.05em;">Weitere Referenzen</p>
-      <p><a href="/referenzen.html" style="color:#fff;text-decoration:underline;">Alle abgeschlossenen Projekte ansehen ›</a></p>
+<style>
+.detail-fakten { width:100%; font-size:14px; border-collapse:collapse; margin:0; }
+.detail-fakten th { font-weight:600; color:var(--vz-text-muted); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; padding:6px 0 2px; text-align:left; display:block; width:100%; }
+.detail-fakten td { font-weight:600; color:var(--vz-text); padding:0 0 10px; border-bottom:1px solid var(--vz-border-light); display:block; }
+.detail-fakten tr:last-child td { border-bottom:0; padding-bottom:0; }
+</style>
+
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-final-grid">
+      <div class="cta-final-text">
+        <h2>Kostenloses Erstgespräch</h2>
+        <p>In einem vertraulichen Gespräch analysieren wir Ihre Situation — ohne Druck, ohne Verpflichtung. Sie erhalten eine ehrliche Einschätzung Ihrer Möglichkeiten.</p>
+        <ul>
+          <li>Kostenlos und unverbindlich</li>
+          <li>Absolute Vertraulichkeit garantiert</li>
+          <li>Über 200 erfolgreich begleitete Übergaben</li>
+          <li>Antwort innert einem Werktag</li>
+        </ul>
+        <a href="#" onclick="openTerminDialog();return false;" class="btn btn-primary" style="background:var(--vz-orange);">Termin vereinbaren</a>
+      </div>
+      <div class="cta-final-box">
+        <p class="cta-final-box-eyebrow">Direkter Kontakt</p>
+        <a href="tel:+41441234567" style="font-size:22px;">+41 44 123 45 67</a>
+        <a href="mailto:unternehmensnachfolge@xy.ch">unternehmensnachfolge@xy.ch</a>
+        <button type="button" class="btn btn-primary" style="background:var(--vz-orange);" onclick="openTerminDialog()">Termin vereinbaren</button>
+      </div>
     </div>
   </div>
+</section>
 
-</main>
-
-<footer class="vz-footer">
-  <div class="vz-footer-inner">
-    <div>
-      <a href="/index.html" class="vz-logo" style="margin-bottom:16px;">
-        <span class="vz-logo-mark" style="font-size:1.6rem;">XY</span>
-        <span class="vz-logo-text">XxxxxZentrum</span>
-      </a>
-      <p style="color:var(--vz-text-muted);font-size:0.88rem;margin:12px 0 0;">Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
-    </div>
-    <div>
-      <h4>Firmen</h4>
-      <ul>
-        <li><a href="/index.html">Unternehmensnachfolge</a></li>
-        <li><a href="#">Pensionskasse</a></li>
-        <li><a href="#">Kadervorsorge</a></li>
-        <li><a href="#">Versicherungsmanagement</a></li>
-        <li><a href="#">Firmengründung</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Ratgeber</h4>
-      <ul>
-        <li><a href="#">Merkblätter &amp; Bücher</a></li>
-        <li><a href="#">Seminare &amp; Workshops</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Wissensbeiträge</a></li>
-        <li><a href="#">Finanzrechner</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Über XY</h4>
-      <ul>
-        <li><a href="#">Portrait</a></li>
-        <li><a href="#">Standorte</a></li>
-        <li><a href="#">Jobs &amp; Karriere</a></li>
-        <li><a href="#">Kontakt &amp; Hilfe</a></li>
-        <li><a href="#">Newsletter abonnieren</a></li>
-      </ul>
+<footer id="vz-footer">
+  <div class="container">
+    <div class="vz-footer-grid">
+      <div class="vz-footer-logo-col">
+        <a href="/index.html" class="vz-logo"><strong>XY</strong><span class="vz-logo-wordmark">XxxxxZentrum</span></a>
+        <p>Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
+      </div>
+      <div>
+        <h4>Firmen</h4>
+        <ul>
+          <li><a href="/index.html">Unternehmensnachfolge</a></li>
+          <li><a href="#">Pensionskasse</a></li>
+          <li><a href="#">Kadervorsorge</a></li>
+          <li><a href="#">Versicherungsmanagement</a></li>
+          <li><a href="#">Firmengründung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ratgeber</h4>
+        <ul>
+          <li><a href="#">Merkblätter &amp; Bücher</a></li>
+          <li><a href="#">Seminare</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="#">Wissensbeiträge</a></li>
+          <li><a href="#">Finanzrechner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Über XY</h4>
+        <ul>
+          <li><a href="#">Portrait</a></li>
+          <li><a href="#">Standorte</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">VZ Finanzportal</a></li>
+          <li><a href="#">Kurse &amp; Märkte</a></li>
+          <li><a href="#">Firmenportal</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="vz-footer-bottom">
@@ -196,47 +291,11 @@
     </ul>
   </div>
 </footer>
-
-<aside class="vz-mobile-nav" aria-label="Mobiles Menü">
-  <button class="vz-mobile-nav-close" data-mobile-nav-close aria-label="Menü schliessen">×</button>
-  <h4>Privatpersonen</h4>
-  <ul>
-    <li><a href="#">Pensionierung</a></li>
-    <li><a href="#">Geldanlagen</a></li>
-    <li><a href="#">Nachlass</a></li>
-    <li><a href="#">Immobilien &amp; Hypotheken</a></li>
-    <li><a href="#">Steuern</a></li>
-    <li><a href="#">Vorsorge</a></li>
-    <li><a href="#">Versicherungen</a></li>
-    <li><a href="#">Bankgeschäfte</a></li>
-  </ul>
-  <h4>Firmen</h4>
-  <ul>
-    <li><a href="/index.html">Unternehmensnachfolge</a></li>
-    <li><a href="#">Pensionskasse</a></li>
-    <li><a href="#">Kadervorsorge</a></li>
-    <li><a href="#">Versicherungsmanagement</a></li>
-    <li><a href="#">Firmengründung</a></li>
-  </ul>
-  <h4>Ratgeber</h4>
-  <ul>
-    <li><a href="#">Merkblätter &amp; Bücher</a></li>
-    <li><a href="#">Seminare</a></li>
-    <li><a href="#">Videos</a></li>
-  </ul>
-  <h4>Über XY</h4>
-  <ul>
-    <li><a href="#">Portrait</a></li>
-    <li><a href="#">Standorte</a></li>
-    <li><a href="#">Kontakt</a></li>
-  </ul>
-</aside>
-
 <div class="vz-modal-backdrop" id="termin-modal" role="dialog" aria-labelledby="termin-modal-title" aria-modal="true">
   <div class="vz-modal">
     <button class="vz-modal-close" data-modal-close="termin-modal" aria-label="Schliessen">×</button>
     <h2 id="termin-modal-title">Termin vereinbaren</h2>
-    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Wir melden uns innert einem Werktag bei Ihnen. Das erste Gespräch ist kostenlos und unverbindlich.</p>
+    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Das erste Gespräch ist kostenlos und unverbindlich. Wir melden uns innert einem Werktag bei Ihnen.</p>
     <form data-termin-form novalidate>
       <div class="vz-form-field"><label for="tm-name">Name *</label><input type="text" id="tm-name" required></div>
       <div class="vz-form-field"><label for="tm-tel">Telefon *</label><input type="tel" id="tm-tel" required></div>
@@ -255,16 +314,15 @@
         <input type="checkbox" id="tm-consent" required>
         <label for="tm-consent" style="font-weight:400;">Ich bestätige, dass ich die <a href="#">Datenschutzerklärung</a> gelesen habe.</label>
       </div>
-      <button type="submit" class="vz-btn">Termin anfragen</button>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Termin anfragen</button>
     </form>
     <div data-termin-confirm style="display:none;padding:20px 0;">
-      <p style="color:var(--vz-primary);font-weight:600;font-size:1.1rem;">✓ Vielen Dank!</p>
+      <p style="color:var(--vz-primary);font-weight:700;font-size:18px;margin:0 0 8px;">✓ Vielen Dank!</p>
       <p>Wir melden uns innert einem Werktag bei Ihnen.</p>
-      <button class="vz-btn vz-btn--outline" data-modal-close="termin-modal">Schliessen</button>
+      <button class="btn btn-secondary" data-modal-close="termin-modal">Schliessen</button>
     </div>
   </div>
 </div>
-
 <script src="/assets/vz.js"></script>
 </body>
 </html>

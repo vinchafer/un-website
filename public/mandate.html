@@ -10,34 +10,132 @@
 <title>Aktuelle Verkaufsmandate | XY XxxxxZentrum Unternehmensnachfolge</title>
 <meta name="description" content="Aktuelle Verkaufsmandate und Unternehmensnachfolge-Angebote aus der ganzen Schweiz. Diskret, qualifiziert, persönlich betreut.">
 
-
 </head>
 <body>
-
-<div class="vz-top-bar">
-  <div class="vz-top-bar-inner">
-    <a href="#" class="vz-top-appointment" data-modal-open="termin-modal">Termin vereinbaren</a>
-    <span class="sep">|</span>
-    <a href="#">Wissen</a>
-    <span class="sep">|</span>
-    <a href="#">XY Finanzportal</a>
-    <span class="sep">|</span>
-    <a href="#">Börsen &amp; Märkte</a>
+<div id="vz-utility-bar">
+  <div class="vz-utility-inner">
+    <a href="#" onclick="openTerminDialog();return false;" class="vz-utility-link">Termin vereinbaren</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">Wissen</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">XY Finanzportal</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">Börsen &amp; Märkte</a>
   </div>
 </div>
-<header class="vz-header">
+<header id="vz-header">
   <div class="vz-header-inner">
-    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum Startseite">
-      <span class="vz-logo-mark">XY</span>
-      <span class="vz-logo-text">XxxxxZentrum</span>
+    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum – Startseite">
+      <strong>XY</strong><span class="vz-logo-wordmark">XxxxxZentrum</span>
     </a>
-    <nav class="vz-nav-right" aria-label="Hauptnavigation">
-      <a href="#" class="vz-header-termin" data-modal-open="termin-modal">Termin vereinbaren</a>
-      <button class="vz-menu-btn" data-mobile-nav-toggle aria-label="Menü öffnen">≡ Menü</button>
-    </nav>
+
+    <ul class="vz-main-nav" role="list">
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Privatpersonen</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Pensionierung</a></li>
+            <li><a href="#">Geldanlagen &amp; Vermögensverwaltung</a></li>
+            <li><a href="#">Nachlass</a></li>
+            <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+            <li><a href="#">Steuern</a></li>
+            <li><a href="#">Vorsorge</a></li>
+            <li><a href="#">Versicherungen</a></li>
+            <li><a href="#">Bankgeschäfte</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item active">
+        <a href="/index.html" class="vz-nav-link">Firmen</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="/index.html" class="vz-dropdown-active">Unternehmensnachfolge</a></li>
+            <li><a href="#">Pensionskasse</a></li>
+            <li><a href="#">Kadervorsorge</a></li>
+            <li><a href="#">Versicherungsmanagement</a></li>
+            <li><a href="#">Firmengründung</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Ratgeber</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Seminare &amp; Workshops</a></li>
+            <li><a href="#">Merkblätter &amp; Bücher</a></li>
+            <li><a href="#">Studien &amp; Dossiers</a></li>
+            <li><a href="#">Wissensbeiträge</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Checks &amp; Analysen</a></li>
+            <li><a href="#">Finanzrechner &amp; Vergleiche</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Über XY</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Unabhängige Beratung</a></li>
+            <li><a href="#">Standorte</a></li>
+            <li><a href="#">Portrait</a></li>
+            <li><a href="#">Meinungen</a></li>
+            <li><a href="#">Newsroom</a></li>
+            <li><a href="#">Jobs &amp; Karriere</a></li>
+            <li><a href="#">Kontakt &amp; Hilfe</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Börsen &amp; Märkte</a>
+      </li>
+    </ul>
+
+    <div class="vz-header-right">
+      <a href="#" onclick="openTerminDialog();return false;" class="vz-cta-btn">Termin vereinbaren</a>
+      <button class="vz-hamburger" id="vz-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="vz-mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
-<div class="vz-quicklinks">
+
+<nav id="vz-mobile-menu" aria-label="Mobiles Menü">
+  <ul>
+    <li>
+      <a href="#">Privatpersonen</a>
+      <ul>
+        <li><a href="#">Pensionierung</a></li>
+        <li><a href="#">Geldanlagen</a></li>
+        <li><a href="#">Nachlass</a></li>
+        <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+        <li><a href="#">Steuern</a></li>
+        <li><a href="#">Vorsorge</a></li>
+        <li><a href="#">Versicherungen</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/index.html">Firmen</a>
+      <ul>
+        <li><a href="/index.html">Unternehmensnachfolge</a></li>
+        <li><a href="#">Pensionskasse</a></li>
+        <li><a href="#">Kadervorsorge</a></li>
+        <li><a href="#">Versicherungsmanagement</a></li>
+        <li><a href="#">Firmengründung</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Ratgeber</a></li>
+    <li><a href="#">Über XY</a></li>
+    <li><a href="#">Börsen &amp; Märkte</a></li>
+    <li style="border-top:1px solid #e8e8e8;margin-top:8px;padding-top:8px;">
+      <a href="#" onclick="openTerminDialog();return false;" style="color:var(--vz-orange);">→ Termin vereinbaren</a>
+    </li>
+  </ul>
+</nav>
+<div id="vz-quicklinks">
   <div class="vz-quicklinks-inner">
     <a href="#">Pensionierung</a>
     <a href="#">Geldanlagen</a>
@@ -50,157 +148,262 @@
     <a href="#">Firmen</a>
   </div>
 </div>
+<nav class="vz-breadcrumb">
+  <div class="vz-breadcrumb-inner"><a href="#">Startseite</a> <span class="sep">›</span> <a href="#">Firmen</a> <span class="sep">›</span> <a href="/index.html">Unternehmensnachfolge</a> <span class="sep">›</span> <span>Aktuelle Mandate</span></div>
+</nav>
 
-<nav class="vz-breadcrumb" aria-label="Brotkrumen"><a href="#">Startseite</a><span class="sep">›</span><a href="#">Firmen</a><span class="sep">›</span><a href="/index.html">Unternehmensnachfolge</a><span class="sep">›</span><span>Aktuelle Mandate</span></nav>
-
-<main class="vz-main">
-
-  <div class="vz-card">
-    <p class="vz-eyebrow">Aktuelle Verkaufsmandate</p>
-    <h1 style="font-size:2.4rem;margin:0 0 16px;">Unternehmen, die wir gerade betreuen.</h1>
-    <p style="font-size:1.15rem;max-width:780px;margin:0 0 16px;color:var(--vz-text);">Diese Auswahl zeigt einen Teil unserer aktuellen Verkaufsmandate. Alle Angaben sind anonymisiert. Detaillierte Informationen erhalten qualifizierte Interessenten nach Unterzeichnung einer Vertraulichkeitserklärung.</p>
-    <p style="margin:0;"><a href="#" class="vz-btn vz-btn--outline">Newsletter mit aktuellen Mandaten abonnieren</a></p>
+<section class="detail-hero">
+  <div class="container">
+    <span class="eyebrow">Aktuelle Verkaufsmandate</span>
+    <h1>Unternehmen, die wir gerade betreuen.</h1>
+    <p>Diese Auswahl zeigt einen Teil unserer aktuellen Verkaufsmandate. Alle Angaben sind anonymisiert. Detailinformationen erhalten qualifizierte Interessenten nach Unterzeichnung einer Vertraulichkeitserklärung.</p>
   </div>
+</section>
 
-  <div data-filter-root>
-    <div class="vz-filter-bar">
-      <label>Filtern:</label>
-      <select data-filter="branche">
-        <option value="">Alle Branchen</option>
-        <option value="Bau">Bau</option><option value="Dienstleistung">Dienstleistung</option><option value="Gastronomie">Gastronomie</option><option value="Handel">Handel</option><option value="IT">IT</option><option value="Produktion">Produktion</option>
-      </select>
-      <select data-filter="region">
-        <option value="">Alle Regionen</option>
-        <option value="Bern">Bern</option><option value="Deutschschweiz">Deutschschweiz</option><option value="Ostschweiz">Ostschweiz</option><option value="Westschweiz">Westschweiz</option><option value="Zentralschweiz">Zentralschweiz</option><option value="Zürich">Zürich</option>
-      </select>
-      <select data-filter="umsatz">
-        <option value="">Alle Grössen</option>
-        <option value="unter-5">bis CHF 5 Mio.</option>
-        <option value="5-15">CHF 5–15 Mio.</option>
-      </select>
-      <button class="vz-filter-reset" data-filter-reset>Zurücksetzen</button>
-      <span class="vz-filter-count" data-filter-count></span>
+<section style="padding:40px 0 24px;background:var(--vz-bg-alt);">
+  <div class="container" style="text-align:center;">
+    <a href="#" class="btn btn-secondary">Newsletter mit aktuellen Mandaten abonnieren</a>
+  </div>
+</section>
+
+<section style="padding:24px 0 64px;background:var(--vz-bg-alt);">
+  <div class="container">
+    <div data-filter-root>
+      <div class="filter-bar">
+        <label>Filtern:</label>
+        <select data-filter="branche"><option value="">Alle Branchen</option><option value="Bau">Bau</option><option value="Dienstleistung">Dienstleistung</option><option value="Gastronomie">Gastronomie</option><option value="Handel">Handel</option><option value="IT">IT</option><option value="Produktion">Produktion</option></select>
+        <select data-filter="region"><option value="">Alle Regionen</option><option value="Bern">Bern</option><option value="Deutschschweiz">Deutschschweiz</option><option value="Ostschweiz">Ostschweiz</option><option value="Westschweiz">Westschweiz</option><option value="Zentralschweiz">Zentralschweiz</option><option value="Zürich">Zürich</option></select>
+        <select data-filter="size">
+          <option value="">Alle Grössen</option>
+          <option value="klein">Klein (&lt; 25 MA)</option>
+          <option value="mittel">Mittel (25–75 MA)</option>
+        </select>
+        <button class="filter-reset" data-filter-reset>Zurücksetzen</button>
+        <span class="filter-count" data-filter-count></span>
+      </div>
+      <div class="mandate-grid">
+    <a href="mandate/produktionsbetrieb-maschinenbau.html" class="mandat-card reveal" data-item data-branche="Produktion" data-region="Deutschschweiz" data-size="mittel">
+      <div class="mandat-card-top">Produktion &amp; Industrie</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Hochrentabler Produktionsbetrieb im Maschinenbau</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Maschinenbau</td></tr>
+          <tr><td>Region</td><td>Deutschschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>30–50</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 1,2–1,8 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/it-dienstleister-zuerich.html" class="mandat-card reveal" data-item data-branche="IT" data-region="Zürich" data-size="klein">
+      <div class="mandat-card-top">IT &amp; Technologie</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Führendes Dienstleistungsunternehmen im IT-Sektor</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>IT-Services</td></tr>
+          <tr><td>Region</td><td>Zürich &amp; Umgebung</td></tr>
+          <tr><td>Mitarbeitende</td><td>15–25</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,6–0,9 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/fachhandel-zentralschweiz.html" class="mandat-card reveal" data-item data-branche="Handel" data-region="Zentralschweiz" data-size="mittel">
+      <div class="mandat-card-top">Handel</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Etablierter Fachhandel mit starker Marktstellung</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Fachhandel</td></tr>
+          <tr><td>Region</td><td>Zentralschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>20–35</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,8–1,1 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/handwerksbetrieb-bern.html" class="mandat-card reveal" data-item data-branche="Bau" data-region="Bern" data-size="klein">
+      <div class="mandat-card-top">Handwerk &amp; Bau</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Erfolgreicher Handwerksbetrieb mit gutem Ruf</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Handwerk</td></tr>
+          <tr><td>Region</td><td>Bern &amp; Umgebung</td></tr>
+          <tr><td>Mitarbeitende</td><td>10–20</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,4–0,6 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/etablierter-lebensmittelhaendler.html" class="mandat-card reveal" data-item data-branche="Handel" data-region="Deutschschweiz" data-size="klein">
+      <div class="mandat-card-top">Handel</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Seit Jahren etablierter Lebensmittelhändler mit überdurchschnittlichen Margen</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Fleischverarbeitung</td></tr>
+          <tr><td>Region</td><td>Deutschschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>&lt; 10</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,4 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/logistik-logistikverpackung.html" class="mandat-card reveal" data-item data-branche="Produktion" data-region="Deutschschweiz" data-size="mittel">
+      <div class="mandat-card-top">Produktion &amp; Industrie</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Führender Schweizer Anbieter für Logistikverpackungsmaterial</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Verpackung</td></tr>
+          <tr><td>Region</td><td>Deutschschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>40–60</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 1,5–2,2 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/agrar-fachhandel.html" class="mandat-card reveal" data-item data-branche="Handel" data-region="Deutschschweiz" data-size="klein">
+      <div class="mandat-card-top">Handel</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Erfolgreicher Agrar-Fachhändler mit hoher Konstanz</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Agrar &amp; Landtechnik</td></tr>
+          <tr><td>Region</td><td>Deutschschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>15–25</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,9–1,3 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/motorenfirma.html" class="mandat-card reveal" data-item data-branche="Handel" data-region="Zentralschweiz" data-size="klein">
+      <div class="mandat-card-top">Handel</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Einzigartige Firma mit «Motoren-Enthusiasmus» und entwicklungsfähiger Liegenschaft</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Motoren &amp; Fahrzeuge</td></tr>
+          <tr><td>Region</td><td>Zentralschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>10–15</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,7–1,0 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/gastro-ostschweiz.html" class="mandat-card reveal" data-item data-branche="Gastronomie" data-region="Ostschweiz" data-size="klein">
+      <div class="mandat-card-top">Gastronomie</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Renommierter Gastronomiebetrieb mit Ostschweizer Wurzeln</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Gastronomie</td></tr>
+          <tr><td>Region</td><td>Ostschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>20–30</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,5–0,8 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+    <a href="mandate/treuhand-westschweiz.html" class="mandat-card reveal" data-item data-branche="Dienstleistung" data-region="Westschweiz" data-size="klein">
+      <div class="mandat-card-top">Dienstleistung</div>
+      <div class="mandat-card-body">
+        <h4 class="mandat-title">Etablierte Treuhandgesellschaft mit breitem Mandantenstamm</h4>
+        <table class="mandat-table">
+          <tr><td>Branche</td><td>Treuhand</td></tr>
+          <tr><td>Region</td><td>Westschweiz</td></tr>
+          <tr><td>Mitarbeitende</td><td>10–20</td></tr>
+          <tr><td>Rechtsform</td><td>AG</td></tr>
+          <tr><td>EBIT</td><td>CHF 0,4–0,7 Mio.</td></tr>
+        </table>
+        <span class="mandat-link">Mehr erfahren →</span>
+      </div>
+    </a>
+      </div>
+      <div data-filter-empty style="display:none;padding:48px 24px;text-align:center;background:#fff;border:1px solid var(--vz-border-light);margin-top:24px;">
+        <p style="color:var(--vz-text-muted);">Keine Mandate gefunden. Bitte ändern Sie Ihre Filterauswahl.</p>
+      </div>
     </div>
 
-    <div class="vz-mandate-grid">
-      <a href="/mandate/etablierter-lebensmittelhaendler.html" class="vz-mandate-card" data-item data-branche="Handel" data-region="Deutschschweiz" data-umsatz="unter-5">
-  <div class="vz-eyebrow-orange">Handel · Deutschschweiz</div>
-  <h3>Seit Jahren etablierter Lebensmittelhändler mit überdurchschnittlichen Margen</h3>
-  <p class="vz-mandate-summary">Hoch profitabler Nischenanbieter in der fleischverarbeitenden Industrie mit stabilen Umsätzen, attraktiver Bruttomarge und langjährigen Kundenbeziehungen.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 2,0 Mio.</span><span>👥 &lt; 10 MA</span></div>
-</a><a href="/mandate/produktionsbetrieb-maschinenbau.html" class="vz-mandate-card" data-item data-branche="Produktion" data-region="Deutschschweiz" data-umsatz="5-15">
-  <div class="vz-eyebrow-orange">Produktion · Deutschschweiz</div>
-  <h3>Hochrentabler Produktionsbetrieb im Maschinenbau</h3>
-  <p class="vz-mandate-summary">Etabliertes Unternehmen mit starker Marktposition und loyaler Kundenbasis. Der Inhaber sucht einen Nachfolger, der die Erfolgsgeschichte fortführt.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 8–12 Mio.</span><span>👥 30–50 MA</span></div>
-</a><a href="/mandate/it-dienstleister-zuerich.html" class="vz-mandate-card" data-item data-branche="IT" data-region="Zürich" data-umsatz="unter-5">
-  <div class="vz-eyebrow-orange">IT &amp; Technologie · Zürich</div>
-  <h3>Führendes Dienstleistungsunternehmen im IT-Sektor</h3>
-  <p class="vz-mandate-summary">Spezialisiertes IT-Unternehmen mit langjährigen Kundenverträgen und hoher Wiederkaufrate. Ideal für strategischen Käufer oder MBO.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 3–6 Mio.</span><span>👥 15–25 MA</span></div>
-</a><a href="/mandate/fachhandel-zentralschweiz.html" class="vz-mandate-card" data-item data-branche="Handel" data-region="Zentralschweiz" data-umsatz="5-15">
-  <div class="vz-eyebrow-orange">Handel · Zentralschweiz</div>
-  <h3>Etablierter Fachhandel mit starker Marktstellung</h3>
-  <p class="vz-mandate-summary">Fachhandelsunternehmen mit über 20 Jahren Marktpräsenz, exklusiven Lieferantenbeziehungen und stabilem Stammkundengeschäft.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 5–8 Mio.</span><span>👥 20–35 MA</span></div>
-</a><a href="/mandate/handwerksbetrieb-bern.html" class="vz-mandate-card" data-item data-branche="Bau" data-region="Bern" data-umsatz="unter-5">
-  <div class="vz-eyebrow-orange">Bau · Bern</div>
-  <h3>Erfolgreicher Handwerksbetrieb mit gutem Ruf</h3>
-  <p class="vz-mandate-summary">Gut positionierter Handwerksbetrieb mit ausgezeichnetem Ruf, eingespieltem Team und voller Auftragspipeline für die nächsten 18 Monate.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 2–4 Mio.</span><span>👥 10–20 MA</span></div>
-</a><a href="/mandate/logistik-logistikverpackung.html" class="vz-mandate-card" data-item data-branche="Produktion" data-region="Deutschschweiz" data-umsatz="5-15">
-  <div class="vz-eyebrow-orange">Produktion · Deutschschweiz</div>
-  <h3>Führender Schweizer Anbieter für Logistikverpackungsmaterial</h3>
-  <p class="vz-mandate-summary">Einer der führenden Schweizer Hersteller in seinem Segment, mit stabilen Kundenbeziehungen und hoher Liefertreue.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 10–15 Mio.</span><span>👥 40–60 MA</span></div>
-</a><a href="/mandate/agrar-fachhandel.html" class="vz-mandate-card" data-item data-branche="Handel" data-region="Deutschschweiz" data-umsatz="5-15">
-  <div class="vz-eyebrow-orange">Handel · Deutschschweiz</div>
-  <h3>Erfolgreicher Agrar-Fachhändler mit hoher Konstanz</h3>
-  <p class="vz-mandate-summary">Fachhändler für Agrar- und Landtechnikprodukte mit etabliertem regionalen Netzwerk und wiederkehrenden Umsätzen.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 6–9 Mio.</span><span>👥 15–25 MA</span></div>
-</a><a href="/mandate/motorenfirma.html" class="vz-mandate-card" data-item data-branche="Handel" data-region="Zentralschweiz" data-umsatz="unter-5">
-  <div class="vz-eyebrow-orange">Handel · Zentralschweiz</div>
-  <h3>Einzigartige Firma mit &#171;Motoren-Enthusiasmus&#187; und Liegenschaft an bester Lage</h3>
-  <p class="vz-mandate-summary">Spezialist mit einzigartigem Markenprofil, loyaler Kundschaft und entwicklungsfähiger Geschäftsliegenschaft an bester Lage.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 4–7 Mio.</span><span>👥 10–15 MA</span></div>
-</a><a href="/mandate/gastro-ostschweiz.html" class="vz-mandate-card" data-item data-branche="Gastronomie" data-region="Ostschweiz" data-umsatz="unter-5">
-  <div class="vz-eyebrow-orange">Gastronomie · Ostschweiz</div>
-  <h3>Renommierter Gastronomiebetrieb mit Ostschweizer Wurzeln</h3>
-  <p class="vz-mandate-summary">Seit Jahrzehnten geführter Gastronomiebetrieb mit hoher Markenbekanntheit, stabilem Betrieb und erfahrenem Team.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 3–5 Mio.</span><span>👥 20–30 MA</span></div>
-</a><a href="/mandate/treuhand-westschweiz.html" class="vz-mandate-card" data-item data-branche="Dienstleistung" data-region="Westschweiz" data-umsatz="unter-5">
-  <div class="vz-eyebrow-orange">Dienstleistung · Westschweiz</div>
-  <h3>Etablierte Treuhandgesellschaft mit breitem Mandantenstamm</h3>
-  <p class="vz-mandate-summary">Zweisprachig tätige Treuhandgesellschaft mit langjährigen KMU-Mandanten und diversifiziertem Dienstleistungsportfolio.</p>
-  <div class="vz-mandate-meta"><span>📈 CHF 2–4 Mio.</span><span>👥 10–20 MA</span></div>
-</a>
-    </div>
-
-    <div data-filter-empty style="display:none;padding:48px 24px;text-align:center;background:var(--vz-white);border:1px solid var(--vz-border-light);margin-top:24px;">
-      <p style="color:var(--vz-text-muted);">Keine Mandate gefunden. Bitte ändern Sie Ihre Filterauswahl.</p>
+    <div style="background:#fff;border:1px solid var(--vz-border-light);padding:32px;margin-top:32px;">
+      <h3 style="font-size:18px;margin:0 0 12px;">Hinweis zur Diskretion</h3>
+      <p style="color:var(--vz-text-muted);font-size:15px;line-height:1.6;margin:0;">Die oben aufgeführten Mandate sind zum Schutz der Unternehmen und ihrer Mitarbeitenden anonymisiert. Name, Standort und weitere Details werden ausschliesslich nach einer ersten Prüfung und Unterzeichnung einer Vertraulichkeitserklärung kommuniziert. Möchten Sie Details zu einem bestimmten Mandat erfahren oder suchen Sie allgemein nach einem Unternehmen zur Übernahme? <a href="#" onclick="openTerminDialog();return false;">Vereinbaren Sie ein vertrauliches Erstgespräch</a>.</p>
     </div>
   </div>
+</section>
 
-  <div class="vz-card" style="margin-top:24px;">
-    <p class="vz-section-eyebrow">Hinweis</p>
-    <h2 class="vz-section-title" style="font-size:1.3rem;">Detaillierte Informationen nach Vertraulichkeitserklärung</h2>
-    <p>Die oben aufgeführten Mandate sind aus Gründen des Schutzes der Unternehmen und ihrer Mitarbeitenden anonymisiert. Name, Standort und weitere Details werden ausschliesslich nach einer ersten Prüfung und Unterzeichnung einer Vertraulichkeitserklärung kommuniziert.</p>
-    <p>Möchten Sie Details zu einem bestimmten Mandat erfahren oder suchen Sie allgemein nach einem Unternehmen zur Übernahme? <a href="#" data-modal-open="termin-modal">Vereinbaren Sie ein vertrauliches Erstgespräch</a>.</p>
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-final-grid">
+      <div class="cta-final-text">
+        <h2>Kostenloses Erstgespräch</h2>
+        <p>In einem vertraulichen Gespräch analysieren wir Ihre Situation — ohne Druck, ohne Verpflichtung. Sie erhalten eine ehrliche Einschätzung Ihrer Möglichkeiten.</p>
+        <ul>
+          <li>Kostenlos und unverbindlich</li>
+          <li>Absolute Vertraulichkeit garantiert</li>
+          <li>Über 200 erfolgreich begleitete Übergaben</li>
+          <li>Antwort innert einem Werktag</li>
+        </ul>
+        <a href="#" onclick="openTerminDialog();return false;" class="btn btn-primary" style="background:var(--vz-orange);">Termin vereinbaren</a>
+      </div>
+      <div class="cta-final-box">
+        <p class="cta-final-box-eyebrow">Direkter Kontakt</p>
+        <a href="tel:+41441234567" style="font-size:22px;">+41 44 123 45 67</a>
+        <a href="mailto:unternehmensnachfolge@xy.ch">unternehmensnachfolge@xy.ch</a>
+        <button type="button" class="btn btn-primary" style="background:var(--vz-orange);" onclick="openTerminDialog()">Termin vereinbaren</button>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="vz-cta-box" style="margin-top:24px;">
-    <div>
-      <h2>Sie suchen ein Unternehmen zur Übernahme?</h2>
-      <p>Melden Sie sich für unseren Mandate-Newsletter an oder vereinbaren Sie ein vertrauliches Erstgespräch — wir informieren Sie diskret über passende Gelegenheiten.</p>
-      <a href="#" class="vz-btn" data-modal-open="termin-modal">Vertrauliches Erstgespräch vereinbaren</a>
-    </div>
-    <div class="vz-cta-contact">
-      <p style="font-size:0.85rem;opacity:0.85;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.05em;">Direkter Kontakt</p>
-      <p style="margin:0 0 4px;"><a href="tel:+41441234567" style="font-size:1.15rem;">📞 +41 44 123 45 67</a></p>
-      <p><a href="mailto:mandate@xy.ch">✉ mandate@xy.ch</a></p>
-    </div>
-  </div>
-
-</main>
-
-<footer class="vz-footer">
-  <div class="vz-footer-inner">
-    <div>
-      <a href="/index.html" class="vz-logo" style="margin-bottom:16px;">
-        <span class="vz-logo-mark" style="font-size:1.6rem;">XY</span>
-        <span class="vz-logo-text">XxxxxZentrum</span>
-      </a>
-      <p style="color:var(--vz-text-muted);font-size:0.88rem;margin:12px 0 0;">Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
-    </div>
-    <div>
-      <h4>Firmen</h4>
-      <ul>
-        <li><a href="/index.html">Unternehmensnachfolge</a></li>
-        <li><a href="#">Pensionskasse</a></li>
-        <li><a href="#">Kadervorsorge</a></li>
-        <li><a href="#">Versicherungsmanagement</a></li>
-        <li><a href="#">Firmengründung</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Ratgeber</h4>
-      <ul>
-        <li><a href="#">Merkblätter &amp; Bücher</a></li>
-        <li><a href="#">Seminare &amp; Workshops</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Wissensbeiträge</a></li>
-        <li><a href="#">Finanzrechner</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Über XY</h4>
-      <ul>
-        <li><a href="#">Portrait</a></li>
-        <li><a href="#">Standorte</a></li>
-        <li><a href="#">Jobs &amp; Karriere</a></li>
-        <li><a href="#">Kontakt &amp; Hilfe</a></li>
-        <li><a href="#">Newsletter abonnieren</a></li>
-      </ul>
+<footer id="vz-footer">
+  <div class="container">
+    <div class="vz-footer-grid">
+      <div class="vz-footer-logo-col">
+        <a href="/index.html" class="vz-logo"><strong>XY</strong><span class="vz-logo-wordmark">XxxxxZentrum</span></a>
+        <p>Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
+      </div>
+      <div>
+        <h4>Firmen</h4>
+        <ul>
+          <li><a href="/index.html">Unternehmensnachfolge</a></li>
+          <li><a href="#">Pensionskasse</a></li>
+          <li><a href="#">Kadervorsorge</a></li>
+          <li><a href="#">Versicherungsmanagement</a></li>
+          <li><a href="#">Firmengründung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ratgeber</h4>
+        <ul>
+          <li><a href="#">Merkblätter &amp; Bücher</a></li>
+          <li><a href="#">Seminare</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="#">Wissensbeiträge</a></li>
+          <li><a href="#">Finanzrechner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Über XY</h4>
+        <ul>
+          <li><a href="#">Portrait</a></li>
+          <li><a href="#">Standorte</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">VZ Finanzportal</a></li>
+          <li><a href="#">Kurse &amp; Märkte</a></li>
+          <li><a href="#">Firmenportal</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="vz-footer-bottom">
@@ -213,47 +416,11 @@
     </ul>
   </div>
 </footer>
-
-<aside class="vz-mobile-nav" aria-label="Mobiles Menü">
-  <button class="vz-mobile-nav-close" data-mobile-nav-close aria-label="Menü schliessen">×</button>
-  <h4>Privatpersonen</h4>
-  <ul>
-    <li><a href="#">Pensionierung</a></li>
-    <li><a href="#">Geldanlagen</a></li>
-    <li><a href="#">Nachlass</a></li>
-    <li><a href="#">Immobilien &amp; Hypotheken</a></li>
-    <li><a href="#">Steuern</a></li>
-    <li><a href="#">Vorsorge</a></li>
-    <li><a href="#">Versicherungen</a></li>
-    <li><a href="#">Bankgeschäfte</a></li>
-  </ul>
-  <h4>Firmen</h4>
-  <ul>
-    <li><a href="/index.html">Unternehmensnachfolge</a></li>
-    <li><a href="#">Pensionskasse</a></li>
-    <li><a href="#">Kadervorsorge</a></li>
-    <li><a href="#">Versicherungsmanagement</a></li>
-    <li><a href="#">Firmengründung</a></li>
-  </ul>
-  <h4>Ratgeber</h4>
-  <ul>
-    <li><a href="#">Merkblätter &amp; Bücher</a></li>
-    <li><a href="#">Seminare</a></li>
-    <li><a href="#">Videos</a></li>
-  </ul>
-  <h4>Über XY</h4>
-  <ul>
-    <li><a href="#">Portrait</a></li>
-    <li><a href="#">Standorte</a></li>
-    <li><a href="#">Kontakt</a></li>
-  </ul>
-</aside>
-
 <div class="vz-modal-backdrop" id="termin-modal" role="dialog" aria-labelledby="termin-modal-title" aria-modal="true">
   <div class="vz-modal">
     <button class="vz-modal-close" data-modal-close="termin-modal" aria-label="Schliessen">×</button>
     <h2 id="termin-modal-title">Termin vereinbaren</h2>
-    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Wir melden uns innert einem Werktag bei Ihnen. Das erste Gespräch ist kostenlos und unverbindlich.</p>
+    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Das erste Gespräch ist kostenlos und unverbindlich. Wir melden uns innert einem Werktag bei Ihnen.</p>
     <form data-termin-form novalidate>
       <div class="vz-form-field"><label for="tm-name">Name *</label><input type="text" id="tm-name" required></div>
       <div class="vz-form-field"><label for="tm-tel">Telefon *</label><input type="tel" id="tm-tel" required></div>
@@ -272,16 +439,15 @@
         <input type="checkbox" id="tm-consent" required>
         <label for="tm-consent" style="font-weight:400;">Ich bestätige, dass ich die <a href="#">Datenschutzerklärung</a> gelesen habe.</label>
       </div>
-      <button type="submit" class="vz-btn">Termin anfragen</button>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Termin anfragen</button>
     </form>
     <div data-termin-confirm style="display:none;padding:20px 0;">
-      <p style="color:var(--vz-primary);font-weight:600;font-size:1.1rem;">✓ Vielen Dank!</p>
+      <p style="color:var(--vz-primary);font-weight:700;font-size:18px;margin:0 0 8px;">✓ Vielen Dank!</p>
       <p>Wir melden uns innert einem Werktag bei Ihnen.</p>
-      <button class="vz-btn vz-btn--outline" data-modal-close="termin-modal">Schliessen</button>
+      <button class="btn btn-secondary" data-modal-close="termin-modal">Schliessen</button>
     </div>
   </div>
 </div>
-
 <script src="/assets/vz.js"></script>
 </body>
 </html>

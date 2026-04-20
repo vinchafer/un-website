@@ -7,37 +7,135 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/vz.css">
-<title>Familieninterne Nachfolge — Kontinuität über Generationen. | XY XxxxxZentrum</title>
-<meta name="description" content="Die Übergabe eines Unternehmens innerhalb der Familie ist oft die emotional stärkste Form der Nachfolge. Sie bewahrt das Lebenswerk im Kreis der Familie — brauc">
-
+<title>Familieninterne Nachfolge — Family Buy Out (FBO) | XY XxxxxZentrum</title>
+<meta name="description" content="Kontinuität über Generationen — das Lebenswerk bleibt in der Familie, doch die Übergabe will sorgfältig vorbereitet sein.">
 
 </head>
 <body>
-
-<div class="vz-top-bar">
-  <div class="vz-top-bar-inner">
-    <a href="#" class="vz-top-appointment" data-modal-open="termin-modal">Termin vereinbaren</a>
-    <span class="sep">|</span>
-    <a href="#">Wissen</a>
-    <span class="sep">|</span>
-    <a href="#">XY Finanzportal</a>
-    <span class="sep">|</span>
-    <a href="#">Börsen &amp; Märkte</a>
+<div id="vz-utility-bar">
+  <div class="vz-utility-inner">
+    <a href="#" onclick="openTerminDialog();return false;" class="vz-utility-link">Termin vereinbaren</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">Wissen</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">XY Finanzportal</a>
+    <span class="vz-utility-sep">|</span>
+    <a href="#" class="vz-utility-link">Börsen &amp; Märkte</a>
   </div>
 </div>
-<header class="vz-header">
+<header id="vz-header">
   <div class="vz-header-inner">
-    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum Startseite">
-      <span class="vz-logo-mark">XY</span>
-      <span class="vz-logo-text">XxxxxZentrum</span>
+    <a href="/index.html" class="vz-logo" aria-label="XY XxxxxZentrum – Startseite">
+      <strong>XY</strong><span class="vz-logo-wordmark">XxxxxZentrum</span>
     </a>
-    <nav class="vz-nav-right" aria-label="Hauptnavigation">
-      <a href="#" class="vz-header-termin" data-modal-open="termin-modal">Termin vereinbaren</a>
-      <button class="vz-menu-btn" data-mobile-nav-toggle aria-label="Menü öffnen">≡ Menü</button>
-    </nav>
+
+    <ul class="vz-main-nav" role="list">
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Privatpersonen</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Pensionierung</a></li>
+            <li><a href="#">Geldanlagen &amp; Vermögensverwaltung</a></li>
+            <li><a href="#">Nachlass</a></li>
+            <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+            <li><a href="#">Steuern</a></li>
+            <li><a href="#">Vorsorge</a></li>
+            <li><a href="#">Versicherungen</a></li>
+            <li><a href="#">Bankgeschäfte</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item active">
+        <a href="/index.html" class="vz-nav-link">Firmen</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="/index.html" class="vz-dropdown-active">Unternehmensnachfolge</a></li>
+            <li><a href="#">Pensionskasse</a></li>
+            <li><a href="#">Kadervorsorge</a></li>
+            <li><a href="#">Versicherungsmanagement</a></li>
+            <li><a href="#">Firmengründung</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Ratgeber</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Seminare &amp; Workshops</a></li>
+            <li><a href="#">Merkblätter &amp; Bücher</a></li>
+            <li><a href="#">Studien &amp; Dossiers</a></li>
+            <li><a href="#">Wissensbeiträge</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Checks &amp; Analysen</a></li>
+            <li><a href="#">Finanzrechner &amp; Vergleiche</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Über XY</a>
+        <div class="vz-dropdown">
+          <ul class="vz-dropdown-list">
+            <li><a href="#">Unabhängige Beratung</a></li>
+            <li><a href="#">Standorte</a></li>
+            <li><a href="#">Portrait</a></li>
+            <li><a href="#">Meinungen</a></li>
+            <li><a href="#">Newsroom</a></li>
+            <li><a href="#">Jobs &amp; Karriere</a></li>
+            <li><a href="#">Kontakt &amp; Hilfe</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="vz-nav-item">
+        <a href="#" class="vz-nav-link">Börsen &amp; Märkte</a>
+      </li>
+    </ul>
+
+    <div class="vz-header-right">
+      <a href="#" onclick="openTerminDialog();return false;" class="vz-cta-btn">Termin vereinbaren</a>
+      <button class="vz-hamburger" id="vz-hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="vz-mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
-<div class="vz-quicklinks">
+
+<nav id="vz-mobile-menu" aria-label="Mobiles Menü">
+  <ul>
+    <li>
+      <a href="#">Privatpersonen</a>
+      <ul>
+        <li><a href="#">Pensionierung</a></li>
+        <li><a href="#">Geldanlagen</a></li>
+        <li><a href="#">Nachlass</a></li>
+        <li><a href="#">Immobilien &amp; Hypotheken</a></li>
+        <li><a href="#">Steuern</a></li>
+        <li><a href="#">Vorsorge</a></li>
+        <li><a href="#">Versicherungen</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="/index.html">Firmen</a>
+      <ul>
+        <li><a href="/index.html">Unternehmensnachfolge</a></li>
+        <li><a href="#">Pensionskasse</a></li>
+        <li><a href="#">Kadervorsorge</a></li>
+        <li><a href="#">Versicherungsmanagement</a></li>
+        <li><a href="#">Firmengründung</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Ratgeber</a></li>
+    <li><a href="#">Über XY</a></li>
+    <li><a href="#">Börsen &amp; Märkte</a></li>
+    <li style="border-top:1px solid #e8e8e8;margin-top:8px;padding-top:8px;">
+      <a href="#" onclick="openTerminDialog();return false;" style="color:var(--vz-orange);">→ Termin vereinbaren</a>
+    </li>
+  </ul>
+</nav>
+<div id="vz-quicklinks">
   <div class="vz-quicklinks-inner">
     <a href="#">Pensionierung</a>
     <a href="#">Geldanlagen</a>
@@ -50,92 +148,111 @@
     <a href="#">Firmen</a>
   </div>
 </div>
+<nav class="vz-breadcrumb">
+  <div class="vz-breadcrumb-inner"><a href="#">Startseite</a> <span class="sep">›</span> <a href="#">Firmen</a> <span class="sep">›</span> <a href="/index.html">Unternehmensnachfolge</a> <span class="sep">›</span> <span>Family Buy Out (FBO)</span></div>
+</nav>
 
-<nav class="vz-breadcrumb" aria-label="Brotkrumen"><a href="#">Startseite</a><span class="sep">›</span><a href="#">Firmen</a><span class="sep">›</span><a href="/index.html">Unternehmensnachfolge</a><span class="sep">›</span><span>Family Buy Out (FBO)</span></nav>
-
-<main class="vz-main">
-
-  <div class="vz-card">
-    <p class="vz-eyebrow">Family Buy Out (FBO)</p>
-    <h1 style="font-size:2.4rem;margin:0 0 16px;">Familieninterne Nachfolge — Kontinuität über Generationen.</h1>
-    <p style="font-size:1.2rem;max-width:800px;margin:0;color:var(--vz-text);line-height:1.5;">Die Übergabe eines Unternehmens innerhalb der Familie ist oft die emotional stärkste Form der Nachfolge. Sie bewahrt das Lebenswerk im Kreis der Familie — braucht aber eine besonders sorgfältige Vorbereitung, damit sie gelingt.</p>
+<section class="detail-hero">
+  <div class="container">
+    <span class="eyebrow">Family Buy Out (FBO)</span>
+    <h1>Familieninterne Nachfolge</h1>
+    <p>Kontinuität über Generationen — das Lebenswerk bleibt in der Familie, doch die Übergabe will sorgfältig vorbereitet sein.</p>
   </div>
+</section>
 
-  <div class="vz-card">
-    <div class="vz-layout-2col">
-      <div class="vz-content-block">
-        <h2>Chancen und Herausforderungen</h2><p>Eine familieninterne Übergabe schafft Kontinuität und erhält das, was über Jahrzehnte aufgebaut wurde. Gleichzeitig bringt sie spezifische Herausforderungen mit sich: unterschiedliche Erwartungen zwischen Generationen, Fairness gegenüber Geschwistern, die nicht übernehmen wollen, die Finanzierung der Übergabe. Diese Themen wollen früh und offen angesprochen werden.</p><h2>Die richtige Struktur finden</h2><p>Ob Schenkung, schrittweise Übergabe, gemischter Kauf oder Übertragung mittels Nutzniessung — die passende Struktur hängt von Ihrer familiären und finanziellen Situation ab. Wir durchdenken die Optionen mit Ihnen systematisch.</p><h2>Bewertung und Fairness</h2><p>Eine objektive Bewertung schafft auch innerhalb der Familie Klarheit. Sie ist die Grundlage für einen Preis, der für alle Beteiligten fair ist — für den Übernehmer, die Übergeber und auch die nicht übernehmenden Geschwister.</p><h2>Steueroptimierung</h2><p>Familieninterne Nachfolgen bieten steuerliche Gestaltungsmöglichkeiten, die bei externen Verkäufen nicht bestehen. Wir strukturieren die Übergabe so, dass alle Beteiligten steuerlich optimal gestellt sind.</p><h2>Aktionärbindungsvertrag</h2><p>Bei schrittweisen Übergaben oder wenn mehrere Familienmitglieder beteiligt sind, schafft ein Aktionärbindungsvertrag Klarheit über Stimmrechte, Übertragungen und Konfliktlösung. Wir entwickeln mit Ihnen massgeschneiderte Lösungen.</p>
+<section class="detail-body">
+  <div class="container">
+    <div class="detail-layout">
+      <div class="detail-content">
+        <p style="font-size:19px;line-height:1.55;color:var(--vz-text);margin:0 0 32px;font-weight:500;">Die Übergabe eines Unternehmens innerhalb der Familie ist oft die emotional stärkste Form der Nachfolge. Sie bewahrt das Lebenswerk im Kreis der Familie und signalisiert Kunden, Mitarbeitenden und Lieferanten Kontinuität. Gleichzeitig ist sie die anspruchsvollste Form — weil fachliche, rechtliche, steuerliche und familiäre Dimensionen ineinandergreifen.</p>
+        <h2>Wann eine familieninterne Nachfolge sinnvoll ist</h2><p>Eine familieninterne Nachfolge setzt voraus, dass eine oder mehrere Personen aus der Familie das Unternehmen übernehmen wollen <em>und</em> können. Beides muss ehrlich geprüft werden — oft scheitern familieninterne Übergaben daran, dass eines der beiden Kriterien nur halb erfüllt ist.</p><p>Gute Voraussetzungen für einen FBO bestehen, wenn:</p><ul><li>Ein Nachkomme grundsätzliches Interesse und unternehmerische Eignung mitbringt</li><li>Zwischen den Generationen ein Grundvertrauen und eine offene Kommunikationskultur herrscht</li><li>Die Familie bereit ist, die finanziellen Konsequenzen fair für alle Beteiligten zu regeln — auch für nicht übernehmende Geschwister</li><li>Genügend Zeit für eine strukturierte Übergabe vorhanden ist (idealerweise 5 bis 10 Jahre)</li><li>Der Übergeber bereit ist, schrittweise Verantwortung abzugeben</li></ul><h2>Die Schlüsselfragen</h2><p>Bevor die strukturelle Umsetzung beginnt, müssen die grundsätzlichen Fragen geklärt sein. Wir helfen Ihnen, diese systematisch zu durchdenken:</p><ul><li><strong>Eignung:</strong> Ist der Nachfolger fachlich und persönlich auf die Rolle vorbereitet? Oder braucht er noch Erfahrung ausserhalb des Familienbetriebs?</li><li><strong>Mehrere Kinder:</strong> Wenn mehrere Kinder vorhanden sind — wie wird die Fairness sichergestellt? Die klassische Antwort «alle bekommen gleich viel» greift oft zu kurz.</li><li><strong>Zeitpunkt:</strong> Wie lange soll die Übergabephase dauern? Wann gibt der Übergeber welche Verantwortung ab?</li><li><strong>Rolle des Übergebers:</strong> Bleibt er im Verwaltungsrat? Als Berater? Oder zieht er sich vollständig zurück?</li><li><strong>Finanzierung:</strong> Wie finanziert der Nachfolger die Übernahme? Schenkung, Kauf, gemischter Vertrag?</li></ul><h2>Strukturvarianten im Überblick</h2><p>Für die familieninterne Nachfolge stehen mehrere rechtliche und steuerliche Strukturen zur Verfügung. Die richtige Wahl hängt vom Unternehmenswert, der finanziellen Leistungsfähigkeit des Nachfolgers und der Gesamtsituation der Familie ab.</p><h3>Schenkung</h3><p>Die Übertragung der Anteile erfolgt ohne Gegenleistung. Rechtlich einfach, aber oft nicht umsetzbar bei mehreren Kindern — wegen der Pflichtteilsrechte und der Frage der Fairness. Schenkung wird häufig mit anderen Instrumenten kombiniert.</p><h3>Vollkauf</h3><p>Der Nachfolger kauft das Unternehmen zum Verkehrswert. Einfach strukturiert, aber finanziell anspruchsvoll. In der Praxis oft nur mit Verkäuferdarlehen oder Bankfinanzierung möglich.</p><h3>Gemischter Kauf (Teilschenkung)</h3><p>Der Nachfolger zahlt einen Teil des Werts, der Rest wird geschenkt. Die verbreitetste Form — sie kombiniert Fairness mit finanzieller Tragbarkeit.</p><h2>Aktionärbindungsvertrag — die unverzichtbare Grundlage</h2><p>Bei Familienunternehmen, in denen mehrere Personen Aktien halten — sei es übergangsweise oder dauerhaft — ist ein Aktionärbindungsvertrag (ABV) zentral. Er regelt:</p><ul><li>Wer darf an wen Aktien verkaufen? (Vorkaufsrechte, Mitverkaufspflichten)</li><li>Wie werden Entscheidungen getroffen? (Stimmbindungen, Mehrheiten)</li><li>Wie werden Konflikte gelöst? (Schiedsverfahren, Buy-out-Klauseln)</li><li>Was passiert im Todesfall eines Aktionärs?</li><li>Welche Arbeits- und Lohnregelungen gelten für aktive Familienmitglieder?</li></ul><h2>Steueroptimierung — Hebel und Fallstricke</h2><p>Die familieninterne Nachfolge bietet steuerliche Gestaltungsmöglichkeiten, die bei einem externen Verkauf nicht bestehen. Gleichzeitig gibt es typische Fallstricke, die viele teuer bezahlen.</p><p><strong>Wichtige Hebel:</strong></p><ul><li>Schenkungssteuer zwischen Eltern und Kindern ist in den meisten Kantonen erlassen — aber nicht überall</li><li>Die Wahl des Übertragungszeitpunkts kann den steuerlich relevanten Unternehmenswert beeinflussen</li><li>Mit einer vorgelagerten Holding-Struktur lassen sich Steuern auf nicht betriebsnotwendige Vermögenswerte optimieren</li><li>Beim gemischten Kauf ist die Bewertung entscheidend für die steuerliche Einstufung (Schenkung vs. Kauf)</li></ul><h2>Unser Vorgehen in sechs Schritten</h2><ol><li><strong>Orientierungsphase:</strong> Gespräche mit Übergeber und potenziellem Nachfolger, ehrliche Standortbestimmung, erste Machbarkeitseinschätzung</li><li><strong>Bewertung:</strong> Fundierte Unternehmensbewertung nach anerkannten Methoden — auch wenn nicht verkauft wird, ist der Wert die Grundlage aller weiteren Entscheidungen</li><li><strong>Familienkonferenz:</strong> Alle Beteiligten (Übergeber, Nachfolger, nicht übernehmende Geschwister) an einem Tisch — wir moderieren diesen sensiblen Prozess</li><li><strong>Strukturierung:</strong> Rechtliche und steuerliche Ausgestaltung der Übergabe (Verträge, Holding, ABV, Erbrecht)</li><li><strong>Umsetzung:</strong> Schrittweise Übertragung der Anteile, Einarbeitung des Nachfolgers, Kommunikation nach aussen</li><li><strong>Begleitung danach:</strong> Pensionierungsplanung, Nachlass, Vermögensverwaltung für den Übergeber</li></ol><h2>Typische Fehler, die wir vermeiden helfen</h2><p>In über 200 Nachfolgeprojekten haben wir gelernt, welche Muster immer wieder zu Problemen führen. Einige der häufigsten:</p><ul><li><strong>Zu spät beginnen.</strong> Die FBO braucht Zeit. Wer sechs Monate vor der geplanten Pensionierung startet, steht unter Zeitdruck — und Zeitdruck ist der grösste Feind einer guten Nachfolge.</li><li><strong>Die Gefühle ignorieren.</strong> Eine Nachfolge ist auch ein emotionaler Prozess. Wer nur über Zahlen spricht, blendet die Hälfte der Realität aus.</li><li><strong>Nicht übernehmende Kinder übergehen.</strong> Fairness lässt sich nicht nachträglich herstellen. Die Regelung für alle Beteiligten muss von Anfang an mitgedacht werden.</li><li><strong>Den Nachfolger nicht richtig vorbereiten.</strong> Erfahrung ausserhalb des Familienbetriebs, formale Weiterbildung und klare Verantwortungen vor der Übernahme zahlen sich vielfach aus.</li><li><strong>Den Loslass-Schmerz unterschätzen.</strong> Viele Übergeber unterschätzen, wie schwer der Rückzug fällt. Eine klare Rolle nach der Übergabe hilft.</li></ul><h2>Die Rolle des Übergebers nach der Nachfolge</h2><p>Eine der wichtigsten — und oft am wenigsten beachteten — Fragen ist: Was macht der Übergeber, nachdem die Firma übergeben ist? Wer Jahrzehnte ein Unternehmen geführt hat, verliert mit der Übergabe nicht nur eine Aufgabe, sondern oft auch einen Teil seiner Identität.</p><p>Drei bewährte Modelle:</p><ul><li><strong>Kompletter Rückzug.</strong> Klar für alle Beteiligten, aber emotional anspruchsvoll für den Übergeber. Funktioniert gut, wenn er neue Lebensaufgaben gefunden hat.</li><li><strong>Verwaltungsrat.</strong> Strategische Mitsprache, operative Distanz. Gute Lösung, wenn Rollen klar abgegrenzt sind.</li><li><strong>Beratermandat auf Zeit.</strong> Der Übergeber steht dem Nachfolger für 1 bis 3 Jahre beratend zur Seite — mit klar definiertem Ende.</li></ul>
       </div>
-      <aside class="vz-sidebar">
-        <div class="vz-advisor">
-  <div class="vz-advisor-photo" aria-hidden="true">
-    <!-- [PLATZHALTER: Portrait Roger Hofstetter] -->
-    Portraitfoto<br>Roger Hofstetter
+      <aside class="detail-sidebar">
+        <div class="advisor-card">
+  <div class="advisor-photo">
+    <img src="/assets/roger-hofstetter.svg" alt="Portrait Roger Hofstetter">
   </div>
-  <p class="vz-advisor-name">Roger Hofstetter</p>
-  <p class="vz-advisor-role">Leiter Unternehmensnachfolge</p>
-  <p class="vz-advisor-meta"><strong>Telefon</strong><a href="tel:+41441234567">+41 44 123 45 67</a></p>
-  <p class="vz-advisor-meta"><strong>E-Mail</strong><a href="mailto:roger.hofstetter@xy.ch">roger.hofstetter@xy.ch</a></p>
-  <a href="#" class="vz-btn" data-modal-open="termin-modal" style="width:100%;text-align:center;margin-top:12px;">Termin vereinbaren</a>
-  <p style="font-size:0.82rem;color:var(--vz-text-muted);margin:10px 0 0;text-align:center;">Das erste Gespräch ist kostenlos.</p>
+  <p class="advisor-name">Roger Hofstetter</p>
+  <p class="advisor-role">Leiter Unternehmensnachfolge</p>
+  <p class="advisor-contact"><strong>Telefon</strong><a href="tel:+41441234567">+41 44 123 45 67</a></p>
+  <p class="advisor-contact"><strong>E-Mail</strong><a href="mailto:roger.hofstetter@xy.ch">roger.hofstetter@xy.ch</a></p>
+  <a href="#" onclick="openTerminDialog();return false;" class="btn btn-primary">Termin vereinbaren</a>
+  <p class="advisor-note">Das erste Gespräch ist kostenlos.</p>
 </div>
       </aside>
     </div>
   </div>
+</section>
 
-  <div class="vz-cta-box">
-    <div>
-      <h2>Ist das der richtige Weg für Sie?</h2>
-      <p>In einem kostenlosen Erstgespräch klären wir, welche Nachfolge-Variante für Ihre Situation passt — offen, ehrlich und ohne Verpflichtung.</p>
-      <a href="#" class="vz-btn" data-modal-open="termin-modal">Kostenloses Erstgespräch vereinbaren</a>
-    </div>
-    <div class="vz-cta-contact">
-      <p style="font-size:0.85rem;opacity:0.85;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.05em;">Direkter Kontakt</p>
-      <p style="margin:0 0 4px;"><a href="tel:+41441234567" style="font-size:1.15rem;">📞 +41 44 123 45 67</a></p>
-      <p><a href="mailto:unternehmensnachfolge@xy.ch">✉ unternehmensnachfolge@xy.ch</a></p>
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-final-grid">
+      <div class="cta-final-text">
+        <h2>Kostenloses Erstgespräch</h2>
+        <p>In einem vertraulichen Gespräch analysieren wir Ihre Situation — ohne Druck, ohne Verpflichtung. Sie erhalten eine ehrliche Einschätzung Ihrer Möglichkeiten.</p>
+        <ul>
+          <li>Kostenlos und unverbindlich</li>
+          <li>Absolute Vertraulichkeit garantiert</li>
+          <li>Über 200 erfolgreich begleitete Übergaben</li>
+          <li>Antwort innert einem Werktag</li>
+        </ul>
+        <a href="#" onclick="openTerminDialog();return false;" class="btn btn-primary" style="background:var(--vz-orange);">Termin vereinbaren</a>
+      </div>
+      <div class="cta-final-box">
+        <p class="cta-final-box-eyebrow">Direkter Kontakt</p>
+        <a href="tel:+41441234567" style="font-size:22px;">+41 44 123 45 67</a>
+        <a href="mailto:unternehmensnachfolge@xy.ch">unternehmensnachfolge@xy.ch</a>
+        <button type="button" class="btn btn-primary" style="background:var(--vz-orange);" onclick="openTerminDialog()">Termin vereinbaren</button>
+      </div>
     </div>
   </div>
+</section>
 
-</main>
-
-<footer class="vz-footer">
-  <div class="vz-footer-inner">
-    <div>
-      <a href="/index.html" class="vz-logo" style="margin-bottom:16px;">
-        <span class="vz-logo-mark" style="font-size:1.6rem;">XY</span>
-        <span class="vz-logo-text">XxxxxZentrum</span>
-      </a>
-      <p style="color:var(--vz-text-muted);font-size:0.88rem;margin:12px 0 0;">Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
-    </div>
-    <div>
-      <h4>Firmen</h4>
-      <ul>
-        <li><a href="/index.html">Unternehmensnachfolge</a></li>
-        <li><a href="#">Pensionskasse</a></li>
-        <li><a href="#">Kadervorsorge</a></li>
-        <li><a href="#">Versicherungsmanagement</a></li>
-        <li><a href="#">Firmengründung</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Ratgeber</h4>
-      <ul>
-        <li><a href="#">Merkblätter &amp; Bücher</a></li>
-        <li><a href="#">Seminare &amp; Workshops</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Wissensbeiträge</a></li>
-        <li><a href="#">Finanzrechner</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Über XY</h4>
-      <ul>
-        <li><a href="#">Portrait</a></li>
-        <li><a href="#">Standorte</a></li>
-        <li><a href="#">Jobs &amp; Karriere</a></li>
-        <li><a href="#">Kontakt &amp; Hilfe</a></li>
-        <li><a href="#">Newsletter abonnieren</a></li>
-      </ul>
+<footer id="vz-footer">
+  <div class="container">
+    <div class="vz-footer-grid">
+      <div class="vz-footer-logo-col">
+        <a href="/index.html" class="vz-logo"><strong>XY</strong><span class="vz-logo-wordmark">XxxxxZentrum</span></a>
+        <p>Unabhängige Beratung für Privatpersonen und Firmen in der Schweiz.</p>
+      </div>
+      <div>
+        <h4>Firmen</h4>
+        <ul>
+          <li><a href="/index.html">Unternehmensnachfolge</a></li>
+          <li><a href="#">Pensionskasse</a></li>
+          <li><a href="#">Kadervorsorge</a></li>
+          <li><a href="#">Versicherungsmanagement</a></li>
+          <li><a href="#">Firmengründung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ratgeber</h4>
+        <ul>
+          <li><a href="#">Merkblätter &amp; Bücher</a></li>
+          <li><a href="#">Seminare</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="#">Wissensbeiträge</a></li>
+          <li><a href="#">Finanzrechner</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Über XY</h4>
+        <ul>
+          <li><a href="#">Portrait</a></li>
+          <li><a href="#">Standorte</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">VZ Finanzportal</a></li>
+          <li><a href="#">Kurse &amp; Märkte</a></li>
+          <li><a href="#">Firmenportal</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="vz-footer-bottom">
@@ -148,47 +265,11 @@
     </ul>
   </div>
 </footer>
-
-<aside class="vz-mobile-nav" aria-label="Mobiles Menü">
-  <button class="vz-mobile-nav-close" data-mobile-nav-close aria-label="Menü schliessen">×</button>
-  <h4>Privatpersonen</h4>
-  <ul>
-    <li><a href="#">Pensionierung</a></li>
-    <li><a href="#">Geldanlagen</a></li>
-    <li><a href="#">Nachlass</a></li>
-    <li><a href="#">Immobilien &amp; Hypotheken</a></li>
-    <li><a href="#">Steuern</a></li>
-    <li><a href="#">Vorsorge</a></li>
-    <li><a href="#">Versicherungen</a></li>
-    <li><a href="#">Bankgeschäfte</a></li>
-  </ul>
-  <h4>Firmen</h4>
-  <ul>
-    <li><a href="/index.html">Unternehmensnachfolge</a></li>
-    <li><a href="#">Pensionskasse</a></li>
-    <li><a href="#">Kadervorsorge</a></li>
-    <li><a href="#">Versicherungsmanagement</a></li>
-    <li><a href="#">Firmengründung</a></li>
-  </ul>
-  <h4>Ratgeber</h4>
-  <ul>
-    <li><a href="#">Merkblätter &amp; Bücher</a></li>
-    <li><a href="#">Seminare</a></li>
-    <li><a href="#">Videos</a></li>
-  </ul>
-  <h4>Über XY</h4>
-  <ul>
-    <li><a href="#">Portrait</a></li>
-    <li><a href="#">Standorte</a></li>
-    <li><a href="#">Kontakt</a></li>
-  </ul>
-</aside>
-
 <div class="vz-modal-backdrop" id="termin-modal" role="dialog" aria-labelledby="termin-modal-title" aria-modal="true">
   <div class="vz-modal">
     <button class="vz-modal-close" data-modal-close="termin-modal" aria-label="Schliessen">×</button>
     <h2 id="termin-modal-title">Termin vereinbaren</h2>
-    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Wir melden uns innert einem Werktag bei Ihnen. Das erste Gespräch ist kostenlos und unverbindlich.</p>
+    <p style="color:var(--vz-text-muted);margin:0 0 20px;">Das erste Gespräch ist kostenlos und unverbindlich. Wir melden uns innert einem Werktag bei Ihnen.</p>
     <form data-termin-form novalidate>
       <div class="vz-form-field"><label for="tm-name">Name *</label><input type="text" id="tm-name" required></div>
       <div class="vz-form-field"><label for="tm-tel">Telefon *</label><input type="tel" id="tm-tel" required></div>
@@ -207,16 +288,15 @@
         <input type="checkbox" id="tm-consent" required>
         <label for="tm-consent" style="font-weight:400;">Ich bestätige, dass ich die <a href="#">Datenschutzerklärung</a> gelesen habe.</label>
       </div>
-      <button type="submit" class="vz-btn">Termin anfragen</button>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Termin anfragen</button>
     </form>
     <div data-termin-confirm style="display:none;padding:20px 0;">
-      <p style="color:var(--vz-primary);font-weight:600;font-size:1.1rem;">✓ Vielen Dank!</p>
+      <p style="color:var(--vz-primary);font-weight:700;font-size:18px;margin:0 0 8px;">✓ Vielen Dank!</p>
       <p>Wir melden uns innert einem Werktag bei Ihnen.</p>
-      <button class="vz-btn vz-btn--outline" data-modal-close="termin-modal">Schliessen</button>
+      <button class="btn btn-secondary" data-modal-close="termin-modal">Schliessen</button>
     </div>
   </div>
 </div>
-
 <script src="/assets/vz.js"></script>
 </body>
 </html>
