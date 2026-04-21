@@ -367,8 +367,11 @@ section.bg-dark-gradient {
 
 @media (max-width: 768px) {
   section { padding: 56px 0; }
-  h1 { font-size: 36px; }
-  h2 { font-size: 28px; }
+  body { font-size: 16px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 18px; }
+  p { font-size: 15px; line-height: 1.6; }
 }
 
 .section-header { text-align: center; margin-bottom: 48px; max-width: 780px; margin-left: auto; margin-right: auto; }
@@ -482,10 +485,12 @@ section.bg-dark-gradient {
   box-shadow: 0 24px 60px rgba(0,0,0,0.25);
 }
 .hero-roger-photo {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 80px;
+  height: 80px;
+  aspect-ratio: unset;
+  border-radius: 50%;
   background: linear-gradient(135deg, #e8ebf0 0%, #c9d1dc 100%);
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -553,7 +558,7 @@ section.bg-dark-gradient {
   gap: 8px;
 }
 .proof-number {
-  font-size: 64px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--vz-primary);
   line-height: 1;
@@ -561,14 +566,14 @@ section.bg-dark-gradient {
   font-variant-numeric: tabular-nums;
 }
 .proof-label {
-  font-size: 15px;
+  font-size: 11px;
   color: var(--vz-text-muted);
   font-weight: 500;
   line-height: 1.4;
 }
 @media (max-width: 720px) {
   .proof-grid { grid-template-columns: 1fr; gap: 32px; }
-  .proof-number { font-size: 52px; }
+  .proof-number { font-size: 28px; }
 }
 
 /* ============================================================
@@ -586,7 +591,7 @@ section.bg-dark-gradient {
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: auto 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
 }
 .shortcut-label {

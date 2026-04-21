@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frikarti Stauden AG | Referenzprojekt Unternehmensnachfolge</title>
+    <meta name="description" content="Erfolgreiche Übergabe eines spezialisierten Gartenbaubetriebs. Lesen Sie die Erfolgsgeschichte.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--color-primary:#003B75;--color-secondary:#002B5C;--color-accent:#003B75;--color-text:#191919;--color-text-light:#555555;--color-bg:#FFFFFF;--color-bg-light:#F4F6F9;--color-border:#e0e0e0;--radius-sm:2px;--radius-lg:4px;--space-md:24px;--space-lg:40px;--space-2xl:64px;}
+        *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+        body{font-family:'Inter',sans-serif;font-size:17px;line-height:1.6;color:#191919;background:#fff;-webkit-font-smoothing:antialiased;}
+        a{color:var(--color-accent);text-decoration:none;transition:color 0.2s;}a:hover{color:var(--color-secondary);}
+        .container{max-width:1200px;margin:0 auto;padding:0 var(--space-md);}
+        #vz-utility-bar{background:#fff;border-bottom:1px solid #e8e8e8;}
+        .vz-utility-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;justify-content:flex-end;align-items:center;height:40px;gap:20px;}
+        .vz-utility-link{color:#191919;text-decoration:none;font-size:15px;white-space:nowrap;background:none;border:none;cursor:pointer;font-family:inherit;}
+        .vz-utility-link:hover{color:#003B75;text-decoration:underline;}
+        .vz-utility-sep{color:#d0d0d0;}
+        @media(max-width:860px){#vz-utility-bar{display:none;}}
+        #vz-header{background:#fff;border-bottom:1px solid #e8e8e8;position:sticky;top:0;z-index:1000;transition:box-shadow 0.25s;}
+        #vz-header.nav-scrolled{box-shadow:0 2px 16px rgba(0,0,0,0.12);}
+        .vz-header-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:72px;}
+        .vz-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;margin-right:40px;}
+        .vz-logo-wordmark{font-size:15px;font-weight:500;color:#191919;}
+        .vz-main-nav{display:flex;align-items:stretch;list-style:none;flex:1;height:100%;}
+        .vz-nav-item{position:relative;display:flex;align-items:stretch;}
+        .vz-nav-item>a{display:flex;align-items:center;padding:0 16px;font-size:17px;color:#191919;text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color 0.2s,border-color 0.2s;}
+        .vz-nav-item>a:hover{color:#003B75;}
+        .vz-nav-item.active>a{color:#003B75;font-weight:600;border-bottom-color:#003B75;}
+        .vz-dropdown{display:none;position:absolute;top:100%;left:0;background:#fff;box-shadow:0 8px 32px rgba(0,0,0,0.12);border-top:3px solid #003B75;min-width:220px;padding:8px 0;z-index:2000;}
+        .vz-nav-item::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:8px;}
+        .vz-nav-item:hover .vz-dropdown{display:block;}
+        .vz-dropdown-list{list-style:none;}
+        .vz-dropdown-list a{display:block;padding:10px 24px;font-size:16px;color:#191919;text-decoration:none;}
+        .vz-dropdown-list a:hover{background:#F5F5F7;color:#003B75;}
+        .vz-dropdown-list a.vz-dropdown-active{font-weight:700;color:#003B75;}
+        .vz-header-right{display:flex;align-items:center;gap:12px;margin-left:auto;}
+        .vz-cta-btn{background:#C95321;color:#fff;border-radius:100px;padding:10px 22px;font-size:15px;font-weight:500;transition:background 0.2s;border:none;cursor:pointer;font-family:'Inter',sans-serif;display:inline-block;text-decoration:none;}
+        .vz-cta-btn:hover{background:#a84218;color:#fff;}
+        .vz-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;}
+        .vz-hamburger span{display:block;width:24px;height:2px;background:#191919;border-radius:1px;transition:transform 0.3s,opacity 0.3s;}
+        body.mobile-menu-open .vz-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+        body.mobile-menu-open .vz-hamburger span:nth-child(2){opacity:0;}
+        body.mobile-menu-open .vz-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+        .mobile-menu{position:fixed;top:0;right:0;width:320px;max-width:100%;height:100%;background:#003B75;z-index:1100;display:flex;flex-direction:column;overflow-y:auto;transform:translateX(100%);transition:transform 0.3s;}
+        body.mobile-menu-open .mobile-menu{transform:translateX(0);}
+        .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1099;}
+        body.mobile-menu-open .mobile-menu-overlay{display:block;}
+        .mobile-menu-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.15);}
+        .mobile-menu-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+        .mobile-menu-logo-sq{width:34px;height:34px;background:#fff;color:#003B75;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+        .mobile-menu-logo-text{font-size:14px;font-weight:600;color:#fff;}
+        .mobile-menu-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:4px 8px;}
+        .mobile-menu-links{list-style:none;padding:8px 0;flex:1;}
+        .mobile-menu-item{border-bottom:1px solid rgba(255,255,255,0.1);}
+        .mobile-menu-toggle{width:100%;background:none;border:none;color:#fff;font-size:17px;font-weight:600;font-family:'Inter',sans-serif;text-align:left;padding:14px 20px;cursor:pointer;}
+        .mobile-submenu{display:block;list-style:none;padding:0 0 8px;background:rgba(0,0,0,0.15);}
+        .mobile-submenu li a{display:block;padding:10px 20px 10px 36px;font-size:15px;color:rgba(255,255,255,0.85);text-decoration:none;}
+        .mobile-menu-cta{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.15);}
+        @media(max-width:860px){.vz-main-nav{display:none;}.vz-header-inner{height:60px;}.vz-hamburger{display:flex;}.vz-cta-btn{display:none;}}
+        #vz-quicklinks{background:#fff;border-bottom:1px solid #e8e8e8;overflow-x:auto;scrollbar-width:none;}
+        .quicklinks-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;height:48px;align-items:center;}
+        .quicklink{color:#191919;text-decoration:none;font-size:17px;padding:0 16px;height:100%;display:flex;align-items:center;border-bottom:3px solid transparent;transition:color 0.2s;}
+        .quicklink:first-child{padding-left:0;}.quicklink:hover{color:#003B75;}.quicklink.active{color:#003B75;font-weight:600;border-bottom-color:#003B75;}
+        #vz-breadcrumb{background:#fff;border-bottom:1px solid #e8e8e8;padding:10px 0;}
+        .breadcrumb-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:8px;font-size:14px;color:#767676;flex-wrap:wrap;}
+        .breadcrumb-inner a{color:#767676;text-decoration:none;}.breadcrumb-inner a:hover{text-decoration:underline;color:#003B75;}.breadcrumb-sep{color:#bbb;}.breadcrumb-current{color:#191919;}
+        #ref-detail-hero{background:#003B75;padding:48px 0 56px;}
+        .ref-detail-hero-inner{max-width:1200px;margin:0 auto;padding:0 var(--space-md);}
+        .ref-detail-tag{display:inline-block;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;padding:4px 12px;border-radius:2px;margin-bottom:16px;}
+        #ref-detail-hero h1{color:#fff;font-size:36px;line-height:1.2;max-width:700px;margin-bottom:12px;}
+        .ref-detail-sub{color:rgba(255,255,255,0.75);font-size:18px;max-width:580px;}
+        @media(max-width:768px){#ref-detail-hero{padding:36px 0 40px;}#ref-detail-hero h1{font-size:26px;}}
+        #ref-detail-content{padding:var(--space-2xl) 0;}
+        .ref-detail-grid{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:flex-start;}
+        @media(max-width:900px){.ref-detail-grid{grid-template-columns:1fr;gap:40px;}}
+        .ref-detail-text h2{font-size:26px;color:#003B75;margin-bottom:16px;}
+        .ref-detail-text h3{font-size:20px;color:#003B75;margin:28px 0 12px;}
+        .ref-detail-text p{font-size:17px;line-height:1.7;color:#191919;margin-bottom:20px;}
+        .ref-quote{background:#F4F6F9;border-left:4px solid #003B75;padding:24px 28px;margin:32px 0;border-radius:0 4px 4px 0;}
+        .ref-quote blockquote{font-size:18px;font-style:italic;line-height:1.6;color:#191919;margin-bottom:12px;}
+        .ref-quote-author{font-size:14px;font-weight:600;color:#555;}
+        .ref-sidebar{position:sticky;top:88px;}
+        .ref-sidebar-card{background:#F4F6F9;border:1px solid #e0e0e0;border-radius:4px;padding:28px 24px;margin-bottom:24px;}
+        .ref-sidebar-card h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#555;margin-bottom:16px;}
+        .ref-fact-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid #e0e0e0;font-size:14px;}
+        .ref-fact-row:last-child{border-bottom:none;}.ref-fact-label{color:#555;}.ref-fact-value{font-weight:600;color:#191919;text-align:right;}
+        .ref-cta-card{background:#003B75;border-radius:4px;padding:28px 24px;text-align:center;}
+        .ref-cta-card h4{color:#fff;font-size:18px;margin-bottom:10px;}.ref-cta-card p{color:rgba(255,255,255,0.75);font-size:14px;margin-bottom:20px;line-height:1.5;}
+        .ref-cta-btn{display:block;background:#C77649;color:#fff;padding:12px 20px;border-radius:2px;font-size:15px;font-weight:600;transition:background 0.2s;border:none;cursor:pointer;font-family:inherit;width:100%;}
+        .ref-cta-btn:hover{background:#a85e38;}
+        #ref-bottom-cta{background:#F4F6F9;border-top:1px solid #e0e0e0;padding:var(--space-2xl) 0;text-align:center;}
+        #ref-bottom-cta h2{font-size:28px;color:#003B75;margin-bottom:12px;}.#ref-bottom-cta p{color:#555;font-size:17px;margin-bottom:var(--space-lg);}
+        .ref-bottom-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+        .btn-primary-lg{background:#003B75;color:#fff;padding:14px 32px;font-size:16px;font-weight:600;border-radius:2px;text-decoration:none;transition:background 0.2s;border:none;cursor:pointer;font-family:inherit;}
+        .btn-primary-lg:hover{background:#003070;color:#fff;}
+        .btn-secondary-lg{border:2px solid #003B75;color:#003B75;background:transparent;padding:12px 30px;font-size:16px;font-weight:600;border-radius:2px;text-decoration:none;transition:background 0.2s;}
+        .btn-secondary-lg:hover{background:#003B75;color:#fff;}
+        .mobile-cta-bar{display:none;position:fixed;bottom:0;width:100%;z-index:900;background:#fff;padding:10px 0;text-align:center;box-shadow:0 -2px 8px rgba(0,0,0,0.08);}
+        @media(max-width:768px){.mobile-cta-bar{display:block;}body{padding-bottom:56px;}}
+        .mobile-cta-bar button{color:#fff;background:#E8611A;border:none;padding:10px 28px;font-size:15px;font-weight:600;border-radius:100px;cursor:pointer;font-family:inherit;}
+        .termin-dialog-vz{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:92%;max-width:920px;max-height:92vh;padding:0;border:none;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,0.25);background:transparent;z-index:10000;}
+        .termin-dialog-vz::backdrop{background-color:rgba(0,0,0,0.5);}
+        .termin-dialog-vz-content{background-color:#E8DCC8;border-radius:6px;padding:40px;max-height:92vh;overflow-y:auto;position:relative;}
+        .termin-dialog-vz-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:flex-start;}
+        .termin-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:26px;cursor:pointer;color:#A0734D;padding:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;}
+        .termin-close:hover{color:#7A4F2D;}
+        .termin-left h2{font-size:26px;font-weight:700;color:#191919;margin-bottom:16px;}
+        .termin-left p{font-size:14px;line-height:1.6;color:#555;margin-bottom:0;}
+        .termin-form-group{margin-bottom:20px;}.termin-form-label{font-weight:600;display:block;margin-bottom:10px;font-size:14px;color:#191919;}
+        .termin-checkbox-list{display:grid;gap:8px;}.termin-checkbox-row{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;color:#191919;}
+        .termin-checkbox-row input[type="checkbox"]{cursor:pointer;accent-color:#A0734D;width:15px;height:15px;}
+        .termin-textarea{width:100%;min-height:80px;padding:10px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;resize:vertical;background:rgba(255,255,255,0.6);}
+        .termin-textarea:focus{outline:none;border-color:#A0734D;background:#fff;}
+        .termin-personal-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;font-size:14px;color:#191919;}
+        .termin-personal-toggle input{cursor:pointer;accent-color:#A0734D;width:15px;height:15px;}
+        .termin-personal-hint{font-size:12px;color:#555;margin:4px 0 0;}
+        .termin-personal-fields{display:none;margin-top:16px;}.termin-personal-fields.open{display:grid;gap:10px;}
+        .termin-input{width:100%;padding:9px 12px;border:1px solid #c8b89a;border-radius:3px;font-family:inherit;font-size:14px;background:rgba(255,255,255,0.6);}
+        .termin-input:focus{outline:none;border-color:#A0734D;background:#fff;}
+        .termin-input-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .termin-anrede-row{display:flex;gap:20px;align-items:center;}.termin-anrede-label{font-size:14px;font-weight:600;color:#191919;}
+        .termin-radio-row{display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;}.termin-radio-row input{cursor:pointer;accent-color:#A0734D;}
+        .termin-info-text{font-size:13px;color:#191919;line-height:1.5;margin:12px 0 0;}
+        .termin-consent-row{display:flex;gap:10px;align-items:flex-start;font-size:12px;margin-top:16px;}
+        .termin-consent-row input{cursor:pointer;accent-color:#A0734D;margin-top:2px;flex-shrink:0;}.termin-consent-row a{color:#A0734D;text-decoration:underline;}
+        .termin-dialog-footer{display:flex;gap:12px;justify-content:flex-end;margin-top:28px;padding-top:20px;border-top:1px solid rgba(0,0,0,0.1);}
+        .termin-btn-close{padding:11px 24px;border:2px solid #A0734D;border-radius:3px;color:#A0734D;background:transparent;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}
+        .termin-btn-submit{padding:11px 28px;border:none;border-radius:3px;background:#C77649;color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}
+        .termin-btn-submit:hover{background:#a85e38;}
+        @media(max-width:760px){.termin-dialog-vz-grid{grid-template-columns:1fr;gap:24px;}.termin-dialog-vz-content{padding:28px 20px;}}
+    </style>
+</head>
+<body>
+    <dialog id="terminDialog" class="termin-dialog-vz">
+        <div class="termin-dialog-vz-content">
+            <button class="termin-close" onclick="closeTerminDialog()">&#x2715;</button>
+            <div class="termin-dialog-vz-grid">
+                <div class="termin-left"><h2>Möchten Sie mehr erfahren?</h2><p style="margin-bottom:12px;">Vereinbaren Sie einen Termin für ein erstes Gespräch.</p><p style="font-size:13px;color:#191919;">Wir begleiten KMU-Inhaber diskret und professionell durch den gesamten Nachfolgeprozess.</p></div>
+                <form id="terminForm" novalidate>
+                    <div class="termin-form-group"><label class="termin-form-label">Thema auswählen</label><div class="termin-checkbox-list"><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Unternehmensnachfolge" checked> Unternehmensnachfolge</label><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Pensionskasse"> Pensionskasse</label><label class="termin-checkbox-row"><input type="checkbox" name="topic" value="Andere Interessen"> Andere Interessen</label></div></div>
+                    <div class="termin-form-group"><label class="termin-form-label">Ihre Mitteilung</label><textarea name="message" class="termin-textarea" placeholder="Schildern Sie uns Ihre Situation"></textarea></div>
+                    <div class="termin-form-group"><label class="termin-personal-toggle"><input type="checkbox" id="expandPersonal" onchange="togglePersonalFields()"> Persönliche Angaben</label><p class="termin-personal-hint">Bitte alle Felder ausfüllen</p></div>
+                    <div id="personalFieldsContainer" class="termin-personal-fields">
+                        <div class="termin-anrede-row"><span class="termin-anrede-label">Anrede</span><label class="termin-radio-row"><input type="radio" name="salutation" value="Frau"> Frau</label><label class="termin-radio-row"><input type="radio" name="salutation" value="Herr"> Herr</label></div>
+                        <div class="termin-input-row"><input type="text" name="firstName" class="termin-input" placeholder="Vorname *"><input type="text" name="lastName" class="termin-input" placeholder="Nachname *"></div>
+                        <div class="termin-input-row"><input type="tel" name="phone" class="termin-input" placeholder="Telefonnummer *"><input type="email" name="email" class="termin-input" placeholder="E-Mail *"></div>
+                        <label class="termin-consent-row"><input type="checkbox" name="consent" id="terminConsent"><span>Ich bestätige, dass ich die <a href="#">Datenschutzerklärung</a> gelesen habe.</span></label>
+                    </div>
+                </form>
+            </div>
+            <div class="termin-dialog-footer"><button class="termin-btn-close" onclick="closeTerminDialog()">Schliessen</button><button class="termin-btn-submit" onclick="submitTerminForm()">Absenden</button></div>
+        </div>
+    </dialog>
+
+    <div id="vz-utility-bar"><div class="vz-utility-inner"><button onclick="openTerminDialog()" class="vz-utility-link">Termin vereinbaren</button><a href="#" class="vz-utility-link">Wissen</a><span class="vz-utility-sep">|</span><a href="#" class="vz-utility-link">Börsen &amp; Märkte</a></div></div>
+    <header id="vz-header"><div class="vz-header-inner"><a href="../index.html" class="vz-logo"><svg width="44" height="44" viewBox="0 0 44 44" fill="none"><rect width="44" height="44" fill="#003B75"/><polygon points="22,7 37,22 22,37 7,22" fill="none" stroke="white" stroke-width="2"/><text x="22" y="26" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">XY</text></svg><span class="vz-logo-wordmark">XxxxxZentrum</span></a><ul class="vz-main-nav"><li class="vz-nav-item"><a href="#">Privatpersonen</a></li><li class="vz-nav-item active"><a href="#">Firmen</a><div class="vz-dropdown"><ul class="vz-dropdown-list"><li><a href="../index.html" class="vz-dropdown-active">Unternehmensnachfolge</a></li></ul></div></li><li class="vz-nav-item"><a href="#">Ratgeber</a></li></ul><div class="vz-header-right"><button onclick="openTerminDialog()" class="vz-cta-btn">Termin vereinbaren</button><button class="vz-hamburger" id="vz-hamburger"><span></span><span></span><span></span></button></div></div></header>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu"><div class="mobile-menu-header"><a href="../index.html" class="mobile-menu-logo"><span class="mobile-menu-logo-sq">XY</span><span class="mobile-menu-logo-text">XxxxxZentrum</span></a><button class="mobile-menu-close" id="mobile-menu-close">&times;</button></div><ul class="mobile-menu-links"><li class="mobile-menu-item"><button class="mobile-menu-toggle">Firmen</button><ul class="mobile-submenu"><li><a href="../index.html">Unternehmensnachfolge</a></li></ul></li></ul><div class="mobile-menu-cta"><button onclick="openTerminDialog()" class="vz-cta-btn" style="width:100%;display:block;">Termin vereinbaren</button></div></div>
+    <nav id="vz-quicklinks"><div class="quicklinks-inner"><a href="#" class="quicklink">Pensionierung</a><a href="#" class="quicklink active">Firmen</a></div></nav>
+    <div id="vz-breadcrumb"><div class="breadcrumb-inner"><a href="#">Startseite</a><span class="breadcrumb-sep">&rsaquo;</span><a href="../index.html">Unternehmensnachfolge</a><span class="breadcrumb-sep">&rsaquo;</span><a href="../referenzen.html">Referenzen</a><span class="breadcrumb-sep">&rsaquo;</span><span class="breadcrumb-current">Frikarti Stauden AG</span></div></div>
+
+    <section id="ref-detail-hero"><div class="ref-detail-hero-inner"><span class="ref-detail-tag">Referenzprojekt · Gartenbau · 2023</span><h1>Frikarti Stauden AG</h1><p class="ref-detail-sub">Übergabe eines spezialisierten Gartenbaubetriebs — transparent, ehrlich und mit langfristiger Perspektive für alle Beteiligten.</p></div></section>
+
+    <section id="ref-detail-content"><div class="container"><div class="ref-detail-grid">
+        <div class="ref-detail-text">
+            <h2>Ausgangslage</h2>
+            <p>Beat Graf führte die Frikarti Stauden AG jahrzehntelang mit Leidenschaft und Expertise. Als spezialisierter Gartenbaubetrieb mit einzigartiger Marktstellung war das Unternehmen wirtschaftlich gesund — doch die Suche nach einem Nachfolger mit dem nötigen Fachwissen stellte eine besondere Herausforderung dar.</p>
+            <p>Besonders wichtig war Herrn Graf, dass die spezifische Unternehmenskultur, die engen Kundenbeziehungen und das Spezial-Know-how erhalten blieben. Ein reiner Finanzinvestor kam nicht in Frage.</p>
+            <h3>Unser Vorgehen</h3>
+            <p>XY legte besonderen Wert darauf, nur Kaufinteressenten vorzustellen, die fachlich und persönlich zur Frikarti Stauden AG passten. Dank unseres spezialisierten Netzwerks konnten wir gezielt suchen — und fanden innerhalb von sechs Monaten einen branchenkundigen Nachfolger.</p>
+            <p>Trotz einiger schwieriger Verhandlungsphasen blieb die Kommunikation stets offen und konstruktiv. XY moderierte den gesamten Prozess und sorgte dafür, dass beide Parteien fair behandelt wurden.</p>
+            <div class="ref-quote"><blockquote>«Selbst in schwierigen Situationen blieb die Zusammenarbeit transparent und ehrlich. XY hat nicht nur als Vermittler, sondern als echter Partner gehandelt.»</blockquote><p class="ref-quote-author">Beat Graf, ehem. Inhaber &amp; VRP, Frikarti Stauden AG</p></div>
+            <h3>Ergebnis</h3>
+            <p>Die Frikarti Stauden AG wurde 2023 erfolgreich an einen branchenerfahrenen Nachfolger übergeben. Alle Mitarbeitenden wurden übernommen, und das Unternehmen setzt seinen spezialisierten Kurs fort.</p>
+        </div>
+        <aside class="ref-sidebar">
+            <div class="ref-sidebar-card"><h4>Kennzahlen</h4><div class="ref-fact-row"><span class="ref-fact-label">Unternehmen</span><span class="ref-fact-value">Frikarti Stauden AG</span></div><div class="ref-fact-row"><span class="ref-fact-label">Branche</span><span class="ref-fact-value">Gartenbau</span></div><div class="ref-fact-row"><span class="ref-fact-label">Region</span><span class="ref-fact-value">Deutschschweiz</span></div><div class="ref-fact-row"><span class="ref-fact-label">Mitarbeitende</span><span class="ref-fact-value">15–20</span></div><div class="ref-fact-row"><span class="ref-fact-label">Nachfolgeform</span><span class="ref-fact-value">Familienexterner Verkauf</span></div><div class="ref-fact-row"><span class="ref-fact-label">Abschluss</span><span class="ref-fact-value">2023</span></div></div>
+            <div class="ref-cta-card"><h4>Ihr Unternehmen hat Potenzial</h4><p>In einem kostenlosen Erstgespräch klären wir, wie wir Ihre Nachfolge gestalten.</p><button onclick="openTerminDialog()" class="ref-cta-btn">Termin vereinbaren</button></div>
+        </aside>
+    </div></div></section>
+
+    <section id="ref-bottom-cta" style="background:#F4F6F9;border-top:1px solid #e0e0e0;padding:64px 0;text-align:center;"><div class="container"><h2 style="font-size:28px;color:#003B75;margin-bottom:12px;">Ihr Unternehmen könnte das nächste Referenzprojekt sein.</h2><p style="color:#555;font-size:17px;margin-bottom:40px;">Erfahren Sie in einem kostenlosen Erstgespräch, wie wir Ihre Nachfolge begleiten.</p><div class="ref-bottom-btns"><button onclick="openTerminDialog()" class="btn-primary-lg">Kostenloses Erstgespräch vereinbaren</button><a href="../referenzen.html" class="btn-secondary-lg">Alle Referenzen ansehen</a></div></div></section>
+
+    <div class="mobile-cta-bar"><button onclick="openTerminDialog()">Termin vereinbaren</button></div>
+    <footer style="background:#002B5C;padding:48px 0 24px;color:rgba(255,255,255,0.8);"><div style="max-width:1200px;margin:24px auto 0;padding:16px 24px 0;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;"><div style="font-size:12px;color:rgba(255,255,255,0.4);display:flex;gap:16px;"><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Datenschutzerklärung</a><a href="#" style="color:rgba(255,255,255,0.4);text-decoration:none;">Impressum</a></div><div style="font-size:12px;color:rgba(255,255,255,0.35);">&copy; 2026 XY XxxxxZentrum AG</div></div></footer>
+
+    <script>
+        const vzH=document.getElementById('vz-header');
+        const hbg=document.getElementById('vz-hamburger');
+        const mmo=document.getElementById('mobile-menu-overlay');
+        const mmc=document.getElementById('mobile-menu-close');
+        window.addEventListener('scroll',()=>vzH.classList.toggle('nav-scrolled',window.scrollY>10),{passive:true});
+        function openMM(){document.body.classList.add('mobile-menu-open');}
+        function closeMM(){document.body.classList.remove('mobile-menu-open');}
+        hbg.addEventListener('click',()=>document.body.classList.contains('mobile-menu-open')?closeMM():openMM());
+        mmc.addEventListener('click',closeMM);mmo.addEventListener('click',closeMM);
+        function togglePersonalFields(){const cb=document.getElementById('expandPersonal');const c=document.getElementById('personalFieldsContainer');if(c)c.classList.toggle('open',cb.checked);}
+        function openTerminDialog(){const d=document.getElementById('terminDialog');if(!d)return;const f=document.getElementById('terminForm');if(f)f.reset();const c=document.getElementById('personalFieldsContainer');if(c)c.classList.remove('open');const cb=document.getElementById('expandPersonal');if(cb)cb.checked=false;d.showModal();}
+        function closeTerminDialog(){const d=document.getElementById('terminDialog');if(d)d.close();}
+        function submitTerminForm(){alert('Vielen Dank! Wir melden uns innert 1 Werktag bei Ihnen.');closeTerminDialog();}
+        const dlg=document.getElementById('terminDialog');if(dlg){dlg.addEventListener('click',e=>{if(e.target===dlg)closeTerminDialog();});dlg.addEventListener('cancel',e=>{e.preventDefault();closeTerminDialog();});}
+    </script>
+</body>
+</html>
