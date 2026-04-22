@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Regionale SEO-Seiten erlaubt aber nicht in Navigation
+Allow: /unternehmensnachfolge-zuerich.html
+Allow: /unternehmensnachfolge-bern.html
+Allow: /unternehmensnachfolge-basel.html
+Allow: /unternehmensnachfolge-luzern.html
+Allow: /unternehmensnachfolge-stgallen.html
+
+Sitemap: https://nachfolge.xy.ch/sitemap.xml

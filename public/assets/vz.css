@@ -1717,3 +1717,117 @@ section.bg-dark-gradient {
 .text-center { text-align: center; }
 .mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
+
+/* ============================================================
+   UTILITY CLASSES (ersetzt Inline-Styles)
+   ============================================================ */
+.btn-primary-orange { background: var(--vz-orange); }
+.font-xl { font-size: 22px; font-weight: 700; }
+.contact-phone { font-size: 22px; font-weight: 700; display: block; padding: 6px 0; }
+.contact-email { display: block; padding: 6px 0; }
+.mandate-link-inline { color: var(--vz-primary); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--vz-primary); padding-bottom: 1px; }
+.mandate-link-inline:hover { color: var(--vz-primary-dark); border-bottom-color: var(--vz-primary-dark); }
+.mt-12 { margin-top: 12px; }
+.section-cta-orange { background: var(--vz-orange); width: 100%; }
+
+/* ============================================================
+   CHECK WIDGET SKELETON (Punkt 25)
+   ============================================================ */
+.check-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+}
+.check-skeleton-line {
+  height: 18px;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f2f2f2 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+  border-radius: 3px;
+}
+.check-skeleton-line.wide { width: 80%; }
+.check-skeleton-line.medium { width: 60%; }
+.check-skeleton-btn {
+  height: 52px;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f2f2f2 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s infinite;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============================================================
+   PRINT STYLESHEET (Punkt 24)
+   ============================================================ */
+@media print {
+  #vz-utility-bar,
+  #vz-header .vz-cta-btn,
+  .vz-hamburger,
+  #vz-mobile-menu,
+  #vz-quicklinks,
+  #shortcut-bar,
+  #nachfolge-check,
+  #wissen,
+  #cta-final,
+  .vz-modal-backdrop,
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .kauf-card-link,
+  .szenario-link,
+  .phase-link,
+  .mandate-footer,
+  .advisor-card .btn { display: none !important; }
+
+  body { font-size: 12pt; color: #000; background: #fff; }
+  h1 { font-size: 22pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 13pt; }
+
+  #hero {
+    background: #003366 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 32pt 0;
+  }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-roger { display: none; }
+
+  #vz-header {
+    position: static;
+    border-bottom: 2pt solid #003366;
+    box-shadow: none;
+  }
+  section { padding: 24pt 0; page-break-inside: avoid; }
+  .container { max-width: 100%; padding: 0 16pt; }
+
+  a[href]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+  a[href^="#"]::after,
+  a[href^="javascript"]::after { content: ""; }
+
+  #vz-footer { padding: 16pt 0; border-top: 1pt solid #ccc; }
+  .vz-footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   SEMANTIC HTML — Skip Link (Punkt 12)
+   ============================================================ */
+.skip-to-main {
+  position: absolute;
+  top: -100px;
+  left: 24px;
+  background: var(--vz-primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 0 0 4px 4px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-to-main:focus { top: 0; }

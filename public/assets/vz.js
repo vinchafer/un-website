@@ -57,15 +57,32 @@
     }
   });
 
-  /* ------- Termin-Form Submit (fake) ------- */
+  /* ------- Termin-Form Submit via Formspree ------- */
+  /* TODO: Formspree-ID ersetzen: https://formspree.io/f/ERSETZEN */
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/ERSETZEN';
+
   document.addEventListener('submit', function (e) {
     var form = e.target.closest('[data-termin-form]');
-    if (form) {
-      e.preventDefault();
-      var confirmEl = form.parentElement.querySelector('[data-termin-confirm]');
+    if (!form) return;
+    e.preventDefault();
+    var submitBtn = form.querySelector('[type="submit"]');
+    var confirmEl = form.parentElement.querySelector('[data-termin-confirm]');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet…'; }
+
+    var data = new FormData(form);
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (res) {
       form.style.display = 'none';
       if (confirmEl) confirmEl.style.display = 'block';
-    }
+    })
+    .catch(function () {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Termin anfragen'; }
+      alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
+    });
   });
 
   /* ------- Count-Up Animation (Zahlen) ------- */
@@ -117,6 +134,16 @@
   /* ------- Nachfolge-Check (aus ALT, optimiert) ------- */
   var checkContainer = document.getElementById('check-steps-container');
   if (checkContainer) {
+    /* Skeleton anzeigen bis JS bereit */
+    checkContainer.innerHTML =
+      '<div class="check-skeleton">' +
+        '<div class="check-skeleton-line wide"></div>' +
+        '<div class="check-skeleton-line medium"></div>' +
+        '<div class="check-skeleton-btn"></div>' +
+        '<div class="check-skeleton-btn"></div>' +
+        '<div class="check-skeleton-btn"></div>' +
+      '</div>';
+
     var questions = [
       {
         q: 'In welchem Zeithorizont planen Sie die Übergabe Ihres Unternehmens?',
