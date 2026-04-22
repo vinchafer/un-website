@@ -10,12 +10,20 @@
 <title>Unternehmensnachfolge Schweiz | XY XxxxxZentrum</title>
 <meta name="description" content="Unternehmensnachfolge und Firmenverkauf in der Schweiz. Über 200 erfolgreich abgeschlossene Projekte, 40 bis 50 Transaktionen pro Jahr, 10+ Jahre Erfahrung. Kostenloses Erstgespräch.">
 <style>
-.weitere-dl-section{background:#f5f5f7;padding:20px 0;border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
-.weitere-dl-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
-.weitere-dl-label{font-size:13px;color:#666;font-weight:500;white-space:nowrap;}
-.dl-chip{display:inline-block;background:#fff;border:1px solid #004388;color:#004388;padding:6px 16px;border-radius:20px;font-size:14px;text-decoration:none;font-weight:500;transition:background .15s,color .15s;}
-.dl-chip:hover{background:#004388;color:#fff;}
-@media(max-width:768px){.weitere-dl-inner{gap:12px;}.dl-chip{font-size:13px;padding:5px 12px;}}
+.weitere-dl-section{background:#f5f5f7;padding:52px 0;border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
+.weitere-dl-header{text-align:center;margin-bottom:36px;}
+.weitere-dl-header .eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vz-primary);margin-bottom:8px;}
+.weitere-dl-header h3{font-size:24px;font-weight:700;margin:0 0 8px;color:var(--vz-text);}
+.weitere-dl-header p{font-size:15px;color:var(--vz-text-muted);margin:0;}
+.weitere-dl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.weitere-dl-card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:26px 22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;transition:border-color .15s,box-shadow .15s;}
+.weitere-dl-card:hover{border-color:var(--vz-primary);box-shadow:0 4px 16px rgba(0,67,136,.08);}
+.weitere-dl-icon{width:38px;height:38px;color:var(--vz-primary);flex-shrink:0;}
+.weitere-dl-card h4{font-size:15px;font-weight:700;margin:0;color:var(--vz-text);}
+.weitere-dl-card p{font-size:13px;color:var(--vz-text-muted);margin:0;line-height:1.55;flex:1;}
+.weitere-dl-card-link{font-size:13px;font-weight:600;color:var(--vz-primary);}
+@media(max-width:900px){.weitere-dl-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.weitere-dl-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -180,7 +188,6 @@
         <p class="hero-roger-quote">«Für meine Kunden bin ich Ansprechpartner, Mentor und Moderator in einem.»</p>
         <p class="hero-roger-name">Roger Hofstetter</p>
         <p class="hero-roger-role">Leiter Unternehmensnachfolge</p>
-        <a href="#" onclick="openTerminDialog();return false;" class="hero-roger-cta">Gespräch mit Roger Hofstetter</a>
       </aside>
     </div>
   </div>
@@ -215,7 +222,7 @@
     <a href="#mandate" class="shortcut-item">
       <span>Aktuelle Mandate</span><span class="arrow">→</span>
     </a>
-    <a href="#mandate" class="shortcut-item">
+    <a href="#unternehmenskauf" class="shortcut-item">
       <span>Käufer</span><span class="arrow">→</span>
     </a>
   </div>
@@ -364,13 +371,58 @@
 
 <!-- WEITERE DIENSTLEISTUNGEN -->
 <section class="weitere-dl-section">
-  <div class="weitere-dl-inner">
-    <span class="weitere-dl-label">Weitere Dienstleistungen</span>
-    <div class="weitere-dl-links">
-      <a href="unternehmensbewertung.html" class="dl-chip">Unternehmensbewertung</a>
-      <a href="lohn-dividenden.html" class="dl-chip">Lohn/Dividendenvergleich</a>
-      <a href="juristische-begleitung.html" class="dl-chip">Juristische Begleitung</a>
-      <a href="unternehmenssteuerberatung.html" class="dl-chip">Unternehmenssteuerberatung</a>
+  <div class="container">
+    <div class="weitere-dl-header">
+      <span class="eyebrow">Weitere Dienstleistungen</span>
+      <h3>Ergänzende Beratung unter einem Dach.</h3>
+      <p>Rund um die Unternehmensnachfolge bieten wir Ihnen spezialisierte Leistungen, die den Prozess von Anfang bis Ende absichern.</p>
+    </div>
+    <div class="weitere-dl-grid">
+      <a href="unternehmensbewertung.html" class="weitere-dl-card">
+        <svg class="weitere-dl-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect x="4" y="28" width="6" height="9" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="13" y="20" width="6" height="17" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="22" y="12" width="6" height="25" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="31" y="5" width="6" height="32" rx="1" stroke="currentColor" stroke-width="2"/>
+          <path d="M6 22 L15 14 L23 8 L33 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h4>Unternehmensbewertung</h4>
+        <p>Fundierte Bewertung nach DCF, Multiplikator und Substanzwert — als realistische Grundlage für Verkauf, Teilübergabe oder Erbschaftsplanung.</p>
+        <span class="weitere-dl-card-link">Mehr erfahren →</span>
+      </a>
+      <a href="lohn-dividenden.html" class="weitere-dl-card">
+        <svg class="weitere-dl-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="14" cy="20" r="9" stroke="currentColor" stroke-width="2"/>
+          <circle cx="26" cy="20" r="9" stroke="currentColor" stroke-width="2"/>
+          <path d="M14 15 L14 25 M11 18 L17 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M23 22 L29 22 M26 19 L26 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h4>Lohn/Dividendenvergleich</h4>
+        <p>Optimales Verhältnis zwischen Lohn und Dividende — steuerlich massgeschneidert auf Ihre persönliche Situation und den Kanton.</p>
+        <span class="weitere-dl-card-link">Mehr erfahren →</span>
+      </a>
+      <a href="juristische-begleitung.html" class="weitere-dl-card">
+        <svg class="weitere-dl-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 4 L20 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M10 10 L8 22 M10 10 C10 10 15 7 20 10 C25 13 30 10 30 10 L32 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 22 H14 M26 22 H34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 36 H34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <h4>Juristische Begleitung</h4>
+        <p>Vertragsgestaltung, Aktionärbindungsvertrag, Due-Diligence-Absicherung — unsere Anwälte sichern jede Phase der Transaktion rechtlich ab.</p>
+        <span class="weitere-dl-card-link">Mehr erfahren →</span>
+      </a>
+      <a href="unternehmenssteuerberatung.html" class="weitere-dl-card">
+        <svg class="weitere-dl-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect x="6" y="4" width="28" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 13 H28 M12 19 H28 M12 25 H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="28" cy="29" r="6" fill="#f5f5f7" stroke="currentColor" stroke-width="2"/>
+          <path d="M25 29 L27 31 L31 27" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4>Unternehmenssteuerberatung</h4>
+        <p>Strukturoptimierung, Holdingplanung und steuereffiziente Transaktionsgestaltung — für einen maximalen Nettoerlös nach dem Verkauf.</p>
+        <span class="weitere-dl-card-link">Mehr erfahren →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -586,6 +638,7 @@
       <span class="eyebrow">Käufer &amp; Investoren</span>
       <h2>Oder sind Sie auf der Suche nach einem Unternehmen?</h2>
       <p>Gerne tauschen wir uns mit Ihnen aus, um zu schauen, wie wir Sie bei Ihrer Suche am besten unterstützen können.</p>
+      <p style="margin-top:12px;"><a href="mandate.html" style="color:var(--vz-primary);font-weight:600;text-decoration:none;border-bottom:1px solid var(--vz-primary);padding-bottom:1px;">→ Zu unseren aktuellen Mandaten</a></p>
     </div>
     <div class="kauf-grid">
       <div class="kauf-card reveal">
