@@ -4,7 +4,8 @@
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
 
 :root {
   --vz-primary: #004388;
@@ -372,6 +373,9 @@ section.bg-dark-gradient {
   h2 { font-size: 22px; }
   h3 { font-size: 18px; }
   p { font-size: 15px; line-height: 1.6; }
+  .detail-content p { font-size: 15px !important; }
+  .detail-content h2 { font-size: 20px; }
+  .detail-content h3 { font-size: 17px; }
 }
 
 .section-header { text-align: center; margin-bottom: 48px; max-width: 780px; margin-left: auto; margin-right: auto; }
